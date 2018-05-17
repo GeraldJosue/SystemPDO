@@ -1,0 +1,139 @@
+﻿namespace SystemForms
+{
+    partial class Machote
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.pn_menu_izq = new System.Windows.Forms.Panel();
+            this.bt_eliminar = new System.Windows.Forms.Button();
+            this.bt_editar = new System.Windows.Forms.Button();
+            this.bt_guardar = new System.Windows.Forms.Button();
+            this.bt_agregar = new System.Windows.Forms.Button();
+            this.pn_principal = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.pn_menu_izq.SuspendLayout();
+            this.pn_principal.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // pn_menu_izq
+            // 
+            this.pn_menu_izq.BackColor = System.Drawing.Color.Gainsboro;
+            this.pn_menu_izq.Controls.Add(this.bt_eliminar);
+            this.pn_menu_izq.Controls.Add(this.bt_editar);
+            this.pn_menu_izq.Controls.Add(this.bt_guardar);
+            this.pn_menu_izq.Controls.Add(this.bt_agregar);
+            this.pn_menu_izq.Location = new System.Drawing.Point(3, 3);
+            this.pn_menu_izq.Name = "pn_menu_izq";
+            this.pn_menu_izq.Size = new System.Drawing.Size(130, 517);
+            this.pn_menu_izq.TabIndex = 1;
+            // 
+            // bt_eliminar
+            // 
+            this.bt_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bt_eliminar.Image = global::SystemForms.Properties.Resources.eliminar;
+            this.bt_eliminar.Location = new System.Drawing.Point(27, 96);
+            this.bt_eliminar.Name = "bt_eliminar";
+            this.bt_eliminar.Size = new System.Drawing.Size(75, 75);
+            this.bt_eliminar.TabIndex = 3;
+            this.bt_eliminar.UseVisualStyleBackColor = true;
+            // 
+            // bt_editar
+            // 
+            this.bt_editar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bt_editar.Image = global::SystemForms.Properties.Resources.editar__2_;
+            this.bt_editar.Location = new System.Drawing.Point(28, 177);
+            this.bt_editar.Name = "bt_editar";
+            this.bt_editar.Size = new System.Drawing.Size(75, 75);
+            this.bt_editar.TabIndex = 2;
+            this.bt_editar.UseVisualStyleBackColor = true;
+            // 
+            // bt_guardar
+            // 
+            this.bt_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bt_guardar.Image = global::SystemForms.Properties.Resources.guardar__2_;
+            this.bt_guardar.Location = new System.Drawing.Point(28, 258);
+            this.bt_guardar.Name = "bt_guardar";
+            this.bt_guardar.Size = new System.Drawing.Size(75, 75);
+            this.bt_guardar.TabIndex = 1;
+            this.bt_guardar.UseVisualStyleBackColor = true;
+            // 
+            // bt_agregar
+            // 
+            this.bt_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bt_agregar.Image = global::SystemForms.Properties.Resources.agregar__2_;
+            this.bt_agregar.Location = new System.Drawing.Point(27, 15);
+            this.bt_agregar.Name = "bt_agregar";
+            this.bt_agregar.Size = new System.Drawing.Size(75, 75);
+            this.bt_agregar.TabIndex = 0;
+            this.bt_agregar.UseVisualStyleBackColor = true;
+            // 
+            // pn_principal
+            // 
+            this.pn_principal.Controls.Add(this.button5);
+            this.pn_principal.Location = new System.Drawing.Point(139, 3);
+            this.pn_principal.Name = "pn_principal";
+            this.pn_principal.Size = new System.Drawing.Size(1204, 517);
+            this.pn_principal.TabIndex = 2;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Firebrick;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(1101, 469);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(100, 45);
+            this.button5.TabIndex = 0;
+            this.button5.Text = "CANCELAR";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // Machote
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pn_principal);
+            this.Controls.Add(this.pn_menu_izq);
+            this.Name = "Machote";
+            this.Size = new System.Drawing.Size(1346, 523);
+            this.pn_menu_izq.ResumeLayout(false);
+            this.pn_principal.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel pn_menu_izq;
+        private System.Windows.Forms.Button bt_eliminar;
+        private System.Windows.Forms.Button bt_editar;
+        private System.Windows.Forms.Button bt_guardar;
+        private System.Windows.Forms.Button bt_agregar;
+        private System.Windows.Forms.Panel pn_principal;
+        private System.Windows.Forms.Button button5;
+    }
+}

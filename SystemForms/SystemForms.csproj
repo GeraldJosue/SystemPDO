@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,14 +46,80 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Colaboradores.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Colaboradores.Designer.cs">
+      <DependentUpon>Colaboradores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Colaboradores_Agregar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Colaboradores_Agregar.Designer.cs">
+      <DependentUpon>Colaboradores_Agregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Horarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Horarios.Designer.cs">
+      <DependentUpon>Horarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Horarios_Agregar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Horarios_Agregar.Designer.cs">
+      <DependentUpon>Horarios_Agregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Horarios_Lista.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Horarios_Lista.Designer.cs">
+      <DependentUpon>Horarios_Lista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Machote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Machote.Designer.cs">
+      <DependentUpon>Machote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Colaboradores.resx">
+      <DependentUpon>Colaboradores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Colaboradores_Agregar.resx">
+      <DependentUpon>Colaboradores_Agregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Horarios.resx">
+      <DependentUpon>Horarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Horarios_Agregar.resx">
+      <DependentUpon>Horarios_Agregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Horarios_Lista.resx">
+      <DependentUpon>Horarios_Lista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Machote.resx">
+      <DependentUpon>Machote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -61,6 +128,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -74,6 +142,57 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horarios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aguinaldos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\configs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\departamentos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardar %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pagos %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\registros.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reportes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salir %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuarios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vacaciones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\config.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
