@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogic;
 
 namespace SystemForms
 {
@@ -21,8 +22,15 @@ namespace SystemForms
 
         private void bt_ingresar_Click(object sender, EventArgs e)
         {
-            MainForm parent = (MainForm)this.FindForm();
-            parent.enable_disable(true, Color.Firebrick);
+            if (new Usuario(0, tb_usuario.Text, tb_contraseña.Text).validar())
+            {
+                MainForm parent = (MainForm)this.FindForm();
+                parent.enable_disable(true, Color.Firebrick);
+            }
+            else
+            {
+                MessageBox.Show("Credenciales Incorrectos", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
