@@ -58,6 +58,7 @@
             this.bt_eliminar.Size = new System.Drawing.Size(75, 75);
             this.bt_eliminar.TabIndex = 3;
             this.bt_eliminar.UseVisualStyleBackColor = true;
+            this.bt_eliminar.Click += new System.EventHandler(this.bt_eliminar_Click);
             // 
             // bt_editar
             // 
@@ -68,6 +69,7 @@
             this.bt_editar.Size = new System.Drawing.Size(75, 75);
             this.bt_editar.TabIndex = 2;
             this.bt_editar.UseVisualStyleBackColor = true;
+            this.bt_editar.Click += new System.EventHandler(this.bt_editar_Click);
             // 
             // bt_guardar
             // 
@@ -78,6 +80,7 @@
             this.bt_guardar.Size = new System.Drawing.Size(75, 75);
             this.bt_guardar.TabIndex = 1;
             this.bt_guardar.UseVisualStyleBackColor = true;
+            this.bt_guardar.Click += new System.EventHandler(this.bt_guardar_Click);
             // 
             // bt_agregar
             // 

@@ -73,6 +73,12 @@
     <Compile Include="Colaboradores_Agregar.Designer.cs">
       <DependentUpon>Colaboradores_Agregar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Colaboradores_Lista.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Colaboradores_Lista.Designer.cs">
+      <DependentUpon>Colaboradores_Lista.cs</DependentUpon>
+    </Compile>
     <Compile Include="Horarios.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Colaboradores_Agregar.resx">
       <DependentUpon>Colaboradores_Agregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Colaboradores_Lista.resx">
+      <DependentUpon>Colaboradores_Lista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Horarios.resx">
       <DependentUpon>Horarios.cs</DependentUpon>
@@ -211,11 +220,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BaseSPDO.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="BaseSPDO_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BaseSPDO.mdf</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>

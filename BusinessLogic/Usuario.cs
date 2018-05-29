@@ -24,7 +24,7 @@ namespace BusinessLogic
             this.Nombre = nombre;
             this.Contraseña = contraseña;
         }
-
+        //Valida que la contraseña corresponda a los credenciales
         public Boolean validar()
         {
             Usuario_TO usuario = new Usuario_TO();
