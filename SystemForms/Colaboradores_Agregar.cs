@@ -13,13 +13,13 @@ namespace SystemForms
 {
     public partial class Colaboradores_Agregar : UserControl
     {
-        Colaborador colaborador;
+        BusinessLogic.Colaborador colaborador;
         public Colaboradores_Agregar()
         {
             InitializeComponent();
         }
 
-        public Colaboradores_Agregar(Colaborador colaborador)
+        public Colaboradores_Agregar(BusinessLogic.Colaborador colaborador)
         {
             InitializeComponent();
             this.colaborador = colaborador;
@@ -28,7 +28,7 @@ namespace SystemForms
 
         public Boolean agregar_sys()
         {
-            Colaborador colaborador = obtener_datos();
+            BusinessLogic.Colaborador colaborador = obtener_datos();
             if (colaborador.agregar())
             {
                 MessageBox.Show("Colaborador agregado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -44,7 +44,7 @@ namespace SystemForms
 
         public Boolean editar_sys()
         {
-            Colaborador colaborador = obtener_datos();
+            BusinessLogic.Colaborador colaborador = obtener_datos();
             colaborador.Id = this.colaborador.Id;
             List<Int32> lista = validar_cambios(colaborador);
             if (lista.Count == 0)
@@ -64,7 +64,7 @@ namespace SystemForms
             
         }
 
-        public Colaborador obtener_datos()
+        public BusinessLogic.Colaborador obtener_datos()
         {
             Int32 departamento = cb_departamento.SelectedIndex == -1 ? 1 : cb_departamento.SelectedIndex;
             Int32 horario = cb_horario.SelectedIndex == -1 ? 1 : cb_horario.SelectedIndex;
@@ -86,7 +86,7 @@ namespace SystemForms
             Boolean estado = cb_estado.Checked ? true : false;
             
             //Revisar datos por defecto
-            return new Colaborador(0, departamento, horario, nombre, apellido, segundo, cedula, telefono, direccion, fecha, civil, cuenta, entidad, nacionaliad, precio
+            return new BusinessLogic.Colaborador(0, departamento, horario, nombre, apellido, segundo, cedula, telefono, direccion, fecha, civil, cuenta, entidad, nacionaliad, precio
                 , ftelefono, parentesco, fdireccion, estado);
         }
 
@@ -114,7 +114,7 @@ namespace SystemForms
             cb_estado.Checked = colaborador.Estado;
         }
 
-        public List<Int32> validar_cambios(Colaborador nuevo)
+        public List<Int32> validar_cambios(BusinessLogic.Colaborador nuevo)
         {
             List<Int32> lista = new List<Int32>();
             if(nuevo.Id_departamento != this.colaborador.Id_departamento)

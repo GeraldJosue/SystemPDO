@@ -99,7 +99,7 @@
             this.panel1.Controls.Add(this.tb_nombre);
             this.panel1.Location = new System.Drawing.Point(13, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1179, 161);
+            this.panel1.Size = new System.Drawing.Size(1135, 161);
             this.panel1.TabIndex = 0;
             // 
             // label18
@@ -277,7 +277,7 @@
             this.panel2.Controls.Add(this.tb_cuenta);
             this.panel2.Location = new System.Drawing.Point(13, 179);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1179, 155);
+            this.panel2.Size = new System.Drawing.Size(1135, 155);
             this.panel2.TabIndex = 1;
             // 
             // label21
@@ -405,7 +405,7 @@
             this.panel3.Controls.Add(this.tb_ftelefono);
             this.panel3.Location = new System.Drawing.Point(13, 340);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1179, 144);
+            this.panel3.Size = new System.Drawing.Size(1135, 144);
             this.panel3.TabIndex = 2;
             // 
             // label20
@@ -475,7 +475,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Colaboradores_Agregar";
-            this.Size = new System.Drawing.Size(1204, 517);
+            this.Size = new System.Drawing.Size(1164, 516);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

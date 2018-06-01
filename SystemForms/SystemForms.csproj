@@ -73,11 +73,23 @@
     <Compile Include="Colaboradores_Agregar.Designer.cs">
       <DependentUpon>Colaboradores_Agregar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Colaboradores_Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Colaboradores_Control.Designer.cs">
+      <DependentUpon>Colaboradores_Control.cs</DependentUpon>
+    </Compile>
     <Compile Include="Colaboradores_Lista.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Colaboradores_Lista.Designer.cs">
       <DependentUpon>Colaboradores_Lista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
     </Compile>
     <Compile Include="Horarios.cs">
       <SubType>UserControl</SubType>
@@ -115,6 +127,12 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantalla_Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantalla_Principal.Designer.cs">
+      <DependentUpon>Pantalla_Principal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Colaboradores.resx">
@@ -123,8 +141,14 @@
     <EmbeddedResource Include="Colaboradores_Agregar.resx">
       <DependentUpon>Colaboradores_Agregar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Colaboradores_Control.resx">
+      <DependentUpon>Colaboradores_Control.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Colaboradores_Lista.resx">
       <DependentUpon>Colaboradores_Lista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Horarios.resx">
       <DependentUpon>Horarios.cs</DependentUpon>
@@ -143,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantalla_Principal.resx">
+      <DependentUpon>Pantalla_Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -226,6 +253,13 @@
       <DependentUpon>BaseSPDO.mdf</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\home.png" />
+    <None Include="Resources\caret-down.png" />
+    <None Include="Resources\sort-up.png" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\success.png" />
+    <None Include="Resources\LogoSPDO.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

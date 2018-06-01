@@ -24,8 +24,8 @@ namespace SystemForms
         {
             if (new Usuario(0, tb_usuario.Text, tb_contraseña.Text).validar())
             {
-                MainForm parent = (MainForm)this.FindForm();
-                parent.enable_disable(true, Color.Firebrick);
+                Pantalla_Principal parent = (Pantalla_Principal)this.FindForm();
+                parent.inicio();
             }
             else
             {

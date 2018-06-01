@@ -23,9 +23,14 @@ namespace SystemForms
             table.Columns.Add("Id");
             table.Columns.Add("Nombre");
             table.Columns.Add("Apellido");
-            table.Columns.Add("Telefono");
+            table.Columns.Add("Segundo Apellido");
+            table.Columns.Add("Teléfono");
+            table.Columns.Add("Dirección");
+            table.Columns.Add("Nacionalidad");
             table.Columns.Add("Cuenta");
             table.Columns.Add("Entidad");
+            table.Columns.Add("Telefono Familiar");
+            table.Columns.Add("Parentesco Familiar");
             obtener_lista_sys();
         }
 
@@ -82,9 +87,29 @@ namespace SystemForms
             table.Clear();
             foreach(Colaborador x in lista)
             {
-                table.Rows.Add(x.Id, x.Nombre, x.Apellido, x.Telefono, x.Cuenta, x.Entidad);
+                table.Rows.Add(x.Id, x.Nombre, x.Apellido, x.Segundo_apellido, x.Telefono, x.Direccion, x.Nacionalidad, x.Cuenta, x.Entidad, x.FTelefono, x.Parentesco);
             }
             return table;
+        }
+
+        public void bajar_fila()
+        {
+            Int32 i = dg_colaboradores.CurrentCell.RowIndex;
+            if (i+1 < dg_colaboradores.Rows.Count) {
+                dg_colaboradores.Rows[i].Selected = false;
+                dg_colaboradores.Rows[i + 1].Selected = true;
+                dg_colaboradores.CurrentCell = dg_colaboradores.Rows[i + 1].Cells[0];
+            }
+        }
+
+        public void subir_fila()
+        {
+            Int32 i = dg_colaboradores.CurrentCell.RowIndex;
+            if (i-1 >= 0) {
+                dg_colaboradores.Rows[i].Selected = false;
+                dg_colaboradores.Rows[i - 1].Selected = true;
+                dg_colaboradores.CurrentCell = dg_colaboradores.Rows[i - 1].Cells[0];
+            }
         }
     }
 }
