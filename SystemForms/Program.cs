@@ -16,7 +16,7 @@ namespace SystemForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Pantalla_Principal());
+            Application.Run(new PruebaGrid());
         }
     }
 }
