@@ -143,6 +143,12 @@
     <Compile Include="PruebaGrid.Designer.cs">
       <DependentUpon>PruebaGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registros_Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Registros_Control.Designer.cs">
+      <DependentUpon>Registros_Control.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Colaboradores.resx">
       <DependentUpon>Colaboradores.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +197,9 @@
     </Compile>
     <EmbeddedResource Include="PruebaGrid.resx">
       <DependentUpon>PruebaGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros_Control.resx">
+      <DependentUpon>Registros_Control.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

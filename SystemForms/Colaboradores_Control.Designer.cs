@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Colaboradores_Control));
             this.panel3 = new System.Windows.Forms.Panel();
             this.bt_eliminar = new System.Windows.Forms.Button();
             this.bt_listar = new System.Windows.Forms.Button();
@@ -36,7 +37,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pn_opciones = new System.Windows.Forms.Panel();
-            this.bt_info = new System.Windows.Forms.Button();
             this.bt_cancelar = new System.Windows.Forms.Button();
             this.bt_guardar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -72,15 +72,17 @@
             // 
             // bt_eliminar
             // 
-            this.bt_eliminar.BackColor = System.Drawing.Color.Firebrick;
-            this.bt_eliminar.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick;
-            this.bt_eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.bt_eliminar.BackColor = System.Drawing.Color.DarkRed;
+            this.bt_eliminar.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
+            this.bt_eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
             this.bt_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_eliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_eliminar.ForeColor = System.Drawing.Color.White;
-            this.bt_eliminar.Location = new System.Drawing.Point(683, 0);
+            this.bt_eliminar.Image = ((System.Drawing.Image)(resources.GetObject("bt_eliminar.Image")));
+            this.bt_eliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_eliminar.Location = new System.Drawing.Point(252, 5);
             this.bt_eliminar.Name = "bt_eliminar";
-            this.bt_eliminar.Size = new System.Drawing.Size(75, 55);
+            this.bt_eliminar.Size = new System.Drawing.Size(75, 50);
             this.bt_eliminar.TabIndex = 7;
             this.bt_eliminar.Text = "Eliminar";
             this.bt_eliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -89,15 +91,17 @@
             // 
             // bt_listar
             // 
-            this.bt_listar.BackColor = System.Drawing.Color.Firebrick;
-            this.bt_listar.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick;
-            this.bt_listar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.bt_listar.BackColor = System.Drawing.Color.Teal;
+            this.bt_listar.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.bt_listar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
             this.bt_listar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_listar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_listar.ForeColor = System.Drawing.Color.White;
-            this.bt_listar.Location = new System.Drawing.Point(602, 0);
+            this.bt_listar.Image = ((System.Drawing.Image)(resources.GetObject("bt_listar.Image")));
+            this.bt_listar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_listar.Location = new System.Drawing.Point(171, 5);
             this.bt_listar.Name = "bt_listar";
-            this.bt_listar.Size = new System.Drawing.Size(75, 55);
+            this.bt_listar.Size = new System.Drawing.Size(75, 50);
             this.bt_listar.TabIndex = 4;
             this.bt_listar.Text = "Listar";
             this.bt_listar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -106,15 +110,17 @@
             // 
             // bt_editar
             // 
-            this.bt_editar.BackColor = System.Drawing.Color.Firebrick;
-            this.bt_editar.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick;
-            this.bt_editar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.bt_editar.BackColor = System.Drawing.Color.Orange;
+            this.bt_editar.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
+            this.bt_editar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.bt_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_editar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_editar.ForeColor = System.Drawing.Color.White;
-            this.bt_editar.Location = new System.Drawing.Point(521, 0);
+            this.bt_editar.Image = ((System.Drawing.Image)(resources.GetObject("bt_editar.Image")));
+            this.bt_editar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_editar.Location = new System.Drawing.Point(90, 5);
             this.bt_editar.Name = "bt_editar";
-            this.bt_editar.Size = new System.Drawing.Size(75, 55);
+            this.bt_editar.Size = new System.Drawing.Size(75, 50);
             this.bt_editar.TabIndex = 5;
             this.bt_editar.Text = " Editar";
             this.bt_editar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -123,15 +129,17 @@
             // 
             // bt_agregar
             // 
-            this.bt_agregar.BackColor = System.Drawing.Color.Firebrick;
-            this.bt_agregar.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick;
-            this.bt_agregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.bt_agregar.BackColor = System.Drawing.Color.LimeGreen;
+            this.bt_agregar.FlatAppearance.BorderColor = System.Drawing.Color.LightGreen;
+            this.bt_agregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
             this.bt_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_agregar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_agregar.ForeColor = System.Drawing.Color.White;
-            this.bt_agregar.Location = new System.Drawing.Point(438, 0);
+            this.bt_agregar.Image = ((System.Drawing.Image)(resources.GetObject("bt_agregar.Image")));
+            this.bt_agregar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_agregar.Location = new System.Drawing.Point(7, 5);
             this.bt_agregar.Name = "bt_agregar";
-            this.bt_agregar.Size = new System.Drawing.Size(75, 55);
+            this.bt_agregar.Size = new System.Drawing.Size(75, 50);
             this.bt_agregar.TabIndex = 3;
             this.bt_agregar.Text = "Agregar";
             this.bt_agregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -140,8 +148,10 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Maroon;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1164, 55);
@@ -159,56 +169,49 @@
             // 
             // pn_opciones
             // 
-            this.pn_opciones.Controls.Add(this.bt_info);
             this.pn_opciones.Controls.Add(this.bt_cancelar);
             this.pn_opciones.Controls.Add(this.bt_guardar);
             this.pn_opciones.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pn_opciones.Location = new System.Drawing.Point(0, 635);
+            this.pn_opciones.Location = new System.Drawing.Point(0, 607);
             this.pn_opciones.Name = "pn_opciones";
-            this.pn_opciones.Size = new System.Drawing.Size(1164, 27);
+            this.pn_opciones.Size = new System.Drawing.Size(1164, 55);
             this.pn_opciones.TabIndex = 5;
-            // 
-            // bt_info
-            // 
-            this.bt_info.BackColor = System.Drawing.Color.White;
-            this.bt_info.Dock = System.Windows.Forms.DockStyle.Left;
-            this.bt_info.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_info.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_info.Image = global::SystemForms.Properties.Resources.info;
-            this.bt_info.Location = new System.Drawing.Point(70, 0);
-            this.bt_info.Name = "bt_info";
-            this.bt_info.Size = new System.Drawing.Size(35, 27);
-            this.bt_info.TabIndex = 3;
-            this.bt_info.UseVisualStyleBackColor = false;
             // 
             // bt_cancelar
             // 
-            this.bt_cancelar.BackColor = System.Drawing.Color.White;
-            this.bt_cancelar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.bt_cancelar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_cancelar.BackColor = System.Drawing.Color.DarkRed;
+            this.bt_cancelar.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
+            this.bt_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
             this.bt_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_cancelar.Image = global::SystemForms.Properties.Resources.error;
-            this.bt_cancelar.Location = new System.Drawing.Point(35, 0);
+            this.bt_cancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_cancelar.ForeColor = System.Drawing.Color.White;
+            this.bt_cancelar.Image = ((System.Drawing.Image)(resources.GetObject("bt_cancelar.Image")));
+            this.bt_cancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_cancelar.Location = new System.Drawing.Point(92, 0);
             this.bt_cancelar.Name = "bt_cancelar";
-            this.bt_cancelar.Size = new System.Drawing.Size(35, 27);
+            this.bt_cancelar.Size = new System.Drawing.Size(80, 50);
             this.bt_cancelar.TabIndex = 1;
+            this.bt_cancelar.Text = "Cancelar";
+            this.bt_cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_cancelar.UseVisualStyleBackColor = false;
             this.bt_cancelar.Click += new System.EventHandler(this.bt_cancelar_Click);
             // 
             // bt_guardar
             // 
-            this.bt_guardar.BackColor = System.Drawing.Color.White;
-            this.bt_guardar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.bt_guardar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_guardar.BackColor = System.Drawing.Color.LimeGreen;
+            this.bt_guardar.FlatAppearance.BorderColor = System.Drawing.Color.LightGreen;
+            this.bt_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
             this.bt_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_guardar.Image = global::SystemForms.Properties.Resources.success;
-            this.bt_guardar.Location = new System.Drawing.Point(0, 0);
+            this.bt_guardar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_guardar.ForeColor = System.Drawing.Color.White;
+            this.bt_guardar.Image = ((System.Drawing.Image)(resources.GetObject("bt_guardar.Image")));
+            this.bt_guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_guardar.Location = new System.Drawing.Point(9, 0);
             this.bt_guardar.Name = "bt_guardar";
-            this.bt_guardar.Size = new System.Drawing.Size(35, 27);
+            this.bt_guardar.Size = new System.Drawing.Size(75, 50);
             this.bt_guardar.TabIndex = 0;
+            this.bt_guardar.Text = "Guardar";
+            this.bt_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_guardar.UseVisualStyleBackColor = false;
             this.bt_guardar.Click += new System.EventHandler(this.bt_guardar_Click_1);
             // 
@@ -355,9 +358,8 @@
             this.pn_master.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_master.Location = new System.Drawing.Point(0, 146);
             this.pn_master.Name = "pn_master";
-            this.pn_master.Size = new System.Drawing.Size(1164, 489);
+            this.pn_master.Size = new System.Drawing.Size(1164, 461);
             this.pn_master.TabIndex = 11;
-            this.pn_master.Paint += new System.Windows.Forms.PaintEventHandler(this.pn_master_Paint);
             // 
             // Colaboradores_Control
             // 
@@ -393,7 +395,6 @@
         private System.Windows.Forms.Button bt_cancelar;
         private System.Windows.Forms.Button bt_guardar;
         private System.Windows.Forms.TextBox tb_buscar;
-        private System.Windows.Forms.Button bt_info;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox cb_activos;
         private System.Windows.Forms.DateTimePicker dt_inicio;

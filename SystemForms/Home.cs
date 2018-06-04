@@ -13,6 +13,7 @@ namespace SystemForms
     public partial class Home : UserControl
     {
         Colaboradores_Control colaborador;
+        Registros_Control registro;
         public Home()
         {
             InitializeComponent();
@@ -36,6 +37,14 @@ namespace SystemForms
         {
             Pantalla_Principal parent = (Pantalla_Principal)this.FindForm();
             parent.sesion();
+        }
+
+        private void bt_registro_Click(object sender, EventArgs e)
+        {
+            registro = new Registros_Control();
+            registro.Dock = DockStyle.Fill;
+            pn_contenido.Controls.Clear();
+            pn_contenido.Controls.Add(registro);
         }
     }
 }

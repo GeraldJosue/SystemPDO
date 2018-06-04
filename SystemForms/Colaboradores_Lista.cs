@@ -110,6 +110,7 @@ namespace SystemForms
         public Colaborador obtener()
         {
             Colaborador colaborador = new Colaborador();
+
             Int32 id = Int32.Parse(dg_colaboradores.CurrentRow.Cells["Id"].Value.ToString());
             foreach (Colaborador x in lista)
             {

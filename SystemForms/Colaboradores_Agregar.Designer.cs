@@ -71,7 +71,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.bt_atras_3 = new System.Windows.Forms.Button();
             this.tb_fdireccion = new System.Windows.Forms.RichTextBox();
-            this.bt_guardar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -118,7 +117,7 @@
             this.panel1.Controls.Add(this.tb_nombre);
             this.panel1.Location = new System.Drawing.Point(25, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1100, 407);
+            this.panel1.Size = new System.Drawing.Size(1100, 379);
             this.panel1.TabIndex = 0;
             // 
             // cb_nacionalidad
@@ -127,7 +126,7 @@
             this.cb_nacionalidad.Location = new System.Drawing.Point(723, 130);
             this.cb_nacionalidad.Name = "cb_nacionalidad";
             this.cb_nacionalidad.Size = new System.Drawing.Size(275, 28);
-            this.cb_nacionalidad.TabIndex = 26;
+            this.cb_nacionalidad.TabIndex = 9;
             // 
             // tb_direccion
             // 
@@ -136,7 +135,7 @@
             this.tb_direccion.Location = new System.Drawing.Point(723, 180);
             this.tb_direccion.Name = "tb_direccion";
             this.tb_direccion.Size = new System.Drawing.Size(275, 68);
-            this.tb_direccion.TabIndex = 25;
+            this.tb_direccion.TabIndex = 10;
             this.tb_direccion.Text = "";
             // 
             // label20
@@ -163,7 +162,7 @@
             this.cb_mes.Location = new System.Drawing.Point(301, 225);
             this.cb_mes.Name = "cb_mes";
             this.cb_mes.Size = new System.Drawing.Size(112, 28);
-            this.cb_mes.TabIndex = 21;
+            this.cb_mes.TabIndex = 5;
             this.cb_mes.SelectedIndexChanged += new System.EventHandler(this.cb_mes_SelectedIndexChanged);
             // 
             // cb_año
@@ -172,7 +171,7 @@
             this.cb_año.Location = new System.Drawing.Point(204, 225);
             this.cb_año.Name = "cb_año";
             this.cb_año.Size = new System.Drawing.Size(71, 28);
-            this.cb_año.TabIndex = 20;
+            this.cb_año.TabIndex = 4;
             this.cb_año.SelectedIndexChanged += new System.EventHandler(this.cb_año_SelectedIndexChanged);
             // 
             // cb_dia
@@ -181,7 +180,7 @@
             this.cb_dia.Location = new System.Drawing.Point(439, 225);
             this.cb_dia.Name = "cb_dia";
             this.cb_dia.Size = new System.Drawing.Size(40, 28);
-            this.cb_dia.TabIndex = 19;
+            this.cb_dia.TabIndex = 6;
             // 
             // bt_sig_1
             // 
@@ -191,11 +190,11 @@
             this.bt_sig_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_sig_1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_sig_1.ForeColor = System.Drawing.Color.White;
-            this.bt_sig_1.Location = new System.Drawing.Point(1005, 347);
+            this.bt_sig_1.Location = new System.Drawing.Point(1040, 319);
             this.bt_sig_1.Name = "bt_sig_1";
-            this.bt_sig_1.Size = new System.Drawing.Size(90, 55);
-            this.bt_sig_1.TabIndex = 18;
-            this.bt_sig_1.Text = "Siguiente";
+            this.bt_sig_1.Size = new System.Drawing.Size(55, 55);
+            this.bt_sig_1.TabIndex = 11;
+            this.bt_sig_1.Text = ">";
             this.bt_sig_1.UseVisualStyleBackColor = false;
             this.bt_sig_1.Click += new System.EventHandler(this.bt_sig_1_Click);
             // 
@@ -286,28 +285,28 @@
             this.cb_civil.Location = new System.Drawing.Point(723, 79);
             this.cb_civil.Name = "cb_civil";
             this.cb_civil.Size = new System.Drawing.Size(275, 28);
-            this.cb_civil.TabIndex = 7;
+            this.cb_civil.TabIndex = 8;
             // 
             // tb_cedula
             // 
             this.tb_cedula.Location = new System.Drawing.Point(204, 180);
             this.tb_cedula.Name = "tb_cedula";
             this.tb_cedula.Size = new System.Drawing.Size(275, 26);
-            this.tb_cedula.TabIndex = 5;
+            this.tb_cedula.TabIndex = 3;
             // 
             // tb_seg_apellido
             // 
             this.tb_seg_apellido.Location = new System.Drawing.Point(204, 132);
             this.tb_seg_apellido.Name = "tb_seg_apellido";
             this.tb_seg_apellido.Size = new System.Drawing.Size(275, 26);
-            this.tb_seg_apellido.TabIndex = 3;
+            this.tb_seg_apellido.TabIndex = 2;
             // 
             // tb_telefono
             // 
             this.tb_telefono.Location = new System.Drawing.Point(723, 35);
             this.tb_telefono.Name = "tb_telefono";
             this.tb_telefono.Size = new System.Drawing.Size(275, 26);
-            this.tb_telefono.TabIndex = 2;
+            this.tb_telefono.TabIndex = 7;
             // 
             // tb_apellido
             // 
@@ -343,7 +342,7 @@
             this.panel2.Controls.Add(this.tb_cuenta);
             this.panel2.Location = new System.Drawing.Point(25, 25);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1100, 407);
+            this.panel2.Size = new System.Drawing.Size(1100, 379);
             this.panel2.TabIndex = 1;
             // 
             // bt_atras_2
@@ -354,11 +353,11 @@
             this.bt_atras_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_atras_2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_atras_2.ForeColor = System.Drawing.Color.White;
-            this.bt_atras_2.Location = new System.Drawing.Point(909, 347);
+            this.bt_atras_2.Location = new System.Drawing.Point(979, 319);
             this.bt_atras_2.Name = "bt_atras_2";
-            this.bt_atras_2.Size = new System.Drawing.Size(90, 55);
-            this.bt_atras_2.TabIndex = 17;
-            this.bt_atras_2.Text = "Atrás";
+            this.bt_atras_2.Size = new System.Drawing.Size(55, 55);
+            this.bt_atras_2.TabIndex = 19;
+            this.bt_atras_2.Text = "<";
             this.bt_atras_2.UseVisualStyleBackColor = false;
             this.bt_atras_2.Click += new System.EventHandler(this.bt_atras_2_Click);
             // 
@@ -379,11 +378,11 @@
             this.bt_sig_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_sig_2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_sig_2.ForeColor = System.Drawing.Color.White;
-            this.bt_sig_2.Location = new System.Drawing.Point(1005, 347);
+            this.bt_sig_2.Location = new System.Drawing.Point(1040, 319);
             this.bt_sig_2.Name = "bt_sig_2";
-            this.bt_sig_2.Size = new System.Drawing.Size(90, 55);
-            this.bt_sig_2.TabIndex = 15;
-            this.bt_sig_2.Text = "Siguiente";
+            this.bt_sig_2.Size = new System.Drawing.Size(55, 55);
+            this.bt_sig_2.TabIndex = 20;
+            this.bt_sig_2.Text = ">";
             this.bt_sig_2.UseVisualStyleBackColor = false;
             this.bt_sig_2.Click += new System.EventHandler(this.bt_sig_2_Click);
             // 
@@ -394,7 +393,7 @@
             this.rb_inactivo.Location = new System.Drawing.Point(837, 156);
             this.rb_inactivo.Name = "rb_inactivo";
             this.rb_inactivo.Size = new System.Drawing.Size(89, 24);
-            this.rb_inactivo.TabIndex = 14;
+            this.rb_inactivo.TabIndex = 17;
             this.rb_inactivo.Text = "Inactivo";
             this.rb_inactivo.UseVisualStyleBackColor = true;
             // 
@@ -406,7 +405,7 @@
             this.rb_activo.Location = new System.Drawing.Point(755, 156);
             this.rb_activo.Name = "rb_activo";
             this.rb_activo.Size = new System.Drawing.Size(76, 24);
-            this.rb_activo.TabIndex = 13;
+            this.rb_activo.TabIndex = 17;
             this.rb_activo.TabStop = true;
             this.rb_activo.Text = "Activo";
             this.rb_activo.UseVisualStyleBackColor = true;
@@ -477,7 +476,7 @@
             this.tb_precio.Location = new System.Drawing.Point(185, 152);
             this.tb_precio.Name = "tb_precio";
             this.tb_precio.Size = new System.Drawing.Size(275, 26);
-            this.tb_precio.TabIndex = 3;
+            this.tb_precio.TabIndex = 14;
             // 
             // cb_horario
             // 
@@ -486,7 +485,7 @@
             this.cb_horario.Location = new System.Drawing.Point(185, 96);
             this.cb_horario.Name = "cb_horario";
             this.cb_horario.Size = new System.Drawing.Size(275, 28);
-            this.cb_horario.TabIndex = 2;
+            this.cb_horario.TabIndex = 13;
             // 
             // cb_departamento
             // 
@@ -495,7 +494,7 @@
             this.cb_departamento.Location = new System.Drawing.Point(185, 41);
             this.cb_departamento.Name = "cb_departamento";
             this.cb_departamento.Size = new System.Drawing.Size(275, 28);
-            this.cb_departamento.TabIndex = 1;
+            this.cb_departamento.TabIndex = 12;
             // 
             // tb_cuenta
             // 
@@ -503,14 +502,13 @@
             this.tb_cuenta.Location = new System.Drawing.Point(755, 38);
             this.tb_cuenta.Name = "tb_cuenta";
             this.tb_cuenta.Size = new System.Drawing.Size(275, 26);
-            this.tb_cuenta.TabIndex = 0;
+            this.tb_cuenta.TabIndex = 15;
             // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.bt_atras_3);
             this.panel3.Controls.Add(this.tb_fdireccion);
-            this.panel3.Controls.Add(this.bt_guardar);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label1);
@@ -519,7 +517,7 @@
             this.panel3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(25, 25);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1100, 407);
+            this.panel3.Size = new System.Drawing.Size(1100, 379);
             this.panel3.TabIndex = 2;
             // 
             // bt_atras_3
@@ -530,11 +528,11 @@
             this.bt_atras_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_atras_3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_atras_3.ForeColor = System.Drawing.Color.White;
-            this.bt_atras_3.Location = new System.Drawing.Point(909, 347);
+            this.bt_atras_3.Location = new System.Drawing.Point(1040, 319);
             this.bt_atras_3.Name = "bt_atras_3";
-            this.bt_atras_3.Size = new System.Drawing.Size(90, 55);
-            this.bt_atras_3.TabIndex = 27;
-            this.bt_atras_3.Text = "Atrás";
+            this.bt_atras_3.Size = new System.Drawing.Size(55, 55);
+            this.bt_atras_3.TabIndex = 24;
+            this.bt_atras_3.Text = "<";
             this.bt_atras_3.UseVisualStyleBackColor = false;
             this.bt_atras_3.Click += new System.EventHandler(this.bt_atras_3_Click);
             // 
@@ -545,24 +543,8 @@
             this.tb_fdireccion.Location = new System.Drawing.Point(142, 142);
             this.tb_fdireccion.Name = "tb_fdireccion";
             this.tb_fdireccion.Size = new System.Drawing.Size(275, 68);
-            this.tb_fdireccion.TabIndex = 26;
+            this.tb_fdireccion.TabIndex = 23;
             this.tb_fdireccion.Text = "";
-            // 
-            // bt_guardar
-            // 
-            this.bt_guardar.BackColor = System.Drawing.Color.LimeGreen;
-            this.bt_guardar.FlatAppearance.BorderColor = System.Drawing.Color.LimeGreen;
-            this.bt_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
-            this.bt_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_guardar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_guardar.ForeColor = System.Drawing.Color.White;
-            this.bt_guardar.Location = new System.Drawing.Point(1005, 347);
-            this.bt_guardar.Name = "bt_guardar";
-            this.bt_guardar.Size = new System.Drawing.Size(90, 55);
-            this.bt_guardar.TabIndex = 7;
-            this.bt_guardar.Text = "Guardar";
-            this.bt_guardar.UseVisualStyleBackColor = false;
-            this.bt_guardar.Click += new System.EventHandler(this.bt_guardar_Click);
             // 
             // label7
             // 
@@ -597,14 +579,14 @@
             this.cb_parentesco.Location = new System.Drawing.Point(142, 28);
             this.cb_parentesco.Name = "cb_parentesco";
             this.cb_parentesco.Size = new System.Drawing.Size(275, 28);
-            this.cb_parentesco.TabIndex = 3;
+            this.cb_parentesco.TabIndex = 21;
             // 
             // tb_ftelefono
             // 
             this.tb_ftelefono.Location = new System.Drawing.Point(142, 85);
             this.tb_ftelefono.Name = "tb_ftelefono";
             this.tb_ftelefono.Size = new System.Drawing.Size(275, 26);
-            this.tb_ftelefono.TabIndex = 0;
+            this.tb_ftelefono.TabIndex = 22;
             // 
             // tb_colaborador
             // 
@@ -615,7 +597,7 @@
             this.tb_colaborador.Location = new System.Drawing.Point(3, 3);
             this.tb_colaborador.Name = "tb_colaborador";
             this.tb_colaborador.SelectedIndex = 0;
-            this.tb_colaborador.Size = new System.Drawing.Size(1158, 483);
+            this.tb_colaborador.Size = new System.Drawing.Size(1158, 458);
             this.tb_colaborador.TabIndex = 3;
             // 
             // tp_1
@@ -625,7 +607,7 @@
             this.tp_1.Location = new System.Drawing.Point(4, 25);
             this.tp_1.Name = "tp_1";
             this.tp_1.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_1.Size = new System.Drawing.Size(1150, 454);
+            this.tp_1.Size = new System.Drawing.Size(1150, 429);
             this.tp_1.TabIndex = 0;
             this.tp_1.Text = "Información Personal";
             this.tp_1.UseVisualStyleBackColor = true;
@@ -636,7 +618,7 @@
             this.tp_2.Location = new System.Drawing.Point(4, 25);
             this.tp_2.Name = "tp_2";
             this.tp_2.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_2.Size = new System.Drawing.Size(1150, 454);
+            this.tp_2.Size = new System.Drawing.Size(1150, 429);
             this.tp_2.TabIndex = 1;
             this.tp_2.Text = "Información Empresarial";
             this.tp_2.UseVisualStyleBackColor = true;
@@ -648,7 +630,7 @@
             this.tp_3.Location = new System.Drawing.Point(4, 25);
             this.tp_3.Name = "tp_3";
             this.tp_3.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_3.Size = new System.Drawing.Size(1150, 454);
+            this.tp_3.Size = new System.Drawing.Size(1150, 429);
             this.tp_3.TabIndex = 2;
             this.tp_3.Text = "Información Familiar";
             // 
@@ -658,7 +640,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tb_colaborador);
             this.Name = "Colaboradores_Agregar";
-            this.Size = new System.Drawing.Size(1164, 489);
+            this.Size = new System.Drawing.Size(1164, 461);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -714,7 +696,6 @@
         private System.Windows.Forms.TabPage tp_3;
         private System.Windows.Forms.RadioButton rb_inactivo;
         private System.Windows.Forms.RadioButton rb_activo;
-        private System.Windows.Forms.Button bt_guardar;
         private System.Windows.Forms.Button bt_sig_2;
         private System.Windows.Forms.Button bt_sig_1;
         private System.Windows.Forms.RichTextBox tb_direccion;

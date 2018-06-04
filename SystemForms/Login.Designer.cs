@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.pn_login = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lb_contraseña = new System.Windows.Forms.Label();
             this.lb_name = new System.Windows.Forms.Label();
             this.tb_usuario = new System.Windows.Forms.TextBox();
@@ -38,10 +39,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pn_login.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pn_login
@@ -60,6 +60,16 @@
             this.pn_login.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.pn_login.Size = new System.Drawing.Size(510, 252);
             this.pn_login.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(16, 61);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
             // lb_contraseña
             // 
@@ -83,10 +93,10 @@
             // 
             // tb_usuario
             // 
-            this.tb_usuario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_usuario.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_usuario.Location = new System.Drawing.Point(258, 51);
             this.tb_usuario.Name = "tb_usuario";
-            this.tb_usuario.Size = new System.Drawing.Size(230, 23);
+            this.tb_usuario.Size = new System.Drawing.Size(230, 26);
             this.tb_usuario.TabIndex = 2;
             // 
             // bt_ingresar
@@ -105,11 +115,11 @@
             // 
             // tb_contraseña
             // 
-            this.tb_contraseña.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_contraseña.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_contraseña.Location = new System.Drawing.Point(258, 101);
             this.tb_contraseña.Name = "tb_contraseña";
             this.tb_contraseña.PasswordChar = '•';
-            this.tb_contraseña.Size = new System.Drawing.Size(230, 23);
+            this.tb_contraseña.Size = new System.Drawing.Size(230, 26);
             this.tb_contraseña.TabIndex = 3;
             // 
             // panel1
@@ -145,16 +155,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Distribuidora de Carnes Oviedo ";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(16, 61);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,9 +166,9 @@
             this.Size = new System.Drawing.Size(1364, 662);
             this.pn_login.ResumeLayout(false);
             this.pn_login.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

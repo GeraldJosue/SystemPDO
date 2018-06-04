@@ -78,6 +78,7 @@ namespace SystemForms
         {
             pn_master.Controls.Clear();
             pn_master.Controls.Add(lista_colaboradores);
+            pn_filtros.Enabled = true; 
         }
 
         private void bt_down_Click(object sender, EventArgs e)
