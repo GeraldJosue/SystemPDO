@@ -31,5 +31,11 @@ namespace SystemForms
             Pantalla_Principal parent = (Pantalla_Principal)this.FindForm();
             parent.inicio();
         }
+
+        private void bt_salir_Click(object sender, EventArgs e)
+        {
+            Pantalla_Principal parent = (Pantalla_Principal)this.FindForm();
+            parent.sesion();
+        }
     }
 }

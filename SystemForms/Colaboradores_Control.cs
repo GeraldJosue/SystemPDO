@@ -22,7 +22,6 @@ namespace SystemForms
             lista_colaboradores.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(lista_colaboradores);
-            visibilidad(false, true);
             editar = false;
         }
 
@@ -32,15 +31,15 @@ namespace SystemForms
             nuevo_colaborador.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(nuevo_colaborador);
-            visibilidad(true, false);
             editar = false;
+            pn_filtros.Enabled = false;
         }
 
         private void bt_listar_Click(object sender, EventArgs e)
         {
             pn_master.Controls.Clear();
             pn_master.Controls.Add(lista_colaboradores);
-            visibilidad(false, true);
+            pn_filtros.Enabled = true;
         }
 
         private void visibilidad(Boolean op, Boolean fil)
@@ -59,7 +58,8 @@ namespace SystemForms
                     lista_colaboradores.obtener_lista_sys();
                     pn_master.Controls.Clear();
                     pn_master.Controls.Add(lista_colaboradores);
-                    visibilidad(false, true);
+                    pn_filtros.Enabled = true;
+
                 }
             } else
             {
@@ -68,7 +68,8 @@ namespace SystemForms
                     lista_colaboradores.obtener_lista_sys();
                     pn_master.Controls.Clear();
                     pn_master.Controls.Add(lista_colaboradores);
-                    visibilidad(false, true);
+                    pn_filtros.Enabled = true;
+
                 }
             }
         }
@@ -77,7 +78,6 @@ namespace SystemForms
         {
             pn_master.Controls.Clear();
             pn_master.Controls.Add(lista_colaboradores);
-            visibilidad(false, true);
         }
 
         private void bt_down_Click(object sender, EventArgs e)
@@ -96,8 +96,8 @@ namespace SystemForms
             nuevo_colaborador.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(nuevo_colaborador);
-            visibilidad(true, false);
             editar = true;
+            pn_filtros.Enabled = false;
         }
 
         private void pn_master_Paint(object sender, PaintEventArgs e)
@@ -111,6 +111,32 @@ namespace SystemForms
             {
                 lista_colaboradores.obtener_lista_sys();
             }
+        }
+
+        private void cb_activos_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cb_activos.Checked)
+            {
+                lista_colaboradores.set_datasource(false);
+            } else
+            {
+                lista_colaboradores.set_datasource(true);
+            }
+        }
+
+        private void tb_buscar_TextChanged(object sender, EventArgs e)
+        {
+            lista_colaboradores.filtro_nombre(tb_buscar.Text);
+        }
+
+        private void dt_inicio_ValueChanged(object sender, EventArgs e)
+        {
+            lista_colaboradores.filtro_fecha_inicio(dt_inicio.Value.Date);
+        }
+
+        private void dt_fin_ValueChanged(object sender, EventArgs e)
+        {
+            lista_colaboradores.filtro_fecha_fin(dt_fin.Value.Date);
         }
     }
 }

@@ -34,5 +34,13 @@ namespace SystemForms
             pn_principal.Controls.Clear();
             pn_principal.Controls.Add(home);
         }
+
+        public void sesion()
+        {
+            login = new Login();
+            login.Dock = DockStyle.Fill;
+            pn_principal.Controls.Clear();
+            pn_principal.Controls.Add(login);
+        }
     }
 }

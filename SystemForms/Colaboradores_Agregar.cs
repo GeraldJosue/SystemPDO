@@ -8,21 +8,178 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
+using System.Globalization;
 
 namespace SystemForms
 {
     public partial class Colaboradores_Agregar : UserControl
     {
-        BusinessLogic.Colaborador colaborador;
+        Colaborador colaborador;
+        DateTime date;
         public Colaboradores_Agregar()
         {
             InitializeComponent();
+
+            date = new DateTime(DateTime.Now.Year, 01, 01);
+            llenar_cb_año(date);
+            llenar_cb_mes(date);
+            llenar_cb_dia(date, 31);
+            llenar_cb_civil();
+            llenar_cb_nacionalidad();
+            //llenar_cb_departamento();
+            //llenar_cb_horario();
+            llenar_cb_entidad();
+            llenar_cb_parentesco();
         }
 
-        public Colaboradores_Agregar(BusinessLogic.Colaborador colaborador)
+        public void llenar_cb_dia(DateTime date, Int32 dias)
+        {
+            
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Nombre");
+
+            for (int i = 0; i < dias; i++)
+            {
+                dt.Rows.Add(i+1, date.AddDays(i).Day);
+            }
+
+            cb_dia.ValueMember = "Id";
+            cb_dia.DisplayMember = "Nombre";
+            cb_dia.DataSource = dt;
+
+        }
+        public void llenar_cb_mes(DateTime date)
+        {
+
+            cb_dia.DataSource = null;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Nombre");
+
+            for (int i = 0; i < 12; i++)
+            {
+                dt.Rows.Add(i+1, date.AddMonths(i).ToString("MMMM", CultureInfo.CreateSpecificCulture("es-ES")));
+            }
+
+            cb_mes.ValueMember = "Id";
+            cb_mes.DisplayMember = "Nombre";
+            cb_mes.DataSource = dt;
+
+        }
+        public void llenar_cb_año(DateTime date)
+        {
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Nombre");
+
+            for (int i = 0; i >= -80; i--)
+            {
+                dt.Rows.Add(date.AddYears(i).Year, date.AddYears(i).Year);
+            }
+
+            cb_año.ValueMember = "Id";
+            cb_año.DisplayMember = "Nombre";
+            cb_año.DataSource = dt;
+
+        }
+        public void llenar_cb_civil() {
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Nombre");
+            
+            dt.Rows.Add("Soltero", "Soltero");
+            dt.Rows.Add("Casado", "Casado");
+            dt.Rows.Add("Divorciado", "Divorciado");
+            dt.Rows.Add("Unión Libre", "Unión Libre");
+            dt.Rows.Add("Otro", "Otro");
+
+            cb_civil.ValueMember = "Id";
+            cb_civil.DisplayMember = "Nombre";
+            cb_civil.DataSource = dt;
+        }
+        public void llenar_cb_nacionalidad() {
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Nombre");
+
+            dt.Rows.Add("Costarricense", "Costarricense");
+            dt.Rows.Add("Estadounidense", "Estadounidense");
+            dt.Rows.Add("Guatemalteco", "Guatemalteco");
+            dt.Rows.Add("Hondureño", "Hondureño");
+            dt.Rows.Add("Mexicano", "Mexicano");
+            dt.Rows.Add("Nicaragüense", "Nicaragüense");
+            dt.Rows.Add("Salvadoreño", "Salvadoreño");
+            dt.Rows.Add("Panameño", "Panameño");
+            dt.Rows.Add("Otro", "Otro"); 
+
+            cb_nacionalidad.ValueMember = "Id";
+            cb_nacionalidad.DisplayMember = "Nombre";
+            cb_nacionalidad.DataSource = dt;
+
+        }
+        public void llenar_cb_departamento() { }
+        public void llenar_cb_horario() { }
+        public void llenar_cb_entidad() {
+
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Nombre");         
+
+            dt.Rows.Add("BCR", "BCR");
+            dt.Rows.Add("BAC", "BAC");
+            dt.Rows.Add("Banco Popular", "Banco Popular");
+            dt.Rows.Add("Scotiabank", "Scotiabank");
+            dt.Rows.Add("Banco Nacional", "Banco Nacional");
+            dt.Rows.Add("Coocique", "Coocique");
+            dt.Rows.Add("Otro","Otro");
+
+            cb_entidad.ValueMember = "Id";
+            cb_entidad.DisplayMember = "Nombre";
+            cb_entidad.DataSource = dt;
+        }
+        public void llenar_cb_parentesco()
+        {
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Nombre");
+              
+            dt.Rows.Add("Padre", "Padre");
+            dt.Rows.Add("Madre", "Madre");
+            dt.Rows.Add("Hermano", "Hermano");
+            dt.Rows.Add("Hermana", "Hermana");
+            dt.Rows.Add("Hijo", "Hijo");
+            dt.Rows.Add("Hija", "Hija");
+            dt.Rows.Add("Abuelo", "Abuelo");
+            dt.Rows.Add("Abuela", "Abuela");
+            dt.Rows.Add("Otro", "Otro");
+
+            cb_parentesco.ValueMember = "Id";
+            cb_parentesco.DisplayMember = "Nombre";
+            cb_parentesco.DataSource = dt;
+        }
+        
+        public Colaboradores_Agregar(Colaborador colaborador)
         {
             InitializeComponent();
             this.colaborador = colaborador;
+
+            date = new DateTime(2018, 01, 01);
+            llenar_cb_año(date);
+            llenar_cb_mes(date);
+            llenar_cb_dia(date, 31);
+            llenar_cb_civil();
+            llenar_cb_nacionalidad();
+            //llenar_cb_departamento();
+            //llenar_cb_horario();
+            llenar_cb_entidad();
+            llenar_cb_parentesco();
+
             setear_datos();
         }
 
@@ -64,8 +221,8 @@ namespace SystemForms
             
         }
 
-        public BusinessLogic.Colaborador obtener_datos()
-        {
+        public Colaborador obtener_datos()
+        { 
             Int32 departamento = cb_departamento.SelectedIndex == -1 ? 1 : cb_departamento.SelectedIndex;
             Int32 horario = cb_horario.SelectedIndex == -1 ? 1 : cb_horario.SelectedIndex;
             String nombre = tb_nombre.Text.Equals("") ? "No disponible" : tb_nombre.Text;
@@ -74,19 +231,27 @@ namespace SystemForms
             Int32 cedula = tb_cedula.Text.Equals("") ? 0 : Int32.Parse(tb_cedula.Text);
             Int32 telefono = tb_telefono.Text.Equals("") ? 0 : Int32.Parse(tb_telefono.Text);
             String direccion = tb_direccion.Text.Equals("") ? "No disponible" : tb_direccion.Text;
-            DateTime fecha = dt_fecha.Value.Date;
-            String civil = cb_civil.SelectedIndex == -1 ? "No disponible" : cb_civil.SelectedText;
-            String nacionaliad = tb_nacionalidad.Text.Equals("") ? "No disponible" : tb_nacionalidad.Text;
+
+            DateTime fecha;
+            if (cb_año.SelectedIndex == -1 || cb_mes.SelectedIndex == -1 || cb_dia.SelectedIndex == -1)
+            {
+                fecha = DateTime.Now;
+            } else { 
+                fecha = new DateTime(Int32.Parse(cb_año.SelectedValue.ToString()), Int32.Parse(cb_mes.SelectedValue.ToString()), Int32.Parse(cb_dia.SelectedValue.ToString()));
+            }
+
+            String civil = cb_civil.SelectedIndex == -1 ? "No disponible" : cb_civil.SelectedValue.ToString();
+            String nacionalidad = cb_nacionalidad.SelectedIndex == -1 ? "No disponible" : cb_nacionalidad.SelectedValue.ToString();
             String cuenta = tb_cuenta.Text.Equals("") ? "No disponible" : tb_cuenta.Text;
-            String entidad = tb_entidad.Text.Equals("") ? "No disponible" : tb_entidad.Text;
+            String entidad = cb_entidad.SelectedIndex == -1 ? "No disponible" : cb_entidad.SelectedValue.ToString();
             Int32 precio = tb_precio.Text.Equals("") ? 0 : Int32.Parse(tb_precio.Text);
             Int32 ftelefono = tb_ftelefono.Text.Equals("") ? 0 : Int32.Parse(tb_ftelefono.Text);
-            String parentesco = cb_parentesco.SelectedIndex == -1 ? "No disponible" : cb_parentesco.SelectedText;
+            String parentesco = cb_parentesco.SelectedIndex == -1 ? "No disponible" : cb_parentesco.SelectedValue.ToString();
             String fdireccion = tb_fdireccion.Text.Equals("") ? "No disponible" : tb_fdireccion.Text;
-            Boolean estado = cb_estado.Checked ? true : false;
+            Boolean estado = rb_activo.Checked ? true : false;
             
             //Revisar datos por defecto
-            return new BusinessLogic.Colaborador(0, departamento, horario, nombre, apellido, segundo, cedula, telefono, direccion, fecha, civil, cuenta, entidad, nacionaliad, precio
+            return new Colaborador(0, departamento, horario, nombre, apellido, segundo, cedula, telefono, direccion, fecha, civil, cuenta, entidad, nacionalidad, precio
                 , ftelefono, parentesco, fdireccion, estado);
         }
 
@@ -102,19 +267,41 @@ namespace SystemForms
             tb_cedula.Text = colaborador.Cedula.ToString();
             tb_telefono.Text = colaborador.Telefono.ToString();
             tb_direccion.Text = colaborador.Direccion;
-            dt_fecha.Value = colaborador.Fecha;
-            //cb_civil.SelectedIndex =;
-            tb_nacionalidad.Text = colaborador.Nacionalidad;
+            
+            cb_mes.SelectedValue = colaborador.Fecha.Month;
+            cb_año.SelectedValue = colaborador.Fecha.Year;
+            cb_dia.SelectedValue = colaborador.Fecha.Day;
+
+            if (!colaborador.Estado_civil.Equals("No disponible"))
+            {
+                cb_civil.SelectedValue = colaborador.Estado_civil;
+            }
+
+            if (!colaborador.Nacionalidad.Equals("No disponible"))
+            {
+                cb_nacionalidad.SelectedValue = colaborador.Nacionalidad;
+            }
+
             tb_cuenta.Text = colaborador.Cuenta;
-            tb_entidad.Text = colaborador.Entidad;
+
+            if (!colaborador.Entidad.Equals("No disponible"))
+            {
+                cb_entidad.SelectedValue = colaborador.Entidad;
+            }
+
             tb_precio.Text = colaborador.Precio.ToString();
             tb_ftelefono.Text = colaborador.FTelefono.ToString();
-            //cb_parentesco.SelectedIndex =;
+
+            if (!colaborador.Parentesco.Equals("No disponible"))
+            {
+                cb_parentesco.SelectedValue = colaborador.Parentesco;
+            }
+
             tb_fdireccion.Text = colaborador.FDireccion;
-            cb_estado.Checked = colaborador.Estado;
+            rb_activo.Checked = colaborador.Estado;
         }
 
-        public List<Int32> validar_cambios(BusinessLogic.Colaborador nuevo)
+        public List<Int32> validar_cambios(Colaborador nuevo)
         {
             List<Int32> lista = new List<Int32>();
             if(nuevo.Id_departamento != this.colaborador.Id_departamento)
@@ -190,6 +377,51 @@ namespace SystemForms
                 lista.Add(17);
             }
             return lista;
+        }
+
+        private void bt_sig_1_Click(object sender, EventArgs e)
+        {
+            tb_colaborador.SelectedTab = tp_2;
+        }
+
+        private void bt_sig_2_Click(object sender, EventArgs e)
+        {
+            tb_colaborador.SelectedTab = tp_3;
+
+        }
+
+        private void bt_atras_3_Click(object sender, EventArgs e)
+        {
+            tb_colaborador.SelectedTab = tp_2;
+
+        }
+
+        private void bt_atras_2_Click(object sender, EventArgs e)
+        {
+            tb_colaborador.SelectedTab = tp_1;
+
+        }
+
+        private void cb_mes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_mes.SelectedIndex != -1)
+            {
+                llenar_cb_dia(date, DateTime.DaysInMonth(Int32.Parse(cb_año.SelectedValue.ToString()), Int32.Parse(cb_mes.SelectedValue.ToString())));
+            }
+        }
+
+        private void cb_año_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_mes.SelectedIndex != -1)
+            {
+                llenar_cb_dia(date, DateTime.DaysInMonth(Int32.Parse(cb_año.SelectedValue.ToString()), Int32.Parse(cb_mes.SelectedValue.ToString())));
+
+            }
+        }
+
+        private void bt_guardar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
