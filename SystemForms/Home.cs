@@ -13,6 +13,9 @@ namespace SystemForms
     public partial class Home : UserControl
     {
         Colaboradores_Control colaborador;
+        Pago_Control pago;
+        Aguinaldo_Control aguinaldo;
+        Departamentos_Control departamento;
         public Home()
         {
             InitializeComponent();
@@ -30,6 +33,30 @@ namespace SystemForms
         {
             Pantalla_Principal parent = (Pantalla_Principal)this.FindForm();
             parent.inicio();
+        }
+
+        private void bt_pago_Click(object sender, EventArgs e)
+        {
+            pago = new Pago_Control();
+            pago.Dock = DockStyle.Fill;
+            pn_contenido.Controls.Clear();
+            pn_contenido.Controls.Add(pago);
+        }
+
+        private void bt_aguinaldo_Click(object sender, EventArgs e)
+        {
+            aguinaldo = new Aguinaldo_Control();
+            aguinaldo.Dock = DockStyle.Fill;
+            pn_contenido.Controls.Clear();
+            pn_contenido.Controls.Add(aguinaldo);
+        }
+
+        private void bt_departamentos_Click(object sender, EventArgs e)
+        {
+            departamento = new Departamentos_Control();
+            departamento.Dock = DockStyle.Fill;
+            pn_contenido.Controls.Clear();
+            pn_contenido.Controls.Add(departamento);
         }
     }
 }

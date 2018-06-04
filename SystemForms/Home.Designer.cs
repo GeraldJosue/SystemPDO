@@ -123,6 +123,7 @@
             this.bt_departamentos.TabIndex = 18;
             this.bt_departamentos.Text = "Departamentos";
             this.bt_departamentos.UseVisualStyleBackColor = true;
+            this.bt_departamentos.Click += new System.EventHandler(this.bt_departamentos_Click);
             // 
             // bt_adelanto
             // 
@@ -153,6 +154,7 @@
             this.bt_aguinaldo.TabIndex = 16;
             this.bt_aguinaldo.Text = "Aguinaldo";
             this.bt_aguinaldo.UseVisualStyleBackColor = true;
+            this.bt_aguinaldo.Click += new System.EventHandler(this.bt_aguinaldo_Click);
             // 
             // bt_vacaciones
             // 
@@ -183,6 +185,7 @@
             this.bt_pago.TabIndex = 14;
             this.bt_pago.Text = "Pago";
             this.bt_pago.UseVisualStyleBackColor = true;
+            this.bt_pago.Click += new System.EventHandler(this.bt_pago_Click);
             // 
             // bt_registro
             // 
