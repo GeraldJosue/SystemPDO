@@ -68,7 +68,7 @@ namespace DataAccess
             Colaborador_TO colaborador;
             try
             {
-                SqlCommand query = new SqlCommand("SELECT * FROM COLABORADOR WHERE estado_colaborador = 1", conex);
+                SqlCommand query = new SqlCommand("SELECT * FROM COLABORADOR", conex);
 
                 if (conex.State != ConnectionState.Open)
                 {

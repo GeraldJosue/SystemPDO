@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.pn_login = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lb_contraseña = new System.Windows.Forms.Label();
             this.lb_name = new System.Windows.Forms.Label();
             this.tb_usuario = new System.Windows.Forms.TextBox();
@@ -38,6 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pn_login.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,49 +48,62 @@
             // 
             this.pn_login.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pn_login.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn_login.Controls.Add(this.pictureBox1);
             this.pn_login.Controls.Add(this.lb_contraseña);
             this.pn_login.Controls.Add(this.lb_name);
             this.pn_login.Controls.Add(this.tb_usuario);
             this.pn_login.Controls.Add(this.bt_ingresar);
             this.pn_login.Controls.Add(this.tb_contraseña);
+            this.pn_login.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pn_login.Location = new System.Drawing.Point(451, 235);
             this.pn_login.Name = "pn_login";
             this.pn_login.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.pn_login.Size = new System.Drawing.Size(510, 252);
             this.pn_login.TabIndex = 4;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(16, 61);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // lb_contraseña
             // 
             this.lb_contraseña.AutoSize = true;
-            this.lb_contraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_contraseña.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_contraseña.Location = new System.Drawing.Point(165, 105);
             this.lb_contraseña.Name = "lb_contraseña";
-            this.lb_contraseña.Size = new System.Drawing.Size(87, 16);
+            this.lb_contraseña.Size = new System.Drawing.Size(95, 20);
             this.lb_contraseña.TabIndex = 5;
             this.lb_contraseña.Text = "Contraseña";
             // 
             // lb_name
             // 
             this.lb_name.AutoSize = true;
-            this.lb_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_name.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_name.Location = new System.Drawing.Point(165, 52);
             this.lb_name.Name = "lb_name";
-            this.lb_name.Size = new System.Drawing.Size(62, 16);
+            this.lb_name.Size = new System.Drawing.Size(63, 20);
             this.lb_name.TabIndex = 4;
             this.lb_name.Text = "Usuario";
             // 
             // tb_usuario
             // 
+            this.tb_usuario.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_usuario.Location = new System.Drawing.Point(258, 51);
             this.tb_usuario.Name = "tb_usuario";
-            this.tb_usuario.Size = new System.Drawing.Size(230, 20);
+            this.tb_usuario.Size = new System.Drawing.Size(230, 26);
             this.tb_usuario.TabIndex = 2;
             // 
             // bt_ingresar
             // 
             this.bt_ingresar.BackColor = System.Drawing.Color.Maroon;
             this.bt_ingresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bt_ingresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_ingresar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_ingresar.ForeColor = System.Drawing.Color.White;
             this.bt_ingresar.Location = new System.Drawing.Point(168, 150);
             this.bt_ingresar.Name = "bt_ingresar";
@@ -99,10 +115,11 @@
             // 
             // tb_contraseña
             // 
+            this.tb_contraseña.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_contraseña.Location = new System.Drawing.Point(258, 101);
             this.tb_contraseña.Name = "tb_contraseña";
             this.tb_contraseña.PasswordChar = '•';
-            this.tb_contraseña.Size = new System.Drawing.Size(230, 20);
+            this.tb_contraseña.Size = new System.Drawing.Size(230, 26);
             this.tb_contraseña.TabIndex = 3;
             // 
             // panel1
@@ -119,22 +136,22 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(1286, 75);
+            this.label2.Location = new System.Drawing.Point(1278, 68);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 25);
+            this.label2.Size = new System.Drawing.Size(86, 32);
             this.label2.TabIndex = 1;
             this.label2.Text = "SPDO";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 75);
+            this.label1.Location = new System.Drawing.Point(3, 68);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(349, 25);
+            this.label1.Size = new System.Drawing.Size(433, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Distribuidora de Carnes Oviedo ";
             // 
@@ -149,6 +166,7 @@
             this.Size = new System.Drawing.Size(1364, 662);
             this.pn_login.ResumeLayout(false);
             this.pn_login.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -165,5 +183,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -14,36 +14,103 @@ namespace SystemForms
     public partial class Colaboradores_Lista : UserControl
     {
         List<Colaborador> lista;
-        DataTable table;
+        DataTable table_activos;
+        DataTable table_inactivos;
+        String filtro;
+        String texto;
+        String fecha_inicio;
+        String fecha_fin;
 
         public Colaboradores_Lista()
         {
             InitializeComponent();
-            table = new DataTable();
-            table.Columns.Add("Id");
-            table.Columns.Add("Nombre");
-            table.Columns.Add("Apellido");
-            table.Columns.Add("Segundo Apellido");
-            table.Columns.Add("Teléfono");
-            table.Columns.Add("Dirección");
-            table.Columns.Add("Nacionalidad");
-            table.Columns.Add("Cuenta");
-            table.Columns.Add("Entidad");
-            table.Columns.Add("Telefono Familiar");
-            table.Columns.Add("Parentesco Familiar");
+            table_activos = new DataTable();
+            table_inactivos = new DataTable();
+
+            table_activos.Columns.Add("Id");
+            table_inactivos.Columns.Add("Id");
+
+            table_activos.Columns.Add("Nombre");
+            table_inactivos.Columns.Add("Nombre");
+
+            table_activos.Columns.Add("Apellido");
+            table_inactivos.Columns.Add("Apellido");
+
+            table_activos.Columns.Add("Fecha");
+            table_inactivos.Columns.Add("Fecha");
+
+            table_activos.Columns.Add("Teléfono");
+            table_inactivos.Columns.Add("Teléfono");
+
+            table_activos.Columns.Add("Dirección");
+            table_inactivos.Columns.Add("Dirección");
+
+            table_activos.Columns.Add("Nacionalidad");
+            table_inactivos.Columns.Add("Nacionalidad");
+
+            table_activos.Columns.Add("Cuenta");
+            table_inactivos.Columns.Add("Cuenta");
+
+            table_activos.Columns.Add("Entidad");
+            table_inactivos.Columns.Add("Entidad");
+
+            table_activos.Columns.Add("Telefono Familiar");
+            table_inactivos.Columns.Add("Telefono Familiar");
+
+            table_activos.Columns.Add("Parentesco Familiar");
+            table_inactivos.Columns.Add("Parentesco Familiar");
+
             obtener_lista_sys();
+
+            
+            fecha_inicio = 1 + "/" + 1 + "/" + 1900;
+            fecha_fin = DateTime.Now.Month + "/" + DateTime.Now.Day + "/" + DateTime.Now.Year;
+            texto = "";
         }
 
         public void obtener_lista_sys()
         {
             lista = new Colaborador().obtener_lista();
-            table = llenar_tabla();
-            dg_colaboradores.DataSource = table;
+            llenar_tabla();
+            dg_colaboradores.DataSource = table_activos;
+        }
+
+        public void set_datasource(Boolean estado)
+        {
+            if(estado)
+            {
+                dg_colaboradores.DataSource = table_activos;
+            } else
+            {
+                dg_colaboradores.DataSource = table_inactivos;
+            }
+        }
+
+        public void filtro_nombre(String busqueda)
+        {
+            texto = busqueda;
+            filtro = "(Nombre Like '%" + texto + "%' OR Apellido Like '%" + texto + "%') AND (Fecha >= #" + fecha_inicio + "# AND Fecha <= #" + fecha_fin + "#)";
+            ((DataTable)dg_colaboradores.DataSource).DefaultView.RowFilter = filtro;
+        }
+
+        public void filtro_fecha_inicio(DateTime date)
+        {
+            fecha_inicio = date.Month + "/" + date.Day + "/" + date.Year;
+            filtro = "(Nombre Like '%" + texto + "%' OR Apellido Like '%" + texto + "%') AND (Fecha >= #" + fecha_inicio + "# AND Fecha <= #" + fecha_fin + "#)";
+            ((DataTable)dg_colaboradores.DataSource).DefaultView.RowFilter = filtro;
+        }
+
+        public void filtro_fecha_fin(DateTime date)
+        {
+            fecha_fin = date.Month + "/" + date.Day + "/" + date.Year;
+            filtro = "(Nombre Like '%" + texto + "%' OR Apellido Like '%" + texto + "%') AND (Fecha >= #" + fecha_inicio + "# AND Fecha <= #" + fecha_fin + "#)";
+            ((DataTable)dg_colaboradores.DataSource).DefaultView.RowFilter = filtro;
         }
 
         public Colaborador obtener()
         {
             Colaborador colaborador = new Colaborador();
+
             Int32 id = Int32.Parse(dg_colaboradores.CurrentRow.Cells["Id"].Value.ToString());
             foreach (Colaborador x in lista)
             {
@@ -82,14 +149,21 @@ namespace SystemForms
             return false;
         }
 
-        public DataTable llenar_tabla()
+        public void llenar_tabla()
         {
-            table.Clear();
+            table_activos.Clear();
+            table_inactivos.Clear();
             foreach(Colaborador x in lista)
             {
-                table.Rows.Add(x.Id, x.Nombre, x.Apellido, x.Segundo_apellido, x.Telefono, x.Direccion, x.Nacionalidad, x.Cuenta, x.Entidad, x.FTelefono, x.Parentesco);
+                if (x.Estado)
+                {
+                    table_activos.Rows.Add(x.Id, x.Nombre, x.Apellido, x.Fecha.Date.ToShortDateString(), x.Telefono, x.Direccion, x.Nacionalidad, x.Cuenta, x.Entidad, x.FTelefono, x.Parentesco);
+                }
+                else
+                {
+                    table_inactivos.Rows.Add(x.Id, x.Nombre, x.Apellido, x.Fecha.Date.ToShortDateString(), x.Telefono, x.Direccion, x.Nacionalidad, x.Cuenta, x.Entidad, x.FTelefono, x.Parentesco);
+                }
             }
-            return table;
         }
 
         public void bajar_fila()

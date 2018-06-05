@@ -69,6 +69,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dg_colaboradores.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dg_colaboradores.EnableHeadersVisualStyles = false;
             this.dg_colaboradores.GridColor = System.Drawing.Color.White;
             this.dg_colaboradores.Location = new System.Drawing.Point(6, 0);
             this.dg_colaboradores.MultiSelect = false;

@@ -16,6 +16,7 @@ namespace SystemForms
         Pago_Control pago;
         Aguinaldo_Control aguinaldo;
         Departamentos_Control departamento;
+        Registros_Control registro;
         public Home()
         {
             InitializeComponent();
@@ -119,6 +120,20 @@ namespace SystemForms
             departamento.Dock = DockStyle.Fill;
             pn_contenido.Controls.Clear();
             pn_contenido.Controls.Add(departamento);
+        }
+
+        private void bt_salir_Click(object sender, EventArgs e)
+        {
+            Pantalla_Principal parent = (Pantalla_Principal)this.FindForm();
+            parent.sesion();
+        }
+
+        private void bt_registro_Click(object sender, EventArgs e)
+        {
+            registro = new Registros_Control();
+            registro.Dock = DockStyle.Fill;
+            pn_contenido.Controls.Clear();
+            pn_contenido.Controls.Add(registro);
         }
     }
 }
