@@ -14,13 +14,13 @@ namespace SystemForms
     public partial class Pago_Agregar : UserControl
     {
 
-        BusinessLogic.Pago pago;
+        Pago pago;
         public Pago_Agregar()
         {
             InitializeComponent();
         }
 
-        public Pago_Agregar(BusinessLogic.Pago pago)
+        public Pago_Agregar(Pago pago)
         {
             InitializeComponent();
             this.pago = pago;
@@ -29,7 +29,7 @@ namespace SystemForms
 
         public Boolean agregar_sys()
         {
-            BusinessLogic.Pago pago = obtener_datos();
+            Pago pago = obtener_datos();
             if (pago.agregar())
             {
                 MessageBox.Show("Pago agregado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -45,7 +45,7 @@ namespace SystemForms
 
         public Boolean editar_sys()
         {
-            BusinessLogic.Pago pago = obtener_datos();
+            Pago pago = obtener_datos();
             pago.Id = this.pago.Id;
             List<Int32> lista = validar_cambios(pago);
             if (lista.Count == 0)
@@ -65,7 +65,7 @@ namespace SystemForms
 
         }
 
-        public BusinessLogic.Pago obtener_datos()
+        public Pago obtener_datos()
         {
             //analizar lo de departamento y lo de las fechas
             Int32 departamento = cb_departamento.SelectedIndex == -1 ? 1 : cb_departamento.SelectedIndex;
@@ -81,7 +81,7 @@ namespace SystemForms
             Boolean estado = cb_estado.Checked ? true : false;
 
             //Revisar datos por defecto
-            return new BusinessLogic.Pago(0, colaborador, fechaDesde, salarioBruto, salarioNeto, rebajo, horasLaboradas, horasExtra, transferencia, estado);
+            return new Pago(0, colaborador, fechaDesde, salarioBruto, salarioNeto, rebajo, horasLaboradas, horasExtra, transferencia, estado);
         }
 
         public void setear_datos()
@@ -99,7 +99,7 @@ namespace SystemForms
             cb_estado.Checked = pago.EstadoPago;
         }
 
-        public List<Int32> validar_cambios(BusinessLogic.Pago pagoNuevo)
+        public List<Int32> validar_cambios(Pago pagoNuevo)
         {
             List<Int32> lista = new List<Int32>();
             if (pagoNuevo.IdColaborador != this.pago.IdColaborador)

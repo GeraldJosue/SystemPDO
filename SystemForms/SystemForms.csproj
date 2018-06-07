@@ -105,17 +105,17 @@
     <Compile Include="Colaboradores_Lista.Designer.cs">
       <DependentUpon>Colaboradores_Lista.cs</DependentUpon>
     </Compile>
-    <Compile Include="Departamentos_Control.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Departamentos_Control.Designer.cs">
-      <DependentUpon>Departamentos_Control.cs</DependentUpon>
-    </Compile>
     <Compile Include="Departamento_Agregar.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Departamento_Agregar.Designer.cs">
       <DependentUpon>Departamento_Agregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Departamento_Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Departamento_Control.Designer.cs">
+      <DependentUpon>Departamento_Control.cs</DependentUpon>
     </Compile>
     <Compile Include="Departamento_Lista.cs">
       <SubType>UserControl</SubType>
@@ -224,11 +224,11 @@
     <EmbeddedResource Include="Colaboradores_Lista.resx">
       <DependentUpon>Colaboradores_Lista.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Departamentos_Control.resx">
-      <DependentUpon>Departamentos_Control.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Departamento_Agregar.resx">
       <DependentUpon>Departamento_Agregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Departamento_Control.resx">
+      <DependentUpon>Departamento_Control.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Departamento_Lista.resx">
       <DependentUpon>Departamento_Lista.cs</DependentUpon>

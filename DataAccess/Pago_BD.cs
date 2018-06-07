@@ -68,10 +68,10 @@ namespace DataAccess
 
             try
             {
-                SqlCommand query = new SqlCommand("DELETE FROM PAGO WHERE id_pago = @id", conex);
+                SqlCommand query = new SqlCommand("UPDATE PAGO SET estado_pago = @estado WHERE id_pago = @id", conex);
 
                 query.Parameters.AddWithValue("@id", pago.Id);
-
+                query.Parameters.AddWithValue("@estado", pago.EstadoPago);
 
                 if (conex.State != ConnectionState.Open)
                 {

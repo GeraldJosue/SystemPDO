@@ -14,14 +14,14 @@ namespace SystemForms
     public partial class Aguinaldo_Agregar : UserControl
     {
 
-        BusinessLogic.Aguinaldo aguinaldo;
+        Aguinaldo aguinaldo;
         public Aguinaldo_Agregar()
         {
             InitializeComponent();
         }
 
 
-        public Aguinaldo_Agregar(BusinessLogic.Aguinaldo aguinaldo)
+        public Aguinaldo_Agregar(Aguinaldo aguinaldo)
         {
             InitializeComponent();
             this.aguinaldo = aguinaldo;
@@ -30,7 +30,7 @@ namespace SystemForms
 
         public Boolean agregar_sys()
         {
-            BusinessLogic.Aguinaldo aguinaldo = obtener_datos();
+            Aguinaldo aguinaldo = obtener_datos();
             if (aguinaldo.agregar())
             {
                 MessageBox.Show("Aguinaldo agregado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -46,7 +46,7 @@ namespace SystemForms
 
         public Boolean editar_sys()
         {
-            BusinessLogic.Aguinaldo aguinaldo = obtener_datos();
+            Aguinaldo aguinaldo = obtener_datos();
             aguinaldo.Id = this.aguinaldo.Id;
             List<Int32> lista = validar_cambios(aguinaldo);
             if (lista.Count == 0)
@@ -66,7 +66,7 @@ namespace SystemForms
 
         }
 
-        public BusinessLogic.Aguinaldo obtener_datos()
+        public Aguinaldo obtener_datos()
         {
             //analizar lo de departamento y lo de las fechas            
             Int32 colaborador = cb_colaborador.SelectedIndex == -1 ? 1 : cb_colaborador.SelectedIndex;
@@ -76,7 +76,7 @@ namespace SystemForms
             Boolean estado = cb_estado.Checked ? true : false;
 
             //Revisar datos por defecto
-            return new BusinessLogic.Aguinaldo(0, colaborador, fecha, salarioAguinaldo, transferencia, estado);
+            return new Aguinaldo(0, colaborador, fecha, salarioAguinaldo, transferencia, estado);
         }
 
         public void setear_datos()
@@ -89,7 +89,7 @@ namespace SystemForms
             cb_estado.Checked = aguinaldo.EstadoAguinaldo;
         }
 
-        public List<Int32> validar_cambios(BusinessLogic.Aguinaldo aguinaldoNuevo)
+        public List<Int32> validar_cambios(Aguinaldo aguinaldoNuevo)
         {
             List<Int32> lista = new List<Int32>();
             if (aguinaldoNuevo.IdColaborador != this.aguinaldo.IdColaborador)

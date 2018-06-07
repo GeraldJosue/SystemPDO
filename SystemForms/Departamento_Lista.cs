@@ -15,36 +15,54 @@ namespace SystemForms
     {
 
         List<Departamento> lista;
-        DataTable table;
+        DataTable tableActivos;
+        DataTable tableInactivos;
+        String texto;
+        String filtro;
 
         public Departamento_Lista()
         {
             InitializeComponent();        
-            table = new DataTable();
-            table.Columns.Add("Id");
-            table.Columns.Add("Nombre Departamento");           
-            table.Columns.Add("Estado");
-            obtener_lista_sys();
+            tableActivos = new DataTable();
+            tableInactivos = new DataTable();
 
+            tableActivos.Columns.Add("Id");
+            tableActivos.Columns.Add("Nombre Departamento");           
+            tableActivos.Columns.Add("Estado");
+
+            tableInactivos.Columns.Add("Id");
+            tableInactivos.Columns.Add("Nombre Departamento");
+            tableInactivos.Columns.Add("Estado");
+
+            obtener_lista_sys();                      
+            texto = "";
         }
 
 
         public void obtener_lista_sys()
         {
             lista = new Departamento().obtener_lista();
-            table = llenar_tabla();
-            dg_Departamentos.DataSource = table;
+            llenar_tabla();
+            dg_Departamentos.DataSource = tableActivos;
+            
         }
 
 
-        public DataTable llenar_tabla()
+        public void llenar_tabla()
         {
-            table.Clear();
+            tableActivos.Clear();
+            tableInactivos.Clear();
             foreach (Departamento x in lista)
             {
-                table.Rows.Add(x.Id, x.Nombre ,x.Estado);
+                if (x.Estado)
+                {
+                    tableActivos.Rows.Add(x.Id, x.Nombre, x.Estado);
+                }
+                else
+                {
+                    tableInactivos.Rows.Add(x.Id, x.Nombre, x.Estado);
+                }
             }
-            return table;
         }
 
         public Boolean eliminar_sys()
@@ -108,6 +126,25 @@ namespace SystemForms
                 dg_Departamentos.Rows[i - 1].Selected = true;
                 dg_Departamentos.CurrentCell = dg_Departamentos.Rows[i - 1].Cells[0];
             }
+        }
+
+        public void set_datasource(Boolean estado)
+        {
+            if (estado)
+            {
+                dg_Departamentos.DataSource = tableActivos;
+            }
+            else
+            {
+                dg_Departamentos.DataSource = tableInactivos;
+            }
+        }
+
+        public void filtro_nombre(String busqueda)
+        {
+            texto = busqueda;
+            filtro = "(Nombre Like '%" + texto + "%')";
+            ((DataTable)dg_Departamentos.DataSource).DefaultView.RowFilter = filtro;
         }
 
     }
