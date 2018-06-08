@@ -63,6 +63,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aguinaldo_Agregar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Aguinaldo_Agregar.Designer.cs">
+      <DependentUpon>Aguinaldo_Agregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aguinaldo_Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Aguinaldo_Control.Designer.cs">
+      <DependentUpon>Aguinaldo_Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aguinaldo_Lista.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Aguinaldo_Lista.Designer.cs">
+      <DependentUpon>Aguinaldo_Lista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Colaboradores.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Colaboradores.Designer.cs">
+      <DependentUpon>Colaboradores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Colaboradores_Agregar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -80,6 +104,24 @@
     </Compile>
     <Compile Include="Colaboradores_Lista.Designer.cs">
       <DependentUpon>Colaboradores_Lista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Departamento_Agregar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Departamento_Agregar.Designer.cs">
+      <DependentUpon>Departamento_Agregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Departamentos_Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Departamentos_Control.Designer.cs">
+      <DependentUpon>Departamentos_Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Departamento_Lista.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Departamento_Lista.Designer.cs">
+      <DependentUpon>Departamento_Lista.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuracion.cs">
       <SubType>UserControl</SubType>
@@ -117,6 +159,36 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Machote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Machote.Designer.cs">
+      <DependentUpon>Machote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pago_Agregar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pago_Agregar.Designer.cs">
+      <DependentUpon>Pago_Agregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pago_Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pago_Control.Designer.cs">
+      <DependentUpon>Pago_Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pago_Lista.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pago_Lista.Designer.cs">
+      <DependentUpon>Pago_Lista.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantalla_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +203,15 @@
     <Compile Include="PruebaGrid.Designer.cs">
       <DependentUpon>PruebaGrid.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Aguinaldo_Agregar.resx">
+      <DependentUpon>Aguinaldo_Agregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aguinaldo_Control.resx">
+      <DependentUpon>Aguinaldo_Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aguinaldo_Lista.resx">
+      <DependentUpon>Aguinaldo_Lista.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Registros_Control.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -164,6 +245,15 @@
     <EmbeddedResource Include="Colaboradores_Lista.resx">
       <DependentUpon>Colaboradores_Lista.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Departamento_Agregar.resx">
+      <DependentUpon>Departamento_Agregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Departamentos_Control.resx">
+      <DependentUpon>Departamentos_Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Departamento_Lista.resx">
+      <DependentUpon>Departamento_Lista.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Configuracion.resx">
       <DependentUpon>Configuracion.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,6 +271,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Machote.resx">
+      <DependentUpon>Machote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pago_Agregar.resx">
+      <DependentUpon>Pago_Agregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pago_Control.resx">
+      <DependentUpon>Pago_Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pago_Lista.resx">
+      <DependentUpon>Pago_Lista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantalla_Principal.resx">
       <DependentUpon>Pantalla_Principal.cs</DependentUpon>
