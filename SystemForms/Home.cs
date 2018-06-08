@@ -14,6 +14,7 @@ namespace SystemForms
     {
         Colaboradores_Control colaborador;
         Registros_Control registro;
+        Horarios_Control horario;
         public Home()
         {
             InitializeComponent();
@@ -45,6 +46,14 @@ namespace SystemForms
             registro.Dock = DockStyle.Fill;
             pn_contenido.Controls.Clear();
             pn_contenido.Controls.Add(registro);
+        }
+
+        private void bt_horarios_Click(object sender, EventArgs e)
+        {
+            horario = new Horarios_Control();
+            horario.Dock = DockStyle.Fill;
+            pn_contenido.Controls.Clear();
+            pn_contenido.Controls.Add(horario);
         }
     }
 }

@@ -243,3 +243,8 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/SystemForms/Resources/Colaboradores.cs
+/SystemForms/Resources/Colaboradores.resx
+/SystemForms/Resources/Colaboradores.Designer.cs
+/BusinessLogic/Colaborador.cs
+/DataAccess/Colaborador_BD.cs
