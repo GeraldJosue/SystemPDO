@@ -16,11 +16,22 @@ namespace SystemForms
     {
         Colaborador colaborador;
         DateTime date;
-        public Colaboradores_Agregar()
+        Boolean error_cedula;
+        Boolean carga_inicial;
+        Boolean valido;
+        Colaboradores_Control parent;
+
+        public Colaboradores_Agregar(Colaboradores_Control parent)
         {
             InitializeComponent();
 
+            error_cedula = false;
+            carga_inicial = false;
+            valido = false;
+
             date = new DateTime(DateTime.Now.Year, 01, 01);
+
+            this.parent = parent;
             llenar_cb_año(date);
             llenar_cb_mes(date);
             llenar_cb_dia(date, 31);
@@ -166,12 +177,19 @@ namespace SystemForms
             cb_parentesco.DataSource = dt;
         }
         
-        public Colaboradores_Agregar(Colaborador colaborador)
+        public Colaboradores_Agregar(Colaborador colaborador, Colaboradores_Control parent)
         {
             InitializeComponent();
             this.colaborador = colaborador;
 
+            error_cedula = false;
+            carga_inicial = false;
+            valido = false;
+
             date = new DateTime(2018, 01, 01);
+
+            this.parent = parent;
+            
             llenar_cb_año(date);
             llenar_cb_mes(date);
             llenar_cb_dia(date, 31);
@@ -187,15 +205,23 @@ namespace SystemForms
 
         public Boolean agregar_sys()
         {
-            BusinessLogic.Colaborador colaborador = obtener_datos();
-            if (colaborador.agregar())
+            if (valido)
             {
-                MessageBox.Show("Colaborador agregado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return true;
+                BusinessLogic.Colaborador colaborador = obtener_datos();
+                if (colaborador.agregar())
+                {
+                    MessageBox.Show("Colaborador agregado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
             }
             else
             {
-                MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La cédula ya existe", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -203,21 +229,28 @@ namespace SystemForms
 
         public Boolean editar_sys()
         {
-            BusinessLogic.Colaborador colaborador = obtener_datos();
-            colaborador.Id = this.colaborador.Id;
-            List<Int32> lista = validar_cambios(colaborador);
-            if (lista.Count == 0)
+            if (valido)
             {
-                return true;
-            }
-            else if (colaborador.editar(lista))
+                BusinessLogic.Colaborador colaborador = obtener_datos();
+                colaborador.Id = this.colaborador.Id;
+                List<Int32> lista = validar_cambios(colaborador);
+                if (lista.Count == 0)
+                {
+                    return true;
+                }
+                else if (colaborador.editar(lista))
+                {
+                    MessageBox.Show("Colaborador editado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }else
             {
-                MessageBox.Show("Colaborador editado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La cédula ya existe", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             
@@ -421,9 +454,107 @@ namespace SystemForms
             }
         }
 
-        private void bt_guardar_Click(object sender, EventArgs e)
+        private void tb_cedula_TextChanged(object sender, EventArgs e)
         {
+           
+                if (colaborador == null)
+                {
+                    carga_inicial = true;
+                    if (parent.buscar_cedula(tb_cedula.Text))
+                    {
+                        error_cedula = true;
+                    }
+                    else
+                    {
+                        error_cedula = false;
+                    }
+                    panel4.Refresh();
+                } else if (colaborador.Cedula.ToString().Equals(tb_cedula.Text))
+                {
+                    carga_inicial = true;
+                    error_cedula = false;
+                    panel4.Refresh();
+                } else
+                {
+                    carga_inicial = true;
+                    if (parent.buscar_cedula(tb_cedula.Text))
+                    {
+                        error_cedula = true;
+                    }
+                    else
+                    {
+                        error_cedula = false;
+                    }
+                    panel4.Refresh();
+                }
+            
+        }
 
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+            
+            if (!carga_inicial)
+            {
+
+            }
+            else if (error_cedula)
+            {
+                ControlPaint.DrawBorder(e.Graphics, this.panel4.ClientRectangle, Color.Red, ButtonBorderStyle.Solid);
+                valido = false;
+            }
+            else
+            {
+                ControlPaint.DrawBorder(e.Graphics, this.panel4.ClientRectangle, Color.LimeGreen, ButtonBorderStyle.Solid);
+                valido = true;
+            }
+           
+        }
+
+        private void tb_cedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            } else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tb_telefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tb_precio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar) || Char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tb_ftelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

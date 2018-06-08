@@ -29,7 +29,7 @@ namespace SystemForms
 
             table_activos.Columns.Add("Id");
             table_inactivos.Columns.Add("Id");
-
+            
             table_activos.Columns.Add("Nombre");
             table_inactivos.Columns.Add("Nombre");
 
@@ -42,8 +42,8 @@ namespace SystemForms
             table_activos.Columns.Add("Teléfono");
             table_inactivos.Columns.Add("Teléfono");
 
-            table_activos.Columns.Add("Dirección");
-            table_inactivos.Columns.Add("Dirección");
+            table_activos.Columns.Add("Cedula");
+            table_inactivos.Columns.Add("Cedula");
 
             table_activos.Columns.Add("Nacionalidad");
             table_inactivos.Columns.Add("Nacionalidad");
@@ -73,6 +73,7 @@ namespace SystemForms
             lista = new Colaborador().obtener_lista();
             llenar_tabla();
             dg_colaboradores.DataSource = table_activos;
+            dg_colaboradores.Columns[0].Visible = false;
         }
 
         public void set_datasource(Boolean estado)
@@ -84,6 +85,28 @@ namespace SystemForms
             {
                 dg_colaboradores.DataSource = table_inactivos;
             }
+            dg_colaboradores.Columns[0].Visible = false;
+        }
+
+        public Boolean buscar_cedula(string cedula)
+        {
+            foreach(DataRow r in table_activos.Rows)
+            {
+                if (cedula.Equals(r["Cedula"].ToString())) {
+                    return true;
+                }
+            }
+
+            foreach (DataRow r in table_inactivos.Rows)
+            {
+                if (cedula.Equals(r["Cedula"].ToString()))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+
         }
 
         public void filtro_nombre(String busqueda)
@@ -157,11 +180,11 @@ namespace SystemForms
             {
                 if (x.Estado)
                 {
-                    table_activos.Rows.Add(x.Id, x.Nombre, x.Apellido, x.Fecha.Date.ToShortDateString(), x.Telefono, x.Direccion, x.Nacionalidad, x.Cuenta, x.Entidad, x.FTelefono, x.Parentesco);
+                    table_activos.Rows.Add(x.Id, x.Nombre, x.Apellido, x.Fecha.Date.ToShortDateString(), x.Telefono, x.Cedula, x.Nacionalidad, x.Cuenta, x.Entidad, x.FTelefono, x.Parentesco);
                 }
                 else
                 {
-                    table_inactivos.Rows.Add(x.Id, x.Nombre, x.Apellido, x.Fecha.Date.ToShortDateString(), x.Telefono, x.Direccion, x.Nacionalidad, x.Cuenta, x.Entidad, x.FTelefono, x.Parentesco);
+                    table_inactivos.Rows.Add(x.Id, x.Nombre, x.Apellido, x.Fecha.Date.ToShortDateString(), x.Telefono, x.Cedula, x.Nacionalidad, x.Cuenta, x.Entidad, x.FTelefono, x.Parentesco);
                 }
             }
         }

@@ -26,7 +26,7 @@ namespace SystemForms
 
         private void bt_agregar_Click(object sender, EventArgs e)
         {
-            agregar = new Colaboradores_Agregar();
+            //agregar = new Colaboradores_Agregar();
             agregar.Dock = DockStyle.Fill;
             pn_principal.Controls.Clear();
             pn_principal.Controls.Add(agregar);
@@ -57,7 +57,7 @@ namespace SystemForms
 
         private void bt_editar_Click(object sender, EventArgs e)
         {
-            agregar = new Colaboradores_Agregar(lista.obtener());
+            //agregar = new Colaboradores_Agregar(lista.obtener());
             agregar.Dock = DockStyle.Fill;
             pn_principal.Controls.Clear();
             pn_principal.Controls.Add(agregar);

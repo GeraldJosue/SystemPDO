@@ -12,9 +12,11 @@ namespace SystemForms
 {
     public partial class Colaboradores_Control : UserControl
     {
+
         Colaboradores_Agregar nuevo_colaborador;
         Colaboradores_Lista lista_colaboradores;
         Boolean editar;
+
         public Colaboradores_Control()
         {
             InitializeComponent();
@@ -27,7 +29,7 @@ namespace SystemForms
 
         private void bt_agregar_Click(object sender, EventArgs e)
         {
-            nuevo_colaborador = new Colaboradores_Agregar();
+            nuevo_colaborador = new Colaboradores_Agregar(this);
             nuevo_colaborador.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(nuevo_colaborador);
@@ -40,13 +42,6 @@ namespace SystemForms
             pn_master.Controls.Clear();
             pn_master.Controls.Add(lista_colaboradores);
             pn_filtros.Enabled = true;
-        }
-
-        private void visibilidad(Boolean op, Boolean fil)
-        {
-
-            pn_opciones.Visible = op;
-            pn_filtros.Visible = fil;
         }
 
         private void bt_guardar_Click_1(object sender, EventArgs e)
@@ -93,7 +88,7 @@ namespace SystemForms
 
         private void bt_editar_Click(object sender, EventArgs e)
         {
-            nuevo_colaborador = new Colaboradores_Agregar(lista_colaboradores.obtener());
+            nuevo_colaborador = new Colaboradores_Agregar(lista_colaboradores.obtener(), this);
             nuevo_colaborador.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(nuevo_colaborador);
@@ -138,6 +133,11 @@ namespace SystemForms
         private void dt_fin_ValueChanged(object sender, EventArgs e)
         {
             lista_colaboradores.filtro_fecha_fin(dt_fin.Value.Date);
+        }
+
+        public Boolean buscar_cedula(string cedula)
+        {
+            return lista_colaboradores.buscar_cedula(cedula);
         }
     }
 }
