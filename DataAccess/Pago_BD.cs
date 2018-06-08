@@ -37,11 +37,11 @@ namespace DataAccess
                     pago_to.Id = reader.GetInt32(0);
                     pago_to.IdColaborador = reader.GetInt32(1);
                     pago_to.FechaPago = reader.GetDateTime(2);
-                    pago_to.SalarioBruto = reader.GetDouble(3);
-                    pago_to.SalarioNeto = reader.GetDouble(4);
-                    pago_to.Rebajo = reader.GetDouble(5);
-                    pago_to.HorasLaboradas = reader.GetDouble(6);
-                    pago_to.HorasExtra = reader.GetDouble(7);
+                    pago_to.SalarioBruto = Double.Parse(reader.GetDouble(3).ToString());
+                    pago_to.SalarioNeto = Double.Parse(reader.GetDouble(4).ToString());
+                    pago_to.Rebajo = Double.Parse(reader.GetDouble(5).ToString());
+                    pago_to.HorasLaboradas = Double.Parse(reader.GetDouble(6).ToString());
+                    pago_to.HorasExtra = Double.Parse(reader.GetDouble(7).ToString());
                     pago_to.TransferenciaPago = reader.GetString(8);
                     pago_to.EstadoPago = reader.GetBoolean(9);
 
@@ -195,9 +195,9 @@ namespace DataAccess
                         pago.Id = reader.GetInt32(0);
                         pago.IdColaborador = reader.GetInt32(1);
                         pago.FechaPago = reader.GetDateTime(2);
-                        pago.SalarioBruto = reader.GetDouble(3);
-                        pago.SalarioNeto = reader.GetDouble(4);
-                        pago.Rebajo = reader.GetDouble(5);
+                        pago.SalarioBruto = Double.Parse(reader.GetDecimal(3).ToString());
+                        pago.SalarioNeto = Double.Parse(reader.GetDecimal(4).ToString());
+                        pago.Rebajo = Double.Parse(reader.GetDecimal(5).ToString());                       
                         pago.HorasLaboradas = reader.GetInt32(6);
                         pago.HorasExtra = reader.GetInt32(7);
                         pago.TransferenciaPago = reader.GetString(8);

@@ -157,7 +157,7 @@ namespace DataAccess
             Departamento_TO departamento;
             try
             {
-                SqlCommand query = new SqlCommand("SELECT * FROM DEPARTAMENTO WHERE estado_departamento = 1", conex);
+                SqlCommand query = new SqlCommand("SELECT * FROM DEPARTAMENTO", conex);
 
                 if (conex.State != ConnectionState.Open)
                 {

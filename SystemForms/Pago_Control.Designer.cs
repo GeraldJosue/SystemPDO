@@ -46,14 +46,13 @@
             this.cb_activos = new System.Windows.Forms.CheckBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dt_inicio = new System.Windows.Forms.DateTimePicker();
-            this.pn_master = new System.Windows.Forms.Panel();
             this.pn_opciones = new System.Windows.Forms.Panel();
             this.bt_cancelar = new System.Windows.Forms.Button();
             this.bt_guardar = new System.Windows.Forms.Button();
+            this.pn_master = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pn_filtros.SuspendLayout();
-            this.pn_master.SuspendLayout();
             this.pn_opciones.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -284,24 +283,15 @@
             this.dt_inicio.TabIndex = 1;
             this.dt_inicio.ValueChanged += new System.EventHandler(this.dt_inicio_ValueChanged);
             // 
-            // pn_master
-            // 
-            this.pn_master.Controls.Add(this.pn_opciones);
-            this.pn_master.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_master.Location = new System.Drawing.Point(0, 146);
-            this.pn_master.Name = "pn_master";
-            this.pn_master.Size = new System.Drawing.Size(1164, 516);
-            this.pn_master.TabIndex = 12;
-            // 
             // pn_opciones
             // 
             this.pn_opciones.Controls.Add(this.bt_cancelar);
             this.pn_opciones.Controls.Add(this.bt_guardar);
             this.pn_opciones.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pn_opciones.Location = new System.Drawing.Point(0, 461);
+            this.pn_opciones.Location = new System.Drawing.Point(0, 607);
             this.pn_opciones.Name = "pn_opciones";
             this.pn_opciones.Size = new System.Drawing.Size(1164, 55);
-            this.pn_opciones.TabIndex = 6;
+            this.pn_opciones.TabIndex = 12;
             // 
             // bt_cancelar
             // 
@@ -320,7 +310,7 @@
             this.bt_cancelar.Text = "Cancelar";
             this.bt_cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_cancelar.UseVisualStyleBackColor = false;
-            this.bt_cancelar.Click += new System.EventHandler(this.bt_cancelar_Click);
+            this.bt_cancelar.Click += new System.EventHandler(this.bt_cancelar_Click_1);
             // 
             // bt_guardar
             // 
@@ -339,13 +329,22 @@
             this.bt_guardar.Text = "Guardar";
             this.bt_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_guardar.UseVisualStyleBackColor = false;
-            this.bt_guardar.Click += new System.EventHandler(this.bt_guardar_Click);
+            this.bt_guardar.Click += new System.EventHandler(this.bt_guardar_Click_1);
+            // 
+            // pn_master
+            // 
+            this.pn_master.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn_master.Location = new System.Drawing.Point(0, 146);
+            this.pn_master.Name = "pn_master";
+            this.pn_master.Size = new System.Drawing.Size(1164, 461);
+            this.pn_master.TabIndex = 13;
             // 
             // Pago_Control
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pn_master);
+            this.Controls.Add(this.pn_opciones);
             this.Controls.Add(this.pn_filtros);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -356,7 +355,6 @@
             this.panel3.ResumeLayout(false);
             this.pn_filtros.ResumeLayout(false);
             this.pn_filtros.PerformLayout();
-            this.pn_master.ResumeLayout(false);
             this.pn_opciones.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -381,9 +379,9 @@
         private System.Windows.Forms.CheckBox cb_activos;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DateTimePicker dt_inicio;
-        private System.Windows.Forms.Panel pn_master;
         private System.Windows.Forms.Panel pn_opciones;
         private System.Windows.Forms.Button bt_cancelar;
         private System.Windows.Forms.Button bt_guardar;
+        private System.Windows.Forms.Panel pn_master;
     }
 }

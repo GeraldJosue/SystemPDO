@@ -31,7 +31,6 @@ namespace SystemForms
         {
             tb_nombre.Text = departamento.Nombre;            
             rb_activo.Checked = departamento.Estado;
-            rb_inactivo.Checked = departamento.Estado;
         }
 
         public Boolean agregar_sys()
@@ -39,7 +38,7 @@ namespace SystemForms
            Departamento departamento = obtener_datos();
             if (departamento.agregar())
             {
-                MessageBox.Show("Colaborador agregado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Departamento agregado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
             }
             else

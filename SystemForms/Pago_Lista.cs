@@ -41,7 +41,7 @@ namespace SystemForms
             tableInactivos.Columns.Add("Id Colaborador");
             tableInactivos.Columns.Add("Fecha Pago");
             tableInactivos.Columns.Add("Salario Bruto");
-            tableActivos.Columns.Add("Salario Neto");
+            tableInactivos.Columns.Add("Salario Neto");
             tableInactivos.Columns.Add("Rebajo");
             tableInactivos.Columns.Add("Horas Laboradas");
             tableInactivos.Columns.Add("Horas Extra");

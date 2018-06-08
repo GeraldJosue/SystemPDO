@@ -26,7 +26,7 @@ namespace SystemForms
             tableActivos = new DataTable();
             tableActivos.Columns.Add("Id");
             tableActivos.Columns.Add("Id Colaborador");
-            tableActivos.Columns.Add("Fecha Aguinaldo");
+            tableActivos.Columns.Add("Fecha");
             tableActivos.Columns.Add("Salario Aguinaldo");
             tableActivos.Columns.Add("Transferencia");
             tableActivos.Columns.Add("Estado");
@@ -34,7 +34,7 @@ namespace SystemForms
             tableInactivos = new DataTable();
             tableInactivos.Columns.Add("Id");
             tableInactivos.Columns.Add("Id Colaborador");
-            tableInactivos.Columns.Add("Fecha Aguinaldo");
+            tableInactivos.Columns.Add("Fecha");
             tableInactivos.Columns.Add("Salario Aguinaldo");
             tableInactivos.Columns.Add("Transferencia");
             tableInactivos.Columns.Add("Estado");
@@ -153,14 +153,14 @@ namespace SystemForms
         public void filtro_datos(String busqueda)
         {
             texto = busqueda;
-            filtro = "(Transferencia Like '%" + texto + "%') AND (Fecha Aguinaldo >= #" + fecha + "#)";
+            filtro = "(Transferencia Like '%" + texto + "%') AND (Fecha >= #" + fecha + "#)";
             ((DataTable)dgv_Aguinaldo.DataSource).DefaultView.RowFilter = filtro;
         }
 
         public void filtro_fecha(DateTime date)
         {
             fecha = date.Month + "/" + date.Day + "/" + date.Year;
-            filtro = "(Transferencia Like '%" + texto + "%') AND (Fecha Aguinaldo >= #" + fecha + "#)";
+            filtro = "(Transferencia Like '%" + texto + "%') AND (Fecha >= #" + fecha + "#)";
             ((DataTable)dgv_Aguinaldo.DataSource).DefaultView.RowFilter = filtro;
         }
 

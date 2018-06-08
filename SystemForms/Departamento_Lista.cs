@@ -27,11 +27,11 @@ namespace SystemForms
             tableInactivos = new DataTable();
 
             tableActivos.Columns.Add("Id");
-            tableActivos.Columns.Add("Nombre Departamento");           
+            tableActivos.Columns.Add("Nombre");           
             tableActivos.Columns.Add("Estado");
 
             tableInactivos.Columns.Add("Id");
-            tableInactivos.Columns.Add("Nombre Departamento");
+            tableInactivos.Columns.Add("Nombre");
             tableInactivos.Columns.Add("Estado");
 
             obtener_lista_sys();                      
@@ -56,11 +56,11 @@ namespace SystemForms
             {
                 if (x.Estado)
                 {
-                    tableActivos.Rows.Add(x.Id, x.Nombre, x.Estado);
+                    tableActivos.Rows.Add(x.Id, x.Nombre, "Activo");
                 }
                 else
                 {
-                    tableInactivos.Rows.Add(x.Id, x.Nombre, x.Estado);
+                    tableInactivos.Rows.Add(x.Id, x.Nombre, "Inactivo");
                 }
             }
         }
@@ -68,7 +68,7 @@ namespace SystemForms
         public Boolean eliminar_sys()
         {
             Int32 id = Int32.Parse(dg_Departamentos.CurrentRow.Cells["Id"].Value.ToString());
-            String nombre = dg_Departamentos.CurrentRow.Cells["Nombre Departamento"].Value.ToString();
+            String nombre = dg_Departamentos.CurrentRow.Cells["Nombre"].Value.ToString();
 
             DialogResult dialogResult = MessageBox.Show("¿Desea establecer como inactivo el departamento " + nombre + " ?", "Inactivo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -145,6 +145,8 @@ namespace SystemForms
             texto = busqueda;
             filtro = "(Nombre Like '%" + texto + "%')";
             ((DataTable)dg_Departamentos.DataSource).DefaultView.RowFilter = filtro;
+
+            
         }
 
     }

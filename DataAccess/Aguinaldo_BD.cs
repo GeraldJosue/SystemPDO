@@ -145,6 +145,7 @@ namespace DataAccess
                 }
 
                 query.ExecuteNonQuery();
+                
                 return true;
             }
             catch (Exception ex)
@@ -183,7 +184,7 @@ namespace DataAccess
                         aguinaldo.Id = reader.GetInt32(0);
                         aguinaldo.IdColaborador = reader.GetInt32(1);
                         aguinaldo.FechaAguinaldo = reader.GetDateTime(2);
-                        aguinaldo.Salario = reader.GetDouble(3);
+                        aguinaldo.Salario = Double.Parse(reader.GetDecimal(3).ToString());
                         aguinaldo.TransferenciaAguinaldo = reader.GetString(4);
                         aguinaldo.EstadoAguinaldo = reader.GetBoolean(5);
                         lista.Add(aguinaldo);

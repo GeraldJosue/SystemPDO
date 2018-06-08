@@ -71,38 +71,38 @@ namespace SystemForms
             listaPagos.bajar_fila();
         }
 
-        private void bt_guardar_Click(object sender, EventArgs e)
-        {
-            if (!editar)
-            {
-                if (nuevoPago.agregar_sys())
-                {
-                    listaPagos.obtener_lista_sys();
-                    pn_master.Controls.Clear();
-                    pn_master.Controls.Add(listaPagos);
-                    pn_filtros.Enabled = true;
+        //private void bt_guardar_Click(object sender, EventArgs e)
+        //{
+        //    if (!editar)
+        //    {
+        //        if (nuevoPago.agregar_sys())
+        //        {
+        //            listaPagos.obtener_lista_sys();
+        //            pn_master.Controls.Clear();
+        //            pn_master.Controls.Add(listaPagos);
+        //            pn_filtros.Enabled = true;
 
-                }
-            }
-            else
-            {
-                if (nuevoPago.editar_sys())
-                {
-                    listaPagos.obtener_lista_sys();
-                    pn_master.Controls.Clear();
-                    pn_master.Controls.Add(listaPagos);
-                    pn_filtros.Enabled = true;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        if (nuevoPago.editar_sys())
+        //        {
+        //            listaPagos.obtener_lista_sys();
+        //            pn_master.Controls.Clear();
+        //            pn_master.Controls.Add(listaPagos);
+        //            pn_filtros.Enabled = true;
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
 
-        private void bt_cancelar_Click(object sender, EventArgs e)
-        {
-            pn_master.Controls.Clear();
-            pn_master.Controls.Add(listaPagos);
-            pn_filtros.Enabled = true;
-        }
+        //private void bt_cancelar_Click(object sender, EventArgs e)
+        //{
+        //    pn_master.Controls.Clear();
+        //    pn_master.Controls.Add(listaPagos);
+        //    pn_filtros.Enabled = true;
+        //}
 
         private void tb_buscar_TextChanged(object sender, EventArgs e)
         {
@@ -129,6 +129,39 @@ namespace SystemForms
             {
                 listaPagos.set_datasource(true);
             }
+        }
+
+        private void bt_guardar_Click_1(object sender, EventArgs e)
+        {
+            if (!editar)
+            {
+                if (nuevoPago.agregar_sys())
+                {
+                    listaPagos.obtener_lista_sys();
+                    pn_master.Controls.Clear();
+                    pn_master.Controls.Add(listaPagos);
+                    pn_filtros.Enabled = true;
+
+                }
+            }
+            else
+            {
+                if (nuevoPago.editar_sys())
+                {
+                    listaPagos.obtener_lista_sys();
+                    pn_master.Controls.Clear();
+                    pn_master.Controls.Add(listaPagos);
+                    pn_filtros.Enabled = true;
+
+                }
+            }
+        }
+
+        private void bt_cancelar_Click_1(object sender, EventArgs e)
+        {
+            pn_master.Controls.Clear();
+            pn_master.Controls.Add(listaPagos);
+            pn_filtros.Enabled = true;
         }
     }
 }
