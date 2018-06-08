@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.tb_cedula = new System.Windows.Forms.TextBox();
             this.cb_nacionalidad = new System.Windows.Forms.ComboBox();
             this.tb_direccion = new System.Windows.Forms.RichTextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -49,6 +47,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cb_civil = new System.Windows.Forms.ComboBox();
+            this.tb_cedula = new System.Windows.Forms.TextBox();
             this.tb_seg_apellido = new System.Windows.Forms.TextBox();
             this.tb_telefono = new System.Windows.Forms.TextBox();
             this.tb_apellido = new System.Windows.Forms.TextBox();
@@ -82,7 +81,6 @@
             this.tp_2 = new System.Windows.Forms.TabPage();
             this.tp_3 = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tb_colaborador.SuspendLayout();
@@ -94,7 +92,6 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.cb_nacionalidad);
             this.panel1.Controls.Add(this.tb_direccion);
             this.panel1.Controls.Add(this.label20);
@@ -113,6 +110,7 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.cb_civil);
+            this.panel1.Controls.Add(this.tb_cedula);
             this.panel1.Controls.Add(this.tb_seg_apellido);
             this.panel1.Controls.Add(this.tb_telefono);
             this.panel1.Controls.Add(this.tb_apellido);
@@ -121,25 +119,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1100, 379);
             this.panel1.TabIndex = 0;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.tb_cedula);
-            this.panel4.Location = new System.Drawing.Point(203, 180);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(280, 33);
-            this.panel4.TabIndex = 25;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            // 
-            // tb_cedula
-            // 
-            this.tb_cedula.BackColor = System.Drawing.Color.White;
-            this.tb_cedula.Location = new System.Drawing.Point(3, 3);
-            this.tb_cedula.Name = "tb_cedula";
-            this.tb_cedula.Size = new System.Drawing.Size(275, 26);
-            this.tb_cedula.TabIndex = 3;
-            this.tb_cedula.TextChanged += new System.EventHandler(this.tb_cedula_TextChanged);
-            this.tb_cedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_cedula_KeyPress);
             // 
             // cb_nacionalidad
             // 
@@ -308,6 +287,13 @@
             this.cb_civil.Size = new System.Drawing.Size(275, 28);
             this.cb_civil.TabIndex = 8;
             // 
+            // tb_cedula
+            // 
+            this.tb_cedula.Location = new System.Drawing.Point(204, 180);
+            this.tb_cedula.Name = "tb_cedula";
+            this.tb_cedula.Size = new System.Drawing.Size(275, 26);
+            this.tb_cedula.TabIndex = 3;
+            // 
             // tb_seg_apellido
             // 
             this.tb_seg_apellido.Location = new System.Drawing.Point(204, 132);
@@ -321,7 +307,6 @@
             this.tb_telefono.Name = "tb_telefono";
             this.tb_telefono.Size = new System.Drawing.Size(275, 26);
             this.tb_telefono.TabIndex = 7;
-            this.tb_telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_telefono_KeyPress);
             // 
             // tb_apellido
             // 
@@ -492,7 +477,6 @@
             this.tb_precio.Name = "tb_precio";
             this.tb_precio.Size = new System.Drawing.Size(275, 26);
             this.tb_precio.TabIndex = 14;
-            this.tb_precio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_precio_KeyPress);
             // 
             // cb_horario
             // 
@@ -603,7 +587,6 @@
             this.tb_ftelefono.Name = "tb_ftelefono";
             this.tb_ftelefono.Size = new System.Drawing.Size(275, 26);
             this.tb_ftelefono.TabIndex = 22;
-            this.tb_ftelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_ftelefono_KeyPress);
             // 
             // tb_colaborador
             // 
@@ -660,8 +643,6 @@
             this.Size = new System.Drawing.Size(1164, 461);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -728,6 +709,5 @@
         private System.Windows.Forms.ComboBox cb_entidad;
         private System.Windows.Forms.Button bt_atras_2;
         private System.Windows.Forms.Button bt_atras_3;
-        private System.Windows.Forms.Panel panel4;
     }
 }

@@ -123,23 +123,29 @@
     <Compile Include="Departamento_Lista.Designer.cs">
       <DependentUpon>Departamento_Lista.cs</DependentUpon>
     </Compile>
+    <Compile Include="Configuracion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuracion.Designer.cs">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Horarios.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Horarios.Designer.cs">
-      <DependentUpon>Horarios.cs</DependentUpon>
-    </Compile>
     <Compile Include="Horarios_Agregar.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Horarios_Agregar.Designer.cs">
       <DependentUpon>Horarios_Agregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Horarios_Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Horarios_Control.Designer.cs">
+      <DependentUpon>Horarios_Control.cs</DependentUpon>
     </Compile>
     <Compile Include="Horarios_Lista.cs">
       <SubType>UserControl</SubType>
@@ -212,9 +218,24 @@
     <Compile Include="Registros_Control.Designer.cs">
       <DependentUpon>Registros_Control.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Colaboradores.resx">
-      <DependentUpon>Colaboradores.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Vacaciones_Agregar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vacaciones_Agregar.Designer.cs">
+      <DependentUpon>Vacaciones_Agregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vacaciones_Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vacaciones_Control.Designer.cs">
+      <DependentUpon>Vacaciones_Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vacaciones_Lista.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vacaciones_Lista.Designer.cs">
+      <DependentUpon>Vacaciones_Lista.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Colaboradores_Agregar.resx">
       <DependentUpon>Colaboradores_Agregar.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,14 +254,17 @@
     <EmbeddedResource Include="Departamento_Lista.resx">
       <DependentUpon>Departamento_Lista.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion.resx">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Horarios.resx">
-      <DependentUpon>Horarios.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Horarios_Agregar.resx">
       <DependentUpon>Horarios_Agregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Horarios_Control.resx">
+      <DependentUpon>Horarios_Control.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Horarios_Lista.resx">
       <DependentUpon>Horarios_Lista.cs</DependentUpon>
@@ -282,6 +306,16 @@
     <EmbeddedResource Include="Registros_Control.resx">
       <DependentUpon>Registros_Control.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vacaciones_Agregar.resx">
+      <DependentUpon>Vacaciones_Agregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vacaciones_Control.resx">
+      <DependentUpon>Vacaciones_Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vacaciones_Lista.resx">
+      <DependentUpon>Vacaciones_Lista.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

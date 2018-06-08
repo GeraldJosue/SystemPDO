@@ -39,8 +39,8 @@
             this.bt_pago = new System.Windows.Forms.Button();
             this.bt_registro = new System.Windows.Forms.Button();
             this.bt_colaboradores = new System.Windows.Forms.Button();
-            this.pn_contenido = new System.Windows.Forms.Panel();
             this.bt_home = new System.Windows.Forms.Button();
+            this.pn_contenido = new System.Windows.Forms.Panel();
             this.pn_menu_izq.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,6 +112,8 @@
             this.bt_horarios.TabIndex = 9;
             this.bt_horarios.Text = "Horarios";
             this.bt_horarios.UseVisualStyleBackColor = false;
+            this.bt_horarios.UseVisualStyleBackColor = true;
+            this.bt_horarios.Click += new System.EventHandler(this.bt_horarios_Click);
             // 
             // bt_departamentos
             // 
@@ -233,14 +235,6 @@
             this.bt_colaboradores.UseVisualStyleBackColor = false;
             this.bt_colaboradores.Click += new System.EventHandler(this.bt_colaboradores_Click);
             // 
-            // pn_contenido
-            // 
-            this.pn_contenido.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_contenido.Location = new System.Drawing.Point(200, 0);
-            this.pn_contenido.Name = "pn_contenido";
-            this.pn_contenido.Size = new System.Drawing.Size(1164, 662);
-            this.pn_contenido.TabIndex = 1;
-            // 
             // bt_home
             // 
             this.bt_home.BackColor = System.Drawing.Color.White;
@@ -257,6 +251,14 @@
             this.bt_home.TabIndex = 1;
             this.bt_home.UseVisualStyleBackColor = false;
             this.bt_home.Click += new System.EventHandler(this.bt_home_Click);
+            // 
+            // pn_contenido
+            // 
+            this.pn_contenido.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn_contenido.Location = new System.Drawing.Point(200, 0);
+            this.pn_contenido.Name = "pn_contenido";
+            this.pn_contenido.Size = new System.Drawing.Size(1164, 662);
+            this.pn_contenido.TabIndex = 1;
             // 
             // Home
             // 
