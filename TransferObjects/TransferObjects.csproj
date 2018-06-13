@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adelanto_TO.cs" />
     <Compile Include="Aguinaldo_TO.cs" />
     <Compile Include="Colaborador_TO.cs" />
     <Compile Include="Departamento_TO.cs" />

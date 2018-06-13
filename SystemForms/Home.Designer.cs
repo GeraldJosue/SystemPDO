@@ -111,7 +111,6 @@
             this.bt_horarios.Size = new System.Drawing.Size(200, 55);
             this.bt_horarios.TabIndex = 9;
             this.bt_horarios.Text = "Horarios";
-            this.bt_horarios.UseVisualStyleBackColor = false;
             this.bt_horarios.UseVisualStyleBackColor = true;
             this.bt_horarios.Click += new System.EventHandler(this.bt_horarios_Click);
             // 
@@ -129,9 +128,8 @@
             this.bt_departamentos.Size = new System.Drawing.Size(200, 55);
             this.bt_departamentos.TabIndex = 8;
             this.bt_departamentos.Text = "Departamentos";
-            this.bt_departamentos.UseVisualStyleBackColor = true;
-            this.bt_departamentos.Click += new System.EventHandler(this.bt_departamentos_Click);
             this.bt_departamentos.UseVisualStyleBackColor = false;
+            this.bt_departamentos.Click += new System.EventHandler(this.bt_departamentos_Click);
             // 
             // bt_adelanto
             // 
@@ -148,6 +146,7 @@
             this.bt_adelanto.TabIndex = 7;
             this.bt_adelanto.Text = "Adelanto";
             this.bt_adelanto.UseVisualStyleBackColor = false;
+            this.bt_adelanto.Click += new System.EventHandler(this.bt_adelanto_Click);
             // 
             // bt_aguinaldo
             // 
@@ -163,9 +162,8 @@
             this.bt_aguinaldo.Size = new System.Drawing.Size(200, 55);
             this.bt_aguinaldo.TabIndex = 6;
             this.bt_aguinaldo.Text = "Aguinaldo";
-            this.bt_aguinaldo.UseVisualStyleBackColor = true;
-            this.bt_aguinaldo.Click += new System.EventHandler(this.bt_aguinaldo_Click);
             this.bt_aguinaldo.UseVisualStyleBackColor = false;
+            this.bt_aguinaldo.Click += new System.EventHandler(this.bt_aguinaldo_Click);
             // 
             // bt_vacaciones
             // 
@@ -197,9 +195,8 @@
             this.bt_pago.Size = new System.Drawing.Size(200, 55);
             this.bt_pago.TabIndex = 4;
             this.bt_pago.Text = "Pago";
-            this.bt_pago.UseVisualStyleBackColor = true;
-            this.bt_pago.Click += new System.EventHandler(this.bt_pago_Click);
             this.bt_pago.UseVisualStyleBackColor = false;
+            this.bt_pago.Click += new System.EventHandler(this.bt_pago_Click);
             // 
             // bt_registro
             // 

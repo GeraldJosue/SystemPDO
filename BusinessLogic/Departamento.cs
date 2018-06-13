@@ -51,6 +51,17 @@ namespace BusinessLogic
             return lista;
         }
 
+        public List<Departamento> obtener_lista_activos()
+        {
+            List<Departamento> lista = new List<Departamento>();
+            List<Departamento_TO> lista_TO = new Departamento_BD().obtener_lista_activos();
+            foreach (Departamento_TO x in lista_TO)
+            {
+                lista.Add(to_to_bl(x));
+            }
+            return lista;
+        }
+
         public Boolean eliminar()
         {
             Departamento_TO departamento = new Departamento_TO();

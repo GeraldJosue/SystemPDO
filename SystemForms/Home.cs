@@ -18,6 +18,7 @@ namespace SystemForms
         Departamentos_Control departamento;
         Registros_Control registro;
         Horarios_Control horario;
+        Adelanto_Control adelanto;
         public Home()
         {
             InitializeComponent();
@@ -81,6 +82,14 @@ namespace SystemForms
             horario.Dock = DockStyle.Fill;
             pn_contenido.Controls.Clear();
             pn_contenido.Controls.Add(horario);
+        }
+
+        private void bt_adelanto_Click(object sender, EventArgs e)
+        {
+            adelanto = new Adelanto_Control();
+            adelanto.Dock = DockStyle.Fill;
+            pn_contenido.Controls.Clear();
+            pn_contenido.Controls.Add(adelanto);
         }
     }
 }

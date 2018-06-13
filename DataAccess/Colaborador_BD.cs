@@ -122,7 +122,7 @@ namespace DataAccess
                 }
             }
         }
-
+       
         public Boolean editar(Colaborador_TO colaborador, List<Int32> lista)
         {
             try
