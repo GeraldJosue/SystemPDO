@@ -36,14 +36,14 @@ namespace SystemForms
 
         public void llenar_cb_dia(DateTime date, Int32 dias)
         {
-            
+
             DataTable dt = new DataTable();
             dt.Columns.Add("Id");
             dt.Columns.Add("Nombre");
 
             for (int i = 0; i < dias; i++)
             {
-                dt.Rows.Add(i+1, date.AddDays(i).Day);
+                dt.Rows.Add(i + 1, date.AddDays(i).Day);
             }
 
             cb_dia.ValueMember = "Id";
@@ -61,7 +61,7 @@ namespace SystemForms
 
             for (int i = 0; i < 12; i++)
             {
-                dt.Rows.Add(i+1, date.AddMonths(i).ToString("MMMM", CultureInfo.CreateSpecificCulture("es-ES")));
+                dt.Rows.Add(i + 1, date.AddMonths(i).ToString("MMMM", CultureInfo.CreateSpecificCulture("es-ES")));
             }
 
             cb_mes.ValueMember = "Id";
@@ -91,7 +91,7 @@ namespace SystemForms
             DataTable dt = new DataTable();
             dt.Columns.Add("Id");
             dt.Columns.Add("Nombre");
-            
+
             dt.Rows.Add("Soltero", "Soltero");
             dt.Rows.Add("Casado", "Casado");
             dt.Rows.Add("Divorciado", "Divorciado");
@@ -116,7 +116,7 @@ namespace SystemForms
             dt.Rows.Add("Nicaragüense", "Nicaragüense");
             dt.Rows.Add("Salvadoreño", "Salvadoreño");
             dt.Rows.Add("Panameño", "Panameño");
-            dt.Rows.Add("Otro", "Otro"); 
+            dt.Rows.Add("Otro", "Otro");
 
             cb_nacionalidad.ValueMember = "Id";
             cb_nacionalidad.DisplayMember = "Nombre";
@@ -130,7 +130,7 @@ namespace SystemForms
 
             DataTable dt = new DataTable();
             dt.Columns.Add("Id");
-            dt.Columns.Add("Nombre");         
+            dt.Columns.Add("Nombre");
 
             dt.Rows.Add("BCR", "BCR");
             dt.Rows.Add("BAC", "BAC");
@@ -138,7 +138,7 @@ namespace SystemForms
             dt.Rows.Add("Scotiabank", "Scotiabank");
             dt.Rows.Add("Banco Nacional", "Banco Nacional");
             dt.Rows.Add("Coocique", "Coocique");
-            dt.Rows.Add("Otro","Otro");
+            dt.Rows.Add("Otro", "Otro");
 
             cb_entidad.ValueMember = "Id";
             cb_entidad.DisplayMember = "Nombre";
@@ -150,7 +150,7 @@ namespace SystemForms
             DataTable dt = new DataTable();
             dt.Columns.Add("Id");
             dt.Columns.Add("Nombre");
-              
+
             dt.Rows.Add("Padre", "Padre");
             dt.Rows.Add("Madre", "Madre");
             dt.Rows.Add("Hermano", "Hermano");
@@ -165,7 +165,7 @@ namespace SystemForms
             cb_parentesco.DisplayMember = "Nombre";
             cb_parentesco.DataSource = dt;
         }
-        
+
         public Colaboradores_Agregar(Colaborador colaborador)
         {
             InitializeComponent();
@@ -203,7 +203,7 @@ namespace SystemForms
 
         public Boolean editar_sys()
         {
-            BusinessLogic.Colaborador colaborador = obtener_datos();
+            Colaborador colaborador = obtener_datos();
             colaborador.Id = this.colaborador.Id;
             List<Int32> lista = validar_cambios(colaborador);
             if (lista.Count == 0)
@@ -220,11 +220,11 @@ namespace SystemForms
                 MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            
+
         }
 
         public Colaborador obtener_datos()
-        { 
+        {
             Int32 departamento = cb_departamento.SelectedIndex == -1 ? 1 : cb_departamento.SelectedIndex;
             Int32 horario = cb_horario.SelectedIndex == -1 ? 1 : cb_horario.SelectedIndex;
             String nombre = tb_nombre.Text.Equals("") ? "No disponible" : tb_nombre.Text;
@@ -238,7 +238,7 @@ namespace SystemForms
             if (cb_año.SelectedIndex == -1 || cb_mes.SelectedIndex == -1 || cb_dia.SelectedIndex == -1)
             {
                 fecha = DateTime.Now;
-            } else { 
+            } else {
                 fecha = new DateTime(Int32.Parse(cb_año.SelectedValue.ToString()), Int32.Parse(cb_mes.SelectedValue.ToString()), Int32.Parse(cb_dia.SelectedValue.ToString()));
             }
 
@@ -246,7 +246,7 @@ namespace SystemForms
             String nacionalidad = cb_nacionalidad.SelectedIndex == -1 ? "No disponible" : cb_nacionalidad.SelectedValue.ToString();
             String cuenta = tb_cuenta.Text.Equals("") ? "No disponible" : tb_cuenta.Text;
             String entidad = cb_entidad.SelectedIndex == -1 ? "No disponible" : cb_entidad.SelectedValue.ToString();
-            Int32 precio = tb_precio.Text.Equals("") ? 0 : Int32.Parse(tb_precio.Text);
+            Decimal precio = tb_precio.Text.Equals("") ? 0 : Decimal.Parse(Convert.ToString(tb_precio.Tag));
             Int32 ftelefono = tb_ftelefono.Text.Equals("") ? 0 : Int32.Parse(tb_ftelefono.Text);
             String parentesco = cb_parentesco.SelectedIndex == -1 ? "No disponible" : cb_parentesco.SelectedValue.ToString();
             String fdireccion = tb_fdireccion.Text.Equals("") ? "No disponible" : tb_fdireccion.Text;
@@ -291,7 +291,8 @@ namespace SystemForms
                 cb_entidad.SelectedValue = colaborador.Entidad;
             }
 
-            tb_precio.Text = colaborador.Precio.ToString();
+            tb_precio.Tag = colaborador.Precio.ToString();
+            tb_precio.Text = colaborador.Precio.ToString("C");
             tb_ftelefono.Text = colaborador.FTelefono.ToString();
 
             if (!colaborador.Parentesco.Equals("No disponible"))
@@ -424,6 +425,18 @@ namespace SystemForms
         private void bt_guardar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void tb_precio_Enter(object sender, EventArgs e)
+        {
+            tb_precio.Text = Convert.ToString(tb_precio.Tag);
+        }
+
+        private void tb_precio_Leave(object sender, EventArgs e)
+        {
+            Decimal precio = Decimal.Parse(tb_precio.Text);
+            tb_precio.Tag = precio;
+            tb_precio.Text = precio.ToString("C");
         }
     }
 }

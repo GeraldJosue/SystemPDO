@@ -221,11 +221,23 @@
     <EmbeddedResource Include="Aguinaldo_Lista.resx">
       <DependentUpon>Aguinaldo_Lista.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="Registros_Agregar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Registros_Agregar.Designer.cs">
+      <DependentUpon>Registros_Agregar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registros_Control.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Registros_Control.Designer.cs">
       <DependentUpon>Registros_Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros_Lista.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Registros_Lista.Designer.cs">
+      <DependentUpon>Registros_Lista.cs</DependentUpon>
     </Compile>
     <Compile Include="Vacaciones_Agregar.cs">
       <SubType>UserControl</SubType>
@@ -306,8 +318,14 @@
     <EmbeddedResource Include="PruebaGrid.resx">
       <DependentUpon>PruebaGrid.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registros_Agregar.resx">
+      <DependentUpon>Registros_Agregar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registros_Control.resx">
       <DependentUpon>Registros_Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros_Lista.resx">
+      <DependentUpon>Registros_Lista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vacaciones_Agregar.resx">
       <DependentUpon>Vacaciones_Agregar.cs</DependentUpon>
@@ -318,7 +336,7 @@
     <EmbeddedResource Include="Vacaciones_Lista.resx">
       <DependentUpon>Vacaciones_Lista.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
+    <None Include="Resources\ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -97,7 +97,7 @@ namespace DataAccess
                         colaborador.Cuenta = reader.GetString(11);
                         colaborador.Entidad = reader.GetString(12);
                         colaborador.Nacionalidad = reader.GetString(13);
-                        colaborador.Precio = reader.GetInt32(14);
+                        colaborador.Precio = reader.GetDecimal(14);
                         colaborador.FTelefono = reader.GetInt32(15);
                         colaborador.Parentesco = reader.GetString(16);
                         colaborador.FDireccion = reader.GetString(17);
@@ -122,7 +122,69 @@ namespace DataAccess
                 }
             }
         }
-       
+
+        public List<Colaborador_TO> obtener_lista_activos()
+        {
+            List<Colaborador_TO> lista = new List<Colaborador_TO>();
+            Colaborador_TO colaborador;
+            try
+            {
+                SqlCommand query = new SqlCommand("SELECT * FROM COLABORADOR WHERE estado_colaborador = 1", conex);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+
+                SqlDataReader reader = query.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        //JOIN Departamento y Horario
+                        //Get a todos los atributos
+                        colaborador = new Colaborador_TO();
+                        colaborador.Id = reader.GetInt32(0);
+                        colaborador.Id_departamento = reader.GetInt32(1);
+                        colaborador.Id_horario = reader.GetInt32(2);
+                        colaborador.Nombre = reader.GetString(3);
+                        colaborador.Apellido = reader.GetString(4);
+                        colaborador.Segundo_apellido = reader.GetString(5);
+                        colaborador.Cedula = reader.GetInt32(6);
+                        colaborador.Telefono = reader.GetInt32(7);
+                        colaborador.Direccion = reader.GetString(8);
+                        colaborador.Fecha = reader.GetDateTime(9);
+                        colaborador.Estado_civil = reader.GetString(10);
+                        colaborador.Cuenta = reader.GetString(11);
+                        colaborador.Entidad = reader.GetString(12);
+                        colaborador.Nacionalidad = reader.GetString(13);
+                        colaborador.Precio = reader.GetDecimal(14);
+                        colaborador.FTelefono = reader.GetInt32(15);
+                        colaborador.Parentesco = reader.GetString(16);
+                        colaborador.FDireccion = reader.GetString(17);
+                        colaborador.Estado = reader.GetBoolean(18);
+                        lista.Add(colaborador);
+                    }
+                    return lista;
+                }
+                else
+                {
+                    return lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                return lista;
+            }
+            finally
+            {
+                if (conex.State != System.Data.ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
+
         public Boolean editar(Colaborador_TO colaborador, List<Int32> lista)
         {
             try

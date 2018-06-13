@@ -22,7 +22,7 @@ namespace TransferObjects
         public String Cuenta { get; set; }
         public String Entidad { get; set; }
         public String Nacionalidad { get; set; }
-        public Int32 Precio { get; set; }
+        public Decimal Precio { get; set; }
         public Int32 FTelefono { get; set; }
         public String Parentesco { get; set; }
         public String FDireccion { get; set; }

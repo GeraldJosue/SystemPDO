@@ -59,7 +59,6 @@ namespace SystemForms
                     pn_master.Controls.Clear();
                     pn_master.Controls.Add(lista_colaboradores);
                     pn_filtros.Enabled = true;
-
                 }
             } else
             {
@@ -69,7 +68,10 @@ namespace SystemForms
                     pn_master.Controls.Clear();
                     pn_master.Controls.Add(lista_colaboradores);
                     pn_filtros.Enabled = true;
-
+                    if (cb_activos.Checked)
+                    {
+                        lista_colaboradores.set_datasource(false);
+                    }
                 }
             }
         }
@@ -119,7 +121,8 @@ namespace SystemForms
             if(cb_activos.Checked)
             {
                 lista_colaboradores.set_datasource(false);
-            } else
+            }
+            else
             {
                 lista_colaboradores.set_datasource(true);
             }
