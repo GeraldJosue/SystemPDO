@@ -477,6 +477,8 @@
             this.tb_precio.Name = "tb_precio";
             this.tb_precio.Size = new System.Drawing.Size(275, 26);
             this.tb_precio.TabIndex = 14;
+            this.tb_precio.Enter += new System.EventHandler(this.tb_precio_Enter);
+            this.tb_precio.Leave += new System.EventHandler(this.tb_precio_Leave);
             // 
             // cb_horario
             // 

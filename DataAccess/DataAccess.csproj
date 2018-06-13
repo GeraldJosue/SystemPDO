@@ -59,6 +59,7 @@
     <Compile Include="Horario_BD.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registro_BD.cs" />
     <Compile Include="Usuario_BD.cs" />
     <Compile Include="Vacacion_BD.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
