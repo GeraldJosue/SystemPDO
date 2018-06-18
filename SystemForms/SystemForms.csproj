@@ -63,6 +63,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adelanto_Agregar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Adelanto_Agregar.Designer.cs">
+      <DependentUpon>Adelanto_Agregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Adelanto_Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Adelanto_Control.Designer.cs">
+      <DependentUpon>Adelanto_Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Adelanto_Lista.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Adelanto_Lista.Designer.cs">
+      <DependentUpon>Adelanto_Lista.cs</DependentUpon>
+    </Compile>
     <Compile Include="Aguinaldo_Agregar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -147,6 +165,12 @@
     <Compile Include="Horarios_Lista.Designer.cs">
       <DependentUpon>Horarios_Lista.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inicio.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -158,6 +182,13 @@
     </Compile>
     <Compile Include="Pago_Agregar.Designer.cs">
       <DependentUpon>Pago_Agregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pago_Calculos.cs">
+    <Compile Include="Pago_Agregar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pago_Calculos.Designer.cs">
+      <DependentUpon>Pago_Calculos.cs</DependentUpon>
     </Compile>
     <Compile Include="Pago_Control.cs">
       <SubType>UserControl</SubType>
@@ -171,6 +202,18 @@
     <Compile Include="Pago_Lista.Designer.cs">
       <DependentUpon>Pago_Lista.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pago_Review.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pago_Review.Designer.cs">
+      <DependentUpon>Pago_Review.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pago_Review_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pago_Review_Form.Designer.cs">
+      <DependentUpon>Pago_Review_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantalla_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +221,12 @@
       <DependentUpon>Pantalla_Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Progress_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Progress_Form.Designer.cs">
+      <DependentUpon>Progress_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PruebaGrid.cs">
       <SubType>Form</SubType>
@@ -185,6 +234,15 @@
     <Compile Include="PruebaGrid.Designer.cs">
       <DependentUpon>PruebaGrid.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Adelanto_Agregar.resx">
+      <DependentUpon>Adelanto_Agregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Adelanto_Control.resx">
+      <DependentUpon>Adelanto_Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Adelanto_Lista.resx">
+      <DependentUpon>Adelanto_Lista.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Aguinaldo_Agregar.resx">
       <DependentUpon>Aguinaldo_Agregar.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,11 +252,23 @@
     <EmbeddedResource Include="Aguinaldo_Lista.resx">
       <DependentUpon>Aguinaldo_Lista.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="Registros_Agregar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Registros_Agregar.Designer.cs">
+      <DependentUpon>Registros_Agregar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registros_Control.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Registros_Control.Designer.cs">
       <DependentUpon>Registros_Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros_Lista.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Registros_Lista.Designer.cs">
+      <DependentUpon>Registros_Lista.cs</DependentUpon>
     </Compile>
     <Compile Include="Vacaciones_Agregar.cs">
       <SubType>UserControl</SubType>
@@ -251,11 +321,17 @@
     <EmbeddedResource Include="Horarios_Lista.resx">
       <DependentUpon>Horarios_Lista.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pago_Agregar.resx">
       <DependentUpon>Pago_Agregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pago_Calculos.resx">
+      <DependentUpon>Pago_Calculos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pago_Control.resx">
       <DependentUpon>Pago_Control.cs</DependentUpon>
@@ -263,8 +339,17 @@
     <EmbeddedResource Include="Pago_Lista.resx">
       <DependentUpon>Pago_Lista.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pago_Review.resx">
+      <DependentUpon>Pago_Review.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pago_Review_Form.resx">
+      <DependentUpon>Pago_Review_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantalla_Principal.resx">
       <DependentUpon>Pantalla_Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Progress_Form.resx">
+      <DependentUpon>Progress_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -279,8 +364,14 @@
     <EmbeddedResource Include="PruebaGrid.resx">
       <DependentUpon>PruebaGrid.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registros_Agregar.resx">
+      <DependentUpon>Registros_Agregar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registros_Control.resx">
       <DependentUpon>Registros_Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros_Lista.resx">
+      <DependentUpon>Registros_Lista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vacaciones_Agregar.resx">
       <DependentUpon>Vacaciones_Agregar.cs</DependentUpon>
@@ -291,7 +382,7 @@
     <EmbeddedResource Include="Vacaciones_Lista.resx">
       <DependentUpon>Vacaciones_Lista.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
+    <None Include="Resources\ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

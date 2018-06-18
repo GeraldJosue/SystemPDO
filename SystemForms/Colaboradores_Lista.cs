@@ -36,6 +36,9 @@ namespace SystemForms
             table_activos.Columns.Add("Apellido");
             table_inactivos.Columns.Add("Apellido");
 
+            table_activos.Columns.Add("Cedula");
+            table_inactivos.Columns.Add("Cedula");
+
             table_activos.Columns.Add("Fecha");
             table_inactivos.Columns.Add("Fecha");
 
@@ -57,15 +60,14 @@ namespace SystemForms
             table_activos.Columns.Add("Telefono Familiar");
             table_inactivos.Columns.Add("Telefono Familiar");
 
-            table_activos.Columns.Add("Parentesco Familiar");
-            table_inactivos.Columns.Add("Parentesco Familiar");
-
             obtener_lista_sys();
 
             
             fecha_inicio = 1 + "/" + 1 + "/" + 1900;
             fecha_fin = DateTime.Now.Month + "/" + DateTime.Now.Day + "/" + DateTime.Now.Year;
             texto = "";
+
+            
         }
 
         public void obtener_lista_sys()
@@ -157,11 +159,11 @@ namespace SystemForms
             {
                 if (x.Estado)
                 {
-                    table_activos.Rows.Add(x.Id, x.Nombre, x.Apellido, x.Fecha.Date.ToShortDateString(), x.Telefono, x.Direccion, x.Nacionalidad, x.Cuenta, x.Entidad, x.FTelefono, x.Parentesco);
+                    table_activos.Rows.Add(x.Id, x.Nombre, x.Apellido, x.Cedula, x.Fecha.Date.ToShortDateString(), x.Telefono, x.Direccion, x.Nacionalidad, x.Cuenta, x.Entidad, x.FTelefono);
                 }
                 else
                 {
-                    table_inactivos.Rows.Add(x.Id, x.Nombre, x.Apellido, x.Fecha.Date.ToShortDateString(), x.Telefono, x.Direccion, x.Nacionalidad, x.Cuenta, x.Entidad, x.FTelefono, x.Parentesco);
+                    table_inactivos.Rows.Add(x.Id, x.Nombre, x.Apellido, x.Cedula, x.Fecha.Date.ToShortDateString(), x.Telefono, x.Direccion, x.Nacionalidad, x.Cuenta, x.Entidad, x.FTelefono);
                 }
             }
         }
@@ -184,6 +186,18 @@ namespace SystemForms
                 dg_colaboradores.Rows[i - 1].Selected = true;
                 dg_colaboradores.CurrentCell = dg_colaboradores.Rows[i - 1].Cells[0];
             }
+        }
+
+        public Boolean buscar_cedula(string cedula)
+        {
+            foreach (DataRow r in table_activos.Rows)
+            {
+                if(r["Cedula"].ToString().Equals(cedula))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

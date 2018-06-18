@@ -195,6 +195,51 @@ namespace DataAccess
             }
         }
 
+        public List<Departamento_TO> obtener_lista_activos()
+        {
+            List<Departamento_TO> lista = new List<Departamento_TO>();
+            Departamento_TO departamento;
+            try
+            {
+                SqlCommand query = new SqlCommand("SELECT * FROM DEPARTAMENTO WHERE estado_departamento = 1", conex);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+
+                SqlDataReader reader = query.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        departamento = new Departamento_TO();
+                        departamento.Id = reader.GetInt32(0);
+                        departamento.Nombre = reader.GetString(1);
+                        departamento.Estado = reader.GetBoolean(2);
+                        lista.Add(departamento);
+                    }
+                    return lista;
+                }
+                else
+                {
+                    return lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                return lista;
+            }
+            finally
+            {
+                if (conex.State != System.Data.ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
+
+
 
         public String string_query(List<Int32> lista)
         {

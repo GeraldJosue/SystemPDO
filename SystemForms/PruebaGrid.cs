@@ -19,6 +19,7 @@ namespace SystemForms
         public PruebaGrid()
         {
             InitializeComponent();
+            progressBar1.ForeColor = Color.Yellow;
             t = new DataTable();
 
             t.Columns.Add("Activo");
@@ -37,7 +38,7 @@ namespace SystemForms
             DateTime b = new DateTime(2018, 04, 20).Date;
             DateTime c = new DateTime(2018, 07, 20).Date;
             DateTime d = new DateTime(2018, 08, 20).Date;
-            t.Rows.Add(1, "Gerald","González",a);
+            t.Rows.Add(1, "Gerald","Gonzhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhález",a);
             t2.Rows.Add(0, "Christian","Ramirez", b);
             t.Rows.Add(1, "David","Alpizar", c);
             t.Rows.Add(1, "Da1","Alp", b);
@@ -101,9 +102,12 @@ namespace SystemForms
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            DataView dv = ((DataTable)dataGridView1.DataSource).DefaultView;
+            //DataView dv = ((DataTable)dataGridView1.DataSource).DefaultView;
 
-            dv.RowFilter = "Nombre Like '%" + textBox1.Text + "%' OR Apellido Like '%"+textBox1.Text+"%'";
+            //dv.RowFilter = "Nombre Like '%" + textBox1.Text + "%' OR Apellido Like '%"+textBox1.Text+"%'";
+
+            Double numero = Double.Parse(textBox1.Text, CultureInfo.CreateSpecificCulture("es-CR"));
+            textBox1.Tag = numero;
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -177,6 +181,19 @@ namespace SystemForms
         private void cb_prueba_SelectedIndexChanged(object sender, EventArgs e)
         {
             string id = cb_prueba.SelectedValue.ToString();
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            Double numero = Double.Parse(textBox1.Text, CultureInfo.CreateSpecificCulture("es-CR"));
+            textBox1.Tag = numero;
+            textBox1.Text = numero.ToString("C");
+            Double nn = Double.Parse(textBox1.Tag.ToString());
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            textBox1.Text = Convert.ToString(textBox1.Tag);
         }
     }
 }

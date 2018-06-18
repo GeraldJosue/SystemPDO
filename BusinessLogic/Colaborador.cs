@@ -24,7 +24,7 @@ namespace BusinessLogic
         public String Cuenta { get; set; }
         public String Entidad { get; set; }
         public String Nacionalidad { get; set; }
-        public Int32 Precio { get; set; }
+        public Decimal Precio { get; set; }
         public Int32 FTelefono { get; set; }
         public String Parentesco { get; set; }
         public String FDireccion { get; set; }
@@ -32,7 +32,7 @@ namespace BusinessLogic
 
 
         public Colaborador(Int32 id, Int32 departamento, Int32 horario, String nombre, String apellido, String segundo, Int32 cedula, Int32 telefono
-            , String direccion, DateTime fecha, String civil, String cuenta, String entidad, String nacionalidad, Int32 precio, Int32 ftelefono
+            , String direccion, DateTime fecha, String civil, String cuenta, String entidad, String nacionalidad, Decimal precio, Int32 ftelefono
             , String parentesco, String fdireccion, Boolean estado)
         {
             this.Id = id;
@@ -75,6 +75,17 @@ namespace BusinessLogic
             List<Colaborador> lista = new List<Colaborador>();
             List<Colaborador_TO> lista_TO = new Colaborador_BD().obtener_lista();
             foreach(Colaborador_TO x in lista_TO)
+            {
+                lista.Add(to_to_bl(x));
+            }
+            return lista;
+        }
+
+        public List<Colaborador> obtener_lista_activos()
+        {
+            List<Colaborador> lista = new List<Colaborador>();
+            List<Colaborador_TO> lista_TO = new Colaborador_BD().obtener_lista_activos();
+            foreach (Colaborador_TO x in lista_TO)
             {
                 lista.Add(to_to_bl(x));
             }

@@ -27,7 +27,7 @@ namespace SystemForms
 
         private void bt_agregar_Click(object sender, EventArgs e)
         {
-            nuevo_colaborador = new Colaboradores_Agregar();
+            nuevo_colaborador = new Colaboradores_Agregar(this);
             nuevo_colaborador.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(nuevo_colaborador);
@@ -59,7 +59,6 @@ namespace SystemForms
                     pn_master.Controls.Clear();
                     pn_master.Controls.Add(lista_colaboradores);
                     pn_filtros.Enabled = true;
-
                 }
             } else
             {
@@ -69,7 +68,10 @@ namespace SystemForms
                     pn_master.Controls.Clear();
                     pn_master.Controls.Add(lista_colaboradores);
                     pn_filtros.Enabled = true;
-
+                    if (cb_activos.Checked)
+                    {
+                        lista_colaboradores.set_datasource(false);
+                    }
                 }
             }
         }
@@ -93,7 +95,7 @@ namespace SystemForms
 
         private void bt_editar_Click(object sender, EventArgs e)
         {
-            nuevo_colaborador = new Colaboradores_Agregar(lista_colaboradores.obtener());
+            nuevo_colaborador = new Colaboradores_Agregar(lista_colaboradores.obtener(), this);
             nuevo_colaborador.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(nuevo_colaborador);
@@ -119,7 +121,8 @@ namespace SystemForms
             if(cb_activos.Checked)
             {
                 lista_colaboradores.set_datasource(false);
-            } else
+            }
+            else
             {
                 lista_colaboradores.set_datasource(true);
             }
@@ -138,6 +141,11 @@ namespace SystemForms
         private void dt_fin_ValueChanged(object sender, EventArgs e)
         {
             lista_colaboradores.filtro_fecha_fin(dt_fin.Value.Date);
+        }
+
+        public Boolean buscar_cedula(String cedula)
+        {
+            return lista_colaboradores.buscar_cedula(cedula);
         }
     }
 }

@@ -61,7 +61,7 @@
             this.pn_menu_izq.Dock = System.Windows.Forms.DockStyle.Left;
             this.pn_menu_izq.Location = new System.Drawing.Point(0, 0);
             this.pn_menu_izq.Name = "pn_menu_izq";
-            this.pn_menu_izq.Size = new System.Drawing.Size(200, 662);
+            this.pn_menu_izq.Size = new System.Drawing.Size(172, 662);
             this.pn_menu_izq.TabIndex = 0;
             // 
             // bt_salir
@@ -75,7 +75,7 @@
             this.bt_salir.ForeColor = System.Drawing.Color.White;
             this.bt_salir.Location = new System.Drawing.Point(0, 550);
             this.bt_salir.Name = "bt_salir";
-            this.bt_salir.Size = new System.Drawing.Size(200, 55);
+            this.bt_salir.Size = new System.Drawing.Size(172, 55);
             this.bt_salir.TabIndex = 11;
             this.bt_salir.Text = "Salir";
             this.bt_salir.UseVisualStyleBackColor = false;
@@ -92,7 +92,7 @@
             this.bt_config.ForeColor = System.Drawing.Color.White;
             this.bt_config.Location = new System.Drawing.Point(0, 495);
             this.bt_config.Name = "bt_config";
-            this.bt_config.Size = new System.Drawing.Size(200, 55);
+            this.bt_config.Size = new System.Drawing.Size(172, 55);
             this.bt_config.TabIndex = 10;
             this.bt_config.Text = "Configuración";
             this.bt_config.UseVisualStyleBackColor = false;
@@ -109,7 +109,7 @@
             this.bt_horarios.ForeColor = System.Drawing.Color.White;
             this.bt_horarios.Location = new System.Drawing.Point(0, 440);
             this.bt_horarios.Name = "bt_horarios";
-            this.bt_horarios.Size = new System.Drawing.Size(200, 55);
+            this.bt_horarios.Size = new System.Drawing.Size(172, 55);
             this.bt_horarios.TabIndex = 9;
             this.bt_horarios.Text = "Horarios";
             this.bt_horarios.UseVisualStyleBackColor = true;
@@ -126,7 +126,7 @@
             this.bt_departamentos.ForeColor = System.Drawing.Color.White;
             this.bt_departamentos.Location = new System.Drawing.Point(0, 385);
             this.bt_departamentos.Name = "bt_departamentos";
-            this.bt_departamentos.Size = new System.Drawing.Size(200, 55);
+            this.bt_departamentos.Size = new System.Drawing.Size(172, 55);
             this.bt_departamentos.TabIndex = 8;
             this.bt_departamentos.Text = "Departamentos";
             this.bt_departamentos.UseVisualStyleBackColor = false;
@@ -143,10 +143,11 @@
             this.bt_adelanto.ForeColor = System.Drawing.Color.White;
             this.bt_adelanto.Location = new System.Drawing.Point(0, 330);
             this.bt_adelanto.Name = "bt_adelanto";
-            this.bt_adelanto.Size = new System.Drawing.Size(200, 55);
+            this.bt_adelanto.Size = new System.Drawing.Size(172, 55);
             this.bt_adelanto.TabIndex = 7;
             this.bt_adelanto.Text = "Adelanto";
             this.bt_adelanto.UseVisualStyleBackColor = false;
+            this.bt_adelanto.Click += new System.EventHandler(this.bt_adelanto_Click);
             // 
             // bt_aguinaldo
             // 
@@ -159,7 +160,7 @@
             this.bt_aguinaldo.ForeColor = System.Drawing.Color.White;
             this.bt_aguinaldo.Location = new System.Drawing.Point(0, 275);
             this.bt_aguinaldo.Name = "bt_aguinaldo";
-            this.bt_aguinaldo.Size = new System.Drawing.Size(200, 55);
+            this.bt_aguinaldo.Size = new System.Drawing.Size(172, 55);
             this.bt_aguinaldo.TabIndex = 6;
             this.bt_aguinaldo.Text = "Aguinaldo";
             this.bt_aguinaldo.UseVisualStyleBackColor = false;
@@ -176,7 +177,7 @@
             this.bt_vacaciones.ForeColor = System.Drawing.Color.White;
             this.bt_vacaciones.Location = new System.Drawing.Point(0, 220);
             this.bt_vacaciones.Name = "bt_vacaciones";
-            this.bt_vacaciones.Size = new System.Drawing.Size(200, 55);
+            this.bt_vacaciones.Size = new System.Drawing.Size(172, 55);
             this.bt_vacaciones.TabIndex = 5;
             this.bt_vacaciones.Text = "Vacaciones";
             this.bt_vacaciones.UseVisualStyleBackColor = false;
@@ -193,7 +194,7 @@
             this.bt_pago.ForeColor = System.Drawing.Color.White;
             this.bt_pago.Location = new System.Drawing.Point(0, 165);
             this.bt_pago.Name = "bt_pago";
-            this.bt_pago.Size = new System.Drawing.Size(200, 55);
+            this.bt_pago.Size = new System.Drawing.Size(172, 55);
             this.bt_pago.TabIndex = 4;
             this.bt_pago.Text = "Pago";
             this.bt_pago.UseVisualStyleBackColor = false;
@@ -210,7 +211,7 @@
             this.bt_registro.ForeColor = System.Drawing.Color.White;
             this.bt_registro.Location = new System.Drawing.Point(0, 110);
             this.bt_registro.Name = "bt_registro";
-            this.bt_registro.Size = new System.Drawing.Size(200, 55);
+            this.bt_registro.Size = new System.Drawing.Size(172, 55);
             this.bt_registro.TabIndex = 3;
             this.bt_registro.Text = "Registro";
             this.bt_registro.UseVisualStyleBackColor = false;
@@ -227,7 +228,7 @@
             this.bt_colaboradores.ForeColor = System.Drawing.Color.White;
             this.bt_colaboradores.Location = new System.Drawing.Point(0, 55);
             this.bt_colaboradores.Name = "bt_colaboradores";
-            this.bt_colaboradores.Size = new System.Drawing.Size(200, 55);
+            this.bt_colaboradores.Size = new System.Drawing.Size(172, 55);
             this.bt_colaboradores.TabIndex = 2;
             this.bt_colaboradores.Text = "Colaboradores";
             this.bt_colaboradores.UseVisualStyleBackColor = false;
@@ -245,7 +246,7 @@
             this.bt_home.Image = global::SystemForms.Properties.Resources.home;
             this.bt_home.Location = new System.Drawing.Point(0, 0);
             this.bt_home.Name = "bt_home";
-            this.bt_home.Size = new System.Drawing.Size(200, 55);
+            this.bt_home.Size = new System.Drawing.Size(172, 55);
             this.bt_home.TabIndex = 1;
             this.bt_home.UseVisualStyleBackColor = false;
             this.bt_home.Click += new System.EventHandler(this.bt_home_Click);
@@ -253,9 +254,9 @@
             // pn_contenido
             // 
             this.pn_contenido.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_contenido.Location = new System.Drawing.Point(200, 0);
+            this.pn_contenido.Location = new System.Drawing.Point(172, 0);
             this.pn_contenido.Name = "pn_contenido";
-            this.pn_contenido.Size = new System.Drawing.Size(1164, 662);
+            this.pn_contenido.Size = new System.Drawing.Size(1192, 662);
             this.pn_contenido.TabIndex = 1;
             // 
             // Home
