@@ -72,11 +72,11 @@ namespace SystemForms
             Int32 colaborador = cb_colaborador.SelectedIndex == -1 ? 1 : cb_colaborador.SelectedIndex;
             DateTime fechaDesde = dtp_desde.Value.Date;
             DateTime fechaHasta = dtp_hasta.Value.Date;
-            Double salarioBruto = tb_salarioBruto.Text.Equals("") ? 0 : Double.Parse(tb_salarioBruto.Text);
-            Double salarioNeto = tb_salarioNeto.Text.Equals("") ? 0 : Double.Parse(tb_salarioNeto.Text);
-            Double rebajo = tb_rebajo.Text.Equals("") ? 0 : Double.Parse(tb_rebajo.Text);
-            Double horasLaboradas = tb_horas_laboradas.Text.Equals("") ? 0 : Double.Parse(tb_horas_laboradas.Text);
-            Double horasExtra = tb_horas_extra.Text.Equals("") ? 0 : Double.Parse(tb_horas_extra.Text);
+            Decimal salarioBruto = tb_salarioBruto.Text.Equals("") ? 0 : Decimal.Parse(tb_salarioBruto.Text);
+            Decimal salarioNeto = tb_salarioNeto.Text.Equals("") ? 0 : Decimal.Parse(tb_salarioNeto.Text);
+            Decimal rebajo = tb_rebajo.Text.Equals("") ? 0 : Decimal.Parse(tb_rebajo.Text);
+            Decimal horasLaboradas = tb_horas_laboradas.Text.Equals("") ? 0 : Decimal.Parse(tb_horas_laboradas.Text);
+            Decimal horasExtra = tb_horas_extra.Text.Equals("") ? 0 : Decimal.Parse(tb_horas_extra.Text);
             String transferencia = tb_transferencia.Text.Equals("") ? "No disponible" : tb_transferencia.Text;           
             Boolean estado = cb_estado.Checked ? true : false;
 

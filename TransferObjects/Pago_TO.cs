@@ -11,11 +11,11 @@ namespace TransferObjects
         public Int32 Id { get; set; }
         public Int32 IdColaborador { get; set; }
         public DateTime FechaPago { get; set; }
-        public Double SalarioBruto { get; set; }
-        public Double SalarioNeto { get; set; }
-        public Double Rebajo { get; set; }
-        public Double HorasLaboradas { get; set; }
-        public Double HorasExtra { get; set; }
+        public Decimal SalarioBruto { get; set; }
+        public Decimal SalarioNeto { get; set; }
+        public Decimal Rebajo { get; set; }
+        public Decimal HorasLaboradas { get; set; }
+        public Decimal HorasExtra { get; set; }
         public String TransferenciaPago { get; set; }
         public Boolean EstadoPago { get; set; }
 

@@ -99,6 +99,12 @@
     <Compile Include="Aguinaldo_Lista.Designer.cs">
       <DependentUpon>Aguinaldo_Lista.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aguinaldo_Lista_Temporal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Aguinaldo_Lista_Temporal.Designer.cs">
+      <DependentUpon>Aguinaldo_Lista_Temporal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Colaboradores_Agregar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -257,6 +263,9 @@
     <Compile Include="Vacaciones_Lista.Designer.cs">
       <DependentUpon>Vacaciones_Lista.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Aguinaldo_Lista_Temporal.resx">
+      <DependentUpon>Aguinaldo_Lista_Temporal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Colaboradores_Agregar.resx">
       <DependentUpon>Colaboradores_Agregar.cs</DependentUpon>
     </EmbeddedResource>

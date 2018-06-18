@@ -11,7 +11,7 @@ namespace TransferObjects
         public Int32 Id { get; set; }
         public Int32 IdColaborador { get; set; }
         public DateTime FechaAguinaldo { get; set; }
-        public Double Salario { get; set; }
+        public Decimal Salario { get; set; }
         public String TransferenciaAguinaldo { get; set; }
         public Boolean EstadoAguinaldo { get; set; }
     }
