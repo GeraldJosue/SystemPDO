@@ -136,7 +136,7 @@ namespace DataAccess
                         adelanto.Id = reader.GetInt32(0);
                         adelanto.IdColaborador = reader.GetInt32(1);
                         adelanto.Fecha = reader.GetDateTime(2);
-                        adelanto.Monto = Double.Parse(reader.GetDouble(3).ToString());
+                        adelanto.Monto = reader.GetDecimal(3);
                         adelanto.Estado = reader.GetBoolean(4);
                         lista.Add(adelanto);
                     }
@@ -159,7 +159,53 @@ namespace DataAccess
                 }
             }
         }
-        
+
+        public List<Adelanto_TO> obtener_lista_activos()
+        {
+            List<Adelanto_TO> lista = new List<Adelanto_TO>();
+            Adelanto_TO adelanto;
+            try
+            {
+                SqlCommand query = new SqlCommand("SELECT * FROM AGUINALDO where estado_adelanto = 1", conex);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+
+                SqlDataReader reader = query.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        adelanto = new Adelanto_TO();
+                        adelanto.Id = reader.GetInt32(0);
+                        adelanto.IdColaborador = reader.GetInt32(1);
+                        adelanto.Fecha = reader.GetDateTime(2);
+                        adelanto.Monto = reader.GetDecimal(3);
+                        adelanto.Estado = reader.GetBoolean(4);
+                        lista.Add(adelanto);
+                    }
+                    return lista;
+                }
+                else
+                {
+                    return lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                return lista;
+            }
+            finally
+            {
+                if (conex.State != System.Data.ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
+
         public String string_query(List<Int32> lista)
         {
             String mega_query = "UPDATE ADELANTO SET ";

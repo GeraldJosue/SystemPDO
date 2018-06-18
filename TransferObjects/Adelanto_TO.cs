@@ -11,7 +11,7 @@ namespace TransferObjects
         public Int32 Id { get; set; }
         public Int32 IdColaborador { get; set; }
         public DateTime Fecha { get; set; }
-        public Double Monto { get; set; }
+        public Decimal Monto { get; set; }
         public Boolean Estado { get; set; }
     }
 }

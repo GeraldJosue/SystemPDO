@@ -16,14 +16,12 @@ namespace SystemForms
     {
 
         Adelanto adelanto;
-        DateTime date;
         List<Colaborador> lista;
 
         public Adelanto_Agregar(Adelanto adelanto)
         {
             InitializeComponent();
             this.adelanto = adelanto;
-            date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             llenar_cb_colaborador();
 
             setear_datos();
@@ -32,7 +30,6 @@ namespace SystemForms
         public Adelanto_Agregar()
         {
             InitializeComponent();
-            date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             llenar_cb_colaborador();
         }
 
@@ -74,14 +71,13 @@ namespace SystemForms
             DataTable dt = new DataTable();
             dt.Columns.Add("Id");
             dt.Columns.Add("Nombre");
-            lista = new Colaborador().obtener_lista();            
+            lista = new Colaborador().obtener_lista_activos();            
 
            foreach (Colaborador x in lista)
            {
-                if (x.Estado)
-                {
+                
                     dt.Rows.Add(x.Id, x.Nombre);
-                }
+                
             }   
                 
             cb_colaborador.ValueMember = "Id";
@@ -114,9 +110,9 @@ namespace SystemForms
 
 
         public Adelanto obtener_datos()
-        {            
+        {
             Int32 idcolaborador = cb_colaborador.SelectedIndex == -1 ? 1 : cb_colaborador.SelectedIndex;
-            Double monto = tb_monto.Text.Equals("") ? 0 : Double.Parse(tb_monto.Text);
+            Decimal monto = tb_monto.Text.Equals("") ? 0 : Decimal.Parse(tb_monto.Text);
             Boolean estado = rb_solicitado.Checked ? true : false;
             DateTime fecha = dt_fecha.Value.Date;
                     
@@ -150,6 +146,18 @@ namespace SystemForms
         private void cb_colaborador_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void tb_monto_enter(object sender, EventArgs e)
+        {
+            tb_monto.Text = Convert.ToString(tb_monto.Tag);
+        }
+
+        private void tb_monto_leave(object sender, EventArgs e)
+        {
+            Decimal monto = Decimal.Parse(tb_monto.Text);
+            tb_monto.Tag = monto;
+            tb_monto.Text = monto.ToString("C");
         }
     }
 }
