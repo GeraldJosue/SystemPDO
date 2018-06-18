@@ -19,6 +19,7 @@ namespace SystemForms
         public PruebaGrid()
         {
             InitializeComponent();
+            progressBar1.ForeColor = Color.Yellow;
             t = new DataTable();
 
             t.Columns.Add("Activo");

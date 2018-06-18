@@ -27,7 +27,7 @@ namespace DataAccess
                 Pago_TO pago_to = new Pago_TO();
 
                 SqlCommand query = new SqlCommand("SELECT * FROM PAGO WHERE id_colaborador = @idColaborador", conex);
-                query.Parameters.AddWithValue("@idColaborador", pago.IdColaborador);
+                query.Parameters.AddWithValue("@idColaborador", pago.Id_colaborador);
 
                 SqlDataReader reader = query.ExecuteReader();
 
@@ -35,7 +35,7 @@ namespace DataAccess
                 {
                     reader.Read();
                     pago_to.Id = reader.GetInt32(0);
-                    pago_to.IdColaborador = reader.GetInt32(1);
+                    pago_to.Id_colaborador = reader.GetInt32(1);
                     pago_to.FechaPago = reader.GetDateTime(2);
                     pago_to.SalarioBruto = reader.GetDecimal(3);
                     pago_to.SalarioNeto = reader.GetDecimal(4);
@@ -44,6 +44,8 @@ namespace DataAccess
                     pago_to.HorasExtra = reader.GetDecimal(7);
                     pago_to.TransferenciaPago = reader.GetString(8);
                     pago_to.EstadoPago = reader.GetBoolean(9);
+                    pago_to.Bono = reader.GetDecimal(10);
+                    pago_to.Id_adelanto = reader.GetInt32(11);
 
                 }
                 return pago_to;
@@ -100,8 +102,8 @@ namespace DataAccess
 
             try
             {
-                SqlCommand query = new SqlCommand("INSERT INTO PAGO VALUES(@colaborador, @fecha, @salarioBruto, @salarioNeto, @rebajo, @horas, @horasExtra, @transferencia, @estado)", conex);
-                query.Parameters.AddWithValue("@colaborador", pago.IdColaborador);
+                SqlCommand query = new SqlCommand("INSERT INTO PAGO VALUES(@colaborador, @fecha, @salarioBruto, @salarioNeto, @rebajo, @horas, @horasExtra, @transferencia, @estado, @bono, @adelanto)", conex);
+                query.Parameters.AddWithValue("@colaborador", pago.Id_colaborador);
                 query.Parameters.AddWithValue("@fecha", pago.FechaPago);
                 query.Parameters.AddWithValue("@salarioBruto", pago.SalarioBruto);
                 query.Parameters.AddWithValue("@salarioNeto", pago.SalarioNeto);
@@ -110,6 +112,9 @@ namespace DataAccess
                 query.Parameters.AddWithValue("@horasExtra", pago.HorasExtra);
                 query.Parameters.AddWithValue("@transferencia", pago.TransferenciaPago);
                 query.Parameters.AddWithValue("@estado", pago.EstadoPago);
+                query.Parameters.AddWithValue("@bono", pago.Bono);
+                query.Parameters.AddWithValue("@adelanto", pago.Id_adelanto);
+
 
                 if (conex.State != ConnectionState.Open)
                 {
@@ -140,7 +145,7 @@ namespace DataAccess
             {
                 SqlCommand query = new SqlCommand(string_query(lista), conex);
                 query.Parameters.AddWithValue("@id", pago.Id);
-                query.Parameters.AddWithValue("@colaborador", pago.IdColaborador);
+                query.Parameters.AddWithValue("@colaborador", pago.Id_colaborador);
                 query.Parameters.AddWithValue("@fecha", pago.FechaPago);
                 query.Parameters.AddWithValue("@salarioBruto", pago.SalarioBruto);
                 query.Parameters.AddWithValue("@salarioNeto", pago.SalarioNeto);
@@ -149,6 +154,8 @@ namespace DataAccess
                 query.Parameters.AddWithValue("@horasExtra", pago.HorasExtra);
                 query.Parameters.AddWithValue("@transferencia", pago.TransferenciaPago);
                 query.Parameters.AddWithValue("@estado", pago.EstadoPago);
+                query.Parameters.AddWithValue("@bono", pago.Bono);
+                query.Parameters.AddWithValue("@adelanto", pago.Id_adelanto);
 
 
                 if (conex.State != ConnectionState.Open)
@@ -193,15 +200,17 @@ namespace DataAccess
                     {
                         pago = new Pago_TO();
                         pago.Id = reader.GetInt32(0);
-                        pago.IdColaborador = reader.GetInt32(1);
+                        pago.Id_colaborador = reader.GetInt32(1);
                         pago.FechaPago = reader.GetDateTime(2);
                         pago.SalarioBruto = reader.GetDecimal(3);
                         pago.SalarioNeto = reader.GetDecimal(4);
                         pago.Rebajo = reader.GetDecimal(5);
-                        pago.HorasLaboradas = reader.GetInt32(6);
-                        pago.HorasExtra = reader.GetInt32(7);
+                        pago.HorasLaboradas = reader.GetDecimal(6);
+                        pago.HorasExtra = reader.GetDecimal(7);
                         pago.TransferenciaPago = reader.GetString(8);
                         pago.EstadoPago = reader.GetBoolean(9);
+                        pago.Bono = reader.GetDecimal(10);
+                        pago.Id_adelanto = reader.GetInt32(11);
                         lista.Add(pago);
                     }
                     return lista;
@@ -265,6 +274,14 @@ namespace DataAccess
                 else if (x == 8)
                 {
                     mega_query += "estado_pago = @estado,";
+                }
+                else if (x == 9)
+                {
+                    mega_query += "bono_pago = @bono,";
+                }
+                else if (x == 10)
+                {
+                    mega_query += "id_adelanto = @adelanto,";
                 }
             }
             mega_query = mega_query.TrimEnd(',');

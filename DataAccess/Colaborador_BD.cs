@@ -21,7 +21,7 @@ namespace DataAccess
                 SqlCommand query = new SqlCommand("INSERT INTO COLABORADOR VALUES(@Departamento, @Horario, @Nombre, @Apellido, @Segundo, @Cedula, @Telefono, "
                     + "@Direccion, @Fecha, @Civil, @Cuenta, @Entidad, @Nacionalidad, @Precio, @FTelefono, @Parentesco, @FDireccion, @FEstado)", conex);
                 //query.Parameters.AddWithValue("@Departamento", colaborador.Id_departamento);
-                query.Parameters.AddWithValue("@Departamento", 1);
+                query.Parameters.AddWithValue("@Departamento", colaborador.Id_departamento);
                 //query.Parameters.AddWithValue("@Horario", colaborador.Id_horario);
                 query.Parameters.AddWithValue("@Horario", 1);
                 query.Parameters.AddWithValue("@Nombre", colaborador.Nombre);

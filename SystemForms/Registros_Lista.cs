@@ -195,5 +195,16 @@ namespace SystemForms
                 dg_registros.CurrentCell = dg_registros.Rows[i - 1].Cells[0];
             }
         }
+        public Boolean buscar_registro(DateTime fecha, Int32 id)
+        {
+            foreach (DataRow r in table_validos.Rows)
+            {
+                if (Convert.ToDateTime(r["Fecha"]) == fecha.Date && Int32.Parse(r["Colaborador"].ToString()) == id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

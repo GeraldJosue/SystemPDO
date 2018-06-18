@@ -13,26 +13,30 @@ namespace SystemForms
 {
     public partial class Registros_Agregar : UserControl
     {
+        Registros_Control parent;
         List<Departamento> departamentos;
         List<Colaborador> colaboradores;
         List<Horario> horarios;
         Registro registro;
 
-        public Registros_Agregar()
+        public Registros_Agregar(Registros_Control parent)
         {
             InitializeComponent();
-
-            //departamentos = 
+            this.parent = parent;
+            departamentos = new Departamento().obtener_lista_activos();
             colaboradores = new Colaborador().obtener_lista_activos();
             llenar_cb_colaboradores();
+            llenar_cb_departamentos();
             //horarios =
 
             calcular_horas();
         }
 
-        public Registros_Agregar(Registro registro)
+        public Registros_Agregar(Registro registro, Registros_Control parent)
         {
             InitializeComponent();
+            this.parent = parent;
+
             colaboradores = new Colaborador().obtener_lista_activos();
             llenar_cb_colaboradores();
             this.registro = registro;
@@ -41,39 +45,55 @@ namespace SystemForms
 
         public Boolean agregar_sys()
         {
-            Registro registro = obtener_datos();
-            if (registro.agregar())
+            if (pn_validacion.BackColor == Color.LimeGreen)
             {
-                MessageBox.Show("Registro agregado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return true;
-            } else
-            {
-                MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-        
-        public Boolean editar_sys()
-        {
-            Registro registro = obtener_datos();
-            registro.Id = this.registro.Id;
-            List<Int32> lista = validar_cambios(registro);
-            if(lista.Count == 0)
-            {
-                return true;
-            }
-            else if (registro.editar(lista))
-            {
-                MessageBox.Show("Registro editado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return true;
+                Registro registro = obtener_datos();
+                if (registro.agregar())
+                {
+                    MessageBox.Show("Registro agregado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
             }
             else
             {
-                MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ya existe un registro para esta fecha asignado al colaborador", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
-        
+
+        public Boolean editar_sys()
+        {
+            if (pn_validacion.BackColor == Color.LimeGreen)
+            {
+                Registro registro = obtener_datos();
+                registro.Id = this.registro.Id;
+                List<Int32> lista = validar_cambios(registro);
+                if (lista.Count == 0)
+                {
+                    return true;
+                }
+                else if (registro.editar(lista))
+                {
+                    MessageBox.Show("Registro editado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            } else
+            {
+                MessageBox.Show("Ya existe un registro para esta fecha asignado al colaborador", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
         public Registro obtener_datos()
         {
             Int32 id = Int32.Parse(cb_colaborador.SelectedValue.ToString());
@@ -95,7 +115,7 @@ namespace SystemForms
         public List<Int32> validar_cambios(Registro nuevo)
         {
             List<Int32> lista = new List<Int32>();
-            if(nuevo.Id_Colaborador != this.registro.Id_Colaborador)
+            if (nuevo.Id_Colaborador != this.registro.Id_Colaborador)
             {
                 lista.Add(0);
             }
@@ -154,7 +174,7 @@ namespace SystemForms
             dt.Columns.Add("Id");
             dt.Columns.Add("Nombre");
 
-            foreach(Colaborador c in colaboradores)
+            foreach (Colaborador c in colaboradores)
             {
                 dt.Rows.Add(c.Id, c.Nombre + " " + c.Apellido);
             }
@@ -162,6 +182,21 @@ namespace SystemForms
             cb_colaborador.ValueMember = "Id";
             cb_colaborador.DisplayMember = "Nombre";
             cb_colaborador.DataSource = dt;
+        }
+        public void llenar_cb_departamentos()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Nombre");
+
+            foreach (Departamento d in departamentos)
+            {
+                dt.Rows.Add(d.Id, d.Nombre);
+            }
+
+            cb_departamento.ValueMember = "Id";
+            cb_departamento.DisplayMember = "Nombre";
+            cb_departamento.DataSource = dt;
         }
 
         public void calcular_horas()
@@ -221,6 +256,48 @@ namespace SystemForms
             rb_proceso.Checked = rb_completo.Checked ? false : rb_proceso.Checked = true;
             rb_invalido.Checked = rb_valido.Checked ? false : rb_valido.Checked = true;
         }
-    }
 
+        private void cb_colaborador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (registro != null && registro.Fecha.Date == dt_fecha.Value.Date)
+            {
+                pn_validacion.BackColor = Color.LimeGreen;
+            }
+            else
+            {
+
+                if (!parent.buscar_registro(dt_fecha.Value.Date, Int32.Parse(cb_colaborador.SelectedValue.ToString())))
+                {
+                    pn_validacion.BackColor = Color.LimeGreen;
+                }
+                else
+                {
+                    pn_validacion.BackColor = Color.Red;
+                }
+
+            }
+        }
+
+        private void dt_fecha_ValueChanged(object sender, EventArgs e)
+        {
+            if (registro != null && registro.Fecha.Date == dt_fecha.Value.Date)
+            {
+                pn_validacion.BackColor = Color.LimeGreen;
+            }
+            else
+            {
+
+                if (!parent.buscar_registro(dt_fecha.Value.Date, Int32.Parse(cb_colaborador.SelectedValue.ToString())))
+                {
+                    pn_validacion.BackColor = Color.LimeGreen;
+                }
+                else
+                {
+                    pn_validacion.BackColor = Color.Red;
+                }
+
+            }
+        }
+    }
 }

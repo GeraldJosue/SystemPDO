@@ -9,7 +9,7 @@ namespace TransferObjects
     public class Pago_TO
     {
         public Int32 Id { get; set; }
-        public Int32 IdColaborador { get; set; }
+        public Int32 Id_colaborador { get; set; }
         public DateTime FechaPago { get; set; }
         public Decimal SalarioBruto { get; set; }
         public Decimal SalarioNeto { get; set; }
@@ -18,6 +18,8 @@ namespace TransferObjects
         public Decimal HorasExtra { get; set; }
         public String TransferenciaPago { get; set; }
         public Boolean EstadoPago { get; set; }
+        public Decimal Bono { get; set; }
+        public Int32 Id_adelanto { get; set; }
 
     }
 

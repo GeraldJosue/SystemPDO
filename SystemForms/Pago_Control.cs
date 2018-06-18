@@ -7,14 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogic;
 
 namespace SystemForms
 {
     public partial class Pago_Control : UserControl
     {
 
-        Pago_Agregar nuevoPago;
+        Pago_Calculos calculos;
         Pago_Lista listaPagos;
+        Pago_Review review;
         Boolean editar;
         public Pago_Control()
         {
@@ -26,22 +28,30 @@ namespace SystemForms
             editar = false;
         }
 
+        public void lista_review(List<Pago> lista)
+        {
+            review = new Pago_Review(lista);
+            review.Dock = DockStyle.Fill;
+            pn_master.Controls.Clear();
+            pn_master.Controls.Add(review);
+        }
+
         private void bt_agregar_Click(object sender, EventArgs e)
         {
-            nuevoPago = new Pago_Agregar();
-            nuevoPago.Dock = DockStyle.Fill;
+            calculos = new Pago_Calculos(this);
+            calculos.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
-            pn_master.Controls.Add(nuevoPago);
+            pn_master.Controls.Add(calculos);
             editar = false;
             pn_filtros.Enabled = false;
         }
 
         private void bt_editar_Click(object sender, EventArgs e)
         {
-            nuevoPago = new Pago_Agregar(listaPagos.obtener());
-            nuevoPago.Dock = DockStyle.Fill;
+            //nuevoPago = new Pago_Agregar(listaPagos.obtener());
+            //nuevoPago.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
-            pn_master.Controls.Add(nuevoPago);
+            //pn_master.Controls.Add(nuevoPago);
             editar = true;
             pn_filtros.Enabled = false;
         }
@@ -133,28 +143,29 @@ namespace SystemForms
 
         private void bt_guardar_Click_1(object sender, EventArgs e)
         {
-            if (!editar)
-            {
-                if (nuevoPago.agregar_sys())
-                {
-                    listaPagos.obtener_lista_sys();
-                    pn_master.Controls.Clear();
-                    pn_master.Controls.Add(listaPagos);
-                    pn_filtros.Enabled = true;
+            review.mostrar_detalle();
+            //if (!editar)
+            //{
+                //if (nuevoPago.agregar_sys())
+                //{
+           //         listaPagos.obtener_lista_sys();
+            //        pn_master.Controls.Clear();
+            //        pn_master.Controls.Add(listaPagos);
+            //        pn_filtros.Enabled = true;
 
-                }
-            }
-            else
-            {
-                if (nuevoPago.editar_sys())
-                {
-                    listaPagos.obtener_lista_sys();
-                    pn_master.Controls.Clear();
-                    pn_master.Controls.Add(listaPagos);
-                    pn_filtros.Enabled = true;
+                //}
+            //}
+            //else
+            //{
+                //if (nuevoPago.editar_sys())
+                //{
+             //       listaPagos.obtener_lista_sys();
+             //       pn_master.Controls.Clear();
+             //       pn_master.Controls.Add(listaPagos);
+             //       pn_filtros.Enabled = true;
 
-                }
-            }
+                //}
+            //}
         }
 
         private void bt_cancelar_Click_1(object sender, EventArgs e)

@@ -12,7 +12,7 @@ namespace BusinessLogic
     {
 
         public Int32 Id { get; set; }
-        public Int32 IdColaborador { get; set; }
+        public Int32 Id_colaborador { get; set; }
         public DateTime FechaPago { get; set; }
         public Decimal SalarioBruto { get; set; }
         public Decimal SalarioNeto { get; set; }
@@ -21,11 +21,13 @@ namespace BusinessLogic
         public Decimal HorasExtra { get; set; }
         public String TransferenciaPago { get; set; }
         public Boolean EstadoPago { get; set; }
+        public Decimal Bono { get; set; }
+        public Int32 Id_adelanto { get; set; }
 
-        public Pago(Int32 id, Int32 idColaborador, DateTime fecha, Decimal salarioBruto, Decimal salarioNeto, Decimal rebajo, Decimal horasLaboradas, Decimal horasExtra, String transferencia, Boolean estado)
+        public Pago(Int32 id, Int32 id_colaborador, DateTime fecha, Decimal salarioBruto, Decimal salarioNeto, Decimal rebajo, Decimal horasLaboradas, Decimal horasExtra, String transferencia, Boolean estado, Decimal bono, Int32 adelanto)
         {
             this.Id = id;
-            this.IdColaborador = idColaborador;
+            this.Id_colaborador = id_colaborador;
             this.FechaPago = fecha;
             this.SalarioBruto = salarioBruto;
             this.SalarioNeto = salarioNeto;
@@ -34,10 +36,11 @@ namespace BusinessLogic
             this.HorasExtra = horasExtra;
             this.TransferenciaPago = transferencia;
             this.EstadoPago = estado;
+            this.Bono = bono;
+            this.Id_adelanto = adelanto;
         }
         public Pago()
         {
-
         }
 
         public Boolean agregar()
@@ -75,7 +78,7 @@ namespace BusinessLogic
         {
             Pago_TO pago = new Pago_TO();
             pago.Id = this.Id;
-            pago.IdColaborador = this.IdColaborador;
+            pago.Id_colaborador = this.Id_colaborador;
             pago.FechaPago = this.FechaPago;
             pago.SalarioBruto = this.SalarioBruto;
             pago.SalarioNeto = this.SalarioNeto;
@@ -84,6 +87,8 @@ namespace BusinessLogic
             pago.HorasExtra = this.HorasExtra;
             pago.TransferenciaPago = this.TransferenciaPago;
             pago.EstadoPago = this.EstadoPago;
+            pago.Bono = this.Bono;
+            pago.Id_adelanto = this.Id_adelanto;
             return pago;
         }
 
@@ -92,7 +97,7 @@ namespace BusinessLogic
         {
             Pago pago = new Pago();
             pago.Id = to.Id;
-            pago.IdColaborador = to.IdColaborador;
+            pago.Id_colaborador = to.Id_colaborador;
             pago.FechaPago = to.FechaPago;
             pago.SalarioBruto = to.SalarioBruto;
             pago.SalarioNeto = to.SalarioNeto;
@@ -101,6 +106,8 @@ namespace BusinessLogic
             pago.HorasExtra = to.HorasExtra;
             pago.TransferenciaPago = to.TransferenciaPago;
             pago.EstadoPago = to.EstadoPago;
+            pago.Bono = to.Bono;
+            pago.Id_adelanto = to.Id_adelanto;
             return pago;
         }
 

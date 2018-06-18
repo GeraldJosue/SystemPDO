@@ -81,7 +81,8 @@ namespace SystemForms
             Boolean estado = cb_estado.Checked ? true : false;
 
             //Revisar datos por defecto
-            return new Pago(0, colaborador, fechaDesde, salarioBruto, salarioNeto, rebajo, horasLaboradas, horasExtra, transferencia, estado);
+            //return new Pago(0, colaborador, fechaDesde, salarioBruto, salarioNeto, rebajo, horasLaboradas, horasExtra, transferencia, estado, 0, 0);
+            return new Pago();
         }
 
         public void setear_datos()
@@ -102,7 +103,7 @@ namespace SystemForms
         public List<Int32> validar_cambios(Pago pagoNuevo)
         {
             List<Int32> lista = new List<Int32>();
-            if (pagoNuevo.IdColaborador != this.pago.IdColaborador)
+            if (pagoNuevo.Id_colaborador != this.pago.Id_colaborador)
             {
                 lista.Add(0);
             }
@@ -137,6 +138,14 @@ namespace SystemForms
             if (pagoNuevo.EstadoPago != this.pago.EstadoPago)
             {
                 lista.Add(8);
+            }
+            if(pagoNuevo.Bono != this.pago.Bono)
+            {
+                lista.Add(9);
+            }
+            if (pagoNuevo.Id_adelanto != this.pago.Id_adelanto)
+            {
+                lista.Add(10);
             }
             return lista;
         }

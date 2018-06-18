@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.pn_agregarPago = new System.Windows.Forms.Panel();
+            this.cb_estado = new System.Windows.Forms.CheckBox();
+            this.lb_estado = new System.Windows.Forms.Label();
+            this.tb_transferencia = new System.Windows.Forms.TextBox();
+            this.tb_horas_extra = new System.Windows.Forms.TextBox();
+            this.tb_horas_laboradas = new System.Windows.Forms.TextBox();
+            this.lb_Transferencia = new System.Windows.Forms.Label();
+            this.lb_Horas_Extra = new System.Windows.Forms.Label();
+            this.lb_Horas_Laboradas = new System.Windows.Forms.Label();
             this.cb_colaborador = new System.Windows.Forms.ComboBox();
             this.cb_departamento = new System.Windows.Forms.ComboBox();
             this.dtp_hasta = new System.Windows.Forms.DateTimePicker();
@@ -44,14 +52,6 @@
             this.lb_Colaborador = new System.Windows.Forms.Label();
             this.lb_departamento = new System.Windows.Forms.Label();
             this.lb_titulo = new System.Windows.Forms.Label();
-            this.lb_Horas_Laboradas = new System.Windows.Forms.Label();
-            this.lb_Horas_Extra = new System.Windows.Forms.Label();
-            this.lb_Transferencia = new System.Windows.Forms.Label();
-            this.tb_horas_laboradas = new System.Windows.Forms.TextBox();
-            this.tb_horas_extra = new System.Windows.Forms.TextBox();
-            this.tb_transferencia = new System.Windows.Forms.TextBox();
-            this.lb_estado = new System.Windows.Forms.Label();
-            this.cb_estado = new System.Windows.Forms.CheckBox();
             this.pn_agregarPago.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,10 +80,78 @@
             this.pn_agregarPago.Controls.Add(this.lb_Colaborador);
             this.pn_agregarPago.Controls.Add(this.lb_departamento);
             this.pn_agregarPago.Controls.Add(this.lb_titulo);
-            this.pn_agregarPago.Location = new System.Drawing.Point(59, 40);
+            this.pn_agregarPago.Location = new System.Drawing.Point(59, 3);
             this.pn_agregarPago.Name = "pn_agregarPago";
-            this.pn_agregarPago.Size = new System.Drawing.Size(761, 456);
+            this.pn_agregarPago.Size = new System.Drawing.Size(761, 440);
             this.pn_agregarPago.TabIndex = 0;
+            // 
+            // cb_estado
+            // 
+            this.cb_estado.AutoSize = true;
+            this.cb_estado.Location = new System.Drawing.Point(159, 404);
+            this.cb_estado.Name = "cb_estado";
+            this.cb_estado.Size = new System.Drawing.Size(77, 17);
+            this.cb_estado.TabIndex = 22;
+            this.cb_estado.Text = "Cancelado";
+            this.cb_estado.UseVisualStyleBackColor = true;
+            // 
+            // lb_estado
+            // 
+            this.lb_estado.AutoSize = true;
+            this.lb_estado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_estado.Location = new System.Drawing.Point(156, 379);
+            this.lb_estado.Name = "lb_estado";
+            this.lb_estado.Size = new System.Drawing.Size(97, 13);
+            this.lb_estado.TabIndex = 21;
+            this.lb_estado.Text = "Estado de Pago";
+            // 
+            // tb_transferencia
+            // 
+            this.tb_transferencia.Location = new System.Drawing.Point(424, 341);
+            this.tb_transferencia.Name = "tb_transferencia";
+            this.tb_transferencia.Size = new System.Drawing.Size(216, 20);
+            this.tb_transferencia.TabIndex = 20;
+            // 
+            // tb_horas_extra
+            // 
+            this.tb_horas_extra.Location = new System.Drawing.Point(424, 292);
+            this.tb_horas_extra.Name = "tb_horas_extra";
+            this.tb_horas_extra.Size = new System.Drawing.Size(216, 20);
+            this.tb_horas_extra.TabIndex = 19;
+            // 
+            // tb_horas_laboradas
+            // 
+            this.tb_horas_laboradas.Location = new System.Drawing.Point(424, 242);
+            this.tb_horas_laboradas.Name = "tb_horas_laboradas";
+            this.tb_horas_laboradas.Size = new System.Drawing.Size(216, 20);
+            this.tb_horas_laboradas.TabIndex = 18;
+            // 
+            // lb_Transferencia
+            // 
+            this.lb_Transferencia.AutoSize = true;
+            this.lb_Transferencia.Location = new System.Drawing.Point(424, 325);
+            this.lb_Transferencia.Name = "lb_Transferencia";
+            this.lb_Transferencia.Size = new System.Drawing.Size(115, 13);
+            this.lb_Transferencia.TabIndex = 17;
+            this.lb_Transferencia.Text = "Transferencia de Pago";
+            // 
+            // lb_Horas_Extra
+            // 
+            this.lb_Horas_Extra.AutoSize = true;
+            this.lb_Horas_Extra.Location = new System.Drawing.Point(421, 276);
+            this.lb_Horas_Extra.Name = "lb_Horas_Extra";
+            this.lb_Horas_Extra.Size = new System.Drawing.Size(62, 13);
+            this.lb_Horas_Extra.TabIndex = 16;
+            this.lb_Horas_Extra.Text = "Horas Extra";
+            // 
+            // lb_Horas_Laboradas
+            // 
+            this.lb_Horas_Laboradas.AutoSize = true;
+            this.lb_Horas_Laboradas.Location = new System.Drawing.Point(424, 226);
+            this.lb_Horas_Laboradas.Name = "lb_Horas_Laboradas";
+            this.lb_Horas_Laboradas.Size = new System.Drawing.Size(88, 13);
+            this.lb_Horas_Laboradas.TabIndex = 15;
+            this.lb_Horas_Laboradas.Text = "Horas Laboradas";
             // 
             // cb_colaborador
             // 
@@ -210,81 +278,13 @@
             this.lb_titulo.TabIndex = 0;
             this.lb_titulo.Text = "Agregar Pago";
             // 
-            // lb_Horas_Laboradas
-            // 
-            this.lb_Horas_Laboradas.AutoSize = true;
-            this.lb_Horas_Laboradas.Location = new System.Drawing.Point(424, 226);
-            this.lb_Horas_Laboradas.Name = "lb_Horas_Laboradas";
-            this.lb_Horas_Laboradas.Size = new System.Drawing.Size(88, 13);
-            this.lb_Horas_Laboradas.TabIndex = 15;
-            this.lb_Horas_Laboradas.Text = "Horas Laboradas";
-            // 
-            // lb_Horas_Extra
-            // 
-            this.lb_Horas_Extra.AutoSize = true;
-            this.lb_Horas_Extra.Location = new System.Drawing.Point(421, 276);
-            this.lb_Horas_Extra.Name = "lb_Horas_Extra";
-            this.lb_Horas_Extra.Size = new System.Drawing.Size(62, 13);
-            this.lb_Horas_Extra.TabIndex = 16;
-            this.lb_Horas_Extra.Text = "Horas Extra";
-            // 
-            // lb_Transferencia
-            // 
-            this.lb_Transferencia.AutoSize = true;
-            this.lb_Transferencia.Location = new System.Drawing.Point(424, 325);
-            this.lb_Transferencia.Name = "lb_Transferencia";
-            this.lb_Transferencia.Size = new System.Drawing.Size(115, 13);
-            this.lb_Transferencia.TabIndex = 17;
-            this.lb_Transferencia.Text = "Transferencia de Pago";
-            // 
-            // tb_horas_laboradas
-            // 
-            this.tb_horas_laboradas.Location = new System.Drawing.Point(424, 242);
-            this.tb_horas_laboradas.Name = "tb_horas_laboradas";
-            this.tb_horas_laboradas.Size = new System.Drawing.Size(216, 20);
-            this.tb_horas_laboradas.TabIndex = 18;
-            // 
-            // tb_horas_extra
-            // 
-            this.tb_horas_extra.Location = new System.Drawing.Point(424, 292);
-            this.tb_horas_extra.Name = "tb_horas_extra";
-            this.tb_horas_extra.Size = new System.Drawing.Size(216, 20);
-            this.tb_horas_extra.TabIndex = 19;
-            // 
-            // tb_transferencia
-            // 
-            this.tb_transferencia.Location = new System.Drawing.Point(424, 341);
-            this.tb_transferencia.Name = "tb_transferencia";
-            this.tb_transferencia.Size = new System.Drawing.Size(216, 20);
-            this.tb_transferencia.TabIndex = 20;
-            // 
-            // lb_estado
-            // 
-            this.lb_estado.AutoSize = true;
-            this.lb_estado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_estado.Location = new System.Drawing.Point(156, 379);
-            this.lb_estado.Name = "lb_estado";
-            this.lb_estado.Size = new System.Drawing.Size(97, 13);
-            this.lb_estado.TabIndex = 21;
-            this.lb_estado.Text = "Estado de Pago";
-            // 
-            // cb_estado
-            // 
-            this.cb_estado.AutoSize = true;
-            this.cb_estado.Location = new System.Drawing.Point(159, 404);
-            this.cb_estado.Name = "cb_estado";
-            this.cb_estado.Size = new System.Drawing.Size(77, 17);
-            this.cb_estado.TabIndex = 22;
-            this.cb_estado.Text = "Cancelado";
-            this.cb_estado.UseVisualStyleBackColor = true;
-            // 
             // Pago_Agregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pn_agregarPago);
             this.Name = "Pago_Agregar";
-            this.Size = new System.Drawing.Size(1164, 516);
+            this.Size = new System.Drawing.Size(1164, 461);
             this.pn_agregarPago.ResumeLayout(false);
             this.pn_agregarPago.PerformLayout();
             this.ResumeLayout(false);
