@@ -32,6 +32,7 @@ namespace SystemForms
             {
                 if (nuevo_registro.agregar_sys())
                 {
+                    lista_registros.obtener_lista_sys();
                     nuevo_registro.limpiar_controles();
                 }
             } else
@@ -52,7 +53,7 @@ namespace SystemForms
 
         private void bt_agregar_Click(object sender, EventArgs e)
         {
-            nuevo_registro = new Registros_Agregar();
+            nuevo_registro = new Registros_Agregar(this);
             nuevo_registro.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(nuevo_registro);
@@ -77,7 +78,7 @@ namespace SystemForms
 
         private void bt_editar_Click(object sender, EventArgs e)
         {
-            nuevo_registro = new Registros_Agregar(lista_registros.obtener());
+            nuevo_registro = new Registros_Agregar(lista_registros.obtener(), this);
             nuevo_registro.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(nuevo_registro);
@@ -128,6 +129,11 @@ namespace SystemForms
         private void bt_down_Click(object sender, EventArgs e)
         {
             lista_registros.bajar_fila();
+        }
+
+        public Boolean buscar_registro(DateTime fecha, Int32 id)
+        {
+            return lista_registros.buscar_registro(fecha, id);
         }
     }
 }

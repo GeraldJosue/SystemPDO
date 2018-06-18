@@ -62,18 +62,21 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cb_colaborador = new System.Windows.Forms.ComboBox();
             this.cb_departamento = new System.Windows.Forms.ComboBox();
+            this.pn_validacion = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_extras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_horas)).BeginInit();
+            this.pn_validacion.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pn_validacion);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
@@ -83,7 +86,6 @@
             this.panel1.Controls.Add(this.nud_horas);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.dt_fecha);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label4);
@@ -408,10 +410,11 @@
             // 
             // dt_fecha
             // 
-            this.dt_fecha.Location = new System.Drawing.Point(831, 20);
+            this.dt_fecha.Location = new System.Drawing.Point(2, 2);
             this.dt_fecha.Name = "dt_fecha";
             this.dt_fecha.Size = new System.Drawing.Size(250, 26);
             this.dt_fecha.TabIndex = 22;
+            this.dt_fecha.ValueChanged += new System.EventHandler(this.dt_fecha_ValueChanged);
             // 
             // label12
             // 
@@ -447,6 +450,7 @@
             this.cb_colaborador.Name = "cb_colaborador";
             this.cb_colaborador.Size = new System.Drawing.Size(250, 28);
             this.cb_colaborador.TabIndex = 17;
+            this.cb_colaborador.SelectedIndexChanged += new System.EventHandler(this.cb_colaborador_SelectedIndexChanged);
             // 
             // cb_departamento
             // 
@@ -455,6 +459,15 @@
             this.cb_departamento.Name = "cb_departamento";
             this.cb_departamento.Size = new System.Drawing.Size(250, 28);
             this.cb_departamento.TabIndex = 16;
+            // 
+            // pn_validacion
+            // 
+            this.pn_validacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn_validacion.Controls.Add(this.dt_fecha);
+            this.pn_validacion.Location = new System.Drawing.Point(831, 14);
+            this.pn_validacion.Name = "pn_validacion";
+            this.pn_validacion.Size = new System.Drawing.Size(257, 32);
+            this.pn_validacion.TabIndex = 36;
             // 
             // Registros_Agregar
             // 
@@ -474,6 +487,7 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_extras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_horas)).EndInit();
+            this.pn_validacion.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -514,5 +528,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pn_validacion;
     }
 }

@@ -73,11 +73,11 @@ namespace SystemForms
             {
                 if (x.EstadoPago)
                 {
-                    tableActivos.Rows.Add(x.Id, x.IdColaborador, x.FechaPago, x.SalarioBruto, x.SalarioNeto, x.Rebajo, x.HorasLaboradas, x.HorasExtra, x.TransferenciaPago, x.EstadoPago);
+                    tableActivos.Rows.Add(x.Id, x.Id_colaborador, x.FechaPago, x.SalarioBruto, x.SalarioNeto, x.Rebajo, x.HorasLaboradas, x.HorasExtra, x.TransferenciaPago, x.EstadoPago);
                 }
                 else
                 {
-                    tableInactivos.Rows.Add(x.Id, x.IdColaborador, x.FechaPago, x.SalarioBruto, x.SalarioNeto, x.Rebajo, x.HorasLaboradas, x.HorasExtra, x.TransferenciaPago, x.EstadoPago);
+                    tableInactivos.Rows.Add(x.Id, x.Id_colaborador, x.FechaPago, x.SalarioBruto, x.SalarioNeto, x.Rebajo, x.HorasLaboradas, x.HorasExtra, x.TransferenciaPago, x.EstadoPago);
                 }
             }
         }

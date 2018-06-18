@@ -19,9 +19,13 @@ namespace SystemForms
         Registros_Control registro;
         Horarios_Control horario;
         Adelanto_Control adelanto;
+        Inicio inicio;
         public Home()
         {
             InitializeComponent();
+            inicio = new Inicio();
+            pn_contenido.Controls.Clear();
+            pn_contenido.Controls.Add(inicio);
         }
 
         private void bt_colaboradores_Click(object sender, EventArgs e)
@@ -34,8 +38,9 @@ namespace SystemForms
 
         private void bt_home_Click(object sender, EventArgs e)
         {
-            Pantalla_Principal parent = (Pantalla_Principal)this.FindForm();
-            parent.inicio();
+            pn_contenido.Controls.Clear();
+            pn_contenido.Controls.Add(inicio);
+
         }
 
        private void bt_pago_Click(object sender, EventArgs e)

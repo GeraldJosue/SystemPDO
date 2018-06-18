@@ -55,7 +55,7 @@
             this.pn_login.Controls.Add(this.bt_ingresar);
             this.pn_login.Controls.Add(this.tb_contraseña);
             this.pn_login.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pn_login.Location = new System.Drawing.Point(451, 235);
+            this.pn_login.Location = new System.Drawing.Point(427, 255);
             this.pn_login.Name = "pn_login";
             this.pn_login.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.pn_login.Size = new System.Drawing.Size(510, 252);
@@ -74,29 +74,29 @@
             // lb_contraseña
             // 
             this.lb_contraseña.AutoSize = true;
-            this.lb_contraseña.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_contraseña.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_contraseña.Location = new System.Drawing.Point(165, 105);
             this.lb_contraseña.Name = "lb_contraseña";
-            this.lb_contraseña.Size = new System.Drawing.Size(95, 20);
+            this.lb_contraseña.Size = new System.Drawing.Size(93, 18);
             this.lb_contraseña.TabIndex = 5;
             this.lb_contraseña.Text = "Contraseña";
             // 
             // lb_name
             // 
             this.lb_name.AutoSize = true;
-            this.lb_name.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_name.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_name.Location = new System.Drawing.Point(165, 52);
             this.lb_name.Name = "lb_name";
-            this.lb_name.Size = new System.Drawing.Size(63, 20);
+            this.lb_name.Size = new System.Drawing.Size(62, 18);
             this.lb_name.TabIndex = 4;
             this.lb_name.Text = "Usuario";
             // 
             // tb_usuario
             // 
             this.tb_usuario.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_usuario.Location = new System.Drawing.Point(258, 51);
+            this.tb_usuario.Location = new System.Drawing.Point(264, 51);
             this.tb_usuario.Name = "tb_usuario";
-            this.tb_usuario.Size = new System.Drawing.Size(230, 26);
+            this.tb_usuario.Size = new System.Drawing.Size(224, 26);
             this.tb_usuario.TabIndex = 2;
             // 
             // bt_ingresar
@@ -116,10 +116,10 @@
             // tb_contraseña
             // 
             this.tb_contraseña.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_contraseña.Location = new System.Drawing.Point(258, 101);
+            this.tb_contraseña.Location = new System.Drawing.Point(264, 101);
             this.tb_contraseña.Name = "tb_contraseña";
             this.tb_contraseña.PasswordChar = '•';
-            this.tb_contraseña.Size = new System.Drawing.Size(230, 26);
+            this.tb_contraseña.Size = new System.Drawing.Size(224, 26);
             this.tb_contraseña.TabIndex = 3;
             // 
             // panel1

@@ -70,10 +70,9 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dg_colaboradores.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dg_colaboradores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dg_colaboradores.EnableHeadersVisualStyles = false;
             this.dg_colaboradores.GridColor = System.Drawing.Color.Gray;
-            this.dg_colaboradores.Location = new System.Drawing.Point(0, 0);
+            this.dg_colaboradores.Location = new System.Drawing.Point(3, 3);
             this.dg_colaboradores.MultiSelect = false;
             this.dg_colaboradores.Name = "dg_colaboradores";
             this.dg_colaboradores.ReadOnly = true;
@@ -98,7 +97,7 @@
             this.dg_colaboradores.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Brown;
             this.dg_colaboradores.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dg_colaboradores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dg_colaboradores.Size = new System.Drawing.Size(1164, 461);
+            this.dg_colaboradores.Size = new System.Drawing.Size(1158, 455);
             this.dg_colaboradores.TabIndex = 0;
             // 
             // Colaboradores_Lista

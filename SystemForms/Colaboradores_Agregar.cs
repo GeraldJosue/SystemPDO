@@ -14,11 +14,13 @@ namespace SystemForms
 {
     public partial class Colaboradores_Agregar : UserControl
     {
+        Colaboradores_Control parent;
         Colaborador colaborador;
         DateTime date;
-        public Colaboradores_Agregar()
+        public Colaboradores_Agregar(Colaboradores_Control parent)
         {
             InitializeComponent();
+            this.parent = parent;
 
             date = new DateTime(DateTime.Now.Year, 01, 01);
             llenar_cb_año(date);
@@ -26,12 +28,10 @@ namespace SystemForms
             llenar_cb_dia(date, 31);
             llenar_cb_civil();
             llenar_cb_nacionalidad();
-            //llenar_cb_departamento();
+            llenar_cb_departamento();
             //llenar_cb_horario();
             llenar_cb_entidad();
             llenar_cb_parentesco();
-
-
         }
 
         public void llenar_cb_dia(DateTime date, Int32 dias)
@@ -123,7 +123,22 @@ namespace SystemForms
             cb_nacionalidad.DataSource = dt;
 
         }
-        public void llenar_cb_departamento() { }
+        public void llenar_cb_departamento() {
+
+            List<Departamento> departamentos = new Departamento().obtener_lista_activos();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Nombre");
+
+            foreach (Departamento d in departamentos)
+            {
+                dt.Rows.Add(d.Id, d.Nombre);
+            }
+
+            cb_departamento.ValueMember = "Id";
+            cb_departamento.DisplayMember = "Nombre";
+            cb_departamento.DataSource = dt;
+        }
         public void llenar_cb_horario() { }
         public void llenar_cb_entidad() {
 
@@ -166,10 +181,11 @@ namespace SystemForms
             cb_parentesco.DataSource = dt;
         }
 
-        public Colaboradores_Agregar(Colaborador colaborador)
+        public Colaboradores_Agregar(Colaborador colaborador, Colaboradores_Control parent)
         {
             InitializeComponent();
             this.colaborador = colaborador;
+            this.parent = parent;
 
             date = new DateTime(2018, 01, 01);
             llenar_cb_año(date);
@@ -177,25 +193,33 @@ namespace SystemForms
             llenar_cb_dia(date, 31);
             llenar_cb_civil();
             llenar_cb_nacionalidad();
-            //llenar_cb_departamento();
+            llenar_cb_departamento();
             //llenar_cb_horario();
             llenar_cb_entidad();
             llenar_cb_parentesco();
-
+            
             setear_datos();
+
         }
 
         public Boolean agregar_sys()
         {
-            BusinessLogic.Colaborador colaborador = obtener_datos();
-            if (colaborador.agregar())
+            if (pn_validacion.BackColor == Color.LimeGreen || pn_validacion.BackColor == Color.White)
             {
-                MessageBox.Show("Colaborador agregado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return true;
-            }
-            else
+                BusinessLogic.Colaborador colaborador = obtener_datos();
+                if (colaborador.agregar())
+                {
+                    MessageBox.Show("Colaborador agregado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            } else
             {
-                MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La cédula ya existe en el sistema", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -203,21 +227,28 @@ namespace SystemForms
 
         public Boolean editar_sys()
         {
-            Colaborador colaborador = obtener_datos();
-            colaborador.Id = this.colaborador.Id;
-            List<Int32> lista = validar_cambios(colaborador);
-            if (lista.Count == 0)
+            if (pn_validacion.BackColor == Color.LimeGreen || pn_validacion.BackColor == Color.White)
             {
-                return true;
-            }
-            else if (colaborador.editar(lista))
+                Colaborador colaborador = obtener_datos();
+                colaborador.Id = this.colaborador.Id;
+                List<Int32> lista = validar_cambios(colaborador);
+                if (lista.Count == 0)
+                {
+                    return true;
+                }
+                else if (colaborador.editar(lista))
+                {
+                    MessageBox.Show("Colaborador editado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            } else
             {
-                MessageBox.Show("Colaborador editado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La cédula ya existe en el sistema", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -225,7 +256,7 @@ namespace SystemForms
 
         public Colaborador obtener_datos()
         {
-            Int32 departamento = cb_departamento.SelectedIndex == -1 ? 1 : cb_departamento.SelectedIndex;
+            Int32 departamento = cb_departamento.SelectedIndex == -1 ? 1 : Int32.Parse(cb_departamento.SelectedValue.ToString());
             Int32 horario = cb_horario.SelectedIndex == -1 ? 1 : cb_horario.SelectedIndex;
             String nombre = tb_nombre.Text.Equals("") ? "No disponible" : tb_nombre.Text;
             String apellido = tb_apellido.Text.Equals("") ? "No disponible" : tb_apellido.Text;
@@ -260,7 +291,7 @@ namespace SystemForms
         public void setear_datos()
         {
             //Setear el selected index
-            //cb_departamento.SelectedIndex
+            cb_departamento.SelectedValue = colaborador.Id_departamento;
             //cb_horario.SelectedIndex
 
             tb_nombre.Text = colaborador.Nombre;
@@ -434,9 +465,91 @@ namespace SystemForms
 
         private void tb_precio_Leave(object sender, EventArgs e)
         {
-            Decimal precio = Decimal.Parse(tb_precio.Text);
-            tb_precio.Tag = precio;
-            tb_precio.Text = precio.ToString("C");
+            if (!tb_precio.Text.Equals(""))
+            {
+                try
+                {
+                    Decimal precio = Decimal.Parse(tb_precio.Text);
+                    tb_precio.Tag = precio;
+                    tb_precio.Text = precio.ToString("C");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("El precio no posee un formato válido", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tb_precio.Focus();
+                }
+            }
+           
+        }
+
+        private void tb_cedula_TextChanged(object sender, EventArgs e)
+        {
+            if (tb_cedula.Text.Equals(""))
+            {
+                pn_validacion.BackColor = Color.White;
+            }
+            else if (colaborador != null && colaborador.Cedula == Int32.Parse(tb_cedula.Text))
+            {
+                pn_validacion.BackColor = Color.LimeGreen;
+            }
+            else { 
+
+                if (!parent.buscar_cedula(tb_cedula.Text))
+                {
+                    pn_validacion.BackColor = Color.LimeGreen;
+                }
+                else
+                {
+                    pn_validacion.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void tb_telefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(Char.IsNumber(e.KeyChar) || e.KeyChar == 8)
+            {
+                e.Handled = false;
+            } else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tb_cedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) || e.KeyChar == 8)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tb_ftelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) || e.KeyChar == 8)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tb_precio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) || (e.KeyChar == 8 || e.KeyChar.Equals(',') || e.KeyChar.Equals('.')))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

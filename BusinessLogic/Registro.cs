@@ -71,6 +71,16 @@ namespace BusinessLogic
             }
             return lista;
         }
+        public List<Registro> obtener_lista_fechas(DateTime inicio, DateTime fin)
+        {
+            List<Registro> lista = new List<Registro>();
+            List<Registro_TO> lista_to = new Registro_BD().obtener_registros_fechas(inicio, fin);
+            foreach (Registro_TO to in lista_to)
+            {
+                lista.Add(to_to_bl(to));
+            }
+            return lista;
+        }
 
         public Registro_TO bl_to_to()
         {

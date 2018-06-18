@@ -172,6 +172,54 @@ namespace DataAccess
             }
         }
 
+        public List<Registro_TO> obtener_registros_fechas(DateTime inicio, DateTime fin)
+        {
+            List<Registro_TO> lista = new List<Registro_TO>();
+            Registro_TO registro;
+            try
+            {
+                SqlCommand query = new SqlCommand("SELECT id_colaborador, horas_laboradas, horas_extras FROM REGISTRO WHERE (fecha_registro BETWEEN @inicio AND @fin) AND estado_registro = 1", conex);
+                query.Parameters.AddWithValue("@inicio", inicio);
+                query.Parameters.AddWithValue("@fin", fin);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+
+                SqlDataReader reader = query.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        registro = new Registro_TO();
+                        registro.Id_Colaborador = reader.GetInt32(0);
+                        registro.Horas = reader.GetDecimal(1);
+                        registro.Extras = reader.GetDecimal(2);
+
+                        lista.Add(registro);
+                    }
+                    return lista;
+                }
+                else
+                {
+                    return lista;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return lista;
+            }
+            finally
+            {
+                if (conex.State != System.Data.ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
+
         public String string_query(List<Int32> lista)
         {
             String mega_query = "UPDATE REGISTRO SET ";
