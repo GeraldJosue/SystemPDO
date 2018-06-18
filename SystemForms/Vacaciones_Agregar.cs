@@ -14,9 +14,33 @@ namespace SystemForms
     public partial class Vacaciones_Agregar : UserControl
     {
         Vacacion vacacion;
+        List<Colaborador> lista_colaboradores;
+        Colaborador colaborador;
         public Vacaciones_Agregar()
         {
             InitializeComponent();
+            llenar_cb_colaboradores();
+        }
+
+        private void llenar_cb_colaboradores()
+        {
+            colaborador = new Colaborador();
+            lista_colaboradores = colaborador.obtener_lista();
+            cb_colaborador.DataSource = llenar_dt_colaboradores();
+            cb_colaborador.DisplayMember = "Nombre Completo";
+            cb_colaborador.ValueMember = "Id";
+        }
+
+        private DataTable llenar_dt_colaboradores()
+        {
+            DataTable dt_colaboradores = new DataTable();
+            dt_colaboradores.Columns.Add("Id");
+            dt_colaboradores.Columns.Add("Nombre Completo");
+            foreach(Colaborador x in lista_colaboradores)
+            {
+                dt_colaboradores.Rows.Add(x.Id, x.Nombre + " " + x.Apellido + " " + x.Segundo_apellido);
+            }
+            return dt_colaboradores;
         }
 
         public Vacaciones_Agregar(Vacacion vacacion)

@@ -67,5 +67,16 @@ namespace BusinessLogic
             horario_to.Estado = this.Estado;
             return new Horario_BD().editar(horario_to, lista);
         }
+
+        public List<Horario> obtener_lista_activos()
+        {
+            List<Horario> lista_activos = new List<Horario>();
+            List<Horario_TO> lista_TO = new Horario_BD().obtener_lista_activos();
+            foreach (Horario_TO x in lista_TO)
+            {
+                lista_activos.Add(new Horario(x.Id, x.Nombre_Horario, x.Hora_Inicio, x.Hora_Fin, x.Estado));
+            }
+            return lista_activos;
+        }
     }
 }

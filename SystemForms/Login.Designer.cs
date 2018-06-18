@@ -58,7 +58,7 @@
             this.pn_login.Location = new System.Drawing.Point(451, 235);
             this.pn_login.Name = "pn_login";
             this.pn_login.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.pn_login.Size = new System.Drawing.Size(510, 252);
+            this.pn_login.Size = new System.Drawing.Size(521, 252);
             this.pn_login.TabIndex = 4;
             // 
             // pictureBox1
@@ -94,10 +94,11 @@
             // tb_usuario
             // 
             this.tb_usuario.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_usuario.Location = new System.Drawing.Point(258, 51);
+            this.tb_usuario.Location = new System.Drawing.Point(266, 49);
             this.tb_usuario.Name = "tb_usuario";
             this.tb_usuario.Size = new System.Drawing.Size(230, 26);
             this.tb_usuario.TabIndex = 2;
+            this.tb_usuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_usuario_KeyPress);
             // 
             // bt_ingresar
             // 
@@ -107,7 +108,7 @@
             this.bt_ingresar.ForeColor = System.Drawing.Color.White;
             this.bt_ingresar.Location = new System.Drawing.Point(168, 150);
             this.bt_ingresar.Name = "bt_ingresar";
-            this.bt_ingresar.Size = new System.Drawing.Size(320, 50);
+            this.bt_ingresar.Size = new System.Drawing.Size(328, 50);
             this.bt_ingresar.TabIndex = 1;
             this.bt_ingresar.Text = "INGRESAR";
             this.bt_ingresar.UseVisualStyleBackColor = false;
@@ -116,11 +117,12 @@
             // tb_contraseña
             // 
             this.tb_contraseña.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_contraseña.Location = new System.Drawing.Point(258, 101);
+            this.tb_contraseña.Location = new System.Drawing.Point(266, 102);
             this.tb_contraseña.Name = "tb_contraseña";
             this.tb_contraseña.PasswordChar = '•';
             this.tb_contraseña.Size = new System.Drawing.Size(230, 26);
             this.tb_contraseña.TabIndex = 3;
+            this.tb_contraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_contraseña_KeyPress);
             // 
             // panel1
             // 

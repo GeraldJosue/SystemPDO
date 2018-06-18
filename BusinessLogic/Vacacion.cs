@@ -79,5 +79,14 @@ namespace BusinessLogic
             vacacion_to.Estado = this.Estado;
             return new Vacacion_BD().editar_vacacion(vacacion_to, lista);
         }
+
+        public Double salario_vacaciones(Colaborador colaborador)
+        {
+            Colaborador_TO colaborador_to = new Colaborador_TO();
+            //
+            
+
+            return 0;
+        }
     }
 }

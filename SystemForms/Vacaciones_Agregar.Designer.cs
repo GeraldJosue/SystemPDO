@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tb_cantidad_dias = new System.Windows.Forms.TextBox();
             this.rb_inactivo = new System.Windows.Forms.RadioButton();
             this.rb_activo = new System.Windows.Forms.RadioButton();
             this.tb_transferencia = new System.Windows.Forms.TextBox();
@@ -44,7 +45,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tb_salario = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.tb_cantidad_dias = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +70,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1100, 379);
             this.panel1.TabIndex = 1;
+            // 
+            // tb_cantidad_dias
+            // 
+            this.tb_cantidad_dias.Enabled = false;
+            this.tb_cantidad_dias.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_cantidad_dias.Location = new System.Drawing.Point(778, 153);
+            this.tb_cantidad_dias.Name = "tb_cantidad_dias";
+            this.tb_cantidad_dias.Size = new System.Drawing.Size(138, 26);
+            this.tb_cantidad_dias.TabIndex = 25;
             // 
             // rb_inactivo
             // 
@@ -97,31 +106,37 @@
             // 
             // tb_transferencia
             // 
+            this.tb_transferencia.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_transferencia.Location = new System.Drawing.Point(204, 151);
             this.tb_transferencia.Name = "tb_transferencia";
-            this.tb_transferencia.Size = new System.Drawing.Size(275, 20);
+            this.tb_transferencia.Size = new System.Drawing.Size(275, 26);
             this.tb_transferencia.TabIndex = 22;
             // 
             // dtp_fecha_regreso
             // 
+            this.dtp_fecha_regreso.Enabled = false;
+            this.dtp_fecha_regreso.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_fecha_regreso.Location = new System.Drawing.Point(778, 98);
             this.dtp_fecha_regreso.Name = "dtp_fecha_regreso";
-            this.dtp_fecha_regreso.Size = new System.Drawing.Size(275, 20);
+            this.dtp_fecha_regreso.Size = new System.Drawing.Size(275, 26);
             this.dtp_fecha_regreso.TabIndex = 20;
             // 
             // dtp_fecha_salida
             // 
+            this.dtp_fecha_salida.Enabled = false;
+            this.dtp_fecha_salida.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_fecha_salida.Location = new System.Drawing.Point(778, 41);
             this.dtp_fecha_salida.Name = "dtp_fecha_salida";
-            this.dtp_fecha_salida.Size = new System.Drawing.Size(275, 20);
+            this.dtp_fecha_salida.Size = new System.Drawing.Size(275, 26);
             this.dtp_fecha_salida.TabIndex = 19;
             // 
             // cb_colaborador
             // 
+            this.cb_colaborador.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_colaborador.FormattingEnabled = true;
             this.cb_colaborador.Location = new System.Drawing.Point(204, 39);
             this.cb_colaborador.Name = "cb_colaborador";
-            this.cb_colaborador.Size = new System.Drawing.Size(275, 21);
+            this.cb_colaborador.Size = new System.Drawing.Size(275, 28);
             this.cb_colaborador.TabIndex = 18;
             // 
             // label16
@@ -196,9 +211,11 @@
             // 
             // tb_salario
             // 
+            this.tb_salario.Enabled = false;
+            this.tb_salario.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_salario.Location = new System.Drawing.Point(204, 98);
             this.tb_salario.Name = "tb_salario";
-            this.tb_salario.Size = new System.Drawing.Size(275, 20);
+            this.tb_salario.Size = new System.Drawing.Size(275, 26);
             this.tb_salario.TabIndex = 7;
             // 
             // label18
@@ -210,14 +227,6 @@
             this.label18.Size = new System.Drawing.Size(245, 18);
             this.label18.TabIndex = 20;
             this.label18.Text = "INFORMACIÓN DE VACACIONES";
-            // 
-            // tb_cantidad_dias
-            // 
-            this.tb_cantidad_dias.Enabled = false;
-            this.tb_cantidad_dias.Location = new System.Drawing.Point(778, 153);
-            this.tb_cantidad_dias.Name = "tb_cantidad_dias";
-            this.tb_cantidad_dias.Size = new System.Drawing.Size(138, 20);
-            this.tb_cantidad_dias.TabIndex = 25;
             // 
             // Vacaciones_Agregar
             // 

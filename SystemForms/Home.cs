@@ -18,6 +18,8 @@ namespace SystemForms
         Departamentos_Control departamento;
         Registros_Control registro;
         Horarios_Control horario;
+        Configuracion configuracion;
+        Vacaciones_Control vacaciones;
         public Home()
         {
             InitializeComponent();
@@ -81,6 +83,22 @@ namespace SystemForms
             horario.Dock = DockStyle.Fill;
             pn_contenido.Controls.Clear();
             pn_contenido.Controls.Add(horario);
+        }
+
+        private void bt_config_Click(object sender, EventArgs e)
+        {
+            configuracion = new Configuracion();
+            configuracion.Dock = DockStyle.Fill;
+            pn_contenido.Controls.Clear();
+            pn_contenido.Controls.Add(configuracion);
+        }
+
+        private void bt_vacaciones_Click(object sender, EventArgs e)
+        {
+            vacaciones = new Vacaciones_Control();
+            vacaciones.Dock = DockStyle.Fill;
+            pn_contenido.Controls.Clear();
+            pn_contenido.Controls.Add(vacaciones);
         }
     }
 }
