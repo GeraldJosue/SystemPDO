@@ -122,6 +122,8 @@
             this.tb_monto.Name = "tb_monto";
             this.tb_monto.Size = new System.Drawing.Size(220, 20);
             this.tb_monto.TabIndex = 3;
+            this.tb_monto.Enter += new System.EventHandler(this.tb_monto_enter);
+            this.tb_monto.Leave += new System.EventHandler(this.tb_monto_leave);
             // 
             // lb_monto
             // 

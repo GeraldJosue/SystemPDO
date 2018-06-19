@@ -37,7 +37,7 @@ namespace DataAccess
                     aguinaldo_to.Id = reader.GetInt32(0);
                     aguinaldo_to.IdColaborador = reader.GetInt32(1);
                     aguinaldo_to.FechaAguinaldo = reader.GetDateTime(2);
-                    aguinaldo_to.Salario = reader.GetDouble(3);
+                    aguinaldo_to.Salario = reader.GetDecimal(3);
                     aguinaldo_to.TransferenciaAguinaldo = reader.GetString(4);
                     aguinaldo_to.EstadoAguinaldo = reader.GetBoolean(5);
                 }
@@ -95,8 +95,7 @@ namespace DataAccess
             {
                 SqlCommand query = new SqlCommand("INSERT INTO AGUINALDO VALUES(@colaborador, @fecha, @salario, @transferencia, @estado)", conex);
 
-                //query.Parameters.AddWithValue("@colaborador", aguinaldo.Id_departamento);
-                query.Parameters.AddWithValue("@colaborador", 1);                
+                query.Parameters.AddWithValue("@colaborador", aguinaldo.IdColaborador);                
                 query.Parameters.AddWithValue("@fecha", aguinaldo.FechaAguinaldo);
                 query.Parameters.AddWithValue("@salario", aguinaldo.Salario);
                 query.Parameters.AddWithValue("@transferencia", aguinaldo.TransferenciaAguinaldo);               
@@ -131,8 +130,7 @@ namespace DataAccess
             {
                 SqlCommand query = new SqlCommand(string_query(lista), conex);
                 query.Parameters.AddWithValue("@id", aguinaldo.Id);
-                //query.Parameters.AddWithValue("@colaborador", aguinaldo.IdColaborador);
-                query.Parameters.AddWithValue("@colaborador", 1);
+                query.Parameters.AddWithValue("@colaborador", aguinaldo.IdColaborador);
                 query.Parameters.AddWithValue("@fecha", aguinaldo.FechaAguinaldo);
                 query.Parameters.AddWithValue("@salario", aguinaldo.Salario);
                 query.Parameters.AddWithValue("@transferencia", aguinaldo.TransferenciaAguinaldo);
@@ -184,7 +182,7 @@ namespace DataAccess
                         aguinaldo.Id = reader.GetInt32(0);
                         aguinaldo.IdColaborador = reader.GetInt32(1);
                         aguinaldo.FechaAguinaldo = reader.GetDateTime(2);
-                        aguinaldo.Salario = Double.Parse(reader.GetDecimal(3).ToString());
+                        aguinaldo.Salario = reader.GetDecimal(3);
                         aguinaldo.TransferenciaAguinaldo = reader.GetString(4);
                         aguinaldo.EstadoAguinaldo = reader.GetBoolean(5);
                         lista.Add(aguinaldo);
@@ -241,6 +239,51 @@ namespace DataAccess
             return mega_query;
         }
 
+        public List<Adelanto_TO> obtener_lista_activos()
+        {
+            List<Adelanto_TO> lista = new List<Adelanto_TO>();
+            Adelanto_TO adelanto;
+            try
+            {
+                SqlCommand query = new SqlCommand("SELECT * FROM AGUINALDO WHERE estado_aguinaldo = 1", conex);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+
+                SqlDataReader reader = query.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        adelanto = new Adelanto_TO();
+                        adelanto.Id = reader.GetInt32(0);
+                        adelanto.IdColaborador = reader.GetInt32(1);
+                        adelanto.Fecha = reader.GetDateTime(2);
+                        adelanto.Monto = reader.GetDecimal(3);
+                        adelanto.Estado = reader.GetBoolean(4);
+                        lista.Add(adelanto);
+                    }
+                    return lista;
+                }
+                else
+                {
+                    return lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                return lista;
+            }
+            finally
+            {
+                if (conex.State != System.Data.ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
 
     }
 

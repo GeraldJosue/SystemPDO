@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace SystemForms
 {
-    public partial class Configuracion : UserControl
+    public partial class Aguinaldo_Lista_Temporal : UserControl
     {
-        public Configuracion()
+        public Aguinaldo_Lista_Temporal()
         {
             InitializeComponent();
-            
         }
     }
 }

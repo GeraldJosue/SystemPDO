@@ -15,9 +15,11 @@ namespace SystemForms
     {
 
         Aguinaldo aguinaldo;
+        List<Colaborador> lista;
         public Aguinaldo_Agregar()
         {
             InitializeComponent();
+            llenar_cb_colaborador();
         }
 
 
@@ -25,6 +27,8 @@ namespace SystemForms
         {
             InitializeComponent();
             this.aguinaldo = aguinaldo;
+            llenar_cb_colaborador();
+
             setear_datos();
         }
 
@@ -71,7 +75,7 @@ namespace SystemForms
             //analizar lo de departamento y lo de las fechas            
             Int32 colaborador = cb_colaborador.SelectedIndex == -1 ? 1 : cb_colaborador.SelectedIndex;
             DateTime fecha = dtp_fecha.Value.Date;
-            Double salarioAguinaldo = tb_monto.Text.Equals("") ? 0 : Double.Parse(tb_monto.Text);            
+            Decimal salarioAguinaldo = tb_monto.Text.Equals("") ? 0 : Decimal.Parse(tb_monto.Text);            
             String transferencia = tb_transferencia.Text.Equals("") ? "No disponible" : tb_transferencia.Text;
             Boolean estado = cb_estado.Checked ? true : false;
 
@@ -81,7 +85,7 @@ namespace SystemForms
 
         public void setear_datos()
         {
-            //Setear el selected index
+            //Setear el selected index            
             //cb_colaborador.SelectedIndex
             dtp_fecha.Text = aguinaldo.FechaAguinaldo.ToString();
             tb_monto.Text = aguinaldo.Salario.ToString();
@@ -116,5 +120,38 @@ namespace SystemForms
         }
 
 
+        public void llenar_cb_colaborador()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Nombre");
+            lista = new Colaborador().obtener_lista_activos();
+
+            foreach (Colaborador x in lista)
+            {
+                dt.Rows.Add(x.Id, x.Nombre);
+            }
+
+            cb_colaborador.ValueMember = "Id";
+            cb_colaborador.DisplayMember = "Nombre";
+            cb_colaborador.DataSource = dt;
+        }
+
+        private void tb_monto_enter(object sender, EventArgs e)
+        {
+            tb_monto.Text = Convert.ToString(tb_monto.Tag);
+        }
+
+        private void tb_monto_leave(object sender, EventArgs e)
+        {
+            Decimal monto = Decimal.Parse(tb_monto.Text);
+            tb_monto.Tag = monto;
+            tb_monto.Text = monto.ToString("C");
+        }
+
+        private void bt_calcular_Click(object sender, EventArgs e)
+        {
+            //aguinaldo.calcular_aguinaldo(lista).ToString();
+        }
     }
 }

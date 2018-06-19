@@ -95,7 +95,7 @@ namespace DataAccess
                     conex.Close();
                 }
             }
-        } 
+        }
 
         public Boolean eliminar_vacacion(Vacacion_TO vacacion_to)
         {
@@ -200,4 +200,5 @@ namespace DataAccess
             return mega_query;
         }
     }
+     
 }

@@ -84,9 +84,10 @@
             // 
             // dt_hora_fin
             // 
+            this.dt_hora_fin.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dt_hora_fin.Location = new System.Drawing.Point(187, 147);
             this.dt_hora_fin.Name = "dt_hora_fin";
-            this.dt_hora_fin.Size = new System.Drawing.Size(200, 20);
+            this.dt_hora_fin.Size = new System.Drawing.Size(200, 26);
             this.dt_hora_fin.TabIndex = 25;
             // 
             // rb_activo
@@ -103,9 +104,10 @@
             // 
             // dt_hora_inicio
             // 
+            this.dt_hora_inicio.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dt_hora_inicio.Location = new System.Drawing.Point(187, 96);
             this.dt_hora_inicio.Name = "dt_hora_inicio";
-            this.dt_hora_inicio.Size = new System.Drawing.Size(200, 20);
+            this.dt_hora_inicio.Size = new System.Drawing.Size(200, 26);
             this.dt_hora_inicio.TabIndex = 24;
             // 
             // label2
@@ -140,9 +142,10 @@
             // 
             // tb_nombre
             // 
+            this.tb_nombre.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_nombre.Location = new System.Drawing.Point(187, 45);
             this.tb_nombre.Name = "tb_nombre";
-            this.tb_nombre.Size = new System.Drawing.Size(275, 20);
+            this.tb_nombre.Size = new System.Drawing.Size(275, 26);
             this.tb_nombre.TabIndex = 20;
             // 
             // label18

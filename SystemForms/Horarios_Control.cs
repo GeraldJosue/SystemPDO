@@ -11,11 +11,11 @@ namespace SystemForms
         public Horarios_Control()
         {
             InitializeComponent();
-            formato_dtpickers();
             lista_horarios = new Horarios_Lista();
             lista_horarios.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(lista_horarios);
+            formato_dtpickers();
             editar = false;
         }
 
@@ -97,5 +97,43 @@ namespace SystemForms
             pn_master.Controls.Add(lista_horarios);
             pn_filtros.Enabled = true;
         }
+
+        private void bt_down_Click(object sender, EventArgs e)
+        {
+            lista_horarios.bajar_fila();
+        }
+
+        private void bt_up_Click(object sender, EventArgs e)
+        {
+            lista_horarios.subir_fila();
+        }
+
+        private void cb_activos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_activos.Checked)
+            {
+                lista_horarios.set_datasource(false);
+            }
+            else
+            {
+                lista_horarios.set_datasource(true);
+            }
+        }
+
+        private void dt_hora_inicio_ValueChanged(object sender, EventArgs e)
+        {
+            lista_horarios.filtro_hora_inicio(dt_hora_inicio.Value);
+        }
+
+        private void dt_hora_fin_ValueChanged(object sender, EventArgs e)
+        {
+            lista_horarios.filtro_hora_fin(dt_hora_fin.Value);
+        }
+
+        private void tb_buscar_TextChanged(object sender, EventArgs e)
+        {
+            lista_horarios.filtro_nombre(tb_buscar.Text);
+        }
+
     }
 }

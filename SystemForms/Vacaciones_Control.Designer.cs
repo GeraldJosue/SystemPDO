@@ -158,6 +158,7 @@
             this.bt_agregar.Text = "Agregar";
             this.bt_agregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_agregar.UseVisualStyleBackColor = false;
+            this.bt_agregar.Click += new System.EventHandler(this.bt_agregar_Click);
             // 
             // pn_filtros
             // 

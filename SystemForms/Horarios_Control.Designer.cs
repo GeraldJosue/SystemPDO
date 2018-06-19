@@ -188,6 +188,7 @@
             this.dt_hora_fin.Name = "dt_hora_fin";
             this.dt_hora_fin.Size = new System.Drawing.Size(163, 22);
             this.dt_hora_fin.TabIndex = 13;
+            this.dt_hora_fin.ValueChanged += new System.EventHandler(this.dt_hora_fin_ValueChanged);
             // 
             // label5
             // 
@@ -212,6 +213,7 @@
             this.bt_down.Size = new System.Drawing.Size(35, 23);
             this.bt_down.TabIndex = 1;
             this.bt_down.UseVisualStyleBackColor = true;
+            this.bt_down.Click += new System.EventHandler(this.bt_down_Click);
             // 
             // bt_up
             // 
@@ -226,6 +228,7 @@
             this.bt_up.Size = new System.Drawing.Size(32, 23);
             this.bt_up.TabIndex = 0;
             this.bt_up.UseVisualStyleBackColor = true;
+            this.bt_up.Click += new System.EventHandler(this.bt_up_Click);
             // 
             // tb_buscar
             // 
@@ -234,6 +237,7 @@
             this.tb_buscar.Name = "tb_buscar";
             this.tb_buscar.Size = new System.Drawing.Size(128, 22);
             this.tb_buscar.TabIndex = 2;
+            this.tb_buscar.TextChanged += new System.EventHandler(this.tb_buscar_TextChanged);
             // 
             // label2
             // 
@@ -265,6 +269,7 @@
             this.cb_activos.TabIndex = 0;
             this.cb_activos.Text = "Inactivos";
             this.cb_activos.UseVisualStyleBackColor = true;
+            this.cb_activos.CheckedChanged += new System.EventHandler(this.cb_activos_CheckedChanged);
             // 
             // dt_hora_inicio
             // 
@@ -273,6 +278,7 @@
             this.dt_hora_inicio.Name = "dt_hora_inicio";
             this.dt_hora_inicio.Size = new System.Drawing.Size(163, 22);
             this.dt_hora_inicio.TabIndex = 1;
+            this.dt_hora_inicio.ValueChanged += new System.EventHandler(this.dt_hora_inicio_ValueChanged);
             // 
             // pn_master
             // 
@@ -280,6 +286,7 @@
             this.pn_master.Name = "pn_master";
             this.pn_master.Size = new System.Drawing.Size(1164, 461);
             this.pn_master.TabIndex = 12;
+            this.pn_master.Click += new System.EventHandler(this.bt_down_Click);
             // 
             // bt_cancelar
             // 

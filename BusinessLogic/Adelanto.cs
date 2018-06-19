@@ -13,10 +13,10 @@ namespace BusinessLogic
         public Int32 Id { get; set; }
         public Int32 IdColaborador { get; set; }
         public DateTime Fecha { get; set; }
-        public Double Monto { get; set; }
+        public Decimal Monto { get; set; }
         public Boolean Estado { get; set; }
 
-        public Adelanto(int id, int idColaborador, DateTime fecha, Double monto, Boolean estado)
+        public Adelanto(int id, int idColaborador, DateTime fecha, Decimal monto, Boolean estado)
         {
             this.Id = id;
             this.IdColaborador = idColaborador;
