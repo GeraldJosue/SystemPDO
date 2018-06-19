@@ -13,7 +13,8 @@ namespace SystemForms
     public partial class Aguinaldo_Control : UserControl
     {
 
-        Aguinaldo_Agregar aguinaldoNuevo;
+        Aguinaldo_Lista_Temporal aguinaldo_calcular;
+        Aguinaldo_Agregar aguinaldo_editar;
         Aguinaldo_Lista listaAguinaldos;
         Boolean editar;
         public Aguinaldo_Control()
@@ -28,20 +29,20 @@ namespace SystemForms
 
         private void bt_agregar_Click(object sender, EventArgs e)
         {
-            aguinaldoNuevo = new Aguinaldo_Agregar();
-            aguinaldoNuevo.Dock = DockStyle.Fill;
+            aguinaldo_calcular = new Aguinaldo_Lista_Temporal();
+            aguinaldo_calcular.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
-            pn_master.Controls.Add(aguinaldoNuevo);
+            pn_master.Controls.Add(aguinaldo_calcular);
             editar = false;
             pn_filtros.Enabled = false;
         }
 
         private void bt_editar_Click(object sender, EventArgs e)
         {
-            aguinaldoNuevo = new Aguinaldo_Agregar(listaAguinaldos.obtener());
-            aguinaldoNuevo.Dock = DockStyle.Fill;
+            aguinaldo_editar = new Aguinaldo_Agregar(listaAguinaldos.obtener());
+            aguinaldo_editar.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
-            pn_master.Controls.Add(aguinaldoNuevo);
+            pn_master.Controls.Add(aguinaldo_editar);
             editar = true;
             pn_filtros.Enabled = false;
             cb_activos.Checked = false;
@@ -130,7 +131,7 @@ namespace SystemForms
         {
             if (!editar)
             {
-                if (aguinaldoNuevo.agregar_sys())
+                if (aguinaldo_editar.agregar_sys())
                 {
                     listaAguinaldos.obtener_lista_sys();
                     pn_master.Controls.Clear();
@@ -140,7 +141,7 @@ namespace SystemForms
             }
             else
             {
-                if (aguinaldoNuevo.editar_sys())
+                if (aguinaldo_editar.editar_sys())
                 {
                     listaAguinaldos.obtener_lista_sys();
                     pn_master.Controls.Clear();

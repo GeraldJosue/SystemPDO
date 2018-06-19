@@ -149,9 +149,6 @@ namespace SystemForms
             tb_monto.Text = monto.ToString("C");
         }
 
-        private void bt_calcular_Click(object sender, EventArgs e)
-        {
-            //aguinaldo.calcular_aguinaldo(lista).ToString();
-        }
+        
     }
 }

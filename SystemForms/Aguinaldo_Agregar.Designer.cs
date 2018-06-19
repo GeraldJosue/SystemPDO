@@ -40,13 +40,11 @@
             this.lb_colaborador = new System.Windows.Forms.Label();
             this.lb_fecha = new System.Windows.Forms.Label();
             this.lb_titulo = new System.Windows.Forms.Label();
-            this.bt_calcular = new System.Windows.Forms.Button();
             this.pn_agregarAguinaldo.SuspendLayout();
             this.SuspendLayout();
             // 
             // pn_agregarAguinaldo
             // 
-            this.pn_agregarAguinaldo.Controls.Add(this.bt_calcular);
             this.pn_agregarAguinaldo.Controls.Add(this.cb_estado);
             this.pn_agregarAguinaldo.Controls.Add(this.lb_estado);
             this.pn_agregarAguinaldo.Controls.Add(this.tb_transferencia);
@@ -66,7 +64,7 @@
             // cb_estado
             // 
             this.cb_estado.AutoSize = true;
-            this.cb_estado.Location = new System.Drawing.Point(133, 364);
+            this.cb_estado.Location = new System.Drawing.Point(428, 281);
             this.cb_estado.Name = "cb_estado";
             this.cb_estado.Size = new System.Drawing.Size(75, 17);
             this.cb_estado.TabIndex = 12;
@@ -76,11 +74,11 @@
             // lb_estado
             // 
             this.lb_estado.AutoSize = true;
-            this.lb_estado.Location = new System.Drawing.Point(130, 328);
+            this.lb_estado.Location = new System.Drawing.Point(425, 241);
             this.lb_estado.Name = "lb_estado";
-            this.lb_estado.Size = new System.Drawing.Size(40, 13);
+            this.lb_estado.Size = new System.Drawing.Size(90, 13);
             this.lb_estado.TabIndex = 11;
-            this.lb_estado.Text = "Estado";
+            this.lb_estado.Text = "Estado Aguinaldo";
             // 
             // tb_transferencia
             // 
@@ -159,19 +157,6 @@
             this.lb_titulo.TabIndex = 0;
             this.lb_titulo.Text = "Agregar Aguinaldo";
             // 
-            // bt_calcular
-            // 
-            this.bt_calcular.BackColor = System.Drawing.Color.Maroon;
-            this.bt_calcular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_calcular.ForeColor = System.Drawing.Color.White;
-            this.bt_calcular.Location = new System.Drawing.Point(428, 269);
-            this.bt_calcular.Name = "bt_calcular";
-            this.bt_calcular.Size = new System.Drawing.Size(219, 35);
-            this.bt_calcular.TabIndex = 13;
-            this.bt_calcular.Text = "Calcular Aguinaldo";
-            this.bt_calcular.UseVisualStyleBackColor = false;
-            this.bt_calcular.Click += new System.EventHandler(this.bt_calcular_Click);
-            // 
             // Aguinaldo_Agregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,6 +184,5 @@
         private System.Windows.Forms.Label lb_transferencia;
         private System.Windows.Forms.CheckBox cb_estado;
         private System.Windows.Forms.Label lb_estado;
-        private System.Windows.Forms.Button bt_calcular;
     }
 }
