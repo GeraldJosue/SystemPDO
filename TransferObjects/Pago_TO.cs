@@ -20,6 +20,8 @@ namespace TransferObjects
         public Boolean EstadoPago { get; set; }
         public Decimal Bono { get; set; }
         public Int32 Id_adelanto { get; set; }
+        public Boolean ProcesoPago { get; set; }
+
 
     }
 

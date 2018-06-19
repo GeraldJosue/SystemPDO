@@ -50,6 +50,7 @@
             this.bt_cancelar = new System.Windows.Forms.Button();
             this.bt_guardar = new System.Windows.Forms.Button();
             this.pn_master = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pn_filtros.SuspendLayout();
@@ -285,6 +286,7 @@
             // 
             // pn_opciones
             // 
+            this.pn_opciones.Controls.Add(this.button1);
             this.pn_opciones.Controls.Add(this.bt_cancelar);
             this.pn_opciones.Controls.Add(this.bt_guardar);
             this.pn_opciones.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -303,7 +305,7 @@
             this.bt_cancelar.ForeColor = System.Drawing.Color.White;
             this.bt_cancelar.Image = ((System.Drawing.Image)(resources.GetObject("bt_cancelar.Image")));
             this.bt_cancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_cancelar.Location = new System.Drawing.Point(92, 0);
+            this.bt_cancelar.Location = new System.Drawing.Point(175, 0);
             this.bt_cancelar.Name = "bt_cancelar";
             this.bt_cancelar.Size = new System.Drawing.Size(80, 50);
             this.bt_cancelar.TabIndex = 1;
@@ -322,7 +324,7 @@
             this.bt_guardar.ForeColor = System.Drawing.Color.White;
             this.bt_guardar.Image = ((System.Drawing.Image)(resources.GetObject("bt_guardar.Image")));
             this.bt_guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_guardar.Location = new System.Drawing.Point(9, 0);
+            this.bt_guardar.Location = new System.Drawing.Point(92, 0);
             this.bt_guardar.Name = "bt_guardar";
             this.bt_guardar.Size = new System.Drawing.Size(75, 50);
             this.bt_guardar.TabIndex = 0;
@@ -338,6 +340,23 @@
             this.pn_master.Name = "pn_master";
             this.pn_master.Size = new System.Drawing.Size(1164, 461);
             this.pn_master.TabIndex = 13;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LimeGreen;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.LightGreen;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.Location = new System.Drawing.Point(9, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 50);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Revisar";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Pago_Control
             // 
@@ -384,5 +403,6 @@
         private System.Windows.Forms.Button bt_cancelar;
         private System.Windows.Forms.Button bt_guardar;
         private System.Windows.Forms.Panel pn_master;
+        private System.Windows.Forms.Button button1;
     }
 }

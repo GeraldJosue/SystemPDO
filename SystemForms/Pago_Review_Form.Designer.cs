@@ -30,6 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pago_Review_Form));
             this.pn_agregarPago = new System.Windows.Forms.Panel();
+            this.bt_cancelar = new System.Windows.Forms.Button();
+            this.bt_guardar = new System.Windows.Forms.Button();
+            this.rb_inactivo = new System.Windows.Forms.RadioButton();
+            this.rb_activo = new System.Windows.Forms.RadioButton();
+            this.label17 = new System.Windows.Forms.Label();
+            this.tb_bono = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lb_nombre = new System.Windows.Forms.Label();
+            this.nud_extras = new System.Windows.Forms.NumericUpDown();
+            this.nud_horas = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.tb_transferencia = new System.Windows.Forms.TextBox();
             this.lb_Transferencia = new System.Windows.Forms.Label();
             this.dtp_hasta = new System.Windows.Forms.DateTimePicker();
@@ -43,31 +55,25 @@
             this.lb_hasta = new System.Windows.Forms.Label();
             this.lb_desde = new System.Windows.Forms.Label();
             this.lb_Colaborador = new System.Windows.Forms.Label();
-            this.nud_extras = new System.Windows.Forms.NumericUpDown();
-            this.nud_horas = new System.Windows.Forms.NumericUpDown();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.lb_nombre = new System.Windows.Forms.Label();
-            this.tb_bono = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.rb_inactivo = new System.Windows.Forms.RadioButton();
-            this.rb_activo = new System.Windows.Forms.RadioButton();
-            this.label17 = new System.Windows.Forms.Label();
-            this.bt_cancelar = new System.Windows.Forms.Button();
-            this.bt_guardar = new System.Windows.Forms.Button();
+            this.rb_tramite = new System.Windows.Forms.RadioButton();
+            this.rb_pagado = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.pn_agregarPago.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_extras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_horas)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pn_agregarPago
             // 
             this.pn_agregarPago.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn_agregarPago.Controls.Add(this.panel2);
+            this.pn_agregarPago.Controls.Add(this.panel1);
             this.pn_agregarPago.Controls.Add(this.bt_cancelar);
             this.pn_agregarPago.Controls.Add(this.bt_guardar);
-            this.pn_agregarPago.Controls.Add(this.rb_inactivo);
-            this.pn_agregarPago.Controls.Add(this.rb_activo);
-            this.pn_agregarPago.Controls.Add(this.label17);
             this.pn_agregarPago.Controls.Add(this.tb_bono);
             this.pn_agregarPago.Controls.Add(this.label1);
             this.pn_agregarPago.Controls.Add(this.lb_nombre);
@@ -91,8 +97,168 @@
             this.pn_agregarPago.Location = new System.Drawing.Point(25, 25);
             this.pn_agregarPago.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pn_agregarPago.Name = "pn_agregarPago";
-            this.pn_agregarPago.Size = new System.Drawing.Size(874, 329);
+            this.pn_agregarPago.Size = new System.Drawing.Size(976, 329);
             this.pn_agregarPago.TabIndex = 1;
+            // 
+            // bt_cancelar
+            // 
+            this.bt_cancelar.BackColor = System.Drawing.Color.DarkRed;
+            this.bt_cancelar.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
+            this.bt_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
+            this.bt_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_cancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_cancelar.ForeColor = System.Drawing.Color.White;
+            this.bt_cancelar.Image = ((System.Drawing.Image)(resources.GetObject("bt_cancelar.Image")));
+            this.bt_cancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_cancelar.Location = new System.Drawing.Point(891, 274);
+            this.bt_cancelar.Name = "bt_cancelar";
+            this.bt_cancelar.Size = new System.Drawing.Size(80, 50);
+            this.bt_cancelar.TabIndex = 38;
+            this.bt_cancelar.Text = "Cancelar";
+            this.bt_cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bt_cancelar.UseVisualStyleBackColor = false;
+            this.bt_cancelar.Click += new System.EventHandler(this.bt_cancelar_Click);
+            // 
+            // bt_guardar
+            // 
+            this.bt_guardar.BackColor = System.Drawing.Color.LimeGreen;
+            this.bt_guardar.FlatAppearance.BorderColor = System.Drawing.Color.LightGreen;
+            this.bt_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
+            this.bt_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_guardar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_guardar.ForeColor = System.Drawing.Color.White;
+            this.bt_guardar.Image = ((System.Drawing.Image)(resources.GetObject("bt_guardar.Image")));
+            this.bt_guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_guardar.Location = new System.Drawing.Point(808, 274);
+            this.bt_guardar.Name = "bt_guardar";
+            this.bt_guardar.Size = new System.Drawing.Size(75, 50);
+            this.bt_guardar.TabIndex = 37;
+            this.bt_guardar.Text = "Salvar";
+            this.bt_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bt_guardar.UseVisualStyleBackColor = false;
+            this.bt_guardar.Click += new System.EventHandler(this.bt_guardar_Click);
+            // 
+            // rb_inactivo
+            // 
+            this.rb_inactivo.AutoSize = true;
+            this.rb_inactivo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rb_inactivo.Location = new System.Drawing.Point(229, 13);
+            this.rb_inactivo.Name = "rb_inactivo";
+            this.rb_inactivo.Size = new System.Drawing.Size(87, 24);
+            this.rb_inactivo.TabIndex = 36;
+            this.rb_inactivo.Text = "Inválido";
+            this.rb_inactivo.UseVisualStyleBackColor = true;
+            // 
+            // rb_activo
+            // 
+            this.rb_activo.AutoSize = true;
+            this.rb_activo.Checked = true;
+            this.rb_activo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rb_activo.Location = new System.Drawing.Point(137, 13);
+            this.rb_activo.Name = "rb_activo";
+            this.rb_activo.Size = new System.Drawing.Size(74, 24);
+            this.rb_activo.TabIndex = 35;
+            this.rb_activo.TabStop = true;
+            this.rb_activo.Text = "Válido";
+            this.rb_activo.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(3, 15);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(128, 20);
+            this.label17.TabIndex = 34;
+            this.label17.Text = "Estado del Pago";
+            // 
+            // tb_bono
+            // 
+            this.tb_bono.Location = new System.Drawing.Point(694, 18);
+            this.tb_bono.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tb_bono.Name = "tb_bono";
+            this.tb_bono.Size = new System.Drawing.Size(142, 26);
+            this.tb_bono.TabIndex = 33;
+            this.tb_bono.Enter += new System.EventHandler(this.tb_bono_Enter);
+            this.tb_bono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_bono_KeyPress);
+            this.tb_bono.Leave += new System.EventHandler(this.tb_bono_Leave);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(487, 24);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 20);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "Bono";
+            // 
+            // lb_nombre
+            // 
+            this.lb_nombre.AutoSize = true;
+            this.lb_nombre.Location = new System.Drawing.Point(155, 24);
+            this.lb_nombre.Name = "lb_nombre";
+            this.lb_nombre.Size = new System.Drawing.Size(68, 20);
+            this.lb_nombre.TabIndex = 31;
+            this.lb_nombre.Text = "Nombre";
+            // 
+            // nud_extras
+            // 
+            this.nud_extras.DecimalPlaces = 1;
+            this.nud_extras.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nud_extras.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.nud_extras.Location = new System.Drawing.Point(159, 198);
+            this.nud_extras.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.nud_extras.Name = "nud_extras";
+            this.nud_extras.Size = new System.Drawing.Size(145, 26);
+            this.nud_extras.TabIndex = 30;
+            // 
+            // nud_horas
+            // 
+            this.nud_horas.DecimalPlaces = 1;
+            this.nud_horas.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nud_horas.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.nud_horas.Location = new System.Drawing.Point(159, 160);
+            this.nud_horas.Maximum = new decimal(new int[] {
+            239,
+            0,
+            0,
+            65536});
+            this.nud_horas.Name = "nud_horas";
+            this.nud_horas.Size = new System.Drawing.Size(145, 26);
+            this.nud_horas.TabIndex = 29;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(25, 166);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(122, 20);
+            this.label14.TabIndex = 28;
+            this.label14.Text = "Hora laboradas";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(25, 204);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(91, 20);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "Horas extra";
             // 
             // tb_transferencia
             // 
@@ -221,172 +387,66 @@
             this.lb_Colaborador.TabIndex = 2;
             this.lb_Colaborador.Text = "Colaborador";
             // 
-            // nud_extras
+            // rb_tramite
             // 
-            this.nud_extras.DecimalPlaces = 1;
-            this.nud_extras.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nud_extras.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.nud_extras.Location = new System.Drawing.Point(159, 198);
-            this.nud_extras.Maximum = new decimal(new int[] {
-            23,
-            0,
-            0,
-            0});
-            this.nud_extras.Name = "nud_extras";
-            this.nud_extras.Size = new System.Drawing.Size(145, 26);
-            this.nud_extras.TabIndex = 30;
+            this.rb_tramite.AutoSize = true;
+            this.rb_tramite.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rb_tramite.Location = new System.Drawing.Point(243, 15);
+            this.rb_tramite.Name = "rb_tramite";
+            this.rb_tramite.Size = new System.Drawing.Size(99, 24);
+            this.rb_tramite.TabIndex = 41;
+            this.rb_tramite.Text = "En trámite";
+            this.rb_tramite.UseVisualStyleBackColor = true;
             // 
-            // nud_horas
+            // rb_pagado
             // 
-            this.nud_horas.DecimalPlaces = 1;
-            this.nud_horas.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nud_horas.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.nud_horas.Location = new System.Drawing.Point(159, 160);
-            this.nud_horas.Maximum = new decimal(new int[] {
-            239,
-            0,
-            0,
-            65536});
-            this.nud_horas.Name = "nud_horas";
-            this.nud_horas.Size = new System.Drawing.Size(145, 26);
-            this.nud_horas.TabIndex = 29;
+            this.rb_pagado.AutoSize = true;
+            this.rb_pagado.Checked = true;
+            this.rb_pagado.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rb_pagado.Location = new System.Drawing.Point(151, 15);
+            this.rb_pagado.Name = "rb_pagado";
+            this.rb_pagado.Size = new System.Drawing.Size(86, 24);
+            this.rb_pagado.TabIndex = 40;
+            this.rb_pagado.TabStop = true;
+            this.rb_pagado.Text = "Pagado";
+            this.rb_pagado.UseVisualStyleBackColor = true;
             // 
-            // label14
+            // label2
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(25, 166);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(122, 20);
-            this.label14.TabIndex = 28;
-            this.label14.Text = "Hora laboradas";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(139, 20);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "Proceso del Pago";
             // 
-            // label13
+            // panel1
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(25, 204);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(91, 20);
-            this.label13.TabIndex = 27;
-            this.label13.Text = "Horas extra";
+            this.panel1.Controls.Add(this.label17);
+            this.panel1.Controls.Add(this.rb_activo);
+            this.panel1.Controls.Add(this.rb_inactivo);
+            this.panel1.Location = new System.Drawing.Point(29, 274);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(319, 42);
+            this.panel1.TabIndex = 42;
             // 
-            // lb_nombre
+            // panel2
             // 
-            this.lb_nombre.AutoSize = true;
-            this.lb_nombre.Location = new System.Drawing.Point(155, 24);
-            this.lb_nombre.Name = "lb_nombre";
-            this.lb_nombre.Size = new System.Drawing.Size(68, 20);
-            this.lb_nombre.TabIndex = 31;
-            this.lb_nombre.Text = "Nombre";
-            // 
-            // tb_bono
-            // 
-            this.tb_bono.Location = new System.Drawing.Point(694, 18);
-            this.tb_bono.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tb_bono.Name = "tb_bono";
-            this.tb_bono.Size = new System.Drawing.Size(142, 26);
-            this.tb_bono.TabIndex = 33;
-            this.tb_bono.Enter += new System.EventHandler(this.tb_bono_Enter);
-            this.tb_bono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_bono_KeyPress);
-            this.tb_bono.Leave += new System.EventHandler(this.tb_bono_Leave);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(487, 24);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 20);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Bono";
-            // 
-            // rb_inactivo
-            // 
-            this.rb_inactivo.AutoSize = true;
-            this.rb_inactivo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_inactivo.Location = new System.Drawing.Point(251, 288);
-            this.rb_inactivo.Name = "rb_inactivo";
-            this.rb_inactivo.Size = new System.Drawing.Size(99, 24);
-            this.rb_inactivo.TabIndex = 36;
-            this.rb_inactivo.Text = "En trámite";
-            this.rb_inactivo.UseVisualStyleBackColor = true;
-            // 
-            // rb_activo
-            // 
-            this.rb_activo.AutoSize = true;
-            this.rb_activo.Checked = true;
-            this.rb_activo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_activo.Location = new System.Drawing.Point(159, 288);
-            this.rb_activo.Name = "rb_activo";
-            this.rb_activo.Size = new System.Drawing.Size(86, 24);
-            this.rb_activo.TabIndex = 35;
-            this.rb_activo.TabStop = true;
-            this.rb_activo.Text = "Pagado";
-            this.rb_activo.UseVisualStyleBackColor = true;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(25, 290);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(128, 20);
-            this.label17.TabIndex = 34;
-            this.label17.Text = "Estado del Pago";
-            // 
-            // bt_cancelar
-            // 
-            this.bt_cancelar.BackColor = System.Drawing.Color.DarkRed;
-            this.bt_cancelar.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
-            this.bt_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
-            this.bt_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_cancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_cancelar.ForeColor = System.Drawing.Color.White;
-            this.bt_cancelar.Image = ((System.Drawing.Image)(resources.GetObject("bt_cancelar.Image")));
-            this.bt_cancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_cancelar.Location = new System.Drawing.Point(789, 274);
-            this.bt_cancelar.Name = "bt_cancelar";
-            this.bt_cancelar.Size = new System.Drawing.Size(80, 50);
-            this.bt_cancelar.TabIndex = 38;
-            this.bt_cancelar.Text = "Cancelar";
-            this.bt_cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bt_cancelar.UseVisualStyleBackColor = false;
-            this.bt_cancelar.Click += new System.EventHandler(this.bt_cancelar_Click);
-            // 
-            // bt_guardar
-            // 
-            this.bt_guardar.BackColor = System.Drawing.Color.LimeGreen;
-            this.bt_guardar.FlatAppearance.BorderColor = System.Drawing.Color.LightGreen;
-            this.bt_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
-            this.bt_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_guardar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_guardar.ForeColor = System.Drawing.Color.White;
-            this.bt_guardar.Image = ((System.Drawing.Image)(resources.GetObject("bt_guardar.Image")));
-            this.bt_guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_guardar.Location = new System.Drawing.Point(706, 274);
-            this.bt_guardar.Name = "bt_guardar";
-            this.bt_guardar.Size = new System.Drawing.Size(75, 50);
-            this.bt_guardar.TabIndex = 37;
-            this.bt_guardar.Text = "Salvar";
-            this.bt_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bt_guardar.UseVisualStyleBackColor = false;
-            this.bt_guardar.Click += new System.EventHandler(this.bt_guardar_Click);
+            this.panel2.Controls.Add(this.rb_pagado);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.rb_tramite);
+            this.panel2.Location = new System.Drawing.Point(394, 274);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(358, 42);
+            this.panel2.TabIndex = 43;
             // 
             // Pago_Review_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(930, 376);
+            this.ClientSize = new System.Drawing.Size(1013, 376);
             this.Controls.Add(this.pn_agregarPago);
             this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -396,6 +456,10 @@
             this.pn_agregarPago.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_extras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_horas)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -428,5 +492,10 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button bt_cancelar;
         private System.Windows.Forms.Button bt_guardar;
+        private System.Windows.Forms.RadioButton rb_tramite;
+        private System.Windows.Forms.RadioButton rb_pagado;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
     }
 }

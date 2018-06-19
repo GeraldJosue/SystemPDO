@@ -45,6 +45,9 @@ namespace SystemForms
 
             rb_activo.Checked = pago.EstadoPago;
             rb_inactivo.Checked = !pago.EstadoPago;
+
+            rb_pagado.Checked = pago.ProcesoPago;
+            rb_tramite.Checked = !pago.ProcesoPago;
         }
 
         public void recalcular_salarios()
@@ -212,8 +215,10 @@ namespace SystemForms
             pago.SalarioBruto = Convert.ToDecimal(tb_bruto.Tag);
             pago.SalarioNeto = Convert.ToDecimal(tb_neto.Tag);
             pago.EstadoPago = rb_activo.Checked;
+            pago.ProcesoPago = rb_pagado.Checked;
             parent.salvar_cambios(pago);
             this.Close();
         }
+        
     }
 }
