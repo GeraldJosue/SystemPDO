@@ -15,12 +15,15 @@ namespace SystemForms
     {
         List<Pago> lista;
         Progress_Form avance;
+        Pago_Control parent;
 
-        public Pago_Review(List<Pago> lista)
+        public Pago_Review(List<Pago> lista, Pago_Control parent)
         {
             InitializeComponent();
+            this.parent = parent;
             this.lista = lista;
             llenar_dg();
+            parent.visibilidad(true, true, true);
         }
 
         public void llenar_dg()

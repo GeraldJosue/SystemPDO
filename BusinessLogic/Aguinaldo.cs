@@ -141,7 +141,7 @@ namespace BusinessLogic
             Decimal horas_extra = 0;        
             foreach (Pago p in lista_pago)
             {
-                if (p.EstadoPago && p.IdColaborador == colaborador.Id)
+                if (p.EstadoPago && p.Id_colaborador == colaborador.Id)
                 {
                     horas_extra += p.HorasExtra;
                 }

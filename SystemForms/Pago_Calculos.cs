@@ -41,9 +41,9 @@ namespace SystemForms
                 dt.Rows.Add(d.Id, d.Nombre);
             }
 
-            cb_departamento.ValueMember = "Id";
-            cb_departamento.DisplayMember = "Nombre";
-            cb_departamento.DataSource = dt;
+            //cb_departamento.ValueMember = "Id";
+            //cb_departamento.DisplayMember = "Nombre";
+            //cb_departamento.DataSource = dt;
         }
 
         public void llenar_cb_periodos()

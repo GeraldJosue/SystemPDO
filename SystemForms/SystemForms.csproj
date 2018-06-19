@@ -183,14 +183,7 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pago_Agregar.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Pago_Agregar.Designer.cs">
-      <DependentUpon>Pago_Agregar.cs</DependentUpon>
-    </Compile>
     <Compile Include="Pago_Calculos.cs">
-    <Compile Include="Pago_Agregar.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Pago_Calculos.Designer.cs">
@@ -341,9 +334,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pago_Agregar.resx">
-      <DependentUpon>Pago_Agregar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pago_Calculos.resx">
       <DependentUpon>Pago_Calculos.cs</DependentUpon>
