@@ -20,6 +20,11 @@ namespace SystemForms
         List<Colaborador> colaboradores;
         List<Registro> registros;
         List<Pago> pagos;
+        List<Planilla> planillas;
+        DateTime inicio;
+        DateTime fin;
+        Planilla planilla;
+        Int32 tipo;
 
         public Pago_Calculos(Pago_Control parent)
         {
@@ -51,10 +56,9 @@ namespace SystemForms
             DataTable dt = new DataTable();
             dt.Columns.Add("Id");
             dt.Columns.Add("Nombre");
-
-            dt.Rows.Add(7, "Semana");
-            dt.Rows.Add(14, "Quincena");
-            dt.Rows.Add(30, "Mes");
+            
+            dt.Rows.Add(14, "Quincenal");
+            dt.Rows.Add(30, "Mensual");
 
             cb_periodo.ValueMember = "Id";
             cb_periodo.DisplayMember = "Nombre";
@@ -63,13 +67,9 @@ namespace SystemForms
         }
         private void bgw_calculos_DoWork(object sender, DoWorkEventArgs e)
         {
-            //int tamaño = 131;
-            //for (int i = 0; i < tamaño; i++)
-            //{
-            //    int avance = ((i + 1) * 100) / tamaño;
-            //    bgw_calculos.ReportProgress(avance);
-            //}
+            
             gestion();
+            calcular_planillas();
         }
 
         private void bgw_calculos_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -80,7 +80,7 @@ namespace SystemForms
         private void bgw_calculos_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             avance.Close();
-            parent.lista_review(pagos);
+            parent.lista_review_planillas(pagos, planillas);
         }
 
         private void bt_calcular_Click(object sender, EventArgs e)
@@ -99,9 +99,9 @@ namespace SystemForms
 
         public Boolean planeación()
         {
-            DateTime inicio = dt_inicio.Value.Date;
-            DateTime fin = dt_fin.Value.Date;
-
+            inicio = dt_inicio.Value.Date;
+            fin = dt_fin.Value.Date;
+            tipo = Convert.ToInt32(cb_periodo.SelectedValue);
             registros = new Registro().obtener_lista_fechas(inicio, fin);
             return true;
         }
@@ -134,12 +134,31 @@ namespace SystemForms
 
                 bruto = (horas * c.Precio) + (extras * (c.Precio * Convert.ToDecimal(1.5)));
                 neto = bruto - (bruto * Convert.ToDecimal(0.1));
-                pagos.Add(new Pago(0, c.Id, DateTime.Now.Date, bruto, neto, 0, horas, extras, "No disponible", true, 0, 0, false));
+                Int32 id = Convert.ToInt32(fin.Day.ToString() + fin.Month.ToString() + fin.Year.ToString());
+                pagos.Add(new Pago(0, c.Id, DateTime.Now.Date, bruto, neto, 0, horas, extras, "No disponible", true, 0, false, 0, 0, 0, 0, id));
                 avance = ((++flag) * 100) / colaboradores.Count;
                 bgw_calculos.ReportProgress(avance);
                 Thread.Sleep(500);
             }
             return true;
+        }
+        public void calcular_planillas()
+        {
+            Decimal total = 0;
+            Int32 avance = 0;
+            Int32 flag = 0;
+
+            foreach (Pago p in pagos)
+            {
+                total += p.SalarioNeto;
+                avance = ((++flag) * 100) / pagos.Count;
+                bgw_calculos.ReportProgress(avance);
+                Thread.Sleep(500);
+            }
+            Int32 id = Convert.ToInt32(fin.Day.ToString() + fin.Month.ToString() + fin.Year.ToString());
+            planillas =  new List<Planilla>();
+            planilla = new Planilla(id, inicio, fin, total, tipo, true);
+            planillas.Add(planilla);
         }
     }
 }

@@ -45,9 +45,9 @@
             this.lb_avance.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_avance.Location = new System.Drawing.Point(12, 18);
             this.lb_avance.Name = "lb_avance";
-            this.lb_avance.Size = new System.Drawing.Size(121, 17);
+            this.lb_avance.Size = new System.Drawing.Size(93, 17);
             this.lb_avance.TabIndex = 1;
-            this.lb_avance.Text = "Texto de prueba: ";
+            this.lb_avance.Text = "Calculando: ";
             // 
             // Progress_Form
             // 

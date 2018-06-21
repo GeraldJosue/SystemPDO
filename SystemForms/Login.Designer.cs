@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.pn_login = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lb_contraseña = new System.Windows.Forms.Label();
             this.lb_name = new System.Windows.Forms.Label();
             this.tb_usuario = new System.Windows.Forms.TextBox();
@@ -40,7 +38,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pn_login.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +45,6 @@
             // 
             this.pn_login.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pn_login.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pn_login.Controls.Add(this.pictureBox1);
             this.pn_login.Controls.Add(this.lb_contraseña);
             this.pn_login.Controls.Add(this.lb_name);
             this.pn_login.Controls.Add(this.tb_usuario);
@@ -60,16 +56,6 @@
             this.pn_login.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.pn_login.Size = new System.Drawing.Size(521, 252);
             this.pn_login.TabIndex = 4;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(16, 61);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
             // 
             // lb_contraseña
             // 
@@ -102,13 +88,13 @@
             // 
             // bt_ingresar
             // 
-            this.bt_ingresar.BackColor = System.Drawing.Color.Maroon;
+            this.bt_ingresar.BackColor = System.Drawing.Color.CadetBlue;
             this.bt_ingresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_ingresar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_ingresar.ForeColor = System.Drawing.Color.White;
-            this.bt_ingresar.Location = new System.Drawing.Point(168, 150);
+            this.bt_ingresar.Location = new System.Drawing.Point(373, 150);
             this.bt_ingresar.Name = "bt_ingresar";
-            this.bt_ingresar.Size = new System.Drawing.Size(328, 50);
+            this.bt_ingresar.Size = new System.Drawing.Size(123, 50);
             this.bt_ingresar.TabIndex = 1;
             this.bt_ingresar.Text = "INGRESAR";
             this.bt_ingresar.UseVisualStyleBackColor = false;
@@ -126,7 +112,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.BackColor = System.Drawing.Color.DarkSlateGray;
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -168,7 +154,6 @@
             this.Size = new System.Drawing.Size(1364, 662);
             this.pn_login.ResumeLayout(false);
             this.pn_login.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -185,6 +170,5 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

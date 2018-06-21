@@ -28,23 +28,11 @@ namespace SystemForms
 
         public void llenar_dg()
         {
-            DataTable dt = new DataTable();
-
-            dt.Columns.Add("Colaborador");
-            dt.Columns.Add("Bruto");
-            dt.Columns.Add("Neto");
-            dt.Columns.Add("Horas");
-            dt.Columns.Add("Extras");
-            dt.Columns.Add("Rebajo");
-            dt.Columns.Add("Bono");
-            dt.Columns.Add("Transferencia");
-            dt.Columns.Add("Estado");
-
             foreach (Pago p in lista)
             {
-                dt.Rows.Add(p.Id_colaborador, p.SalarioBruto.ToString("C"), p.SalarioNeto.ToString("C"), p.HorasLaboradas, p.HorasExtra, p.Rebajo.ToString("C"), p.Bono.ToString("C"), p.TransferenciaPago, p.EstadoPago ? "Pagado" : "En trámite");
+                dg_pagos_review.Rows.Add(false, p.Id_colaborador, p.SalarioBruto.ToString("C"), p.SalarioNeto.ToString("C"), p.HorasLaboradas, p.HorasExtra, p.Id_planilla);
             }
-            dg_pagos_review.DataSource = dt;
+           
         }
 
         public Boolean salvar_cambios(Pago pago)

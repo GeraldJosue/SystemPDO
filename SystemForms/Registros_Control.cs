@@ -30,7 +30,7 @@ namespace SystemForms
         {
             if (!editar)
             {
-                if (nuevo_registro.agregar_sys())
+                //if (nuevo_registro.agregar_sys())
                 {
                     lista_registros.obtener_lista_sys();
                     nuevo_registro.limpiar_controles();
@@ -71,6 +71,12 @@ namespace SystemForms
 
         private void bt_cancelar_Click(object sender, EventArgs e)
         {
+            cancelar_button();
+        }
+
+        public void cancelar_button()
+        {
+            lista_registros.obtener_lista_sys();
             pn_master.Controls.Clear();
             pn_master.Controls.Add(lista_registros);
             pn_filtros.Enabled = true;

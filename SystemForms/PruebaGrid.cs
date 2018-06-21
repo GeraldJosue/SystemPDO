@@ -16,43 +16,18 @@ namespace SystemForms
         DataTable t;
         DataTable t2;
         DateTime date;
+        DateTimePicker oDateTimePicker;
         public PruebaGrid()
         {
             InitializeComponent();
-            progressBar1.ForeColor = Color.Yellow;
-            t = new DataTable();
+            oDateTimePicker = new DateTimePicker();
 
-            t.Columns.Add("Activo");
-            t.Columns.Add("Nombre");
-            t.Columns.Add("Apellido");
-            t.Columns.Add("Fecha");
 
-            t2 = new DataTable();
-
-            t2.Columns.Add("Activo");
-            t2.Columns.Add("Nombre");
-            t2.Columns.Add("Apellido");
-            t2.Columns.Add("Fecha");
-
-            DateTime a = new DateTime(2018, 02, 20).Date;
-            DateTime b = new DateTime(2018, 04, 20).Date;
-            DateTime c = new DateTime(2018, 07, 20).Date;
-            DateTime d = new DateTime(2018, 08, 20).Date;
-            t.Rows.Add(1, "Gerald","Gonzhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhález",a);
-            t2.Rows.Add(0, "Christian","Ramirez", b);
-            t.Rows.Add(1, "David","Alpizar", c);
-            t.Rows.Add(1, "Da1","Alp", b);
-            t2.Rows.Add(0, "Vid2", "Izar", c);
-            t.Rows.Add(1, "Fernanda", "Oviedo", a);
-            dataGridView1.DataSource = t;
-
-            date = new DateTime(2018, 01, 01);
-
-            //llenar_cb_año(date);
-            //llenar_cb_mes(date);
-            //llenar_cb_dia(date, 31);
-
-            llenar_cb();
+            for (int i = 0; i < 6; i++)
+            {
+                dataGridView1.Rows.Add("Prueba", "Prueba", "Prueba", 2, 2, 4);
+            }
+            
 
         }
 
@@ -73,33 +48,7 @@ namespace SystemForms
             cb_prueba.DataSource = meses;
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             //DataView dv = ((DataTable)dataGridView1.DataSource).DefaultView;
@@ -185,15 +134,67 @@ namespace SystemForms
 
         private void textBox1_Leave(object sender, EventArgs e)
         {
-            Double numero = Double.Parse(textBox1.Text, CultureInfo.CreateSpecificCulture("es-CR"));
-            textBox1.Tag = numero;
-            textBox1.Text = numero.ToString("C");
-            Double nn = Double.Parse(textBox1.Tag.ToString());
+            //Double numero = Double.Parse(textBox1.Text, CultureInfo.CreateSpecificCulture("es-CR"));
+            //textBox1.Tag = numero;
+            //textBox1.Text = numero.ToString("C");
+            //Double nn = Double.Parse(textBox1.Tag.ToString());
         }
 
         private void textBox1_Enter(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(textBox1.Tag);
+            //textBox1.Text = Convert.ToString(textBox1.Tag);
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 10)
+            {
+                //Initialized a new DateTimePicker Control  
+                oDateTimePicker = new DateTimePicker();
+                oDateTimePicker.Value = DateTime.Parse(dataGridView1.CurrentCell.Value.ToString());
+                //Adding DateTimePicker control into DataGridView   
+                dataGridView1.Controls.Add(oDateTimePicker);
+
+                // Setting the format (i.e. 2014-10-10)  
+                oDateTimePicker.Format = DateTimePickerFormat.Time;
+                oDateTimePicker.ShowUpDown = true;
+
+                // It returns the retangular area that represents the Display area for a cell  
+                Rectangle oRectangle = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+
+                //Setting area for DateTimePicker Control  
+                oDateTimePicker.Size = new Size(oRectangle.Width, oRectangle.Height);
+
+                // Setting Location  
+                oDateTimePicker.Location = new Point(oRectangle.X, oRectangle.Y);
+
+                // An event attached to dateTimePicker Control which is fired when DateTimeControl is closed  
+                oDateTimePicker.CloseUp += new EventHandler(oDateTimePicker_CloseUp);
+
+                // An event attached to dateTimePicker Control which is fired when any date is selected  
+                oDateTimePicker.TextChanged += new EventHandler(odateTimePicker_OnTextChange);
+
+                // Now make it visible  
+                oDateTimePicker.Visible = true;
+            }
+        }
+
+        private void odateTimePicker_OnTextChange(object sender, EventArgs e)
+        {
+            // Saving the 'Selected Date on Calendar' into DataGridView current cell  
+            dataGridView1.CurrentCell.Value = oDateTimePicker.Value.TimeOfDay;
+        }
+
+        void oDateTimePicker_CloseUp(object sender, EventArgs e)
+        {
+            // Hiding the control after use   
+            oDateTimePicker.Visible = false;
+        }
+
+        private void dataGridView1_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            oDateTimePicker.Visible = false;
+
         }
     }
 }

@@ -16,8 +16,11 @@ namespace SystemForms
 
         Pago_Calculos calculos;
         Pago_Lista listaPagos;
-        Pago_Review review;
+        Pago_Review review_pagos;
+        Planilla_Review review_planillas;
         Pago_Editar nuevoPago;
+        List<Pago> pagos;
+        List<Planilla> planillas;
         Boolean editar;
         public Pago_Control()
         {
@@ -29,12 +32,28 @@ namespace SystemForms
             editar = false;
         }
 
-        public void lista_review(List<Pago> lista)
+        public void lista_review_planillas(List<Pago> pagos, List<Planilla> planillas)
         {
-            review = new Pago_Review(lista, this);
-            review.Dock = DockStyle.Fill;
+            this.pagos = pagos;
+            this.planillas = planillas;
+            review_planillas = new Planilla_Review(planillas, pagos, this);
+            review_planillas.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
-            pn_master.Controls.Add(review);
+            pn_master.Controls.Add(review_planillas);
+        }
+
+        public void lista_review_pagos(Planilla planilla)
+        {
+            List<Pago> lista = new List<Pago>();
+            foreach(Pago p in pagos)
+            {
+                if(planilla.Id == p.Id_planilla)
+                lista.Add(p);
+            }
+            review_pagos = new Pago_Review(lista, this);
+            review_pagos.Dock = DockStyle.Fill;
+            pn_master.Controls.Clear();
+            pn_master.Controls.Add(review_pagos);
         }
 
         private void bt_agregar_Click(object sender, EventArgs e)
@@ -165,14 +184,14 @@ namespace SystemForms
                 }
             } else
             {
-                if (review.agregar_sys())
-                {
-                    listaPagos.obtener_lista_sys();
-                    pn_master.Controls.Clear();
-                    pn_master.Controls.Add(listaPagos);
-                    pn_filtros.Enabled = true;
+                //if (review.agregar_sys())
+                //{
+                //    listaPagos.obtener_lista_sys();
+                //    pn_master.Controls.Clear();
+                //    pn_master.Controls.Add(listaPagos);
+                //    pn_filtros.Enabled = true;
 
-                }
+                //}
             }
         }
             

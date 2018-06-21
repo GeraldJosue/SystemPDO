@@ -45,9 +45,12 @@ namespace DataAccess
                     pago_to.TransferenciaPago = reader.GetString(8);
                     pago_to.EstadoPago = reader.GetBoolean(9);
                     pago_to.Bono = reader.GetDecimal(10);
-                    pago_to.Id_adelanto = reader.GetInt32(11);
-                    pago_to.ProcesoPago = reader.GetBoolean(12);
-
+                    pago_to.ProcesoPago = reader.GetBoolean(11);
+                    pago_to.Vacaciones = reader.GetDecimal(12);
+                    pago_to.Aguinaldo = reader.GetDecimal(13);
+                    pago_to.Adelanto = reader.GetDecimal(14);
+                    pago_to.Seguro = reader.GetDecimal(15);
+                    pago_to.Id_planilla = reader.GetInt32(16);
                 }
                 return pago_to;
             }
@@ -103,7 +106,7 @@ namespace DataAccess
 
             try
             {
-                SqlCommand query = new SqlCommand("INSERT INTO PAGO VALUES(@colaborador, @fecha, @salarioBruto, @salarioNeto, @rebajo, @horas, @horasExtra, @transferencia, @estado, @bono, @adelanto, @proceso)", conex);
+                SqlCommand query = new SqlCommand("INSERT INTO PAGO VALUES(@colaborador, @fecha, @salarioBruto, @salarioNeto, @rebajo, @horas, @horasExtra, @transferencia, @estado, @bono, @proceso, @vacaciones, @aguinaldo, @adelanto, @seguro, @planilla)", conex);
                 query.Parameters.AddWithValue("@colaborador", pago.Id_colaborador);
                 query.Parameters.AddWithValue("@fecha", pago.FechaPago);
                 query.Parameters.AddWithValue("@salarioBruto", pago.SalarioBruto);
@@ -114,8 +117,12 @@ namespace DataAccess
                 query.Parameters.AddWithValue("@transferencia", pago.TransferenciaPago);
                 query.Parameters.AddWithValue("@estado", pago.EstadoPago);
                 query.Parameters.AddWithValue("@bono", pago.Bono);
-                query.Parameters.AddWithValue("@adelanto", pago.Id_adelanto);
                 query.Parameters.AddWithValue("@proceso", pago.ProcesoPago);
+                query.Parameters.AddWithValue("@vacaciones", pago.Vacaciones);
+                query.Parameters.AddWithValue("@aguinaldo", pago.Aguinaldo);
+                query.Parameters.AddWithValue("@adelanto", pago.Adelanto);
+                query.Parameters.AddWithValue("@seguro", pago.Seguro);
+                query.Parameters.AddWithValue("@planilla", pago.Id_planilla);
 
                 if (conex.State != ConnectionState.Open)
                 {
@@ -153,6 +160,11 @@ namespace DataAccess
                 query.Parameters.AddWithValue("@estado", pago.EstadoPago);
                 query.Parameters.AddWithValue("@bono", pago.Bono);
                 query.Parameters.AddWithValue("@proceso", pago.ProcesoPago);
+                query.Parameters.AddWithValue("@vacaciones", pago.Vacaciones);
+                query.Parameters.AddWithValue("@aguinaldo", pago.Aguinaldo);
+                query.Parameters.AddWithValue("@adelanto", pago.Adelanto);
+                query.Parameters.AddWithValue("@seguro", pago.Seguro);
+                query.Parameters.AddWithValue("@planilla", pago.Id_planilla);
 
 
                 if (conex.State != ConnectionState.Open)
@@ -207,8 +219,12 @@ namespace DataAccess
                         pago.TransferenciaPago = reader.GetString(8);
                         pago.EstadoPago = reader.GetBoolean(9);
                         pago.Bono = reader.GetDecimal(10);
-                        pago.Id_adelanto = reader.GetInt32(11);
-                        pago.ProcesoPago = reader.GetBoolean(12);
+                        pago.ProcesoPago = reader.GetBoolean(11);
+                        pago.Vacaciones = reader.GetDecimal(12);
+                        pago.Aguinaldo = reader.GetDecimal(13);
+                        pago.Adelanto = reader.GetDecimal(14);
+                        pago.Seguro = reader.GetDecimal(15);
+                        pago.Id_planilla = reader.GetInt32(16);
                         lista.Add(pago);
                     }
                     return lista;
@@ -265,6 +281,22 @@ namespace DataAccess
                 else if (x == 6)
                 {
                     mega_query += "proceso_pago = @proceso,";
+                }
+                else if (x == 7)
+                {
+                    mega_query += "vacaciones = @vacaciones,";
+                }
+                else if (x == 8)
+                {
+                    mega_query += "aguinaldo = @aguinaldo,";
+                }
+                else if (x == 9)
+                {
+                    mega_query += "adelanto = @adelanto,";
+                }
+                else if (x == 10)
+                {
+                    mega_query += "adelanto = @adelanto,";
                 }
             }
             mega_query = mega_query.TrimEnd(',');
