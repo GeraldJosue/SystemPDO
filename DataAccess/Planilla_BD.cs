@@ -47,6 +47,37 @@ namespace DataAccess
             }
         }
 
+        public Boolean eliminar(Planilla_TO planilla)
+        {
+
+            try
+            {
+                SqlCommand query = new SqlCommand("UPDATE PLANILLA SET estado_planilla = @estado WHERE id_planilla = @id", conex);
+
+                query.Parameters.AddWithValue("@id", planilla.Id);
+                query.Parameters.AddWithValue("@estado", planilla.Estado);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+
+                query.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                if (conex.State != System.Data.ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+
+        }
         public List<Planilla_TO> obtener_lista()
         {
             List<Planilla_TO> lista = new List<Planilla_TO>();
@@ -54,6 +85,11 @@ namespace DataAccess
             try
             {
                 SqlCommand query = new SqlCommand("SELECT * FROM PLANILLA", conex);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
 
                 SqlDataReader reader = query.ExecuteReader();
 
@@ -127,6 +163,36 @@ namespace DataAccess
             finally
             {
                 if (conex.State != ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
+
+        public Boolean set_total(Planilla_TO planilla)
+        {
+            try
+            {
+                SqlCommand query = new SqlCommand("UPDATE PLANILLA SET total_planilla = @total WHERE id_planilla = @id", conex);
+
+                query.Parameters.AddWithValue("@id", planilla.Id);
+                query.Parameters.AddWithValue("@total", planilla.Total);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+
+                query.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                if (conex.State != System.Data.ConnectionState.Closed)
                 {
                     conex.Close();
                 }

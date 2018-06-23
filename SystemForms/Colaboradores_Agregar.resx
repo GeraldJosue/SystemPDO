@@ -117,4 +117,33 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="bt_cancelar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3SAAAN0gFvkv6OAAAAAmJL
+        R0QAAKqNIzIAAAAHdElNRQfiBgQUHjvpH6+JAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE4LTA2LTA0VDIw
+        OjMwOjU5KzAyOjAwhSofywAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOC0wNi0wNFQyMDozMDo1OSswMjow
+        MPR3p3cAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAABc0lEQVRIS62VTarCMBSF
+        u6buQhARROgCHDhw4MCR4MiluBDHuqL3A6/vfMkNNm3apM/3wYX03pMbTU6bqkvbto3iqXgotpbOIm2t
+        uCnuirWlY1S4KPqcrDyKNAvFh1O/uFjZo8TV55McTTZAtaWi3zxwDqKNf57k4MQdlFspPl11nAYh+5bj
+        R7G33sxZK74oZHgi5nBKYJGdgn9c0hweLIADxvaxD4t8+2ER3okapJzwLrEDlcARuUMrJe08FXBG6f6m
+        YAsHjouQoNQhfSKnTSIhTplzmM5hNj0PYptUCj9mY9OnkXCvmNM8wLamP3QBCQ6KvzQPsMjK2sWocHSS
+        98HqS2vrUeLkSv8HL+0iNN+6VBkcZukWskjNAtxeJbC/2HeOw24swBWZI3KIxqVOuyPmHp6CQxs4Qzkc
+        l8O/Gxqc/fMA9jF2RAfVppx3NZlHif6l/3LCBNKkHBhf+gEV+NBxhXLL1ZbOIi1OxCycZ2NpUVW/v+aM
+        Y58QqkQAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="bt_guardar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3SAAAN0gFvkv6OAAAAAmJL
+        R0QAAKqNIzIAAAAHdElNRQfiBgQXMSPqKbHrAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE4LTA2LTA0VDIz
+        OjQ5OjM1KzAyOjAw7AEuvwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOC0wNi0wNFQyMzo0OTozNSswMjow
+        MJ1clgMAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAnklEQVRIS+2WQQ5AMBBF
+        bewlYu9ILiERR3EC53IKiVjY2I4/KpS2aVq1kb7kRYzRtyQhohpOUKZJDOBZJlZO9l1cW1jsSzIYPg9n
+        fAI9HOA9whsafAPMPSJmCm8CzBUR9wpvAwxH8i8DTPd1YPYJpLCSLI+5LkDOARN4xymwwNHRFSqYAsGI
+        ASsxYCUGrPwjoPvoh2LigO63JQQ4k+oNUaaftvimBssAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>

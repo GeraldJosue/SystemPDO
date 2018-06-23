@@ -36,25 +36,17 @@
             this.bt_agregar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.pn_opciones = new System.Windows.Forms.Panel();
-            this.bt_cancelar = new System.Windows.Forms.Button();
-            this.bt_guardar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tb_buscar = new System.Windows.Forms.TextBox();
             this.cb_activos = new System.Windows.Forms.CheckBox();
             this.dt_inicio = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pn_filtros = new System.Windows.Forms.Panel();
             this.dt_fin = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.bt_down = new System.Windows.Forms.Button();
-            this.bt_up = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pn_master = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.pn_opciones.SuspendLayout();
             this.pn_filtros.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,7 +64,7 @@
             // 
             // bt_eliminar
             // 
-            this.bt_eliminar.BackColor = System.Drawing.Color.DarkRed;
+            this.bt_eliminar.BackColor = System.Drawing.Color.Maroon;
             this.bt_eliminar.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
             this.bt_eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
             this.bt_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -91,7 +83,7 @@
             // 
             // bt_listar
             // 
-            this.bt_listar.BackColor = System.Drawing.Color.Teal;
+            this.bt_listar.BackColor = System.Drawing.Color.CornflowerBlue;
             this.bt_listar.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.bt_listar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
             this.bt_listar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -139,7 +131,7 @@
             this.bt_agregar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.bt_agregar.Location = new System.Drawing.Point(7, 5);
             this.bt_agregar.Name = "bt_agregar";
-            this.bt_agregar.Size = new System.Drawing.Size(75, 50);
+            this.bt_agregar.Size = new System.Drawing.Size(75, 51);
             this.bt_agregar.TabIndex = 3;
             this.bt_agregar.Text = "Agregar";
             this.bt_agregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -167,59 +159,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "COLABORADORES";
             // 
-            // pn_opciones
-            // 
-            this.pn_opciones.Controls.Add(this.bt_cancelar);
-            this.pn_opciones.Controls.Add(this.bt_guardar);
-            this.pn_opciones.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pn_opciones.Location = new System.Drawing.Point(0, 607);
-            this.pn_opciones.Name = "pn_opciones";
-            this.pn_opciones.Size = new System.Drawing.Size(1164, 55);
-            this.pn_opciones.TabIndex = 5;
-            // 
-            // bt_cancelar
-            // 
-            this.bt_cancelar.BackColor = System.Drawing.Color.DarkRed;
-            this.bt_cancelar.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
-            this.bt_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
-            this.bt_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_cancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_cancelar.ForeColor = System.Drawing.Color.White;
-            this.bt_cancelar.Image = ((System.Drawing.Image)(resources.GetObject("bt_cancelar.Image")));
-            this.bt_cancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_cancelar.Location = new System.Drawing.Point(92, 0);
-            this.bt_cancelar.Name = "bt_cancelar";
-            this.bt_cancelar.Size = new System.Drawing.Size(80, 50);
-            this.bt_cancelar.TabIndex = 1;
-            this.bt_cancelar.Text = "Cancelar";
-            this.bt_cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bt_cancelar.UseVisualStyleBackColor = false;
-            this.bt_cancelar.Click += new System.EventHandler(this.bt_cancelar_Click);
-            // 
-            // bt_guardar
-            // 
-            this.bt_guardar.BackColor = System.Drawing.Color.LimeGreen;
-            this.bt_guardar.FlatAppearance.BorderColor = System.Drawing.Color.LightGreen;
-            this.bt_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
-            this.bt_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_guardar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_guardar.ForeColor = System.Drawing.Color.White;
-            this.bt_guardar.Image = ((System.Drawing.Image)(resources.GetObject("bt_guardar.Image")));
-            this.bt_guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_guardar.Location = new System.Drawing.Point(9, 0);
-            this.bt_guardar.Name = "bt_guardar";
-            this.bt_guardar.Size = new System.Drawing.Size(75, 50);
-            this.bt_guardar.TabIndex = 0;
-            this.bt_guardar.Text = "Guardar";
-            this.bt_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bt_guardar.UseVisualStyleBackColor = false;
-            this.bt_guardar.Click += new System.EventHandler(this.bt_guardar_Click_1);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(74, 11);
+            this.label2.Location = new System.Drawing.Point(10, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 17);
             this.label2.TabIndex = 4;
@@ -228,7 +172,7 @@
             // tb_buscar
             // 
             this.tb_buscar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_buscar.Location = new System.Drawing.Point(127, 9);
+            this.tb_buscar.Location = new System.Drawing.Point(63, 7);
             this.tb_buscar.Name = "tb_buscar";
             this.tb_buscar.Size = new System.Drawing.Size(128, 22);
             this.tb_buscar.TabIndex = 2;
@@ -238,7 +182,7 @@
             // 
             this.cb_activos.AutoSize = true;
             this.cb_activos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_activos.Location = new System.Drawing.Point(270, 10);
+            this.cb_activos.Location = new System.Drawing.Point(206, 8);
             this.cb_activos.Name = "cb_activos";
             this.cb_activos.Size = new System.Drawing.Size(82, 21);
             this.cb_activos.TabIndex = 0;
@@ -249,33 +193,20 @@
             // dt_inicio
             // 
             this.dt_inicio.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dt_inicio.Location = new System.Drawing.Point(444, 10);
+            this.dt_inicio.Location = new System.Drawing.Point(380, 8);
             this.dt_inicio.Name = "dt_inicio";
             this.dt_inicio.Size = new System.Drawing.Size(163, 22);
             this.dt_inicio.TabIndex = 1;
             this.dt_inicio.ValueChanged += new System.EventHandler(this.dt_inicio_ValueChanged);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(955, 7);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(177, 25);
-            this.comboBox1.TabIndex = 2;
-            // 
             // pn_filtros
             // 
             this.pn_filtros.Controls.Add(this.dt_fin);
             this.pn_filtros.Controls.Add(this.label5);
-            this.pn_filtros.Controls.Add(this.bt_down);
-            this.pn_filtros.Controls.Add(this.bt_up);
             this.pn_filtros.Controls.Add(this.tb_buscar);
             this.pn_filtros.Controls.Add(this.label2);
-            this.pn_filtros.Controls.Add(this.label4);
             this.pn_filtros.Controls.Add(this.label3);
             this.pn_filtros.Controls.Add(this.cb_activos);
-            this.pn_filtros.Controls.Add(this.comboBox1);
             this.pn_filtros.Controls.Add(this.dt_inicio);
             this.pn_filtros.Dock = System.Windows.Forms.DockStyle.Top;
             this.pn_filtros.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -287,7 +218,7 @@
             // dt_fin
             // 
             this.dt_fin.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dt_fin.Location = new System.Drawing.Point(683, 10);
+            this.dt_fin.Location = new System.Drawing.Point(619, 8);
             this.dt_fin.Name = "dt_fin";
             this.dt_fin.Size = new System.Drawing.Size(163, 22);
             this.dt_fin.TabIndex = 13;
@@ -297,57 +228,17 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(613, 12);
+            this.label5.Location = new System.Drawing.Point(549, 10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 17);
             this.label5.TabIndex = 12;
             this.label5.Text = "Fecha Fin";
             // 
-            // bt_down
-            // 
-            this.bt_down.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bt_down.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_down.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.bt_down.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_down.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_down.Image = global::SystemForms.Properties.Resources.caret_down;
-            this.bt_down.Location = new System.Drawing.Point(35, 7);
-            this.bt_down.Name = "bt_down";
-            this.bt_down.Size = new System.Drawing.Size(35, 23);
-            this.bt_down.TabIndex = 1;
-            this.bt_down.UseVisualStyleBackColor = true;
-            this.bt_down.Click += new System.EventHandler(this.bt_down_Click);
-            // 
-            // bt_up
-            // 
-            this.bt_up.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bt_up.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_up.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.bt_up.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_up.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_up.Image = global::SystemForms.Properties.Resources.sort_up;
-            this.bt_up.Location = new System.Drawing.Point(3, 7);
-            this.bt_up.Name = "bt_up";
-            this.bt_up.Size = new System.Drawing.Size(32, 23);
-            this.bt_up.TabIndex = 0;
-            this.bt_up.UseVisualStyleBackColor = true;
-            this.bt_up.Click += new System.EventHandler(this.bt_up_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(852, 12);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 17);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Departamento";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(358, 12);
+            this.label3.Location = new System.Drawing.Point(294, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 17);
             this.label3.TabIndex = 6;
@@ -358,7 +249,7 @@
             this.pn_master.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_master.Location = new System.Drawing.Point(0, 146);
             this.pn_master.Name = "pn_master";
-            this.pn_master.Size = new System.Drawing.Size(1164, 461);
+            this.pn_master.Size = new System.Drawing.Size(1164, 516);
             this.pn_master.TabIndex = 11;
             // 
             // Colaboradores_Control
@@ -368,7 +259,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.pn_master);
             this.Controls.Add(this.pn_filtros);
-            this.Controls.Add(this.pn_opciones);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Name = "Colaboradores_Control";
@@ -376,7 +266,6 @@
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.pn_opciones.ResumeLayout(false);
             this.pn_filtros.ResumeLayout(false);
             this.pn_filtros.PerformLayout();
             this.ResumeLayout(false);
@@ -391,21 +280,14 @@
         private System.Windows.Forms.Button bt_agregar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button bt_eliminar;
-        private System.Windows.Forms.Panel pn_opciones;
-        private System.Windows.Forms.Button bt_cancelar;
-        private System.Windows.Forms.Button bt_guardar;
         private System.Windows.Forms.TextBox tb_buscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox cb_activos;
         private System.Windows.Forms.DateTimePicker dt_inicio;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pn_filtros;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel pn_master;
-        private System.Windows.Forms.Button bt_down;
-        private System.Windows.Forms.Button bt_up;
         private System.Windows.Forms.DateTimePicker dt_fin;
         private System.Windows.Forms.Label label5;
     }

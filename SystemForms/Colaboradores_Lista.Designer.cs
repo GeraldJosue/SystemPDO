@@ -46,18 +46,18 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.dg_colaboradores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dg_colaboradores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dg_colaboradores.BackgroundColor = System.Drawing.Color.White;
             this.dg_colaboradores.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             this.dg_colaboradores.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.CadetBlue;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dg_colaboradores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -89,7 +89,7 @@
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
             this.dg_colaboradores.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dg_colaboradores.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -97,16 +97,17 @@
             this.dg_colaboradores.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Brown;
             this.dg_colaboradores.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dg_colaboradores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dg_colaboradores.Size = new System.Drawing.Size(1158, 455);
+            this.dg_colaboradores.Size = new System.Drawing.Size(1158, 510);
             this.dg_colaboradores.TabIndex = 0;
             // 
             // Colaboradores_Lista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.dg_colaboradores);
             this.Name = "Colaboradores_Lista";
-            this.Size = new System.Drawing.Size(1164, 461);
+            this.Size = new System.Drawing.Size(1164, 516);
             ((System.ComponentModel.ISupportInitialize)(this.dg_colaboradores)).EndInit();
             this.ResumeLayout(false);
 

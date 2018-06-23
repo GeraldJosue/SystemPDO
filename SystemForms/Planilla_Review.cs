@@ -25,8 +25,25 @@ namespace SystemForms
             llenar_tabla();
         }
 
+        public void set_pagos(List<Pago> lista)
+        {
+            this.pagos = lista;
+            Decimal total = 0;
+            foreach(Pago p in pagos)
+            {
+                total += p.SalarioNeto;
+            }
+
+            foreach(Planilla pl in planillas)
+            {
+                pl.Total = total;
+            }
+            llenar_tabla();
+        }
+
         public void llenar_tabla()
         {
+            dg_planillas.Rows.Clear();
             foreach (Planilla p in planillas)
             {
                 dg_planillas.Rows.Add(p.Id, p.Total.ToString("C"), p.Fecha_inicio.ToShortDateString(), p.Fecha_fin.ToShortDateString(), p.Tipo == 14 ? "Quincenal" : "Mensual");
@@ -47,18 +64,28 @@ namespace SystemForms
 
         private void bt_revisar_Click(object sender, EventArgs e)
         {
-            parent.lista_review_pagos(buscar_planilla());
+            parent.lista_review_pagos(buscar_planilla(), true);
         }
 
         private void bt_guardar_Click(object sender, EventArgs e)
         {
             foreach (Pago p in pagos)
             {
-                p.agregar();
+                if (!p.agregar())
+                {
+                    MessageBox.Show("Ocurrió un error con los pagos", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             foreach (Planilla p in planillas)
             {
-                p.agregar();
+                if (p.agregar())
+                {
+                MessageBox.Show("Planilla agregada con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrió un error con la planilla", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

@@ -29,8 +29,8 @@ namespace BusinessLogic
         public Decimal Seguro {get; set;}
         public Int32 Id_planilla { get; set; }
 
-public Pago(Int32 id, Int32 id_colaborador, DateTime fecha, Decimal salarioBruto, Decimal salarioNeto, Decimal rebajo, Decimal horasLaboradas, Decimal horasExtra, String transferencia, 
-    Boolean estado, Decimal bono, Boolean proceso, Decimal vacaciones, Decimal aguinaldo, Decimal adelanto, Decimal seguro, Int32 id_planilla)
+        public Pago(Int32 id, Int32 id_colaborador, DateTime fecha, Decimal salarioBruto, Decimal salarioNeto, Decimal rebajo, Decimal horasLaboradas, Decimal horasExtra, String transferencia,
+            Boolean estado, Decimal bono, Boolean proceso, Decimal vacaciones, Decimal aguinaldo, Decimal adelanto, Decimal seguro, Int32 id_planilla)
         {
             this.Id = id;
             this.Id_colaborador = id_colaborador;
@@ -77,6 +77,16 @@ public Pago(Int32 id, Int32 id_colaborador, DateTime fecha, Decimal salarioBruto
             return lista;
         }
 
+        public List<Pago> obtener_lista_por_planilla(Int32 id_planilla)
+        {
+            List<Pago> lista = new List<Pago>();
+            List<Pago_TO> lista_TO = new Pago_BD().obtener_lista_por_planilla(id_planilla);
+            foreach (Pago_TO x in lista_TO)
+            {
+                lista.Add(to_to_bl(x));
+            }
+            return lista;
+        }
         public Boolean eliminar()
         {
             Pago_TO aguinaldo = new Pago_TO();

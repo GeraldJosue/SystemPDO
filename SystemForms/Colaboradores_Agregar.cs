@@ -593,5 +593,28 @@ namespace SystemForms
                 e.Handled = true;
             }
         }
+
+        private void bt_guardar_Click_1(object sender, EventArgs e)
+        {
+            if(colaborador == null)
+            {
+                if (agregar_sys())
+                {
+                    parent.listar();
+                }
+            }
+            else
+            {
+                if (editar_sys())
+                {
+                    parent.listar();
+                }
+            }
+        }
+
+        private void bt_cancelar_Click(object sender, EventArgs e)
+        {
+            parent.cancelar();
+        }
     }
 }

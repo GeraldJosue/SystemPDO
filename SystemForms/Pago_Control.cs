@@ -25,7 +25,7 @@ namespace SystemForms
         public Pago_Control()
         {
             InitializeComponent();
-            listaPagos = new Pago_Lista();
+            listaPagos = new Pago_Lista(this);
             listaPagos.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(listaPagos);
@@ -42,18 +42,31 @@ namespace SystemForms
             pn_master.Controls.Add(review_planillas);
         }
 
-        public void lista_review_pagos(Planilla planilla)
+        public void lista_review_pagos(Planilla planilla, Boolean state)
         {
             List<Pago> lista = new List<Pago>();
-            foreach(Pago p in pagos)
+            if (!state)
             {
-                if(planilla.Id == p.Id_planilla)
-                lista.Add(p);
+                this.pagos = new Pago().obtener_lista_por_planilla(planilla.Id);
             }
-            review_pagos = new Pago_Review(lista, this);
+            foreach (Pago p in pagos)
+            {
+                if (planilla.Id == p.Id_planilla)
+                    lista.Add(p);
+            }
+
+            review_pagos = new Pago_Review(lista, this, state);
             review_pagos.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(review_pagos);
+        }
+
+        public void set_pagos(List<Pago> lista)
+        {
+            this.pagos = lista;
+            review_planillas.set_pagos(pagos);
+            pn_master.Controls.Clear();
+            pn_master.Controls.Add(review_planillas);
         }
 
         private void bt_agregar_Click(object sender, EventArgs e)
@@ -68,17 +81,17 @@ namespace SystemForms
 
         public void visibilidad(Boolean guardar, Boolean revisar, Boolean cancelar)
         {
-            bt_guardar.Enabled = guardar;
-            bt_revisar.Enabled = revisar;
-            bt_cancelar.Enabled = cancelar;
+            //bt_guardar.Enabled = guardar;
+            //bt_revisar.Enabled = revisar;
+            //bt_cancelar.Enabled = cancelar;
         }
 
         private void bt_editar_Click(object sender, EventArgs e)
         {
-            nuevoPago = new Pago_Editar(listaPagos.obtener());
-            nuevoPago.Dock = DockStyle.Fill;
+            //nuevoPago = new Pago_Editar(listaPagos.obtener());
+            //nuevoPago.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
-            pn_master.Controls.Add(nuevoPago);
+            //pn_master.Controls.Add(nuevoPago);
             pn_filtros.Enabled = false;
             visibilidad(true, false, true);
             editar = true;
@@ -86,12 +99,17 @@ namespace SystemForms
 
         private void bt_listar_Click(object sender, EventArgs e)
         {
+            listar_pagos();
+        }
+
+        public void listar_pagos()
+        {
+            listaPagos.obtener_lista_sys();
             pn_master.Controls.Clear();
             pn_master.Controls.Add(listaPagos);
             pn_filtros.Enabled = true;
             visibilidad(false, false, false);
         }
-
         private void bt_eliminar_Click(object sender, EventArgs e)
         {
             if (listaPagos.eliminar_sys())
@@ -100,18 +118,9 @@ namespace SystemForms
             }
         }
 
-        private void bt_up_Click(object sender, EventArgs e)
-        {
-            listaPagos.subir_fila();
-        }
 
-        private void bt_down_Click(object sender, EventArgs e)
+        private void bt_guardar_Click(object sender, EventArgs e)
         {
-            listaPagos.bajar_fila();
-        }
-
-        //private void bt_guardar_Click(object sender, EventArgs e)
-        //{
         //    if (!editar)
         //    {
         //        if (nuevoPago.agregar_sys())
@@ -134,14 +143,7 @@ namespace SystemForms
 
         //        }
         //    }
-        //}
-
-        //private void bt_cancelar_Click(object sender, EventArgs e)
-        //{
-        //    pn_master.Controls.Clear();
-        //    pn_master.Controls.Add(listaPagos);
-        //    pn_filtros.Enabled = true;
-        //}
+        }
 
         private void tb_buscar_TextChanged(object sender, EventArgs e)
         {
@@ -170,44 +172,13 @@ namespace SystemForms
             }
         }
 
-        private void bt_guardar_Click_1(object sender, EventArgs e)
-        {
-            if (editar)
-            {
-                if (nuevoPago.editar_sys())
-                {
-                    listaPagos.obtener_lista_sys();
-                    pn_master.Controls.Clear();
-                    pn_master.Controls.Add(listaPagos);
-                    pn_filtros.Enabled = true;
 
-                }
-            } else
-            {
-                //if (review.agregar_sys())
-                //{
-                //    listaPagos.obtener_lista_sys();
-                //    pn_master.Controls.Clear();
-                //    pn_master.Controls.Add(listaPagos);
-                //    pn_filtros.Enabled = true;
-
-                //}
-            }
-        }
-            
-        
 
         private void bt_cancelar_Click_1(object sender, EventArgs e)
         {
             pn_master.Controls.Clear();
             pn_master.Controls.Add(listaPagos);
             pn_filtros.Enabled = true;
-        }
-
-        private void bt_revisar_Click(object sender, EventArgs e)
-        {
-            //review.mostrar_detalle();
-            bt_cancelar.Visible = true;
         }
     }
 }

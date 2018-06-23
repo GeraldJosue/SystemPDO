@@ -135,7 +135,7 @@ namespace SystemForms
                 bruto = (horas * c.Precio) + (extras * (c.Precio * Convert.ToDecimal(1.5)));
                 neto = bruto - (bruto * Convert.ToDecimal(0.1));
                 Int32 id = Convert.ToInt32(fin.Day.ToString() + fin.Month.ToString() + fin.Year.ToString());
-                pagos.Add(new Pago(0, c.Id, DateTime.Now.Date, bruto, neto, 0, horas, extras, "No disponible", true, 0, false, 0, 0, 0, 0, id));
+                pagos.Add(new Pago(flag, c.Id, DateTime.Now.Date, bruto, neto, 0, horas, extras, "No disponible", true, 0, false, 0, 0, 0, 0, id));
                 avance = ((++flag) * 100) / colaboradores.Count;
                 bgw_calculos.ReportProgress(avance);
                 Thread.Sleep(500);

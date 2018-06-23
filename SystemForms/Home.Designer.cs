@@ -46,7 +46,7 @@
             // 
             // pn_menu_izq
             // 
-            this.pn_menu_izq.BackColor = System.Drawing.Color.White;
+            this.pn_menu_izq.BackColor = System.Drawing.Color.DarkSlateGray;
             this.pn_menu_izq.Controls.Add(this.bt_salir);
             this.pn_menu_izq.Controls.Add(this.bt_config);
             this.pn_menu_izq.Controls.Add(this.bt_horarios);
@@ -236,13 +236,13 @@
             // 
             // bt_home
             // 
-            this.bt_home.BackColor = System.Drawing.Color.White;
+            this.bt_home.BackColor = System.Drawing.Color.DarkSlateGray;
             this.bt_home.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_home.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_home.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
+            this.bt_home.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.bt_home.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CadetBlue;
             this.bt_home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_home.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_home.ForeColor = System.Drawing.Color.Maroon;
+            this.bt_home.ForeColor = System.Drawing.Color.White;
             this.bt_home.Location = new System.Drawing.Point(0, 0);
             this.bt_home.Name = "bt_home";
             this.bt_home.Size = new System.Drawing.Size(172, 55);

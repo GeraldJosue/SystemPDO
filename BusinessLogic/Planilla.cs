@@ -36,6 +36,14 @@ namespace BusinessLogic
             Planilla_TO planilla = bl_to_to();
             return new Planilla_BD().agregar(planilla);
         }
+        public Boolean eliminar()
+        {
+            Planilla_TO planilla = new Planilla_TO();
+            planilla.Id = this.Id;
+            planilla.Estado = this.Estado;
+            return new Planilla_BD().eliminar(planilla);
+        }
+
 
         public List<Planilla> obtener_lista()
         {
@@ -59,6 +67,13 @@ namespace BusinessLogic
             return planillas;
         }
 
+        public Boolean set_total()
+        {
+            Planilla_TO planilla = new Planilla_TO();
+            planilla.Id = this.Id;
+            planilla.Total = this.Total;
+            return new Planilla_BD().set_total(planilla);
+        }
         public Planilla_TO bl_to_to()
         {
             Planilla_TO planilla = new Planilla_TO();

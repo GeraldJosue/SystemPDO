@@ -42,10 +42,10 @@
             // lb_avance
             // 
             this.lb_avance.AutoSize = true;
-            this.lb_avance.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_avance.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_avance.Location = new System.Drawing.Point(12, 18);
             this.lb_avance.Name = "lb_avance";
-            this.lb_avance.Size = new System.Drawing.Size(93, 17);
+            this.lb_avance.Size = new System.Drawing.Size(93, 16);
             this.lb_avance.TabIndex = 1;
             this.lb_avance.Text = "Calculando: ";
             // 
@@ -60,7 +60,7 @@
             this.Name = "Progress_Form";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Calculando planillas";
+            this.Text = "Calculando, espere por favor.";
             this.ResumeLayout(false);
             this.PerformLayout();
 

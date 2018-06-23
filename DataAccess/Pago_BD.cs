@@ -66,9 +66,8 @@ namespace DataAccess
                 }
             }
         }
-
-
-
+        
+    
         public Boolean eliminar(Pago_TO pago)
         {
 
@@ -247,6 +246,64 @@ namespace DataAccess
             }
         }
 
+        public List<Pago_TO> obtener_lista_por_planilla(Int32 id_planilla)
+        {
+            List<Pago_TO> lista = new List<Pago_TO>();
+            Pago_TO pago;
+            try
+            {
+                SqlCommand query = new SqlCommand("SELECT * FROM PAGO WHERE id_planilla = @Id", conex);
+                query.Parameters.AddWithValue("@Id", id_planilla);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+
+                SqlDataReader reader = query.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        pago = new Pago_TO();
+                        pago.Id = reader.GetInt32(0);
+                        pago.Id_colaborador = reader.GetInt32(1);
+                        pago.FechaPago = reader.GetDateTime(2);
+                        pago.SalarioBruto = reader.GetDecimal(3);
+                        pago.SalarioNeto = reader.GetDecimal(4);
+                        pago.Rebajo = reader.GetDecimal(5);
+                        pago.HorasLaboradas = reader.GetDecimal(6);
+                        pago.HorasExtra = reader.GetDecimal(7);
+                        pago.TransferenciaPago = reader.GetString(8);
+                        pago.EstadoPago = reader.GetBoolean(9);
+                        pago.Bono = reader.GetDecimal(10);
+                        pago.ProcesoPago = reader.GetBoolean(11);
+                        pago.Vacaciones = reader.GetDecimal(12);
+                        pago.Aguinaldo = reader.GetDecimal(13);
+                        pago.Adelanto = reader.GetDecimal(14);
+                        pago.Seguro = reader.GetDecimal(15);
+                        pago.Id_planilla = reader.GetInt32(16);
+                        lista.Add(pago);
+                    }
+                    return lista;
+                }
+                else
+                {
+                    return lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                return lista;
+            }
+            finally
+            {
+                if (conex.State != System.Data.ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
 
         public String string_query(List<Int32> lista)
         {
@@ -296,7 +353,7 @@ namespace DataAccess
                 }
                 else if (x == 10)
                 {
-                    mega_query += "adelanto = @adelanto,";
+                    mega_query += "seguro = @seguro,";
                 }
             }
             mega_query = mega_query.TrimEnd(',');

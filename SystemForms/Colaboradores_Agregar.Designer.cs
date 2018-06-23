@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Colaboradores_Agregar));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pn_validacion = new System.Windows.Forms.Panel();
             this.tb_cedula = new System.Windows.Forms.TextBox();
@@ -54,6 +55,8 @@
             this.tb_apellido = new System.Windows.Forms.TextBox();
             this.tb_nombre = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.cb_planillas = new System.Windows.Forms.ComboBox();
             this.bt_atras_2 = new System.Windows.Forms.Button();
             this.cb_entidad = new System.Windows.Forms.ComboBox();
             this.bt_sig_2 = new System.Windows.Forms.Button();
@@ -70,6 +73,8 @@
             this.cb_departamento = new System.Windows.Forms.ComboBox();
             this.tb_cuenta = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.tb_fnombre = new System.Windows.Forms.TextBox();
             this.bt_atras_3 = new System.Windows.Forms.Button();
             this.tb_fdireccion = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -81,10 +86,8 @@
             this.tp_1 = new System.Windows.Forms.TabPage();
             this.tp_2 = new System.Windows.Forms.TabPage();
             this.tp_3 = new System.Windows.Forms.TabPage();
-            this.label18 = new System.Windows.Forms.Label();
-            this.cb_planillas = new System.Windows.Forms.ComboBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.tb_fnombre = new System.Windows.Forms.TextBox();
+            this.bt_cancelar = new System.Windows.Forms.Button();
+            this.bt_guardar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pn_validacion.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -366,6 +369,25 @@
             this.panel2.Size = new System.Drawing.Size(1100, 379);
             this.panel2.TabIndex = 1;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(33, 206);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(116, 20);
+            this.label18.TabIndex = 21;
+            this.label18.Text = "Tipo de planilla";
+            // 
+            // cb_planillas
+            // 
+            this.cb_planillas.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_planillas.FormattingEnabled = true;
+            this.cb_planillas.Location = new System.Drawing.Point(185, 203);
+            this.cb_planillas.Name = "cb_planillas";
+            this.cb_planillas.Size = new System.Drawing.Size(275, 28);
+            this.cb_planillas.TabIndex = 22;
+            // 
             // bt_atras_2
             // 
             this.bt_atras_2.BackColor = System.Drawing.Color.LimeGreen;
@@ -546,6 +568,22 @@
             this.panel3.Size = new System.Drawing.Size(1100, 379);
             this.panel3.TabIndex = 2;
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(25, 25);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(151, 20);
+            this.label22.TabIndex = 25;
+            this.label22.Text = "Nombre del familiar";
+            // 
+            // tb_fnombre
+            // 
+            this.tb_fnombre.Location = new System.Drawing.Point(182, 22);
+            this.tb_fnombre.Name = "tb_fnombre";
+            this.tb_fnombre.Size = new System.Drawing.Size(275, 26);
+            this.tb_fnombre.TabIndex = 26;
+            // 
             // bt_atras_3
             // 
             this.bt_atras_3.BackColor = System.Drawing.Color.LimeGreen;
@@ -661,48 +699,54 @@
             this.tp_3.TabIndex = 2;
             this.tp_3.Text = "Información Familiar";
             // 
-            // label18
+            // bt_cancelar
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(33, 206);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(116, 20);
-            this.label18.TabIndex = 21;
-            this.label18.Text = "Tipo de planilla";
+            this.bt_cancelar.BackColor = System.Drawing.Color.DarkRed;
+            this.bt_cancelar.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
+            this.bt_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
+            this.bt_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_cancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_cancelar.ForeColor = System.Drawing.Color.White;
+            this.bt_cancelar.Image = ((System.Drawing.Image)(resources.GetObject("bt_cancelar.Image")));
+            this.bt_cancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_cancelar.Location = new System.Drawing.Point(86, 463);
+            this.bt_cancelar.Name = "bt_cancelar";
+            this.bt_cancelar.Size = new System.Drawing.Size(80, 50);
+            this.bt_cancelar.TabIndex = 5;
+            this.bt_cancelar.Text = "Cancelar";
+            this.bt_cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bt_cancelar.UseVisualStyleBackColor = false;
+            this.bt_cancelar.Click += new System.EventHandler(this.bt_cancelar_Click);
             // 
-            // cb_planillas
+            // bt_guardar
             // 
-            this.cb_planillas.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_planillas.FormattingEnabled = true;
-            this.cb_planillas.Location = new System.Drawing.Point(185, 203);
-            this.cb_planillas.Name = "cb_planillas";
-            this.cb_planillas.Size = new System.Drawing.Size(275, 28);
-            this.cb_planillas.TabIndex = 22;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(25, 25);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(151, 20);
-            this.label22.TabIndex = 25;
-            this.label22.Text = "Nombre del familiar";
-            // 
-            // tb_fnombre
-            // 
-            this.tb_fnombre.Location = new System.Drawing.Point(182, 22);
-            this.tb_fnombre.Name = "tb_fnombre";
-            this.tb_fnombre.Size = new System.Drawing.Size(275, 26);
-            this.tb_fnombre.TabIndex = 26;
+            this.bt_guardar.BackColor = System.Drawing.Color.LimeGreen;
+            this.bt_guardar.FlatAppearance.BorderColor = System.Drawing.Color.LightGreen;
+            this.bt_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
+            this.bt_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_guardar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_guardar.ForeColor = System.Drawing.Color.White;
+            this.bt_guardar.Image = ((System.Drawing.Image)(resources.GetObject("bt_guardar.Image")));
+            this.bt_guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_guardar.Location = new System.Drawing.Point(3, 463);
+            this.bt_guardar.Name = "bt_guardar";
+            this.bt_guardar.Size = new System.Drawing.Size(75, 50);
+            this.bt_guardar.TabIndex = 4;
+            this.bt_guardar.Text = "Guardar";
+            this.bt_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bt_guardar.UseVisualStyleBackColor = false;
+            this.bt_guardar.Click += new System.EventHandler(this.bt_guardar_Click_1);
             // 
             // Colaboradores_Agregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.bt_cancelar);
+            this.Controls.Add(this.bt_guardar);
             this.Controls.Add(this.tb_colaborador);
             this.Name = "Colaboradores_Agregar";
-            this.Size = new System.Drawing.Size(1164, 461);
+            this.Size = new System.Drawing.Size(1164, 516);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pn_validacion.ResumeLayout(false);
@@ -778,5 +822,7 @@
         private System.Windows.Forms.ComboBox cb_planillas;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox tb_fnombre;
+        private System.Windows.Forms.Button bt_cancelar;
+        private System.Windows.Forms.Button bt_guardar;
     }
 }

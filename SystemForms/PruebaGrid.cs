@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogic;
 
 namespace SystemForms
 {
@@ -20,8 +21,22 @@ namespace SystemForms
         public PruebaGrid()
         {
             InitializeComponent();
-            oDateTimePicker = new DateTimePicker();
 
+            List<Departamento> lista = new List<Departamento>();
+
+            lista.Add(new Departamento(1, "rrhh", true));
+            lista.Add(new Departamento(1, "finanzas", true));
+
+
+            List<Departamento> listab = lista;
+
+            foreach(Departamento d in listab)
+            {
+                d.Nombre = "cmbio";
+            }
+            
+            oDateTimePicker = new DateTimePicker();
+            
 
             for (int i = 0; i < 6; i++)
             {
