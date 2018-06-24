@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,15 +11,14 @@ using BusinessLogic;
 
 namespace SystemForms
 {
-    public partial class Pago_Review_Form : Form
+    public partial class Pago_Editar : UserControl
     {
         Pago pago;
-        Pago_Review parent;
-        public Pago_Review_Form(Pago pago, Pago_Review parent)
+
+        public Pago_Editar(Pago pago)
         {
             InitializeComponent();
             this.pago = pago;
-            this.parent = parent;
             setear_datos();
         }
 
@@ -40,7 +39,7 @@ namespace SystemForms
 
             tb_neto.Tag = pago.SalarioNeto.ToString();
             tb_neto.Text = pago.SalarioNeto.ToString("C");
-        
+
             tb_transferencia.Text = pago.TransferenciaPago;
 
             rb_activo.Checked = pago.EstadoPago;
@@ -63,6 +62,7 @@ namespace SystemForms
         private void tb_bono_Enter(object sender, EventArgs e)
         {
             tb_bono.Text = Convert.ToString(tb_bono.Tag);
+
         }
 
         private void tb_bono_Leave(object sender, EventArgs e)
@@ -96,44 +96,10 @@ namespace SystemForms
             }
         }
 
-        private void tb_bruto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (Char.IsNumber(e.KeyChar) || e.KeyChar == 8)
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void tb_bruto_Leave(object sender, EventArgs e)
-        {
-            if (!tb_bruto.Text.Equals(""))
-            {
-                try
-                {
-                    Decimal precio = Decimal.Parse(tb_bruto.Text);
-                    tb_bruto.Tag = precio;
-                    tb_bruto.Text = precio.ToString("C");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("El salario bruto no posee un formato válido", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    tb_bruto.Focus();
-                }
-            }
-        }
-
-        private void tb_bruto_Enter(object sender, EventArgs e)
-        {
-            tb_bruto.Text = Convert.ToString(tb_bruto.Tag);
-        }
-
         private void tb_rebajo_Enter(object sender, EventArgs e)
         {
             tb_rebajo.Text = Convert.ToString(tb_rebajo.Tag);
+
         }
 
         private void tb_rebajo_Leave(object sender, EventArgs e)
@@ -167,9 +133,46 @@ namespace SystemForms
             }
         }
 
+        private void tb_bruto_Enter(object sender, EventArgs e)
+        {
+            tb_bruto.Text = Convert.ToString(tb_bruto.Tag);
+
+        }
+
+        private void tb_bruto_Leave(object sender, EventArgs e)
+        {
+            if (!tb_bruto.Text.Equals(""))
+            {
+                try
+                {
+                    Decimal precio = Decimal.Parse(tb_bruto.Text);
+                    tb_bruto.Tag = precio;
+                    tb_bruto.Text = precio.ToString("C");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("El salario bruto no posee un formato válido", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tb_bruto.Focus();
+                }
+            }
+        }
+
+        private void tb_bruto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar) || e.KeyChar == 8)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
         private void tb_neto_Enter(object sender, EventArgs e)
         {
             tb_neto.Text = Convert.ToString(tb_neto.Tag);
+
         }
 
         private void tb_neto_Leave(object sender, EventArgs e)
@@ -202,23 +205,73 @@ namespace SystemForms
             }
         }
 
-        private void bt_cancelar_Click(object sender, EventArgs e)
+        public Boolean editar_sys()
         {
-            this.Close();
+            Pago nuevo = obtener_datos();
+            List<Int32> lista = validar_cambios(nuevo);
+            if(lista.Count == 0)
+            {
+                return true;
+            }
+            else if (nuevo.editar(lista))
+            {
+                MessageBox.Show("Pago editado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
 
-        private void bt_guardar_Click(object sender, EventArgs e)
+        public Pago obtener_datos()
         {
-            pago.TransferenciaPago = tb_transferencia.Text;
-            pago.Bono = Convert.ToDecimal(tb_bono.Tag); 
-            pago.Rebajo = Convert.ToDecimal(tb_rebajo.Tag);
-            pago.SalarioBruto = Convert.ToDecimal(tb_bruto.Tag);
-            pago.SalarioNeto = Convert.ToDecimal(tb_neto.Tag);
-            pago.EstadoPago = rb_activo.Checked;
-            pago.ProcesoPago = rb_pagado.Checked;
-            parent.salvar_cambios(pago);
-            this.Close();
+            Pago nuevo = new Pago();
+            nuevo.Id = this.pago.Id;
+            nuevo.TransferenciaPago = tb_transferencia.Text;
+            nuevo.Bono = Convert.ToDecimal(tb_bono.Tag);
+            nuevo.Rebajo = Convert.ToDecimal(tb_rebajo.Tag);
+            nuevo.SalarioBruto = Convert.ToDecimal(tb_bruto.Tag);
+            nuevo.SalarioNeto = Convert.ToDecimal(tb_neto.Tag);
+            nuevo.EstadoPago = rb_activo.Checked;
+            nuevo.ProcesoPago = rb_pagado.Checked;
+            return nuevo;
         }
-        
+
+        public List<Int32> validar_cambios(Pago nuevo)
+        {
+            List<Int32> lista = new List<Int32>();
+            if (nuevo.Bono != this.pago.Bono)
+            {
+                lista.Add(0);
+            }
+            if (nuevo.Rebajo != this.pago.Rebajo)
+            {
+                lista.Add(1);
+            }
+            if (nuevo.SalarioBruto != this.pago.SalarioBruto)
+            {
+                lista.Add(2);
+            }
+            if (nuevo.SalarioNeto != this.pago.SalarioNeto)
+            {
+                lista.Add(3);
+            }
+            if (!nuevo.TransferenciaPago.Equals(this.pago.TransferenciaPago))
+            {
+                lista.Add(4);
+            }
+            if (nuevo.EstadoPago != this.pago.EstadoPago)
+            {
+                lista.Add(5);
+            }
+            if (nuevo.ProcesoPago != this.pago.ProcesoPago)
+            {
+                lista.Add(6);
+            }
+
+            return lista;
+        }
     }
 }

@@ -32,13 +32,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pn_master = new System.Windows.Forms.Panel();
-            this.bt_guardar = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dtp_semana_inicio = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.bt_guardar = new System.Windows.Forms.Button();
+            this.tb_porcent_seguro = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.pn_master.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -74,6 +74,55 @@
             this.pn_master.Size = new System.Drawing.Size(1164, 542);
             this.pn_master.TabIndex = 12;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(44, 63);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(229, 18);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Información de configuración";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.tb_porcent_seguro);
+            this.panel2.Controls.Add(this.dtp_semana_inicio);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Location = new System.Drawing.Point(47, 84);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(495, 286);
+            this.panel2.TabIndex = 0;
+            // 
+            // dtp_semana_inicio
+            // 
+            this.dtp_semana_inicio.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_semana_inicio.Location = new System.Drawing.Point(231, 93);
+            this.dtp_semana_inicio.Name = "dtp_semana_inicio";
+            this.dtp_semana_inicio.Size = new System.Drawing.Size(222, 26);
+            this.dtp_semana_inicio.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(53, 158);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(169, 20);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Porcentaje de Seguro";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(53, 94);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(136, 20);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Semana de Inicio";
+            // 
             // bt_guardar
             // 
             this.bt_guardar.BackColor = System.Drawing.Color.LimeGreen;
@@ -92,63 +141,13 @@
             this.bt_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_guardar.UseVisualStyleBackColor = false;
             // 
-            // panel2
+            // tb_porcent_seguro
             // 
-            this.panel2.Controls.Add(this.dateTimePicker1);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(47, 84);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(495, 286);
-            this.panel2.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(53, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Día de Inicio";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(53, 116);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 20);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Semana de Inicio";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(53, 180);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(169, 20);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Porcentaje de Seguro";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(44, 63);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(229, 18);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Información de configuración";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(231, 115);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(222, 20);
-            this.dateTimePicker1.TabIndex = 3;
+            this.tb_porcent_seguro.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_porcent_seguro.Location = new System.Drawing.Point(231, 155);
+            this.tb_porcent_seguro.Name = "tb_porcent_seguro";
+            this.tb_porcent_seguro.Size = new System.Drawing.Size(222, 26);
+            this.tb_porcent_seguro.TabIndex = 4;
             // 
             // Configuracion
             // 
@@ -177,9 +176,9 @@
         private System.Windows.Forms.Button bt_guardar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtp_semana_inicio;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tb_porcent_seguro;
     }
 }

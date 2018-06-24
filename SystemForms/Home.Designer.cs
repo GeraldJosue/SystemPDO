@@ -96,6 +96,7 @@
             this.bt_config.TabIndex = 10;
             this.bt_config.Text = "Configuración";
             this.bt_config.UseVisualStyleBackColor = false;
+            this.bt_config.Click += new System.EventHandler(this.bt_config_Click);
             // 
             // bt_horarios
             // 
@@ -180,6 +181,7 @@
             this.bt_vacaciones.TabIndex = 5;
             this.bt_vacaciones.Text = "Vacaciones";
             this.bt_vacaciones.UseVisualStyleBackColor = false;
+            this.bt_vacaciones.Click += new System.EventHandler(this.bt_vacaciones_Click);
             // 
             // bt_pago
             // 

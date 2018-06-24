@@ -7,3 +7,5 @@
 --alter table PAGO add [id_adelanto] int null;
 --alter table PAGO alter column horas_laboradas_pagadas decimal(10, 2);
 --alter table PAGO alter column horas_extras_pagadas decimal(10, 2);
+
+--alter table PAGO add[proceso_pago] bit null;

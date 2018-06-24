@@ -33,7 +33,7 @@ namespace SystemForms
             tableActivos.Columns.Add("Horas Laboradas");
             tableActivos.Columns.Add("Horas Extra");
             tableActivos.Columns.Add("Transferencia");
-            tableActivos.Columns.Add("Estado");
+            tableActivos.Columns.Add("Proceso");
 
 
             tableInactivos = new DataTable();
@@ -46,7 +46,7 @@ namespace SystemForms
             tableInactivos.Columns.Add("Horas Laboradas");
             tableInactivos.Columns.Add("Horas Extra");
             tableInactivos.Columns.Add("Transferencia");
-            tableInactivos.Columns.Add("Estado");
+            tableInactivos.Columns.Add("Proceso");
 
             obtener_lista_sys();
 
@@ -61,7 +61,6 @@ namespace SystemForms
             lista = new Pago().obtener_lista();
             llenar_tabla();
             dg_Pagos.DataSource = tableActivos;
-            
         }
 
 
@@ -73,11 +72,11 @@ namespace SystemForms
             {
                 if (x.EstadoPago)
                 {
-                    tableActivos.Rows.Add(x.Id, x.Id_colaborador, x.FechaPago, x.SalarioBruto, x.SalarioNeto, x.Rebajo, x.HorasLaboradas, x.HorasExtra, x.TransferenciaPago, x.EstadoPago);
+                    tableActivos.Rows.Add(x.Id, x.Id_colaborador, x.FechaPago.Date.ToShortDateString(), x.SalarioBruto.ToString("C"), x.SalarioNeto.ToString("C"), x.Rebajo.ToString("C"), x.HorasLaboradas, x.HorasExtra, x.TransferenciaPago, x.ProcesoPago ? "Pagado" : "En trámite");
                 }
                 else
                 {
-                    tableInactivos.Rows.Add(x.Id, x.Id_colaborador, x.FechaPago, x.SalarioBruto, x.SalarioNeto, x.Rebajo, x.HorasLaboradas, x.HorasExtra, x.TransferenciaPago, x.EstadoPago);
+                    tableInactivos.Rows.Add(x.Id, x.Id_colaborador, x.FechaPago.Date.ToShortDateString(), x.SalarioBruto.ToString("C"), x.SalarioNeto.ToString("C"), x.Rebajo.ToString("C"), x.HorasLaboradas, x.HorasExtra, x.TransferenciaPago, x.ProcesoPago ? "Pagado" : "En trámite");
                 }
             }
         }

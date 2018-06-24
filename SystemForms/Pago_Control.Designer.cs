@@ -47,6 +47,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dt_inicio = new System.Windows.Forms.DateTimePicker();
             this.pn_opciones = new System.Windows.Forms.Panel();
+            this.bt_revisar = new System.Windows.Forms.Button();
             this.bt_cancelar = new System.Windows.Forms.Button();
             this.bt_guardar = new System.Windows.Forms.Button();
             this.pn_master = new System.Windows.Forms.Panel();
@@ -285,6 +286,7 @@
             // 
             // pn_opciones
             // 
+            this.pn_opciones.Controls.Add(this.bt_revisar);
             this.pn_opciones.Controls.Add(this.bt_cancelar);
             this.pn_opciones.Controls.Add(this.bt_guardar);
             this.pn_opciones.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -293,9 +295,30 @@
             this.pn_opciones.Size = new System.Drawing.Size(1164, 55);
             this.pn_opciones.TabIndex = 12;
             // 
+            // bt_revisar
+            // 
+            this.bt_revisar.BackColor = System.Drawing.Color.Orange;
+            this.bt_revisar.Enabled = false;
+            this.bt_revisar.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
+            this.bt_revisar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
+            this.bt_revisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_revisar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_revisar.ForeColor = System.Drawing.Color.White;
+            this.bt_revisar.Image = ((System.Drawing.Image)(resources.GetObject("bt_revisar.Image")));
+            this.bt_revisar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_revisar.Location = new System.Drawing.Point(90, 0);
+            this.bt_revisar.Name = "bt_revisar";
+            this.bt_revisar.Size = new System.Drawing.Size(75, 50);
+            this.bt_revisar.TabIndex = 1;
+            this.bt_revisar.Text = "Revisar";
+            this.bt_revisar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bt_revisar.UseVisualStyleBackColor = false;
+            this.bt_revisar.Click += new System.EventHandler(this.bt_revisar_Click);
+            // 
             // bt_cancelar
             // 
             this.bt_cancelar.BackColor = System.Drawing.Color.DarkRed;
+            this.bt_cancelar.Enabled = false;
             this.bt_cancelar.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
             this.bt_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
             this.bt_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -303,10 +326,10 @@
             this.bt_cancelar.ForeColor = System.Drawing.Color.White;
             this.bt_cancelar.Image = ((System.Drawing.Image)(resources.GetObject("bt_cancelar.Image")));
             this.bt_cancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_cancelar.Location = new System.Drawing.Point(92, 0);
+            this.bt_cancelar.Location = new System.Drawing.Point(171, 0);
             this.bt_cancelar.Name = "bt_cancelar";
             this.bt_cancelar.Size = new System.Drawing.Size(80, 50);
-            this.bt_cancelar.TabIndex = 1;
+            this.bt_cancelar.TabIndex = 2;
             this.bt_cancelar.Text = "Cancelar";
             this.bt_cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_cancelar.UseVisualStyleBackColor = false;
@@ -315,6 +338,7 @@
             // bt_guardar
             // 
             this.bt_guardar.BackColor = System.Drawing.Color.LimeGreen;
+            this.bt_guardar.Enabled = false;
             this.bt_guardar.FlatAppearance.BorderColor = System.Drawing.Color.LightGreen;
             this.bt_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
             this.bt_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -384,5 +408,6 @@
         private System.Windows.Forms.Button bt_cancelar;
         private System.Windows.Forms.Button bt_guardar;
         private System.Windows.Forms.Panel pn_master;
+        private System.Windows.Forms.Button bt_revisar;
     }
 }

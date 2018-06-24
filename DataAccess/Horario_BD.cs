@@ -45,13 +45,59 @@ namespace DataAccess
         }
 
 
-        public List<Horario_TO> obtener_lista()
+        public List<Horario_TO> obtener_lista_activos()
         {
             List<Horario_TO> lista = new List<Horario_TO>();
             Horario_TO horario;
             try
             {
                 SqlCommand query = new SqlCommand("SELECT * FROM HORARIO WHERE estado_horario = 1", conex);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+
+                SqlDataReader reader = query.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        horario = new Horario_TO();
+                        horario.Id = reader.GetInt32(0);
+                        horario.Nombre_Horario = reader.GetString(1);
+                        horario.Hora_Inicio = reader.GetDateTime(2);
+                        horario.Hora_Fin = reader.GetDateTime(3);
+                        horario.Estado = reader.GetBoolean(4);
+                        lista.Add(horario);
+                    }
+                    return lista;
+                }
+                else
+                {
+                    return lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                return lista;
+            }
+            finally
+            {
+                if (conex.State != System.Data.ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
+
+        public List<Horario_TO> obtener_lista()
+        {
+            List<Horario_TO> lista = new List<Horario_TO>();
+            Horario_TO horario;
+            try
+            {
+                SqlCommand query = new SqlCommand("SELECT * FROM HORARIO", conex);
 
                 if (conex.State != ConnectionState.Open)
                 {

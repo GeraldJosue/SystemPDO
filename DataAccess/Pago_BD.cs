@@ -46,6 +46,7 @@ namespace DataAccess
                     pago_to.EstadoPago = reader.GetBoolean(9);
                     pago_to.Bono = reader.GetDecimal(10);
                     pago_to.Id_adelanto = reader.GetInt32(11);
+                    pago_to.ProcesoPago = reader.GetBoolean(12);
 
                 }
                 return pago_to;
@@ -102,7 +103,7 @@ namespace DataAccess
 
             try
             {
-                SqlCommand query = new SqlCommand("INSERT INTO PAGO VALUES(@colaborador, @fecha, @salarioBruto, @salarioNeto, @rebajo, @horas, @horasExtra, @transferencia, @estado, @bono, @adelanto)", conex);
+                SqlCommand query = new SqlCommand("INSERT INTO PAGO VALUES(@colaborador, @fecha, @salarioBruto, @salarioNeto, @rebajo, @horas, @horasExtra, @transferencia, @estado, @bono, @adelanto, @proceso)", conex);
                 query.Parameters.AddWithValue("@colaborador", pago.Id_colaborador);
                 query.Parameters.AddWithValue("@fecha", pago.FechaPago);
                 query.Parameters.AddWithValue("@salarioBruto", pago.SalarioBruto);
@@ -114,7 +115,7 @@ namespace DataAccess
                 query.Parameters.AddWithValue("@estado", pago.EstadoPago);
                 query.Parameters.AddWithValue("@bono", pago.Bono);
                 query.Parameters.AddWithValue("@adelanto", pago.Id_adelanto);
-
+                query.Parameters.AddWithValue("@proceso", pago.ProcesoPago);
 
                 if (conex.State != ConnectionState.Open)
                 {
@@ -145,17 +146,13 @@ namespace DataAccess
             {
                 SqlCommand query = new SqlCommand(string_query(lista), conex);
                 query.Parameters.AddWithValue("@id", pago.Id);
-                query.Parameters.AddWithValue("@colaborador", pago.Id_colaborador);
-                query.Parameters.AddWithValue("@fecha", pago.FechaPago);
                 query.Parameters.AddWithValue("@salarioBruto", pago.SalarioBruto);
                 query.Parameters.AddWithValue("@salarioNeto", pago.SalarioNeto);
                 query.Parameters.AddWithValue("@rebajo", pago.Rebajo);
-                query.Parameters.AddWithValue("@horas", pago.HorasLaboradas);
-                query.Parameters.AddWithValue("@horasExtra", pago.HorasExtra);
                 query.Parameters.AddWithValue("@transferencia", pago.TransferenciaPago);
                 query.Parameters.AddWithValue("@estado", pago.EstadoPago);
                 query.Parameters.AddWithValue("@bono", pago.Bono);
-                query.Parameters.AddWithValue("@adelanto", pago.Id_adelanto);
+                query.Parameters.AddWithValue("@proceso", pago.ProcesoPago);
 
 
                 if (conex.State != ConnectionState.Open)
@@ -211,6 +208,7 @@ namespace DataAccess
                         pago.EstadoPago = reader.GetBoolean(9);
                         pago.Bono = reader.GetDecimal(10);
                         pago.Id_adelanto = reader.GetInt32(11);
+                        pago.ProcesoPago = reader.GetBoolean(12);
                         lista.Add(pago);
                     }
                     return lista;
@@ -239,13 +237,14 @@ namespace DataAccess
             String mega_query = "UPDATE PAGO SET ";
             foreach (Int32 x in lista)
             {
+                
                 if (x == 0)
                 {
-                    mega_query += "id_colaborador = @colaborador,";
+                    mega_query += "bono_pago = @bono,";
                 }
                 else if (x == 1)
                 {
-                    mega_query += "fecha_pago = @fecha,";
+                    mega_query += "rebajo = @rebajo,";
                 }
                 else if (x == 2)
                 {
@@ -257,31 +256,15 @@ namespace DataAccess
                 }
                 else if (x == 4)
                 {
-                    mega_query += "rebajo = @rebajo,";
+                    mega_query += "transferencia_pago = @transferencia,";
                 }
                 else if (x == 5)
                 {
-                    mega_query += "horas_laboradas_pagadas = @horas,";
+                    mega_query += "estado_pago = @estado,";
                 }
                 else if (x == 6)
                 {
-                    mega_query += "horas_extras_pagadas = @horasExtra,";
-                }
-                else if (x == 7)
-                {
-                    mega_query += "transferencia_pago = @transferencia,";
-                }
-                else if (x == 8)
-                {
-                    mega_query += "estado_pago = @estado,";
-                }
-                else if (x == 9)
-                {
-                    mega_query += "bono_pago = @bono,";
-                }
-                else if (x == 10)
-                {
-                    mega_query += "id_adelanto = @adelanto,";
+                    mega_query += "proceso_pago = @proceso,";
                 }
             }
             mega_query = mega_query.TrimEnd(',');

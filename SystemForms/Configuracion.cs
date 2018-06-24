@@ -14,8 +14,8 @@ namespace SystemForms
     {
         public Configuracion()
         {
-
             InitializeComponent();
+            
         }
     }
 }

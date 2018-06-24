@@ -23,8 +23,9 @@ namespace BusinessLogic
         public Boolean EstadoPago { get; set; }
         public Decimal Bono { get; set; }
         public Int32 Id_adelanto { get; set; }
+        public Boolean ProcesoPago { get; set; }
 
-        public Pago(Int32 id, Int32 id_colaborador, DateTime fecha, Decimal salarioBruto, Decimal salarioNeto, Decimal rebajo, Decimal horasLaboradas, Decimal horasExtra, String transferencia, Boolean estado, Decimal bono, Int32 adelanto)
+        public Pago(Int32 id, Int32 id_colaborador, DateTime fecha, Decimal salarioBruto, Decimal salarioNeto, Decimal rebajo, Decimal horasLaboradas, Decimal horasExtra, String transferencia, Boolean estado, Decimal bono, Int32 adelanto, Boolean proceso)
         {
             this.Id = id;
             this.Id_colaborador = id_colaborador;
@@ -38,6 +39,7 @@ namespace BusinessLogic
             this.EstadoPago = estado;
             this.Bono = bono;
             this.Id_adelanto = adelanto;
+            this.ProcesoPago = proceso;
         }
         public Pago()
         {
@@ -89,6 +91,7 @@ namespace BusinessLogic
             pago.EstadoPago = this.EstadoPago;
             pago.Bono = this.Bono;
             pago.Id_adelanto = this.Id_adelanto;
+            pago.ProcesoPago = this.ProcesoPago;
             return pago;
         }
 
@@ -108,6 +111,7 @@ namespace BusinessLogic
             pago.EstadoPago = to.EstadoPago;
             pago.Bono = to.Bono;
             pago.Id_adelanto = to.Id_adelanto;
+            pago.ProcesoPago = to.ProcesoPago;
             return pago;
         }
 

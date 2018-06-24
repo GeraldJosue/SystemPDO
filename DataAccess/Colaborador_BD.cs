@@ -346,5 +346,27 @@ namespace DataAccess
             return mega_query;
         }
 
+        public Colaborador_TO obtener_horario(Colaborador_TO to)
+        {
+            try
+            {
+                SqlCommand query = new SqlCommand("SELECT precio_hora FROM COLABORADOR WHERE id_colaborador = @id", conex);
+                query.Parameters.AddWithValue("@id", to.Id);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+                return new Colaborador_TO();
+            }
+            catch(Exception ex)
+            {
+                return new Colaborador_TO();
+            }
+            finally
+            {
+                
+            }
+        }
     }
 }

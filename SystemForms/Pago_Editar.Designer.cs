@@ -1,13 +1,13 @@
 ﻿namespace SystemForms
 {
-    partial class Pago_Review_Form
+    partial class Pago_Editar
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,21 +20,23 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pago_Review_Form));
             this.pn_agregarPago = new System.Windows.Forms.Panel();
-            this.bt_cancelar = new System.Windows.Forms.Button();
-            this.bt_guardar = new System.Windows.Forms.Button();
-            this.rb_inactivo = new System.Windows.Forms.RadioButton();
-            this.rb_activo = new System.Windows.Forms.RadioButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.rb_pagado = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.rb_tramite = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
+            this.rb_activo = new System.Windows.Forms.RadioButton();
+            this.rb_inactivo = new System.Windows.Forms.RadioButton();
             this.tb_bono = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lb_nombre = new System.Windows.Forms.Label();
@@ -55,16 +57,11 @@
             this.lb_hasta = new System.Windows.Forms.Label();
             this.lb_desde = new System.Windows.Forms.Label();
             this.lb_Colaborador = new System.Windows.Forms.Label();
-            this.rb_tramite = new System.Windows.Forms.RadioButton();
-            this.rb_pagado = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.pn_agregarPago.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_extras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_horas)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pn_agregarPago
@@ -72,8 +69,6 @@
             this.pn_agregarPago.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pn_agregarPago.Controls.Add(this.panel2);
             this.pn_agregarPago.Controls.Add(this.panel1);
-            this.pn_agregarPago.Controls.Add(this.bt_cancelar);
-            this.pn_agregarPago.Controls.Add(this.bt_guardar);
             this.pn_agregarPago.Controls.Add(this.tb_bono);
             this.pn_agregarPago.Controls.Add(this.label1);
             this.pn_agregarPago.Controls.Add(this.lb_nombre);
@@ -98,56 +93,71 @@
             this.pn_agregarPago.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pn_agregarPago.Name = "pn_agregarPago";
             this.pn_agregarPago.Size = new System.Drawing.Size(976, 329);
-            this.pn_agregarPago.TabIndex = 1;
+            this.pn_agregarPago.TabIndex = 2;
             // 
-            // bt_cancelar
+            // panel2
             // 
-            this.bt_cancelar.BackColor = System.Drawing.Color.DarkRed;
-            this.bt_cancelar.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
-            this.bt_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
-            this.bt_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_cancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_cancelar.ForeColor = System.Drawing.Color.White;
-            this.bt_cancelar.Image = ((System.Drawing.Image)(resources.GetObject("bt_cancelar.Image")));
-            this.bt_cancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_cancelar.Location = new System.Drawing.Point(891, 274);
-            this.bt_cancelar.Name = "bt_cancelar";
-            this.bt_cancelar.Size = new System.Drawing.Size(80, 50);
-            this.bt_cancelar.TabIndex = 38;
-            this.bt_cancelar.Text = "Cancelar";
-            this.bt_cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bt_cancelar.UseVisualStyleBackColor = false;
-            this.bt_cancelar.Click += new System.EventHandler(this.bt_cancelar_Click);
+            this.panel2.Controls.Add(this.rb_pagado);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.rb_tramite);
+            this.panel2.Location = new System.Drawing.Point(394, 274);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(358, 42);
+            this.panel2.TabIndex = 43;
             // 
-            // bt_guardar
+            // rb_pagado
             // 
-            this.bt_guardar.BackColor = System.Drawing.Color.LimeGreen;
-            this.bt_guardar.FlatAppearance.BorderColor = System.Drawing.Color.LightGreen;
-            this.bt_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
-            this.bt_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_guardar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_guardar.ForeColor = System.Drawing.Color.White;
-            this.bt_guardar.Image = ((System.Drawing.Image)(resources.GetObject("bt_guardar.Image")));
-            this.bt_guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_guardar.Location = new System.Drawing.Point(808, 274);
-            this.bt_guardar.Name = "bt_guardar";
-            this.bt_guardar.Size = new System.Drawing.Size(75, 50);
-            this.bt_guardar.TabIndex = 37;
-            this.bt_guardar.Text = "Salvar";
-            this.bt_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bt_guardar.UseVisualStyleBackColor = false;
-            this.bt_guardar.Click += new System.EventHandler(this.bt_guardar_Click);
+            this.rb_pagado.AutoSize = true;
+            this.rb_pagado.Checked = true;
+            this.rb_pagado.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rb_pagado.Location = new System.Drawing.Point(151, 15);
+            this.rb_pagado.Name = "rb_pagado";
+            this.rb_pagado.Size = new System.Drawing.Size(86, 24);
+            this.rb_pagado.TabIndex = 40;
+            this.rb_pagado.TabStop = true;
+            this.rb_pagado.Text = "Pagado";
+            this.rb_pagado.UseVisualStyleBackColor = true;
             // 
-            // rb_inactivo
+            // label2
             // 
-            this.rb_inactivo.AutoSize = true;
-            this.rb_inactivo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_inactivo.Location = new System.Drawing.Point(229, 13);
-            this.rb_inactivo.Name = "rb_inactivo";
-            this.rb_inactivo.Size = new System.Drawing.Size(87, 24);
-            this.rb_inactivo.TabIndex = 36;
-            this.rb_inactivo.Text = "Inválido";
-            this.rb_inactivo.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(139, 20);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "Proceso del Pago";
+            // 
+            // rb_tramite
+            // 
+            this.rb_tramite.AutoSize = true;
+            this.rb_tramite.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rb_tramite.Location = new System.Drawing.Point(243, 15);
+            this.rb_tramite.Name = "rb_tramite";
+            this.rb_tramite.Size = new System.Drawing.Size(99, 24);
+            this.rb_tramite.TabIndex = 41;
+            this.rb_tramite.Text = "En trámite";
+            this.rb_tramite.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label17);
+            this.panel1.Controls.Add(this.rb_activo);
+            this.panel1.Controls.Add(this.rb_inactivo);
+            this.panel1.Location = new System.Drawing.Point(29, 274);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(319, 42);
+            this.panel1.TabIndex = 42;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(3, 15);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(128, 20);
+            this.label17.TabIndex = 34;
+            this.label17.Text = "Estado del Pago";
             // 
             // rb_activo
             // 
@@ -162,15 +172,16 @@
             this.rb_activo.Text = "Válido";
             this.rb_activo.UseVisualStyleBackColor = true;
             // 
-            // label17
+            // rb_inactivo
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(3, 15);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(128, 20);
-            this.label17.TabIndex = 34;
-            this.label17.Text = "Estado del Pago";
+            this.rb_inactivo.AutoSize = true;
+            this.rb_inactivo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rb_inactivo.Location = new System.Drawing.Point(229, 13);
+            this.rb_inactivo.Name = "rb_inactivo";
+            this.rb_inactivo.Size = new System.Drawing.Size(87, 24);
+            this.rb_inactivo.TabIndex = 36;
+            this.rb_inactivo.Text = "Inválido";
+            this.rb_inactivo.UseVisualStyleBackColor = true;
             // 
             // tb_bono
             // 
@@ -387,79 +398,24 @@
             this.lb_Colaborador.TabIndex = 2;
             this.lb_Colaborador.Text = "Colaborador";
             // 
-            // rb_tramite
-            // 
-            this.rb_tramite.AutoSize = true;
-            this.rb_tramite.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_tramite.Location = new System.Drawing.Point(243, 15);
-            this.rb_tramite.Name = "rb_tramite";
-            this.rb_tramite.Size = new System.Drawing.Size(99, 24);
-            this.rb_tramite.TabIndex = 41;
-            this.rb_tramite.Text = "En trámite";
-            this.rb_tramite.UseVisualStyleBackColor = true;
-            // 
-            // rb_pagado
-            // 
-            this.rb_pagado.AutoSize = true;
-            this.rb_pagado.Checked = true;
-            this.rb_pagado.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_pagado.Location = new System.Drawing.Point(151, 15);
-            this.rb_pagado.Name = "rb_pagado";
-            this.rb_pagado.Size = new System.Drawing.Size(86, 24);
-            this.rb_pagado.TabIndex = 40;
-            this.rb_pagado.TabStop = true;
-            this.rb_pagado.Text = "Pagado";
-            this.rb_pagado.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 20);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "Proceso del Pago";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.rb_activo);
-            this.panel1.Controls.Add(this.rb_inactivo);
-            this.panel1.Location = new System.Drawing.Point(29, 274);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(319, 42);
-            this.panel1.TabIndex = 42;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.rb_pagado);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.rb_tramite);
-            this.panel2.Location = new System.Drawing.Point(394, 274);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(358, 42);
-            this.panel2.TabIndex = 43;
-            // 
-            // Pago_Review_Form
+            // Pago_Editar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1013, 376);
             this.Controls.Add(this.pn_agregarPago);
             this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Pago_Review_Form";
-            this.Text = "Revisión de pago";
+            this.Name = "Pago_Editar";
+            this.Size = new System.Drawing.Size(1027, 379);
             this.pn_agregarPago.ResumeLayout(false);
             this.pn_agregarPago.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_extras)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_horas)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_extras)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_horas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -467,6 +423,21 @@
         #endregion
 
         private System.Windows.Forms.Panel pn_agregarPago;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RadioButton rb_pagado;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RadioButton rb_tramite;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.RadioButton rb_activo;
+        private System.Windows.Forms.RadioButton rb_inactivo;
+        private System.Windows.Forms.TextBox tb_bono;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb_nombre;
+        private System.Windows.Forms.NumericUpDown nud_extras;
+        private System.Windows.Forms.NumericUpDown nud_horas;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox tb_transferencia;
         private System.Windows.Forms.Label lb_Transferencia;
         private System.Windows.Forms.DateTimePicker dtp_hasta;
@@ -480,22 +451,5 @@
         private System.Windows.Forms.Label lb_hasta;
         private System.Windows.Forms.Label lb_desde;
         private System.Windows.Forms.Label lb_Colaborador;
-        private System.Windows.Forms.Label lb_nombre;
-        private System.Windows.Forms.NumericUpDown nud_extras;
-        private System.Windows.Forms.NumericUpDown nud_horas;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox tb_bono;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton rb_inactivo;
-        private System.Windows.Forms.RadioButton rb_activo;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button bt_cancelar;
-        private System.Windows.Forms.Button bt_guardar;
-        private System.Windows.Forms.RadioButton rb_tramite;
-        private System.Windows.Forms.RadioButton rb_pagado;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel1;
     }
 }

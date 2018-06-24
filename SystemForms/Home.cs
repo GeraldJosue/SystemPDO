@@ -20,6 +20,8 @@ namespace SystemForms
         Horarios_Control horario;
         Adelanto_Control adelanto;
         Inicio inicio;
+        Configuracion configuracion;
+        Vacaciones_Control vacaciones;
         public Home()
         {
             InitializeComponent();
@@ -95,6 +97,22 @@ namespace SystemForms
             adelanto.Dock = DockStyle.Fill;
             pn_contenido.Controls.Clear();
             pn_contenido.Controls.Add(adelanto);
+        }
+
+        private void bt_config_Click(object sender, EventArgs e)
+        {
+            configuracion = new Configuracion();
+            configuracion.Dock = DockStyle.Fill;
+            pn_contenido.Controls.Clear();
+            pn_contenido.Controls.Add(configuracion);
+        }
+
+        private void bt_vacaciones_Click(object sender, EventArgs e)
+        {
+            vacaciones = new Vacaciones_Control();
+            vacaciones.Dock = DockStyle.Fill;
+            pn_contenido.Controls.Clear();
+            pn_contenido.Controls.Add(vacaciones);
         }
     }
 }

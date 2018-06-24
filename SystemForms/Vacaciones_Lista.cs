@@ -15,6 +15,10 @@ namespace SystemForms
     {
         DataTable dt_vacaciones_activos;
         DataTable dt_vacaciones_inactivos;
+        String filtro;
+        String texto;
+        DateTime fecha_salida;
+        DateTime fecha_regreso;
 
         List<Vacacion> lista;
         public Vacaciones_Lista()
@@ -42,12 +46,13 @@ namespace SystemForms
             dt_vacaciones_inactivos.Columns.Add("Estado");
 
             obtener_lista_sys();
+            texto = "";
         }
 
         public void obtener_lista_sys()
         {
             lista = new Vacacion().obtener_lista();
-            dt_vacaciones_activos = llenar_tabla();
+            llenar_tabla();
             dg_vacaciones.DataSource = dt_vacaciones_activos;
             dg_vacaciones.Columns["Id"].Visible = false;
         }
@@ -55,27 +60,41 @@ namespace SystemForms
         public DataTable llenar_tabla()
         {
             dt_vacaciones_activos.Clear();
+            dt_vacaciones_inactivos.Clear();
             foreach (Vacacion x in lista)
             {
-                dt_vacaciones_activos.Rows.Add(x.Id, x.Id_Colaborador, x.Fecha_Salida, x.Fecha_Regreso, x.Numero_Dias, x.Salario, x.Transferencia, x.Estado ? "Activo" : "Inactivo");
+                if (x.Estado)
+                {
+                    //dt_vacaciones_activos.Rows.Add(x.Id, x.Nombre_Horario, formato_hora(x.Hora_Inicio), formato_hora(x.Hora_Fin), x.Estado ? "Activo" : "Inactivo");
+                }
+                else
+                {
+                    //dt_vacaciones_inactivos.Rows.Add(x.Id, x.Nombre_Horario, formato_hora(x.Hora_Inicio), formato_hora(x.Hora_Fin), x.Estado ? "Activo" : "Inactivo");
+                }
+
             }
             return dt_vacaciones_activos;
+        }
+
+        private String formato_fecha(DateTime date)
+        {
+            return string.Format("{0:h:mm tt}", date);
         }
 
         public Boolean eliminar_sys()
         {
             Int32 id = Int32.Parse(dg_vacaciones.CurrentRow.Cells["Id"].Value.ToString());
-            Int32 colaborador = Int32.Parse(dg_vacaciones.CurrentRow.Cells["Colaborador"].Value.ToString());
+            String nombre = dg_vacaciones.CurrentRow.Cells["Nombre"].Value.ToString();
 
-            DialogResult dialogResult = MessageBox.Show("¿Desea establecer como inactivo las vacaciones del colaborador " + colaborador + "?", "Inactivo", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("¿Desea establecer como inactivo el horario " + nombre + " ?", "Inactivo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Vacacion vacacion = new Vacacion();
-                vacacion.Id = id;
-                vacacion.Estado = false;
-                if (vacacion.eliminar())
+                Horario horario = new Horario();
+                horario.Id = id;
+                horario.Estado = false;
+                if (horario.eliminar())
                 {
-                    MessageBox.Show("Vacaciones inactivas", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Horario inactivo", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
                 else
@@ -86,19 +105,75 @@ namespace SystemForms
             }
             return false;
         }
-        public Vacacion obtener()
-        {
-            Vacacion vacacion = new Vacacion();
-            Int32 id = Int32.Parse(dg_vacaciones.CurrentRow.Cells["Id"].Value.ToString());
-            foreach (Vacacion x in lista)
-            {
-                if (x.Id == id)
-                {
-                    vacacion = x;
-                }
-            }
-            return vacacion;
-        }
+
+    //    public Horario obtener()
+    //    {
+    //        Horario horario = new Horario();
+    //        Int32 id = Int32.Parse(dg_vacaciones.CurrentRow.Cells["Id"].Value.ToString());
+    //        foreach (Horario x in lista)
+    //        {
+    //            if (x.Id == id)
+    //            {
+    //                horario = x;
+    //            }
+    //        }
+    //        return horario;
+    //    }
+
+    //    public void bajar_fila()
+    //    {
+    //        Int32 i = dg_horarios.CurrentCell.RowIndex;
+    //        if (i + 1 < dg_horarios.Rows.Count)
+    //        {
+    //            dg_horarios.Rows[i].Selected = false;
+    //            dg_horarios.Rows[i + 1].Selected = true;
+    //            dg_horarios.CurrentCell = dg_horarios.Rows[i + 1].Cells[1];
+    //        }
+    //    }
+
+    //    public void subir_fila()
+    //    {
+    //        Int32 i = dg_horarios.CurrentCell.RowIndex;
+    //        if (i - 1 >= 0)
+    //        {
+    //            dg_horarios.Rows[i].Selected = false;
+    //            dg_horarios.Rows[i - 1].Selected = true;
+    //            dg_horarios.CurrentCell = dg_horarios.Rows[i - 1].Cells[1];
+    //        }
+    //    }
+
+    //    public void set_datasource(Boolean estado)
+    //    {
+    //        if (estado)
+    //        {
+    //            dg_horarios.DataSource = dt_vacaciones_activos;
+    //        }
+    //        else
+    //        {
+    //            dg_horarios.DataSource = dt_vacaciones_inactivos;
+    //        }
+    //    }
+
+    //    public void filtro_nombre(String busqueda)
+    //    {
+    //        texto = busqueda;
+    //        filtro = "(Nombre Like '%" + texto + "%') AND ([Hora Inicio] >= #" + fecha_salida.TimeOfDay + "# AND [Hora Fin] <= #" + fecha_regreso.TimeOfDay + "#)";
+    //        ((DataTable)dg_horarios.DataSource).DefaultView.RowFilter = filtro;
+    //    }
+
+    //    public void filtro_hora_inicio(DateTime hora)
+    //    {
+    //        fecha_salida = hora;
+    //        filtro = "(Nombre Like '%" + texto + "%') AND ([Hora Inicio] >= #" + fecha_salida.TimeOfDay + "# AND [Hora Fin] <= #" + fecha_regreso.TimeOfDay + "#)";
+    //        ((DataTable)dg_horarios.DataSource).DefaultView.RowFilter = filtro;
+    //    }
+
+    //    public void filtro_hora_fin(DateTime hora)
+    //    {
+    //        fecha_regreso = hora;
+    //        filtro = "(Nombre Like '%" + texto + "%') AND ([Hora Inicio] >= #" + fecha_salida.TimeOfDay + "# AND [Hora Fin] <= #" + fecha_regreso.TimeOfDay + "#)";
+    //        ((DataTable)dg_horarios.DataSource).DefaultView.RowFilter = filtro;
+    //    }
     }
 }
 

@@ -32,5 +32,37 @@ namespace SystemForms
                 MessageBox.Show("Credenciales Incorrectos", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void tb_contraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           if(e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if (new Usuario(0, tb_usuario.Text, tb_contraseña.Text).validar())
+                {
+                    Pantalla_Principal parent = (Pantalla_Principal)this.FindForm();
+                    parent.inicio();
+                }
+                else
+                {
+                    MessageBox.Show("Credenciales Incorrectos", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void tb_usuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if (new Usuario(0, tb_usuario.Text, tb_contraseña.Text).validar())
+                {
+                    Pantalla_Principal parent = (Pantalla_Principal)this.FindForm();
+                    parent.inicio();
+                }
+                else
+                {
+                    MessageBox.Show("Credenciales Incorrectos", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

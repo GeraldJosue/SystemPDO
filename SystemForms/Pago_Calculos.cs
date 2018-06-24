@@ -41,9 +41,9 @@ namespace SystemForms
                 dt.Rows.Add(d.Id, d.Nombre);
             }
 
-            cb_departamento.ValueMember = "Id";
-            cb_departamento.DisplayMember = "Nombre";
-            cb_departamento.DataSource = dt;
+            //cb_departamento.ValueMember = "Id";
+            //cb_departamento.DisplayMember = "Nombre";
+            //cb_departamento.DataSource = dt;
         }
 
         public void llenar_cb_periodos()
@@ -134,7 +134,7 @@ namespace SystemForms
 
                 bruto = (horas * c.Precio) + (extras * (c.Precio * Convert.ToDecimal(1.5)));
                 neto = bruto - (bruto * Convert.ToDecimal(0.1));
-                pagos.Add(new Pago(0, c.Id, DateTime.Now.Date, bruto, neto, 0, horas, extras, "No disponible", false, 0, 0));
+                pagos.Add(new Pago(0, c.Id, DateTime.Now.Date, bruto, neto, 0, horas, extras, "No disponible", true, 0, 0, false));
                 avance = ((++flag) * 100) / colaboradores.Count;
                 bgw_calculos.ReportProgress(avance);
                 Thread.Sleep(500);
