@@ -50,6 +50,7 @@
             this.bt_cancelar = new System.Windows.Forms.Button();
             this.bt_guardar = new System.Windows.Forms.Button();
             this.pn_master = new System.Windows.Forms.Panel();
+            this.bt_revisar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pn_filtros.SuspendLayout();
@@ -284,6 +285,7 @@
             // 
             // pn_opciones
             // 
+            this.pn_opciones.Controls.Add(this.bt_revisar);
             this.pn_opciones.Controls.Add(this.bt_cancelar);
             this.pn_opciones.Controls.Add(this.bt_guardar);
             this.pn_opciones.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -302,7 +304,7 @@
             this.bt_cancelar.ForeColor = System.Drawing.Color.White;
             this.bt_cancelar.Image = ((System.Drawing.Image)(resources.GetObject("bt_cancelar.Image")));
             this.bt_cancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_cancelar.Location = new System.Drawing.Point(92, 0);
+            this.bt_cancelar.Location = new System.Drawing.Point(192, 0);
             this.bt_cancelar.Name = "bt_cancelar";
             this.bt_cancelar.Size = new System.Drawing.Size(80, 50);
             this.bt_cancelar.TabIndex = 1;
@@ -337,6 +339,25 @@
             this.pn_master.Name = "pn_master";
             this.pn_master.Size = new System.Drawing.Size(1164, 461);
             this.pn_master.TabIndex = 13;
+            // 
+            // bt_revisar
+            // 
+            this.bt_revisar.BackColor = System.Drawing.Color.Orange;
+            this.bt_revisar.Enabled = false;
+            this.bt_revisar.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
+            this.bt_revisar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
+            this.bt_revisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_revisar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_revisar.ForeColor = System.Drawing.Color.White;
+            this.bt_revisar.Image = ((System.Drawing.Image)(resources.GetObject("bt_revisar.Image")));
+            this.bt_revisar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_revisar.Location = new System.Drawing.Point(102, 0);
+            this.bt_revisar.Name = "bt_revisar";
+            this.bt_revisar.Size = new System.Drawing.Size(75, 50);
+            this.bt_revisar.TabIndex = 2;
+            this.bt_revisar.Text = "Revisar";
+            this.bt_revisar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bt_revisar.UseVisualStyleBackColor = false;
             // 
             // Aguinaldo_Control
             // 
@@ -382,5 +403,6 @@
         private System.Windows.Forms.Button bt_cancelar;
         private System.Windows.Forms.Button bt_guardar;
         private System.Windows.Forms.Panel pn_master;
+        private System.Windows.Forms.Button bt_revisar;
     }
 }

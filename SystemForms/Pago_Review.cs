@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
+using System.Globalization;
 
 namespace SystemForms
 {
@@ -42,7 +43,7 @@ namespace SystemForms
 
             foreach (Pago p in lista)
             {
-                dt.Rows.Add(p.Id_colaborador, p.SalarioBruto.ToString("C"), p.SalarioNeto.ToString("C"), p.HorasLaboradas, p.HorasExtra, p.Rebajo.ToString("C"), p.Bono.ToString("C"), p.TransferenciaPago, p.EstadoPago ? "Pagado" : "En trámite");
+                dt.Rows.Add(p.Id_colaborador, p.SalarioBruto.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")), p.SalarioNeto.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")), p.HorasLaboradas, p.HorasExtra, p.Rebajo.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")), p.Bono.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")), p.TransferenciaPago, p.EstadoPago ? "Pagado" : "En trámite");
             }
             dg_pagos_review.DataSource = dt;
         }

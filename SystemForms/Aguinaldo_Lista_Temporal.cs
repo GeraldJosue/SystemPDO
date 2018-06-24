@@ -23,7 +23,6 @@ namespace SystemForms
             InitializeComponent();
             lista_col = new Colaborador().obtener_lista_activos();
             tableActivos = new DataTable();
-            tableActivos.Columns.Add("Revisar");
             tableActivos.Columns.Add("Id");
             tableActivos.Columns.Add("Id Colaborador");
             tableActivos.Columns.Add("Fecha");
@@ -31,7 +30,7 @@ namespace SystemForms
             tableActivos.Columns.Add("Transferencia");
             tableActivos.Columns.Add("Estado");
 
-            obtener_lista_sys();
+            
         }       
 
         public void obtener_lista_sys()
@@ -95,6 +94,11 @@ namespace SystemForms
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void bt_calcular_Click(object sender, EventArgs e)
+        {
+            obtener_lista_sys();
         }
     }
 }

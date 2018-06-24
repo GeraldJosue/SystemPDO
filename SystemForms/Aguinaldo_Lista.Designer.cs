@@ -47,7 +47,7 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Brown;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.dgv_Aguinaldo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_Aguinaldo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgv_Aguinaldo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_Aguinaldo.BackgroundColor = System.Drawing.Color.White;
             this.dgv_Aguinaldo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Aguinaldo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;

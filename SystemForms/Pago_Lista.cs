@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
+using System.Globalization;
 
 namespace SystemForms
 {
@@ -72,11 +73,11 @@ namespace SystemForms
             {
                 if (x.EstadoPago)
                 {
-                    tableActivos.Rows.Add(x.Id, x.Id_colaborador, x.FechaPago.Date.ToShortDateString(), x.SalarioBruto.ToString("C"), x.SalarioNeto.ToString("C"), x.Rebajo.ToString("C"), x.HorasLaboradas, x.HorasExtra, x.TransferenciaPago, x.ProcesoPago ? "Pagado" : "En trámite");
+                    tableActivos.Rows.Add(x.Id, x.Id_colaborador, x.FechaPago.Date.ToShortDateString(), x.SalarioBruto.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")), x.SalarioNeto.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")), x.Rebajo.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")), x.HorasLaboradas, x.HorasExtra, x.TransferenciaPago, x.ProcesoPago ? "Pagado" : "En trámite");
                 }
                 else
                 {
-                    tableInactivos.Rows.Add(x.Id, x.Id_colaborador, x.FechaPago.Date.ToShortDateString(), x.SalarioBruto.ToString("C"), x.SalarioNeto.ToString("C"), x.Rebajo.ToString("C"), x.HorasLaboradas, x.HorasExtra, x.TransferenciaPago, x.ProcesoPago ? "Pagado" : "En trámite");
+                    tableInactivos.Rows.Add(x.Id, x.Id_colaborador, x.FechaPago.Date.ToShortDateString(), x.SalarioBruto.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")), x.SalarioNeto.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")), x.Rebajo.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")), x.HorasLaboradas, x.HorasExtra, x.TransferenciaPago, x.ProcesoPago ? "Pagado" : "En trámite");
                 }
             }
         }

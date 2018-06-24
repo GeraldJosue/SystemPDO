@@ -47,7 +47,7 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Brown;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.dg_adelantos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dg_adelantos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dg_adelantos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dg_adelantos.BackgroundColor = System.Drawing.Color.White;
             this.dg_adelantos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dg_adelantos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -84,11 +84,8 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dg_adelantos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Empty;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Empty;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Empty;
             this.dg_adelantos.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dg_adelantos.Size = new System.Drawing.Size(1158, 511);
             this.dg_adelantos.TabIndex = 0;

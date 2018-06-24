@@ -47,7 +47,7 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Brown;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.dg_Departamentos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dg_Departamentos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dg_Departamentos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dg_Departamentos.BackgroundColor = System.Drawing.Color.White;
             this.dg_Departamentos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dg_Departamentos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;

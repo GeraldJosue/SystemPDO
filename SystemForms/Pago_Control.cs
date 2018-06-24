@@ -187,8 +187,8 @@ namespace SystemForms
 
         private void bt_revisar_Click(object sender, EventArgs e)
         {
-            //review.mostrar_detalle();
-            bt_cancelar.Visible = true;
+            review.mostrar_detalle();
+            
         }
     }
 }
