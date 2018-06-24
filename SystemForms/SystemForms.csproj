@@ -225,6 +225,12 @@
     <Compile Include="Pantalla_Principal.Designer.cs">
       <DependentUpon>Pantalla_Principal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Planilla_Review.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Planilla_Review.Designer.cs">
+      <DependentUpon>Planilla_Review.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Progress_Form.cs">
       <SubType>Form</SubType>
@@ -355,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantalla_Principal.resx">
       <DependentUpon>Pantalla_Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Planilla_Review.resx">
+      <DependentUpon>Planilla_Review.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Progress_Form.resx">
       <DependentUpon>Progress_Form.cs</DependentUpon>

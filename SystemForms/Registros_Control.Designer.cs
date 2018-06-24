@@ -342,7 +342,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.BackColor = System.Drawing.Color.DarkSlateGray;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.Color.White;
@@ -357,9 +357,9 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(250, 32);
+            this.label1.Size = new System.Drawing.Size(406, 32);
             this.label1.TabIndex = 0;
-            this.label1.Text = "REGISTROS DE DÍA";
+            this.label1.Text = "REGISTRO DE TIEMPOS DEL DÍA";
             // 
             // Registros_Control
             // 

@@ -14,40 +14,33 @@ namespace SystemForms
 {
     public partial class Pago_Lista : UserControl
     {
-        List<Pago> lista;
+        List<Planilla> lista;
         DataTable tableActivos;
         DataTable tableInactivos;
+        Pago_Control parent;
         String filtro;
         String texto;
         String fecha;
 
-        public Pago_Lista()
+        public Pago_Lista(Pago_Control parent)
         {
-            InitializeComponent();
-            tableActivos = new DataTable();
-            tableActivos.Columns.Add("Id");
-            tableActivos.Columns.Add("Id Colaborador");
-            tableActivos.Columns.Add("Fecha Pago");
-            tableActivos.Columns.Add("Salario Bruto");
-            tableActivos.Columns.Add("Salario Neto");
-            tableActivos.Columns.Add("Rebajo");
-            tableActivos.Columns.Add("Horas Laboradas");
-            tableActivos.Columns.Add("Horas Extra");
-            tableActivos.Columns.Add("Transferencia");
-            tableActivos.Columns.Add("Proceso");
 
+            InitializeComponent();
+            this.parent = parent;
+
+            tableActivos = new DataTable();
+            tableActivos.Columns.Add("Encabezado");
+            tableActivos.Columns.Add("Total");
+            tableActivos.Columns.Add("Desde");
+            tableActivos.Columns.Add("Hasta");
+            tableActivos.Columns.Add("Tipo");
 
             tableInactivos = new DataTable();
-            tableInactivos.Columns.Add("Id");
-            tableInactivos.Columns.Add("Id Colaborador");
-            tableInactivos.Columns.Add("Fecha Pago");
-            tableInactivos.Columns.Add("Salario Bruto");
-            tableInactivos.Columns.Add("Salario Neto");
-            tableInactivos.Columns.Add("Rebajo");
-            tableInactivos.Columns.Add("Horas Laboradas");
-            tableInactivos.Columns.Add("Horas Extra");
-            tableInactivos.Columns.Add("Transferencia");
-            tableInactivos.Columns.Add("Proceso");
+            tableInactivos.Columns.Add("Encabezado");
+            tableInactivos.Columns.Add("Total");
+            tableInactivos.Columns.Add("Desde");
+            tableInactivos.Columns.Add("Hasta");
+            tableInactivos.Columns.Add("Tipo");
 
             obtener_lista_sys();
 
@@ -59,7 +52,7 @@ namespace SystemForms
 
         public void obtener_lista_sys()
         {
-            lista = new Pago().obtener_lista();
+            lista = new Planilla().obtener_lista();
             llenar_tabla();
             dg_Pagos.DataSource = tableActivos;
         }
@@ -69,51 +62,50 @@ namespace SystemForms
         {
             tableActivos.Clear();
             tableInactivos.Clear();
-            foreach (Pago x in lista)
+            foreach (Planilla x in lista)
             {
-                if (x.EstadoPago)
+                if (x.Estado)
                 {
-                    tableActivos.Rows.Add(x.Id, x.Id_colaborador, x.FechaPago.Date.ToShortDateString(), x.SalarioBruto.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")), x.SalarioNeto.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")), x.Rebajo.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")), x.HorasLaboradas, x.HorasExtra, x.TransferenciaPago, x.ProcesoPago ? "Pagado" : "En trámite");
+                    tableActivos.Rows.Add(x.Id, x.Total, x.Fecha_inicio.Date.ToShortDateString(), x.Fecha_fin.Date.ToShortDateString(), x.Tipo == 14 ? "Quincenal" : "Mensual");
                 }
                 else
                 {
-                    tableInactivos.Rows.Add(x.Id, x.Id_colaborador, x.FechaPago.Date.ToShortDateString(), x.SalarioBruto.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")), x.SalarioNeto.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")), x.Rebajo.ToString("C", CultureInfo.CreateSpecificCulture("es-CR")), x.HorasLaboradas, x.HorasExtra, x.TransferenciaPago, x.ProcesoPago ? "Pagado" : "En trámite");
+                    tableInactivos.Rows.Add(x.Id, x.Total, x.Fecha_inicio.Date.ToShortDateString(), x.Fecha_fin.Date.ToShortDateString(), x.Tipo == 14 ? "Quincenal" : "Mensual");
                 }
             }
         }
 
 
-        public Pago obtener()
+        public Planilla obtener()
         {
-            Pago pago = new Pago();
+            Planilla planilla = new Planilla();
 
-            Int32 id = Int32.Parse(dg_Pagos.CurrentRow.Cells["Id"].Value.ToString());
-            foreach (Pago x in lista)
+            Int32 id = Int32.Parse(dg_Pagos.CurrentRow.Cells["Encabezado"].Value.ToString());
+            foreach (Planilla x in lista)
             {
                 if (x.Id == id)
                 {
-                    pago = x;
+                    planilla = x;
                 }
             }
 
-            return pago;
+            return planilla;
 
         }
 
         public Boolean eliminar_sys()
         {
-            Int32 id = Int32.Parse(dg_Pagos.CurrentRow.Cells["Id"].Value.ToString());
-            String transferencia = dg_Pagos.CurrentRow.Cells["Transferencia"].Value.ToString();
+            Int32 id = Int32.Parse(dg_Pagos.CurrentRow.Cells["Encabezado"].Value.ToString());
 
-            DialogResult dialogResult = MessageBox.Show("¿Desea establecer como inactivo el pago con el numero de transferencia " + transferencia + " ?", "Inactivo", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("¿Desea establecer como inactivo el pago con el encabezado " + id + " ?", "Inactivo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Pago pago = new Pago();
-                pago.Id = id;
-                pago.EstadoPago = false;
-                if (pago.eliminar())
+                Planilla planila = new Planilla();
+                planila.Id = id;
+                planila.Estado = false;
+                if (planila.eliminar())
                 {
-                    MessageBox.Show("Colaborador inactivo", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Pago inactivo", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
                 else
@@ -123,28 +115,6 @@ namespace SystemForms
                 }
             }
             return false;
-        }
-
-        public void bajar_fila()
-        {
-            Int32 i = dg_Pagos.CurrentCell.RowIndex;
-            if (i + 1 < dg_Pagos.Rows.Count)
-            {
-                dg_Pagos.Rows[i].Selected = false;
-                dg_Pagos.Rows[i + 1].Selected = true;
-                dg_Pagos.CurrentCell = dg_Pagos.Rows[i + 1].Cells[0];
-            }
-        }
-
-        public void subir_fila()
-        {
-            Int32 i = dg_Pagos.CurrentCell.RowIndex;
-            if (i - 1 >= 0)
-            {
-                dg_Pagos.Rows[i].Selected = false;
-                dg_Pagos.Rows[i - 1].Selected = true;
-                dg_Pagos.CurrentCell = dg_Pagos.Rows[i - 1].Cells[0];
-            }
         }
 
         public void set_datasource(Boolean estado)
@@ -173,5 +143,9 @@ namespace SystemForms
             ((DataTable)dg_Pagos.DataSource).DefaultView.RowFilter = filtro;
         }
 
+        private void dg_Pagos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            parent.lista_review_pagos(obtener(), false);
+        }
     }
 }

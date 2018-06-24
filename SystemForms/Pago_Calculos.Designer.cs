@@ -75,7 +75,7 @@
             // 
             // bt_calcular
             // 
-            this.bt_calcular.BackColor = System.Drawing.Color.Maroon;
+            this.bt_calcular.BackColor = System.Drawing.Color.DarkSlateGray;
             this.bt_calcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_calcular.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_calcular.ForeColor = System.Drawing.Color.White;

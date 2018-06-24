@@ -46,7 +46,7 @@
             // 
             // pn_menu_izq
             // 
-            this.pn_menu_izq.BackColor = System.Drawing.Color.Maroon;
+            this.pn_menu_izq.BackColor = System.Drawing.Color.DarkSlateGray;
             this.pn_menu_izq.Controls.Add(this.bt_salir);
             this.pn_menu_izq.Controls.Add(this.bt_config);
             this.pn_menu_izq.Controls.Add(this.bt_horarios);
@@ -66,10 +66,10 @@
             // 
             // bt_salir
             // 
-            this.bt_salir.BackColor = System.Drawing.Color.Maroon;
+            this.bt_salir.BackColor = System.Drawing.Color.DarkSlateGray;
             this.bt_salir.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_salir.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.bt_salir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.bt_salir.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.bt_salir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CadetBlue;
             this.bt_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_salir.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_salir.ForeColor = System.Drawing.Color.White;
@@ -83,10 +83,10 @@
             // 
             // bt_config
             // 
-            this.bt_config.BackColor = System.Drawing.Color.Maroon;
+            this.bt_config.BackColor = System.Drawing.Color.DarkSlateGray;
             this.bt_config.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_config.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.bt_config.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.bt_config.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.bt_config.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CadetBlue;
             this.bt_config.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_config.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_config.ForeColor = System.Drawing.Color.White;
@@ -100,10 +100,10 @@
             // 
             // bt_horarios
             // 
-            this.bt_horarios.BackColor = System.Drawing.Color.Maroon;
+            this.bt_horarios.BackColor = System.Drawing.Color.DarkSlateGray;
             this.bt_horarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_horarios.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.bt_horarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.bt_horarios.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.bt_horarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CadetBlue;
             this.bt_horarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_horarios.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_horarios.ForeColor = System.Drawing.Color.White;
@@ -112,15 +112,15 @@
             this.bt_horarios.Size = new System.Drawing.Size(172, 55);
             this.bt_horarios.TabIndex = 9;
             this.bt_horarios.Text = "Horarios";
-            this.bt_horarios.UseVisualStyleBackColor = true;
+            this.bt_horarios.UseVisualStyleBackColor = false;
             this.bt_horarios.Click += new System.EventHandler(this.bt_horarios_Click);
             // 
             // bt_departamentos
             // 
-            this.bt_departamentos.BackColor = System.Drawing.Color.Maroon;
+            this.bt_departamentos.BackColor = System.Drawing.Color.DarkSlateGray;
             this.bt_departamentos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_departamentos.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.bt_departamentos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.bt_departamentos.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.bt_departamentos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CadetBlue;
             this.bt_departamentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_departamentos.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_departamentos.ForeColor = System.Drawing.Color.White;
@@ -134,10 +134,10 @@
             // 
             // bt_adelanto
             // 
-            this.bt_adelanto.BackColor = System.Drawing.Color.Maroon;
+            this.bt_adelanto.BackColor = System.Drawing.Color.DarkSlateGray;
             this.bt_adelanto.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_adelanto.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.bt_adelanto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.bt_adelanto.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.bt_adelanto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CadetBlue;
             this.bt_adelanto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_adelanto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_adelanto.ForeColor = System.Drawing.Color.White;
@@ -151,10 +151,10 @@
             // 
             // bt_aguinaldo
             // 
-            this.bt_aguinaldo.BackColor = System.Drawing.Color.Maroon;
+            this.bt_aguinaldo.BackColor = System.Drawing.Color.DarkSlateGray;
             this.bt_aguinaldo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_aguinaldo.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.bt_aguinaldo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.bt_aguinaldo.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.bt_aguinaldo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CadetBlue;
             this.bt_aguinaldo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_aguinaldo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_aguinaldo.ForeColor = System.Drawing.Color.White;
@@ -168,10 +168,10 @@
             // 
             // bt_vacaciones
             // 
-            this.bt_vacaciones.BackColor = System.Drawing.Color.Maroon;
+            this.bt_vacaciones.BackColor = System.Drawing.Color.DarkSlateGray;
             this.bt_vacaciones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_vacaciones.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.bt_vacaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.bt_vacaciones.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.bt_vacaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CadetBlue;
             this.bt_vacaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_vacaciones.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_vacaciones.ForeColor = System.Drawing.Color.White;
@@ -185,10 +185,10 @@
             // 
             // bt_pago
             // 
-            this.bt_pago.BackColor = System.Drawing.Color.Maroon;
+            this.bt_pago.BackColor = System.Drawing.Color.DarkSlateGray;
             this.bt_pago.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_pago.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.bt_pago.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.bt_pago.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.bt_pago.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CadetBlue;
             this.bt_pago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_pago.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_pago.ForeColor = System.Drawing.Color.White;
@@ -202,10 +202,10 @@
             // 
             // bt_registro
             // 
-            this.bt_registro.BackColor = System.Drawing.Color.Maroon;
+            this.bt_registro.BackColor = System.Drawing.Color.DarkSlateGray;
             this.bt_registro.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_registro.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.bt_registro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.bt_registro.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.bt_registro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CadetBlue;
             this.bt_registro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_registro.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_registro.ForeColor = System.Drawing.Color.White;
@@ -219,10 +219,10 @@
             // 
             // bt_colaboradores
             // 
-            this.bt_colaboradores.BackColor = System.Drawing.Color.Maroon;
+            this.bt_colaboradores.BackColor = System.Drawing.Color.DarkSlateGray;
             this.bt_colaboradores.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_colaboradores.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.bt_colaboradores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.bt_colaboradores.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.bt_colaboradores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CadetBlue;
             this.bt_colaboradores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_colaboradores.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_colaboradores.ForeColor = System.Drawing.Color.White;
@@ -236,14 +236,13 @@
             // 
             // bt_home
             // 
-            this.bt_home.BackColor = System.Drawing.Color.White;
+            this.bt_home.BackColor = System.Drawing.Color.DarkSlateGray;
             this.bt_home.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_home.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_home.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
+            this.bt_home.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.bt_home.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CadetBlue;
             this.bt_home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_home.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_home.ForeColor = System.Drawing.Color.Maroon;
-            this.bt_home.Image = global::SystemForms.Properties.Resources.home;
+            this.bt_home.ForeColor = System.Drawing.Color.White;
             this.bt_home.Location = new System.Drawing.Point(0, 0);
             this.bt_home.Name = "bt_home";
             this.bt_home.Size = new System.Drawing.Size(172, 55);

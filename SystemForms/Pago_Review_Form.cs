@@ -14,40 +14,26 @@ namespace SystemForms
     public partial class Pago_Review_Form : Form
     {
         Pago pago;
+        Decimal bruto_base;
         Pago_Review parent;
         public Pago_Review_Form(Pago pago, Pago_Review parent)
         {
             InitializeComponent();
             this.pago = pago;
+            bruto_base = pago.SalarioBruto;
             this.parent = parent;
             setear_datos();
+            //dg_ingresos.DefaultCellStyle.Format = "C";
+            //dg_deducciones.DefaultCellStyle.Format = "C";
+            //dg_totales.DefaultCellStyle.Format = "C";
         }
 
         public void setear_datos()
         {
-            lb_nombre.Text = pago.Id_colaborador.ToString();
-            nud_horas.Value = pago.HorasLaboradas;
-            nud_extras.Value = pago.HorasExtra;
-
-            tb_bono.Tag = pago.Bono.ToString();
-            tb_bono.Text = pago.Bono.ToString("C");
-
-            tb_bruto.Tag = pago.SalarioBruto.ToString();
-            tb_bruto.Text = pago.SalarioBruto.ToString("C");
-
-            tb_rebajo.Tag = pago.Rebajo.ToString();
-            tb_rebajo.Text = pago.Rebajo.ToString("C");
-
-            tb_neto.Tag = pago.SalarioNeto.ToString();
-            tb_neto.Text = pago.SalarioNeto.ToString("C");
-        
-            tb_transferencia.Text = pago.TransferenciaPago;
-
-            rb_activo.Checked = pago.EstadoPago;
-            rb_inactivo.Checked = !pago.EstadoPago;
-
-            rb_pagado.Checked = pago.ProcesoPago;
-            rb_tramite.Checked = !pago.ProcesoPago;
+            dg_pago_detalle.Rows.Add(pago.Id, pago.Id_colaborador, pago.FechaPago.ToShortDateString(), pago.HorasLaboradas, pago.HorasExtra, pago.Id_planilla);
+            dg_ingresos.Rows.Add(pago.Bono, pago.Vacaciones, pago.Aguinaldo);
+            dg_deducciones.Rows.Add(pago.Adelanto, pago.Seguro, pago.Rebajo);
+            dg_totales.Rows.Add(pago.SalarioBruto, pago.SalarioNeto);
         }
 
         public void recalcular_salarios()
@@ -219,6 +205,43 @@ namespace SystemForms
             parent.salvar_cambios(pago);
             this.Close();
         }
-        
+
+        public void calcular_salarios()
+        {
+
+            dg_totales.Rows[0].Cells["bruto"].Value = pago.SalarioBruto;
+            dg_deducciones.Rows[0].Cells["seguro"].Value = pago.Seguro;
+            dg_totales.Rows[0].Cells["neto"].Value = pago.SalarioNeto;
+
+        }
+
+        public void calcular_detalles()
+        {
+            pago.Bono = Convert.ToDecimal(dg_ingresos.Rows[0].Cells["bono"].Value);
+            pago.Vacaciones = Convert.ToDecimal(dg_ingresos.Rows[0].Cells["vacaciones"].Value);
+            pago.Aguinaldo = Convert.ToDecimal(dg_ingresos.Rows[0].Cells["aguinaldo"].Value);
+
+            pago.Rebajo = Convert.ToDecimal(dg_deducciones.Rows[0].Cells["rebajo"].Value);
+            pago.Adelanto = Convert.ToDecimal(dg_deducciones.Rows[0].Cells["adelanto"].Value);
+
+            pago.SalarioBruto = bruto_base + pago.Bono + pago.Vacaciones + pago.Aguinaldo;
+            pago.Seguro = pago.SalarioBruto * Convert.ToDecimal(0.1);
+            pago.SalarioNeto = pago.SalarioBruto - pago.Seguro - pago.Adelanto - pago.Rebajo;
+
+            calcular_salarios();
+        }
+
+        private void dg_ingresos_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            calcular_detalles();
+        }
+
+        private void dg_deducciones_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            calcular_detalles();
+
+        }
+
+    
     }
 }
