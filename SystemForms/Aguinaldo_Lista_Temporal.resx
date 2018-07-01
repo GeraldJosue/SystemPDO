@@ -117,7 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="cl_Revisar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="bt_guardar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3QAAAN0AEQbD0HAAAAB3RJ
+        TUUH4gYEFzEj6imx6wAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACeSURBVEhL
+        7ZZBDkAwEEVt7CVi70guIRFHcQLncgqJWNjYjj8qlLZpWrWRvuRFjNG3JCGiGk5QpkkM4FkmVk72XVxb
+        WOxLMhg+D2d8Aj0c4D3CGxp8A8w9ImYKbwLMFRH3Cm8DDEfyLwNM93Vg9gmksJIsj7kuQM4BE3jHKbDA
+        0dEVKpgCwYgBKzFgJQas/COg++iHYuKA7rclBDiT6g1Rpp+2+KYGywAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="bg_calcular_aguinaldo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
 </root>

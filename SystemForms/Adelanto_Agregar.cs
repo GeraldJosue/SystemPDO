@@ -39,11 +39,11 @@ namespace SystemForms
             tb_monto.Text = adelanto.Monto.ToString();
             if (adelanto.Estado)
             {
-                rb_solicitado.Checked = true;
+                rb_activo.Checked = true;
             }
             else
             {
-                rb_pagado.Checked = true;
+                rb_inactivo.Checked = true;
             }
 
             
@@ -111,13 +111,13 @@ namespace SystemForms
 
         public Adelanto obtener_datos()
         {
-            Int32 idcolaborador = cb_colaborador.SelectedIndex == -1 ? 1 : cb_colaborador.SelectedIndex;
-            Decimal monto = tb_monto.Text.Equals("") ? 0 : Decimal.Parse(tb_monto.Text);
-            Boolean estado = rb_solicitado.Checked ? true : false;
+            Int32 idcolaborador = cb_colaborador.SelectedIndex == -1 ? 1 : Int32.Parse(cb_colaborador.SelectedValue.ToString());
+            Decimal monto = tb_monto.Text.Equals("") ? 0 : Decimal.Parse(tb_monto.Text.ToString());
+            Boolean estado = rb_activo.Checked ? true : false;
             DateTime fecha = dt_fecha.Value.Date;
                     
 
-            //Revisar datos por defecto
+            
             return new Adelanto(0, idcolaborador, fecha, monto, estado);
         }
 
@@ -143,10 +143,7 @@ namespace SystemForms
             return lista;
         }
 
-        private void cb_colaborador_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
+       
 
         private void tb_monto_enter(object sender, EventArgs e)
         {
@@ -155,9 +152,11 @@ namespace SystemForms
 
         private void tb_monto_leave(object sender, EventArgs e)
         {
-            Decimal monto = Decimal.Parse(tb_monto.Text);
-            tb_monto.Tag = monto;
-            tb_monto.Text = monto.ToString("C");
+            //Decimal monto = Decimal.Parse(tb_monto.Text);
+            //tb_monto.Tag = monto;
+            //tb_monto.Text = monto.ToString("C");
         }
+
+       
     }
 }

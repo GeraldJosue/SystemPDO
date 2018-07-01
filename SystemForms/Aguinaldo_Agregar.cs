@@ -14,20 +14,22 @@ namespace SystemForms
     public partial class Aguinaldo_Agregar : UserControl
     {
 
-        Aguinaldo aguinaldo;
-        List<Colaborador> lista;
+        Aguinaldo aguinaldo;       
+        Aguinaldo_Control parent;
         public Aguinaldo_Agregar()
         {
             InitializeComponent();
-            llenar_cb_colaborador();
+            //llenar_cb_colaborador();
+            
         }
 
 
-        public Aguinaldo_Agregar(Aguinaldo aguinaldo)
+        public Aguinaldo_Agregar(Aguinaldo aguinaldo, Aguinaldo_Control parent_control)
         {
             InitializeComponent();
             this.aguinaldo = aguinaldo;
-            llenar_cb_colaborador();
+            //llenar_cb_colaborador();
+            parent = parent_control;
 
             setear_datos();
         }
@@ -46,6 +48,20 @@ namespace SystemForms
                 return false;
             }
 
+        }
+
+        public Boolean agregar_lista(List<Aguinaldo> list)
+        {
+            foreach(Aguinaldo a in list)
+            {
+                if (!a.agregar())
+                {
+                    MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            MessageBox.Show("Aguinaldo agregado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return true;
         }
 
         public Boolean editar_sys()
@@ -72,83 +88,88 @@ namespace SystemForms
 
         public Aguinaldo obtener_datos()
         {
-            //analizar lo de departamento y lo de las fechas            
-            Int32 colaborador = cb_colaborador.SelectedIndex == -1 ? 1 : cb_colaborador.SelectedIndex;
+                        
+            Int32 colaborador = -1;
             DateTime fecha = dtp_fecha.Value.Date;
             Decimal salarioAguinaldo = tb_monto.Text.Equals("") ? 0 : Decimal.Parse(tb_monto.Text);            
-            String transferencia = tb_transferencia.Text.Equals("") ? "No disponible" : tb_transferencia.Text;
-            Boolean estado = cb_estado.Checked ? true : false;
+            String transferencia = tb_transferencia.Text.Equals("") ? "No disponible" : tb_transferencia.Text;            
 
             //Revisar datos por defecto
-            return new Aguinaldo(0, colaborador, fecha, salarioAguinaldo, transferencia, estado);
+            return new Aguinaldo(0, colaborador, fecha, salarioAguinaldo, transferencia, true);
         }
 
         public void setear_datos()
         {
             //Setear el selected index            
-            //cb_colaborador.SelectedIndex
+            //cb_colaborador.SelectedIndex = aguinaldo.IdColaborador;
             dtp_fecha.Text = aguinaldo.FechaAguinaldo.ToString();
             tb_monto.Text = aguinaldo.Salario.ToString();
             tb_transferencia.Text = aguinaldo.TransferenciaAguinaldo;
-            cb_estado.Checked = aguinaldo.EstadoAguinaldo;
         }
 
         public List<Int32> validar_cambios(Aguinaldo aguinaldoNuevo)
         {
             List<Int32> lista = new List<Int32>();
-            if (aguinaldoNuevo.IdColaborador != this.aguinaldo.IdColaborador)
+            //if (aguinaldoNuevo.IdColaborador != this.aguinaldo.IdColaborador)
+            //{
+            //    lista.Add(0);
+            //}
+            if (aguinaldoNuevo.FechaAguinaldo != this.aguinaldo.FechaAguinaldo)
             {
                 lista.Add(0);
             }
-            if (aguinaldoNuevo.FechaAguinaldo != this.aguinaldo.FechaAguinaldo)
-            {
-                lista.Add(1);
-            }
             if (aguinaldoNuevo.Salario != this.aguinaldo.Salario)
             {
-                lista.Add(2);
+                lista.Add(1);
             }            
             if (aguinaldoNuevo.TransferenciaAguinaldo != this.aguinaldo.TransferenciaAguinaldo)
             {
-                lista.Add(3);
+                lista.Add(2);
             }
             if (aguinaldoNuevo.EstadoAguinaldo != this.aguinaldo.EstadoAguinaldo)
             {
-                lista.Add(4);
+                lista.Add(3);
             }
             return lista;
         }
 
 
-        public void llenar_cb_colaborador()
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Id");
-            dt.Columns.Add("Nombre");
-            lista = new Colaborador().obtener_lista_activos();
+        //public void llenar_cb_colaborador()
+        //{
+        //    DataTable dt = new DataTable();
+        //    dt.Columns.Add("Id");
+        //    dt.Columns.Add("Nombre");
+        //    lista = new Colaborador().obtener_lista_activos();
 
-            foreach (Colaborador x in lista)
-            {
-                dt.Rows.Add(x.Id, x.Nombre);
-            }
+        //    foreach (Colaborador x in lista)
+        //    {
+        //        dt.Rows.Add(x.Id, x.Nombre);
+        //    }
 
-            cb_colaborador.ValueMember = "Id";
-            cb_colaborador.DisplayMember = "Nombre";
-            cb_colaborador.DataSource = dt;
-        }
+        //    cb_colaborador.ValueMember = "Id";
+        //    cb_colaborador.DisplayMember = "Nombre";
+        //    cb_colaborador.DataSource = dt;
+        //}
 
         private void tb_monto_enter(object sender, EventArgs e)
         {
-            tb_monto.Text = Convert.ToString(tb_monto.Tag);
+            //tb_monto.Text = Convert.ToString(tb_monto.Tag);
         }
 
         private void tb_monto_leave(object sender, EventArgs e)
         {
-            Decimal monto = Decimal.Parse(tb_monto.Text);
-            tb_monto.Tag = monto;
-            tb_monto.Text = monto.ToString("C");
+            //Decimal monto = Decimal.Parse(tb_monto.Text);
+            //tb_monto.Tag = monto;
+            //tb_monto.Text = monto.ToString("C");
         }
 
-        
+        private void bt_guardar_Click(object sender, EventArgs e)
+        {
+            if(editar_sys())
+            {
+                parent.loadList();
+            }
+        }
+
     }
 }

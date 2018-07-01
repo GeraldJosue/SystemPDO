@@ -79,7 +79,7 @@ namespace BusinessLogic
             adelanto.Id = to.Id;
             adelanto.IdColaborador = to.IdColaborador;
             adelanto.Fecha = to.Fecha;
-            adelanto.Monto = Monto;
+            adelanto.Monto = to.Monto;
             adelanto.Estado = to.Estado;
             return adelanto;
         }

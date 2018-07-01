@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogic;
 
 namespace SystemForms
 {
@@ -14,8 +15,9 @@ namespace SystemForms
     {
 
         Aguinaldo_Lista_Temporal aguinaldo_calcular;
-        Aguinaldo_Agregar aguinaldo_editar;
+        Aguinaldo_Agregar aguinaldo_agregar;
         Aguinaldo_Lista listaAguinaldos;
+        List<Colaborador> lista;
         Boolean editar;
         public Aguinaldo_Control()
         {
@@ -24,26 +26,27 @@ namespace SystemForms
             listaAguinaldos.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(listaAguinaldos);
-            editar = false;
+            llenar_cb_colaborador();
+            //editar = false;
         }
 
         private void bt_agregar_Click(object sender, EventArgs e)
         {
-            aguinaldo_calcular = new Aguinaldo_Lista_Temporal();
+            aguinaldo_calcular = new Aguinaldo_Lista_Temporal(this);
             aguinaldo_calcular.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(aguinaldo_calcular);
-            editar = false;
+            //editar = false;
             pn_filtros.Enabled = false;
         }
 
         private void bt_editar_Click(object sender, EventArgs e)
         {
-            aguinaldo_editar = new Aguinaldo_Agregar(listaAguinaldos.obtener());
-            aguinaldo_editar.Dock = DockStyle.Fill;
+            aguinaldo_agregar = new Aguinaldo_Agregar(listaAguinaldos.obtener(), this);
+            aguinaldo_agregar.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
-            pn_master.Controls.Add(aguinaldo_editar);
-            editar = true;
+            pn_master.Controls.Add(aguinaldo_agregar);
+            //editar = true;
             pn_filtros.Enabled = false;
             cb_activos.Checked = false;
         }
@@ -73,37 +76,7 @@ namespace SystemForms
             listaAguinaldos.bajar_fila();
         }
 
-        //private void bt_cancelar_Click(object sender, EventArgs e)
-        //{
-        //    pn_master.Controls.Clear();
-        //    pn_master.Controls.Add(listaAguinaldos);
-        //    pn_filtros.Enabled = true;
-        //}
-
-        //private void bt_guardar_Click(object sender, EventArgs e)
-        //{
-        //    if (!editar)
-        //    {
-        //        if (aguinaldoNuevo.agregar_sys())
-        //        {
-        //            listaAguinaldos.obtener_lista_sys();
-        //            pn_master.Controls.Clear();
-        //            pn_master.Controls.Add(listaAguinaldos);
-        //            pn_filtros.Enabled = true;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        if (aguinaldoNuevo.editar_sys())
-        //        {
-        //            listaAguinaldos.obtener_lista_sys();
-        //            pn_master.Controls.Clear();
-        //            pn_master.Controls.Add(listaAguinaldos);
-        //            pn_filtros.Enabled = true;
-        //        }
-        //    }
-
-        //}
+      
 
         private void cb_activos_CheckedChanged(object sender, EventArgs e)
         {
@@ -127,36 +100,75 @@ namespace SystemForms
             listaAguinaldos.filtro_fecha(dt_inicio.Value.Date);
         }
 
-        private void bt_guardar_Click_1(object sender, EventArgs e)
+        public void setList(List<Aguinaldo> lista)
         {
-            if (!editar)
-            {
-                if (aguinaldo_editar.agregar_sys())
-                {
-                    listaAguinaldos.obtener_lista_sys();
-                    pn_master.Controls.Clear();
-                    pn_master.Controls.Add(listaAguinaldos);
-                    pn_filtros.Enabled = true;
-                }
-            }
-            else
-            {
-                if (aguinaldo_editar.editar_sys())
-                {
-                    listaAguinaldos.obtener_lista_sys();
-                    pn_master.Controls.Clear();
-                    pn_master.Controls.Add(listaAguinaldos);
-                    pn_filtros.Enabled = true;
-                }
-            }
-
-        }
-
-        private void bt_cancelar_Click_1(object sender, EventArgs e)
-        {
+            new Aguinaldo_Agregar().agregar_lista(lista);
+            listaAguinaldos.obtener_lista_temps(lista);
             pn_master.Controls.Clear();
             pn_master.Controls.Add(listaAguinaldos);
             pn_filtros.Enabled = true;
         }
+
+        public void loadList()
+        {
+            listaAguinaldos.obtener_lista_sys();
+            pn_master.Controls.Clear();
+            pn_master.Controls.Add(listaAguinaldos);
+            pn_filtros.Enabled = true;
+        }
+
+        public void llenar_cb_colaborador()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Nombre");
+            lista = new Colaborador().obtener_lista_activos();
+
+            foreach (Colaborador x in lista)
+            {
+                dt.Rows.Add(x.Id, x.Nombre);
+            }
+
+            cb_colaboradores.ValueMember = "Id";
+            cb_colaboradores.DisplayMember = "Nombre";
+            cb_colaboradores.DataSource = dt;
+        }
+
+        private void cb_colaboradores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //listaAguinaldos.filtro_Col(cb_colaboradores.DisplayMember);
+        }
+
+        //private void bt_guardar_Click_1(object sender, EventArgs e)
+        //{
+        //    if (!editar)
+        //    {
+        //        if (aguinaldo_agregar.agregar_sys())
+        //        {
+        //            listaAguinaldos.obtener_lista_sys();
+        //            pn_master.Controls.Clear();
+        //            pn_master.Controls.Add(listaAguinaldos);
+        //            pn_filtros.Enabled = true;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        if (aguinaldo_agregar.editar_sys())
+        //        {
+        //            listaAguinaldos.obtener_lista_sys();
+        //            pn_master.Controls.Clear();
+        //            pn_master.Controls.Add(listaAguinaldos);
+        //            pn_filtros.Enabled = true;
+        //        }
+        //    }
+
+        //}
+
+        //private void bt_cancelar_Click_1(object sender, EventArgs e)
+        //{
+        //    pn_master.Controls.Clear();
+        //    pn_master.Controls.Add(listaAguinaldos);
+        //    pn_filtros.Enabled = true;
+        //}
     }
 }

@@ -51,8 +51,7 @@ namespace DataAccess
             try
             {
                 SqlCommand query = new SqlCommand("INSERT INTO ADELANTO VALUES(@Colaborador, @fecha, @monto, @estado)", conex);
-                //query.Parameters.AddWithValue("@Colaborador", adelanto.IdColaborador);
-                query.Parameters.AddWithValue("@Colaborador", 1);
+                query.Parameters.AddWithValue("@Colaborador", adelanto.IdColaborador);
                 query.Parameters.AddWithValue("@fecha", adelanto.Fecha);
                 query.Parameters.AddWithValue("@monto", adelanto.Monto);
                 query.Parameters.AddWithValue("@estado", adelanto.Estado);
@@ -120,7 +119,7 @@ namespace DataAccess
             Adelanto_TO adelanto;
             try
             {
-                SqlCommand query = new SqlCommand("SELECT * FROM AGUINALDO", conex);
+                SqlCommand query = new SqlCommand("SELECT * FROM ADELANTO", conex);
 
                 if (conex.State != ConnectionState.Open)
                 {

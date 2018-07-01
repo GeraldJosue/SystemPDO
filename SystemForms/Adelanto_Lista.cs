@@ -14,8 +14,8 @@ namespace SystemForms
     public partial class Adelanto_Lista : UserControl
     {
         List<Adelanto> lista;
-        DataTable table_solicitados;//activos
-        DataTable table_pagados;
+        DataTable table_activos;
+        DataTable table_inactvos;
         String filtro;
         String texto;
         String fecha;
@@ -23,23 +23,23 @@ namespace SystemForms
         public Adelanto_Lista()
         {
             InitializeComponent();
-            table_solicitados = new DataTable();
-            table_pagados = new DataTable();
+            table_activos = new DataTable();
+            table_inactvos = new DataTable();
 
-            table_solicitados.Columns.Add("Id");
-            table_pagados.Columns.Add("Id");
+            table_activos.Columns.Add("Id");
+            table_inactvos.Columns.Add("Id");
 
-            table_solicitados.Columns.Add("Colaborador");
-            table_pagados.Columns.Add("Colaborador");
+            table_activos.Columns.Add("Colaborador");
+            table_inactvos.Columns.Add("Colaborador");
 
-            table_solicitados.Columns.Add("Monto");
-            table_pagados.Columns.Add("Monto");
+            table_activos.Columns.Add("Monto");
+            table_inactvos.Columns.Add("Monto");
 
-            table_solicitados.Columns.Add("Fecha");
-            table_pagados.Columns.Add("Fecha");
+            table_activos.Columns.Add("Fecha");
+            table_inactvos.Columns.Add("Fecha");
 
-            table_solicitados.Columns.Add("Estado");
-            table_pagados.Columns.Add("Estado");
+            table_activos.Columns.Add("Estado");
+            table_inactvos.Columns.Add("Estado");
 
             
 
@@ -53,18 +53,18 @@ namespace SystemForms
         {
             lista = new Adelanto().obtener_lista();
             llenar_tabla();
-            dg_adelantos.DataSource = table_solicitados;
+            dg_adelantos.DataSource = table_activos;
         }
         
         public void set_datasource(Boolean estado)
         {
             if (estado)
             {
-                dg_adelantos.DataSource = table_solicitados;
+                dg_adelantos.DataSource = table_activos;
             }
             else
             {
-                dg_adelantos.DataSource = table_pagados;
+                dg_adelantos.DataSource = table_inactvos;
             }
         }
 
@@ -110,19 +110,19 @@ namespace SystemForms
             return false;
         }
 
-        public void llenar_tabla()
+        public void llenar_tabla()                         
         {
-            table_solicitados.Clear();
-            table_pagados.Clear();
+            table_activos.Clear();
+            table_inactvos.Clear();
             foreach (Adelanto x in lista)
             {
                 if (x.Estado)
                 {
-                    table_solicitados.Rows.Add(x.Id, x.IdColaborador, x.Monto, x.Fecha.Date.ToShortDateString(),x.Estado);
+                    table_activos.Rows.Add(x.Id, x.IdColaborador, x.Monto, x.Fecha.Date.ToShortDateString(),x.Estado);
                 }
                 else
                 {
-                    table_pagados.Rows.Add(x.Id, x.IdColaborador, x.Monto, x.Fecha.Date.ToShortDateString(), x.Estado);
+                    table_inactvos.Rows.Add(x.Id, x.IdColaborador, x.Monto, x.Fecha.Date.ToShortDateString(), x.Estado);
                 }
             }
         }

@@ -44,22 +44,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cb_activos = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cb_colaboradores = new System.Windows.Forms.ComboBox();
             this.dt_inicio = new System.Windows.Forms.DateTimePicker();
-            this.pn_opciones = new System.Windows.Forms.Panel();
-            this.bt_cancelar = new System.Windows.Forms.Button();
-            this.bt_guardar = new System.Windows.Forms.Button();
             this.pn_master = new System.Windows.Forms.Panel();
-            this.bt_revisar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pn_filtros.SuspendLayout();
-            this.pn_opciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.BackColor = System.Drawing.Color.DarkSlateGray;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.Color.White;
@@ -175,7 +170,7 @@
             this.pn_filtros.Controls.Add(this.label4);
             this.pn_filtros.Controls.Add(this.label3);
             this.pn_filtros.Controls.Add(this.cb_activos);
-            this.pn_filtros.Controls.Add(this.comboBox1);
+            this.pn_filtros.Controls.Add(this.cb_colaboradores);
             this.pn_filtros.Controls.Add(this.dt_inicio);
             this.pn_filtros.Dock = System.Windows.Forms.DockStyle.Top;
             this.pn_filtros.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -265,14 +260,15 @@
             this.cb_activos.UseVisualStyleBackColor = true;
             this.cb_activos.CheckedChanged += new System.EventHandler(this.cb_activos_CheckedChanged);
             // 
-            // comboBox1
+            // cb_colaboradores
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(724, 6);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(177, 25);
-            this.comboBox1.TabIndex = 2;
+            this.cb_colaboradores.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_colaboradores.FormattingEnabled = true;
+            this.cb_colaboradores.Location = new System.Drawing.Point(724, 6);
+            this.cb_colaboradores.Name = "cb_colaboradores";
+            this.cb_colaboradores.Size = new System.Drawing.Size(177, 25);
+            this.cb_colaboradores.TabIndex = 2;
+            this.cb_colaboradores.SelectedIndexChanged += new System.EventHandler(this.cb_colaboradores_SelectedIndexChanged);
             // 
             // dt_inicio
             // 
@@ -283,88 +279,19 @@
             this.dt_inicio.TabIndex = 1;
             this.dt_inicio.ValueChanged += new System.EventHandler(this.dt_inicio_ValueChanged);
             // 
-            // pn_opciones
-            // 
-            this.pn_opciones.Controls.Add(this.bt_revisar);
-            this.pn_opciones.Controls.Add(this.bt_cancelar);
-            this.pn_opciones.Controls.Add(this.bt_guardar);
-            this.pn_opciones.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pn_opciones.Location = new System.Drawing.Point(0, 607);
-            this.pn_opciones.Name = "pn_opciones";
-            this.pn_opciones.Size = new System.Drawing.Size(1164, 55);
-            this.pn_opciones.TabIndex = 12;
-            // 
-            // bt_cancelar
-            // 
-            this.bt_cancelar.BackColor = System.Drawing.Color.DarkRed;
-            this.bt_cancelar.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
-            this.bt_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
-            this.bt_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_cancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_cancelar.ForeColor = System.Drawing.Color.White;
-            this.bt_cancelar.Image = ((System.Drawing.Image)(resources.GetObject("bt_cancelar.Image")));
-            this.bt_cancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_cancelar.Location = new System.Drawing.Point(192, 0);
-            this.bt_cancelar.Name = "bt_cancelar";
-            this.bt_cancelar.Size = new System.Drawing.Size(80, 50);
-            this.bt_cancelar.TabIndex = 1;
-            this.bt_cancelar.Text = "Cancelar";
-            this.bt_cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bt_cancelar.UseVisualStyleBackColor = false;
-            this.bt_cancelar.Click += new System.EventHandler(this.bt_cancelar_Click_1);
-            // 
-            // bt_guardar
-            // 
-            this.bt_guardar.BackColor = System.Drawing.Color.LimeGreen;
-            this.bt_guardar.FlatAppearance.BorderColor = System.Drawing.Color.LightGreen;
-            this.bt_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
-            this.bt_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_guardar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_guardar.ForeColor = System.Drawing.Color.White;
-            this.bt_guardar.Image = ((System.Drawing.Image)(resources.GetObject("bt_guardar.Image")));
-            this.bt_guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_guardar.Location = new System.Drawing.Point(9, 0);
-            this.bt_guardar.Name = "bt_guardar";
-            this.bt_guardar.Size = new System.Drawing.Size(75, 50);
-            this.bt_guardar.TabIndex = 0;
-            this.bt_guardar.Text = "Guardar";
-            this.bt_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bt_guardar.UseVisualStyleBackColor = false;
-            this.bt_guardar.Click += new System.EventHandler(this.bt_guardar_Click_1);
-            // 
             // pn_master
             // 
             this.pn_master.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_master.Location = new System.Drawing.Point(0, 146);
             this.pn_master.Name = "pn_master";
-            this.pn_master.Size = new System.Drawing.Size(1164, 461);
+            this.pn_master.Size = new System.Drawing.Size(1164, 516);
             this.pn_master.TabIndex = 13;
-            // 
-            // bt_revisar
-            // 
-            this.bt_revisar.BackColor = System.Drawing.Color.Orange;
-            this.bt_revisar.Enabled = false;
-            this.bt_revisar.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
-            this.bt_revisar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
-            this.bt_revisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_revisar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_revisar.ForeColor = System.Drawing.Color.White;
-            this.bt_revisar.Image = ((System.Drawing.Image)(resources.GetObject("bt_revisar.Image")));
-            this.bt_revisar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_revisar.Location = new System.Drawing.Point(102, 0);
-            this.bt_revisar.Name = "bt_revisar";
-            this.bt_revisar.Size = new System.Drawing.Size(75, 50);
-            this.bt_revisar.TabIndex = 2;
-            this.bt_revisar.Text = "Revisar";
-            this.bt_revisar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bt_revisar.UseVisualStyleBackColor = false;
             // 
             // Aguinaldo_Control
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pn_master);
-            this.Controls.Add(this.pn_opciones);
             this.Controls.Add(this.pn_filtros);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -375,7 +302,6 @@
             this.panel3.ResumeLayout(false);
             this.pn_filtros.ResumeLayout(false);
             this.pn_filtros.PerformLayout();
-            this.pn_opciones.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -397,12 +323,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox cb_activos;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cb_colaboradores;
         private System.Windows.Forms.DateTimePicker dt_inicio;
-        private System.Windows.Forms.Panel pn_opciones;
-        private System.Windows.Forms.Button bt_cancelar;
-        private System.Windows.Forms.Button bt_guardar;
         private System.Windows.Forms.Panel pn_master;
-        private System.Windows.Forms.Button bt_revisar;
     }
 }
