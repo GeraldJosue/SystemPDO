@@ -19,6 +19,9 @@ namespace SystemForms
         List<Departamento> departamentos;
         List<Colaborador> colaboradores;
         List<Registro> registros;
+        List<Adelanto> adelantos;
+        List<Vacacion> vacaciones;
+        List<Aguinaldo> aguinaldos;
         List<Pago> pagos;
         List<Planilla> planillas;
         DateTime inicio;
@@ -103,6 +106,10 @@ namespace SystemForms
             fin = dt_fin.Value.Date;
             tipo = Convert.ToInt32(cb_periodo.SelectedValue);
             registros = new Registro().obtener_lista_fechas(inicio, fin);
+            //traer únicamente por rango de fechas
+            adelantos = new Adelanto().obtener_lista();
+            vacaciones = new Vacacion().obtener_lista();
+            aguinaldos = new Aguinaldo().obtener_lista();
             return true;
         }
         public Boolean gestion()
@@ -114,6 +121,9 @@ namespace SystemForms
             Decimal extras = 0;
             Decimal bruto = 0;
             Decimal neto = 0;
+            Decimal adelanto = 0;
+            Decimal vacacion = 0;
+            Decimal aguinaldo = 0;
             Int32 avance = 0;
             foreach (Colaborador c in colaboradores)
             {
@@ -132,10 +142,36 @@ namespace SystemForms
                     }
                 }
 
+                foreach (Vacacion v in vacaciones)
+                {
+                    if(v.Id_Colaborador == c.Id)
+                    {
+                        //vacacion += v.Salario;
+                        
+                    }
+                }
+
+                foreach (Aguinaldo a in aguinaldos)
+                {
+                    if (a.IdColaborador == c.Id)
+                    {
+                        aguinaldo += a.Salario;
+                        
+                    }
+                }
+
+                foreach (Adelanto a in adelantos)
+                {
+                    if (a.IdColaborador == c.Id)
+                    {
+                        adelanto += a.Monto;
+                    }
+                }
+
                 bruto = (horas * c.Precio) + (extras * (c.Precio * Convert.ToDecimal(1.5)));
                 neto = bruto - (bruto * Convert.ToDecimal(0.1));
                 Int32 id = Convert.ToInt32(fin.Day.ToString() + fin.Month.ToString() + fin.Year.ToString());
-                pagos.Add(new Pago(flag, c.Id, DateTime.Now.Date, bruto, neto, 0, horas, extras, "No disponible", true, 0, false, 0, 0, 0, 0, id));
+                pagos.Add(new Pago(flag, c.Id, DateTime.Now.Date, bruto, neto, 0, horas, extras, "No disponible", true, 0, false, vacacion, aguinaldo, adelanto, 0, id));
                 avance = ((++flag) * 100) / colaboradores.Count;
                 bgw_calculos.ReportProgress(avance);
                 Thread.Sleep(500);

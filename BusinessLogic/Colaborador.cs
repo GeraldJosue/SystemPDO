@@ -31,11 +31,12 @@ namespace BusinessLogic
         public Boolean Estado { get; set; }
         public String FNombre { get; set; }
         public Int32 Tipo_planilla { get; set; }
+        public Int32 Vacaciones { get; set; }
 
 
         public Colaborador(Int32 id, Int32 departamento, Int32 horario, String nombre, String apellido, String segundo, Int32 cedula, Int32 telefono
             , String direccion, DateTime fecha, String civil, String cuenta, String entidad, String nacionalidad, Decimal precio, Int32 ftelefono
-            , String parentesco, String fdireccion, Boolean estado, String fnombre, Int32 tipo)
+            , String parentesco, String fdireccion, Boolean estado, String fnombre, Int32 tipo, Int32 vacaciones)
         {
             this.Id = id;
             this.Id_departamento = departamento;
@@ -58,6 +59,7 @@ namespace BusinessLogic
             this.Estado = estado;
             this.FNombre = fnombre;
             this.Tipo_planilla = tipo;
+            this.Vacaciones = vacaciones;
         }
 
         public Colaborador() {}
@@ -128,6 +130,7 @@ namespace BusinessLogic
             colaborador.Estado = this.Estado;
             colaborador.FNombre = this.FNombre;
             colaborador.Tipo_planilla = this.Tipo_planilla;
+            colaborador.Vacaciones = this.Vacaciones;
             return colaborador;
         }
         public Colaborador to_to_bl(Colaborador_TO to)
@@ -154,6 +157,7 @@ namespace BusinessLogic
             colaborador.Estado = to.Estado;
             colaborador.FNombre = to.FNombre;
             colaborador.Tipo_planilla = to.Tipo_planilla;
+            colaborador.Vacaciones = to.Vacaciones;
             return colaborador;
         }
     }

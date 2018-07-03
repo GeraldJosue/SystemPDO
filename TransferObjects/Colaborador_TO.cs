@@ -29,5 +29,6 @@ namespace TransferObjects
         public Boolean Estado { get; set; }
         public String FNombre { get; set; }
         public Int32 Tipo_planilla { get; set; }
+        public Int32 Vacaciones { get; set; }
     }
 }
