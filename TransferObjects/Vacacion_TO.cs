@@ -13,7 +13,7 @@ namespace TransferObjects
         public DateTime Fecha_Salida { get; set; }
         public DateTime Fecha_Regreso { get; set; }
         public Int32 Numero_Dias { get; set; }
-        public Double Salario { get; set; }
+        public Decimal Salario { get; set; }
         public String Transferencia { get; set; }
         public Boolean Estado { get; set; }
     }

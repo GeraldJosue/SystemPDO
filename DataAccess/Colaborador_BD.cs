@@ -346,5 +346,120 @@ namespace DataAccess
             return mega_query;
         }
 
+        public DateTime obtener_primer_registro (int id_colaborador)
+        {
+            DateTime primer_registro = new DateTime();
+            try
+            {
+                SqlCommand query = new SqlCommand("SELECT MIN(fecha_registro) FROM REGISTRO INNER JOIN COLABORADOR ON REGISTRO.id_colaborador = COLABORADOR.id_colaborador WHERE COLABORADOR.id_colaborador = @Id_Colaborador", conex);
+                query.Parameters.AddWithValue("@Id_Colaborador", id_colaborador);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+
+                SqlDataReader reader = query.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        primer_registro = reader.GetDateTime(0);
+                    }   
+                }
+                return primer_registro;
+
+            }
+            catch (Exception ex)
+            {
+                return primer_registro;
+            }
+            finally
+            {
+                if (conex.State != System.Data.ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
+
+        public Colaborador_TO obtener_precio_hora(int id_coloborador)
+        {
+            Colaborador_TO colaborador_TO = new Colaborador_TO();
+            try
+            {
+                SqlCommand query = new SqlCommand("SELECT precio_hora FROM COLABORADOR WHERE id_colaborador = @Id_Colaborador", conex);
+                query.Parameters.AddWithValue("@Id_Colaborador", id_coloborador);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+
+                SqlDataReader reader = query.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        colaborador_TO.Precio = reader.GetDecimal(0);
+                    }
+                }
+                return colaborador_TO;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (conex.State != System.Data.ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
+
+        public Colaborador_TO obtener_nombre(int id_coloborador)
+        {
+            Colaborador_TO colaborador_TO = new Colaborador_TO();
+            try
+            {
+                SqlCommand query = new SqlCommand("SELECT nombre_colaborador, primer_apellido, segundo_apellido FROM COLABORADOR WHERE id_colaborador = @Id_Colaborador", conex);
+                query.Parameters.AddWithValue("@Id_Colaborador", id_coloborador);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+
+                SqlDataReader reader = query.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        colaborador_TO.Nombre = reader.GetString(0);
+                        colaborador_TO.Apellido = reader.GetString(1);
+                        colaborador_TO.Segundo_apellido = reader.GetString(2);
+                    }
+                }
+                return colaborador_TO;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (conex.State != System.Data.ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
+
+        
+
     }
 }

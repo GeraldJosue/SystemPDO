@@ -9,8 +9,7 @@ namespace TransferObjects
     public class Configuracion_TO
     {
         public Int32 Id { get; set; }
-        public String Dia_Inicio { get; set; }
-        public DateTime Semana_Inicio { get; set; }
-        public Double Porcentaje_Seguro { get; set; }
+        public Decimal Porcentaje_Seguro { get; set; }
+        public Decimal Porcentaje_Hora_Extra { get; set; }
     }
 }
