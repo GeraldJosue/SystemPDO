@@ -19,7 +19,13 @@ namespace TransferObjects
         public String TransferenciaPago { get; set; }
         public Boolean EstadoPago { get; set; }
         public Decimal Bono { get; set; }
-        public Int32 Id_adelanto { get; set; }
+        public Boolean ProcesoPago { get; set; }
+        public Decimal Vacaciones { get; set; }
+        public Decimal Aguinaldo { get; set; }
+        public Decimal Adelanto { get; set; }
+        public Decimal Seguro { get; set; }
+        public Int32 Id_planilla { get; set; }
+
 
     }
 

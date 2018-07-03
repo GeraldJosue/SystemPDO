@@ -19,11 +19,10 @@ namespace DataAccess
             try
             {
                 SqlCommand query = new SqlCommand("INSERT INTO COLABORADOR VALUES(@Departamento, @Horario, @Nombre, @Apellido, @Segundo, @Cedula, @Telefono, "
-                    + "@Direccion, @Fecha, @Civil, @Cuenta, @Entidad, @Nacionalidad, @Precio, @FTelefono, @Parentesco, @FDireccion, @FEstado)", conex);
-                //query.Parameters.AddWithValue("@Departamento", colaborador.Id_departamento);
+                    + "@Direccion, @Fecha, @Civil, @Cuenta, @Entidad, @Nacionalidad, @Precio, @FTelefono, @Parentesco, @FDireccion, @FEstado, @FNombre, @Tipo)", conex);
+               
                 query.Parameters.AddWithValue("@Departamento", colaborador.Id_departamento);
-                //query.Parameters.AddWithValue("@Horario", colaborador.Id_horario);
-                query.Parameters.AddWithValue("@Horario", 1);
+                query.Parameters.AddWithValue("@Horario", colaborador.Id_horario);
                 query.Parameters.AddWithValue("@Nombre", colaborador.Nombre);
                 query.Parameters.AddWithValue("@Apellido", colaborador.Apellido);
                 query.Parameters.AddWithValue("@Segundo", colaborador.Segundo_apellido);
@@ -40,6 +39,8 @@ namespace DataAccess
                 query.Parameters.AddWithValue("@Parentesco", colaborador.Parentesco);
                 query.Parameters.AddWithValue("@FDireccion", colaborador.FDireccion);
                 query.Parameters.AddWithValue("@FEstado", colaborador.Estado);
+                query.Parameters.AddWithValue("@FNombre", colaborador.FNombre);
+                query.Parameters.AddWithValue("@Tipo", colaborador.Tipo_planilla);
 
                 if (conex.State != ConnectionState.Open)
                 {
@@ -102,6 +103,8 @@ namespace DataAccess
                         colaborador.Parentesco = reader.GetString(16);
                         colaborador.FDireccion = reader.GetString(17);
                         colaborador.Estado = reader.GetBoolean(18);
+                        colaborador.FNombre = reader.GetString(19);
+                        colaborador.Tipo_planilla = reader.GetInt32(20);
                         lista.Add(colaborador);
                     }
                     return lista;
@@ -142,7 +145,6 @@ namespace DataAccess
                     while (reader.Read())
                     {
                         //JOIN Departamento y Horario
-                        //Get a todos los atributos
                         colaborador = new Colaborador_TO();
                         colaborador.Id = reader.GetInt32(0);
                         colaborador.Id_departamento = reader.GetInt32(1);
@@ -163,6 +165,8 @@ namespace DataAccess
                         colaborador.Parentesco = reader.GetString(16);
                         colaborador.FDireccion = reader.GetString(17);
                         colaborador.Estado = reader.GetBoolean(18);
+                        colaborador.FNombre = reader.GetString(19);
+                        colaborador.Tipo_planilla = reader.GetInt32(20);
                         lista.Add(colaborador);
                     }
                     return lista;
@@ -211,7 +215,8 @@ namespace DataAccess
                 query.Parameters.AddWithValue("@Parentesco", colaborador.Parentesco);
                 query.Parameters.AddWithValue("@FDireccion", colaborador.FDireccion);
                 query.Parameters.AddWithValue("@Estado", colaborador.Estado);
-
+                query.Parameters.AddWithValue("@FNombre", colaborador.FNombre);
+                query.Parameters.AddWithValue("@Tipo", colaborador.Tipo_planilla);
 
                 if (conex.State != ConnectionState.Open)
                 {
@@ -339,6 +344,14 @@ namespace DataAccess
                 else if (x == 17)
                 {
                     mega_query += "estado_colaborador = @Estado,";
+                }
+                else if (x == 18)
+                {
+                    mega_query += "nombre_familiar = @FNombre,";
+                }
+                else if (x == 19)
+                {
+                    mega_query += "tipo_planilla = @Tipo,";
                 }
             }
             mega_query = mega_query.TrimEnd(',');

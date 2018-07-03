@@ -45,52 +45,27 @@ namespace SystemForms
         private void visibilidad(Boolean op, Boolean fil)
         {
 
-            pn_opciones.Visible = op;
-            pn_filtros.Visible = fil;
+            //pn_opciones.Visible = op;
+            //pn_filtros.Visible = fil;
         }
 
-        private void bt_guardar_Click_1(object sender, EventArgs e)
+        public void listar()
         {
-            if (!editar)
+            lista_colaboradores.obtener_lista_sys();
+            pn_master.Controls.Clear();
+            pn_master.Controls.Add(lista_colaboradores);
+            pn_filtros.Enabled = true;
+            if (cb_activos.Checked)
             {
-                if (nuevo_colaborador.agregar_sys())
-                {
-                    lista_colaboradores.obtener_lista_sys();
-                    pn_master.Controls.Clear();
-                    pn_master.Controls.Add(lista_colaboradores);
-                    pn_filtros.Enabled = true;
-                }
-            } else
-            {
-                if (nuevo_colaborador.editar_sys())
-                {
-                    lista_colaboradores.obtener_lista_sys();
-                    pn_master.Controls.Clear();
-                    pn_master.Controls.Add(lista_colaboradores);
-                    pn_filtros.Enabled = true;
-                    if (cb_activos.Checked)
-                    {
-                        lista_colaboradores.set_datasource(false);
-                    }
-                }
+                lista_colaboradores.set_datasource(false);
             }
         }
 
-        private void bt_cancelar_Click(object sender, EventArgs e)
+        public void cancelar()
         {
             pn_master.Controls.Clear();
             pn_master.Controls.Add(lista_colaboradores);
-            pn_filtros.Enabled = true; 
-        }
-
-        private void bt_down_Click(object sender, EventArgs e)
-        {
-            lista_colaboradores.bajar_fila();
-        }
-
-        private void bt_up_Click(object sender, EventArgs e)
-        {
-            lista_colaboradores.subir_fila();
+            pn_filtros.Enabled = true;
         }
 
         private void bt_editar_Click(object sender, EventArgs e)
@@ -101,11 +76,6 @@ namespace SystemForms
             pn_master.Controls.Add(nuevo_colaborador);
             editar = true;
             pn_filtros.Enabled = false;
-        }
-
-        private void pn_master_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void bt_eliminar_Click(object sender, EventArgs e)

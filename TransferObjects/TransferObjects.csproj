@@ -58,6 +58,7 @@
     </Compile>
     <Compile Include="Pago_TO.cs" />
     <Compile Include="Horario_TO.cs" />
+    <Compile Include="Planilla_TO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registro_TO.cs" />

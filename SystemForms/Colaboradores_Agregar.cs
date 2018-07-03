@@ -29,7 +29,7 @@ namespace SystemForms
             llenar_cb_civil();
             llenar_cb_nacionalidad();
             llenar_cb_departamento();
-            //llenar_cb_horario();
+            llenar_cb_horario();
             llenar_cb_entidad();
             llenar_cb_parentesco();
         }
@@ -139,7 +139,22 @@ namespace SystemForms
             cb_departamento.DisplayMember = "Nombre";
             cb_departamento.DataSource = dt;
         }
-        public void llenar_cb_horario() { }
+        public void llenar_cb_horario() {
+
+            List<Horario> horarios = new Horario().obtener_lista_activos();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Nombre");
+
+            foreach (Horario h in horarios)
+            {
+                dt.Rows.Add(h.Id, h.Nombre_Horario);
+            }
+
+            cb_horario.ValueMember = "Id";
+            cb_horario.DisplayMember = "Nombre";
+            cb_horario.DataSource = dt;
+        }
         public void llenar_cb_entidad() {
 
 
@@ -159,9 +174,23 @@ namespace SystemForms
             cb_entidad.DisplayMember = "Nombre";
             cb_entidad.DataSource = dt;
         }
-        public void llenar_cb_parentesco()
+        public void llenar_cb_planilla()
         {
 
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Nombre");
+            
+            dt.Rows.Add(14, "Quincenal");
+            dt.Rows.Add(30, "Mensual");
+
+            cb_planillas.ValueMember = "Id";
+            cb_planillas.DisplayMember = "Nombre";
+            cb_planillas.DataSource = dt;
+        }
+
+        public void llenar_cb_parentesco()
+        {
             DataTable dt = new DataTable();
             dt.Columns.Add("Id");
             dt.Columns.Add("Nombre");
@@ -180,7 +209,6 @@ namespace SystemForms
             cb_parentesco.DisplayMember = "Nombre";
             cb_parentesco.DataSource = dt;
         }
-
         public Colaboradores_Agregar(Colaborador colaborador, Colaboradores_Control parent)
         {
             InitializeComponent();
@@ -194,9 +222,10 @@ namespace SystemForms
             llenar_cb_civil();
             llenar_cb_nacionalidad();
             llenar_cb_departamento();
-            //llenar_cb_horario();
+            llenar_cb_horario();
             llenar_cb_entidad();
             llenar_cb_parentesco();
+            llenar_cb_planilla();
             
             setear_datos();
 
@@ -257,7 +286,7 @@ namespace SystemForms
         public Colaborador obtener_datos()
         {
             Int32 departamento = cb_departamento.SelectedIndex == -1 ? 1 : Int32.Parse(cb_departamento.SelectedValue.ToString());
-            Int32 horario = cb_horario.SelectedIndex == -1 ? 1 : cb_horario.SelectedIndex;
+            Int32 horario = cb_horario.SelectedIndex == -1 ? 1 : Int32.Parse(cb_horario.SelectedValue.ToString());
             String nombre = tb_nombre.Text.Equals("") ? "No disponible" : tb_nombre.Text;
             String apellido = tb_apellido.Text.Equals("") ? "No disponible" : tb_apellido.Text;
             String segundo = tb_seg_apellido.Text.Equals("") ? "No disponible" : tb_seg_apellido.Text;
@@ -278,6 +307,8 @@ namespace SystemForms
             String cuenta = tb_cuenta.Text.Equals("") ? "No disponible" : tb_cuenta.Text;
             String entidad = cb_entidad.SelectedIndex == -1 ? "No disponible" : cb_entidad.SelectedValue.ToString();
             Decimal precio = tb_precio.Text.Equals("") ? 0 : Decimal.Parse(Convert.ToString(tb_precio.Tag));
+            Int32 planilla = cb_planillas.SelectedIndex == -1 ? 1 : Int32.Parse(cb_planillas.SelectedValue.ToString());
+            String fnombre = tb_fnombre.Text.Equals("") ? "No disponible" : tb_fnombre.Text;
             Int32 ftelefono = tb_ftelefono.Text.Equals("") ? 0 : Int32.Parse(tb_ftelefono.Text);
             String parentesco = cb_parentesco.SelectedIndex == -1 ? "No disponible" : cb_parentesco.SelectedValue.ToString();
             String fdireccion = tb_fdireccion.Text.Equals("") ? "No disponible" : tb_fdireccion.Text;
@@ -285,14 +316,14 @@ namespace SystemForms
             
             //Revisar datos por defecto
             return new Colaborador(0, departamento, horario, nombre, apellido, segundo, cedula, telefono, direccion, fecha, civil, cuenta, entidad, nacionalidad, precio
-                , ftelefono, parentesco, fdireccion, estado);
+                , ftelefono, parentesco, fdireccion, estado, fnombre, planilla);
         }
 
         public void setear_datos()
         {
             //Setear el selected index
             cb_departamento.SelectedValue = colaborador.Id_departamento;
-            //cb_horario.SelectedIndex
+            cb_horario.SelectedValue = colaborador.Id_horario;
 
             tb_nombre.Text = colaborador.Nombre;
             tb_apellido.Text = colaborador.Apellido;
@@ -324,6 +355,9 @@ namespace SystemForms
 
             tb_precio.Tag = colaborador.Precio.ToString();
             tb_precio.Text = colaborador.Precio.ToString("C");
+            cb_planillas.SelectedValue = colaborador.Tipo_planilla;
+
+            tb_fnombre.Text = colaborador.FNombre;
             tb_ftelefono.Text = colaborador.FTelefono.ToString();
 
             if (!colaborador.Parentesco.Equals("No disponible"))
@@ -409,6 +443,14 @@ namespace SystemForms
             if (nuevo.Estado != this.colaborador.Estado)
             {
                 lista.Add(17);
+            }
+            if (!nuevo.FNombre.Equals(this.colaborador.FNombre))
+            {
+                lista.Add(18);
+            }
+            if (nuevo.Tipo_planilla != this.colaborador.Tipo_planilla)
+            {
+                lista.Add(19);
             }
             return lista;
         }
@@ -550,6 +592,29 @@ namespace SystemForms
             {
                 e.Handled = true;
             }
+        }
+
+        private void bt_guardar_Click_1(object sender, EventArgs e)
+        {
+            if(colaborador == null)
+            {
+                if (agregar_sys())
+                {
+                    parent.listar();
+                }
+            }
+            else
+            {
+                if (editar_sys())
+                {
+                    parent.listar();
+                }
+            }
+        }
+
+        private void bt_cancelar_Click(object sender, EventArgs e)
+        {
+            parent.cancelar();
         }
     }
 }

@@ -17,6 +17,7 @@ namespace SystemForms
         public Login()
         {
             InitializeComponent();
+            tb_usuario.Focus();
             
         }
 

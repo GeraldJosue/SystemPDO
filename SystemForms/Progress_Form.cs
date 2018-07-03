@@ -20,7 +20,7 @@ namespace SystemForms
 
         public void progreso(Int32 porcentaje)
         {
-            lb_avance.Text = String.Format("Avance: {0} % del total", porcentaje);
+            lb_avance.Text = String.Format("Calculando: {0} % del total", porcentaje);
             progressBar1.Value = porcentaje;
         }
     }

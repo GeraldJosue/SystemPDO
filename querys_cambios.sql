@@ -7,3 +7,16 @@
 --alter table PAGO add [id_adelanto] int null;
 --alter table PAGO alter column horas_laboradas_pagadas decimal(10, 2);
 --alter table PAGO alter column horas_extras_pagadas decimal(10, 2);
+
+--alter table PAGO add[proceso_pago] bit null;
+
+--alter table PAGO add [vacaciones] decimal(10,2) null;
+--alter table PAGO add [aguinaldo] decimal(10,2) null;
+--alter table PAGO add [adelanto] decimal(10,2) null;
+--alter table PAGO add [seguro] decimal(10,2) null;
+--alter table PAGO add [id_planilla] int null;
+--alter table PAGO DROP column id_adelanto;
+--alter table COLABORADOR add [nombre_familiar] varchar(100) null
+--alter table COLABORADOR add [tipo_planilla] int null;
+
+--alter table HORARIO add [horas_totales] Decimal(10,2) null;

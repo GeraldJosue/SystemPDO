@@ -195,6 +195,12 @@
     <Compile Include="Pago_Control.Designer.cs">
       <DependentUpon>Pago_Control.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pago_Editar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pago_Editar.Designer.cs">
+      <DependentUpon>Pago_Editar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pago_Lista.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -218,6 +224,12 @@
     </Compile>
     <Compile Include="Pantalla_Principal.Designer.cs">
       <DependentUpon>Pantalla_Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Planilla_Review.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Planilla_Review.Designer.cs">
+      <DependentUpon>Planilla_Review.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Progress_Form.cs">
@@ -335,6 +347,9 @@
     <EmbeddedResource Include="Pago_Control.resx">
       <DependentUpon>Pago_Control.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pago_Editar.resx">
+      <DependentUpon>Pago_Editar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pago_Lista.resx">
       <DependentUpon>Pago_Lista.cs</DependentUpon>
     </EmbeddedResource>
@@ -346,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantalla_Principal.resx">
       <DependentUpon>Pantalla_Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Planilla_Review.resx">
+      <DependentUpon>Planilla_Review.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Progress_Form.resx">
       <DependentUpon>Progress_Form.cs</DependentUpon>

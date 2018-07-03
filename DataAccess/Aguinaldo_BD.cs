@@ -130,7 +130,7 @@ namespace DataAccess
             {
                 SqlCommand query = new SqlCommand(string_query(lista), conex);
                 query.Parameters.AddWithValue("@id", aguinaldo.Id);
-                query.Parameters.AddWithValue("@colaborador", aguinaldo.IdColaborador);
+                //query.Parameters.AddWithValue("@colaborador", aguinaldo.IdColaborador);
                 query.Parameters.AddWithValue("@fecha", aguinaldo.FechaAguinaldo);
                 query.Parameters.AddWithValue("@salario", aguinaldo.Salario);
                 query.Parameters.AddWithValue("@transferencia", aguinaldo.TransferenciaAguinaldo);
@@ -215,24 +215,25 @@ namespace DataAccess
             {
                 if (x == 0)
                 {
-                    mega_query += "id_colaborador = @colaborador,";
+                    //mega_query += "id_colaborador = @colaborador,";
+                    mega_query += "fecha_aguinaldo = @fecha,";
                 }
                 else if (x == 1)
                 {
-                    mega_query += "fecha_aguinaldo = @fecha,";
+                    mega_query += "salario_aguinaldo = @salario,";
                 }
                 else if (x == 2)
                 {
-                    mega_query += "salario_aguinaldo = @salario,";
+                    mega_query += "transferencia_aguinaldo = @transferencia,";
                 }
                 else if (x == 3)
                 {
-                    mega_query += "transferencia_aguinaldo = @transferencia,";
-                }                
-                else if (x == 4)
-                {
                     mega_query += "estado_aguinaldo = @estado,";
-                }
+                }                
+                //else if (x == 4)
+                //{
+                //    mega_query += "estado_aguinaldo = @estado,";
+                //}
             }
             mega_query = mega_query.TrimEnd(',');
             mega_query += " WHERE id_aguinaldo = @id";

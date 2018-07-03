@@ -27,5 +27,7 @@ namespace TransferObjects
         public String Parentesco { get; set; }
         public String FDireccion { get; set; }
         public Boolean Estado { get; set; }
+        public String FNombre { get; set; }
+        public Int32 Tipo_planilla { get; set; }
     }
 }

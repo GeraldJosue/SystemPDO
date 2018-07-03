@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cb_departamento = new System.Windows.Forms.ComboBox();
             this.cb_periodo = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bt_calcular = new System.Windows.Forms.Button();
@@ -42,14 +40,6 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // cb_departamento
-            // 
-            this.cb_departamento.FormattingEnabled = true;
-            this.cb_departamento.Location = new System.Drawing.Point(150, 117);
-            this.cb_departamento.Name = "cb_departamento";
-            this.cb_departamento.Size = new System.Drawing.Size(275, 28);
-            this.cb_departamento.TabIndex = 0;
-            // 
             // cb_periodo
             // 
             this.cb_periodo.FormattingEnabled = true;
@@ -58,15 +48,6 @@
             this.cb_periodo.Size = new System.Drawing.Size(275, 28);
             this.cb_periodo.TabIndex = 1;
             this.cb_periodo.SelectedIndexChanged += new System.EventHandler(this.cb_periodo_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 125);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Departamentos";
             // 
             // label2
             // 
@@ -85,9 +66,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.dt_fin);
             this.panel1.Controls.Add(this.dt_inicio);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.cb_departamento);
             this.panel1.Controls.Add(this.cb_periodo);
             this.panel1.Location = new System.Drawing.Point(330, 25);
             this.panel1.Name = "panel1";
@@ -96,11 +75,11 @@
             // 
             // bt_calcular
             // 
-            this.bt_calcular.BackColor = System.Drawing.Color.Maroon;
+            this.bt_calcular.BackColor = System.Drawing.Color.DarkSlateGray;
             this.bt_calcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_calcular.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_calcular.ForeColor = System.Drawing.Color.White;
-            this.bt_calcular.Location = new System.Drawing.Point(150, 285);
+            this.bt_calcular.Location = new System.Drawing.Point(150, 253);
             this.bt_calcular.Name = "bt_calcular";
             this.bt_calcular.Size = new System.Drawing.Size(275, 52);
             this.bt_calcular.TabIndex = 8;
@@ -111,7 +90,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(95, 178);
+            this.label4.Location = new System.Drawing.Point(95, 143);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 20);
             this.label4.TabIndex = 7;
@@ -120,7 +99,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(116, 224);
+            this.label3.Location = new System.Drawing.Point(116, 198);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 20);
             this.label3.TabIndex = 6;
@@ -128,7 +107,7 @@
             // 
             // dt_fin
             // 
-            this.dt_fin.Location = new System.Drawing.Point(150, 220);
+            this.dt_fin.Location = new System.Drawing.Point(150, 194);
             this.dt_fin.Name = "dt_fin";
             this.dt_fin.Size = new System.Drawing.Size(200, 26);
             this.dt_fin.TabIndex = 5;
@@ -136,7 +115,7 @@
             // 
             // dt_inicio
             // 
-            this.dt_inicio.Location = new System.Drawing.Point(150, 172);
+            this.dt_inicio.Location = new System.Drawing.Point(150, 137);
             this.dt_inicio.Name = "dt_inicio";
             this.dt_inicio.Size = new System.Drawing.Size(200, 26);
             this.dt_inicio.TabIndex = 4;
@@ -165,10 +144,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cb_departamento;
         private System.Windows.Forms.ComboBox cb_periodo;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button bt_calcular;

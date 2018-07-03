@@ -122,7 +122,7 @@ namespace SystemForms
         public Registro obtener()
         {
             Registro registro = new Registro();
-
+            
             Int32 id = Int32.Parse(dg_registros.CurrentRow.Cells["Id"].Value.ToString());
             foreach (Registro x in lista)
             {

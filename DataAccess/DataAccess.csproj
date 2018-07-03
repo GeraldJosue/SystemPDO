@@ -58,6 +58,7 @@
     </Compile>
     <Compile Include="Pago_BD.cs" />
     <Compile Include="Horario_BD.cs" />
+    <Compile Include="Planilla_BD.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registro_BD.cs" />
