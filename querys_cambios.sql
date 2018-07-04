@@ -20,3 +20,4 @@
 --alter table COLABORADOR add [tipo_planilla] int null;
 
 --alter table HORARIO add [horas_totales] Decimal(10,2) null;
+--alter table COLABORADOR add [vacaciones] int null;

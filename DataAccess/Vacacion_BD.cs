@@ -72,7 +72,7 @@ namespace DataAccess
                         vacacion_to.Fecha_Salida = reader.GetDateTime(2);
                         vacacion_to.Fecha_Regreso = reader.GetDateTime(3);
                         vacacion_to.Numero_Dias = reader.GetInt32(4);
-                        vacacion_to.Salario = reader.GetDouble(5);
+                        vacacion_to.Salario = reader.GetDecimal(5);
                         vacacion_to.Transferencia = reader.GetString(6);
                         vacacion_to.Estado = reader.GetBoolean(7);
                         lista.Add(vacacion_to);

@@ -224,5 +224,45 @@ namespace DataAccess
             mega_query += " WHERE id_horario = @Id";
             return mega_query;
         }
+
+        public Horario_TO obtener_horario_colaborador(int id_colaborador)
+        {
+            Horario_TO horario_TO = new Horario_TO();
+            try
+            {
+                SqlCommand query = new SqlCommand("SELECT * FROM HORARIO INNER JOIN COLABORADOR ON HORARIO.id_horario = COLABORADOR.id_horario WHERE COLABORADOR.id_colaborador = @Id_Colaborador", conex);
+                query.Parameters.AddWithValue("@Id_Colaborador", id_colaborador);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+
+                SqlDataReader reader = query.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        horario_TO.Id = reader.GetInt32(0);
+                        horario_TO.Nombre_Horario = reader.GetString(1);
+                        horario_TO.Hora_Inicio = reader.GetDateTime(2);
+                        horario_TO.Hora_Fin = reader.GetDateTime(3);
+                        horario_TO.Estado = reader.GetBoolean(4);
+                    }
+                }
+                return horario_TO;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (conex.State != System.Data.ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
     }
 }

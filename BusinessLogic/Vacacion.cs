@@ -15,13 +15,15 @@ namespace BusinessLogic
         public DateTime Fecha_Salida { get; set; }
         public DateTime Fecha_Regreso { get; set; }
         public Int32 Numero_Dias { get; set; }
-        public Double Salario { get; set; }
+        public Decimal Salario { get; set; }
         public String Transferencia { get; set; }
         public Boolean Estado { get; set; }
 
+        const int AÑO = 365;
+
         public Vacacion() { }
 
-        public Vacacion(int id, int id_Colaborador, DateTime fecha_Salida, DateTime fecha_Regreso, int numero_Dias, double salario, string transferencia, bool estado)
+        public Vacacion(int id, int id_Colaborador, DateTime fecha_Salida, DateTime fecha_Regreso, int numero_Dias, Decimal salario, string transferencia, bool estado)
         {
             Id = id;
             Id_Colaborador = id_Colaborador;
@@ -80,13 +82,38 @@ namespace BusinessLogic
             return new Vacacion_BD().editar_vacacion(vacacion_to, lista);
         }
 
-        public Double salario_vacaciones(Colaborador colaborador)
+        public Boolean tiene_vacaciones(Colaborador colaborador)
         {
-            Colaborador_TO colaborador_to = new Colaborador_TO();
-            //
-            
+            DateTime primer_registro = colaborador.obtener_primer_registro();
+            TimeSpan cant_dias_vacaciones = DateTime.Today - primer_registro;
+            if (cant_dias_vacaciones.Days >= AÑO)
+            {
+                return true;
+            }
+            return false;
+        }
 
-            return 0;
+        public Int32 total_cant_dias_vacaciones(Colaborador colaborador)
+        {
+            int cant_dias_vacaciones = 14;
+            if (tiene_vacaciones(colaborador))
+            {
+                DateTime primer_registro = colaborador.obtener_primer_registro();
+                DateTime año_vacaciones = primer_registro.Add(new TimeSpan(AÑO, 0, 0, 0));
+                TimeSpan temp = DateTime.Today - año_vacaciones;
+                cant_dias_vacaciones += Convert.ToInt32(temp.Days / 31);
+            }
+            return cant_dias_vacaciones;
+        }
+
+        public Decimal monto_dia(Colaborador colaborador)
+        {
+            Decimal precio_hora = colaborador.obtener_precio_hora().Precio;
+            Horario horario = new Horario().obtener_horario_colaborador(colaborador);
+            int horas_horario = horario.Hora_Fin.Hour - horario.Hora_Inicio.Hour;
+            Decimal monto_dia = precio_hora * horas_horario;
+
+            return monto_dia;
         }
     }
 }
