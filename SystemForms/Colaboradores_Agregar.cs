@@ -316,7 +316,7 @@ namespace SystemForms
             
             //Revisar datos por defecto
             return new Colaborador(0, departamento, horario, nombre, apellido, segundo, cedula, telefono, direccion, fecha, civil, cuenta, entidad, nacionalidad, precio
-                , ftelefono, parentesco, fdireccion, estado, fnombre, planilla);
+                , ftelefono, parentesco, fdireccion, estado, fnombre, planilla, 0);
         }
 
         public void setear_datos()

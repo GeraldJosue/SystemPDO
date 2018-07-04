@@ -16,6 +16,7 @@ namespace SystemForms
         List<Registro> lista;
         DataTable table_validos;
         DataTable table_invalidos;
+        List<Colaborador> colaboradores;
 
         String filtro;
         String texto;
@@ -25,9 +26,12 @@ namespace SystemForms
         public Registros_Lista()
         {
             InitializeComponent();
+
+            colaboradores = new Colaborador().obtener_lista_activos();
             crear_datatables();
             obtener_lista_sys();
 
+            dg_registros.Columns["Id"].Visible = false;
             fecha_inicio = 1 + "/" + 1 + "/" + 1900;
             fecha_fin = DateTime.Now.Month + "/" + DateTime.Now.Day + "/" + DateTime.Now.Year;
             texto = "";
@@ -98,7 +102,19 @@ namespace SystemForms
         {
             lista = new Registro().obtener_lista();
             llenar_tabla();
-            dg_registros.DataSource = table_validos;
+            set_datasource(true);
+        }
+
+        public String set_nombre(Int32 id)
+        {
+            foreach (Colaborador c in colaboradores)
+            {
+                if (id == c.Id)
+                {
+                    return c.Nombre + " " + c.Apellido + " " + c.Segundo_apellido;
+                }
+            }
+            return "No disponible";
         }
 
         public void llenar_tabla()
@@ -107,14 +123,15 @@ namespace SystemForms
             table_invalidos.Clear();
             foreach (Registro x in lista)
             {
+                
                 if (x.Estado)
                 {
-                    table_validos.Rows.Add(x.Id, x.Id_Colaborador, x.Fecha.Date.ToShortDateString(), x.Horas, x.Extras, x.Proceso ? "Completo" : "En proceso", x.Entrada.ToShortTimeString(), x.Salida.ToShortTimeString(),
+                    table_validos.Rows.Add(x.Id, set_nombre(x.Id_Colaborador), x.Fecha.Date.ToShortDateString(), x.Horas, x.Extras, x.Proceso ? "Completo" : "En proceso", x.Entrada.ToShortTimeString(), x.Salida.ToShortTimeString(),
                         x.Desayuno.ToShortTimeString(), x.Almuerzo.ToShortTimeString(), x.Cafe.ToShortTimeString());
                 }
                 else
                 {
-                    table_invalidos.Rows.Add(x.Id, x.Id_Colaborador, x.Fecha.Date.ToShortDateString(), x.Horas, x.Extras, x.Proceso ? "Completo" : "En proceso", x.Entrada.ToShortTimeString(), x.Salida.ToShortTimeString(),
+                    table_invalidos.Rows.Add(x.Id, set_nombre(x.Id_Colaborador), x.Fecha.Date.ToShortDateString(), x.Horas, x.Extras, x.Proceso ? "Completo" : "En proceso", x.Entrada.ToShortTimeString(), x.Salida.ToShortTimeString(),
                         x.Desayuno.ToShortTimeString(), x.Almuerzo.ToShortTimeString(), x.Cafe.ToShortTimeString());
                 }
             }
@@ -171,7 +188,6 @@ namespace SystemForms
             {
                 dg_registros.DataSource = table_invalidos;
             }
-            
         }
     
         public void bajar_fila()

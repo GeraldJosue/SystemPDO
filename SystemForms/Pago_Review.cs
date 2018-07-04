@@ -16,6 +16,8 @@ namespace SystemForms
     {
         List<Pago> lista;
         List<Pago> lista_base;
+        List<Colaborador> colaboradores;
+
         Progress_Form avance;
         Pago_Control parent;
         Boolean review_state;
@@ -23,6 +25,8 @@ namespace SystemForms
         public Pago_Review(List<Pago> lista, Pago_Control parent, Boolean state)
         {
             InitializeComponent();
+            colaboradores = new Colaborador().obtener_lista_activos();
+
             this.parent = parent;
             this.lista = lista;
             this.lista_base = new List<Pago>();
@@ -32,12 +36,24 @@ namespace SystemForms
             parent.visibilidad(true, true, true);
         }
 
+        public String set_nombre(Int32 id)
+        {
+            foreach (Colaborador c in colaboradores)
+            {
+                if (id == c.Id)
+                {
+                    return c.Nombre + " " + c.Apellido + " " + c.Segundo_apellido;
+                }
+            }
+            return "No disponible";
+        }
+
         public void llenar_dg()
         {
             dg_pagos_review.Rows.Clear();
             foreach (Pago p in lista)
             {
-                dg_pagos_review.Rows.Add(p.Id, p.Id_colaborador, p.SalarioBruto.ToString("C"), p.SalarioNeto.ToString("C"), p.HorasLaboradas, p.HorasExtra, p.Id_planilla);
+                dg_pagos_review.Rows.Add(p.Id, set_nombre(p.Id_colaborador), p.SalarioBruto.ToString("C"), p.SalarioNeto.ToString("C"), p.HorasLaboradas, p.HorasExtra, p.Id_planilla);
             }
            
         }
@@ -69,9 +85,10 @@ namespace SystemForms
                     pago.EstadoPago, pago.Bono, pago.ProcesoPago, pago.Vacaciones, pago.Aguinaldo, pago.Adelanto, pago.Seguro, pago.Id_planilla));
             }
         }
+
         public void mostrar_detalle()
         {
-            new Pago_Review_Form(buscar_lista(Convert.ToInt32(dg_pagos_review.CurrentRow.Cells["Id"].Value)), this).Show();
+            //new Pago_Review_Form(buscar_lista(Convert.ToInt32(dg_pagos_review.CurrentRow.Cells["Id"].Value)), this).Show();
             //foreach (DataGridViewRow r in dg_pagos_review.Rows)
             //{
                 //if (Convert.ToBoolean(r.Cells[0].Value))
@@ -215,7 +232,7 @@ namespace SystemForms
             {
                 if (p.Id == Convert.ToInt32(dg_pagos_review.CurrentRow.Cells["Id"].Value))
                 {
-                    new Pago_Review_Form(p, this).Show();
+                    new Pago_Review_Form(p, dg_pagos_review.CurrentRow.Cells["colaborador"].Value.ToString(), this).Show();
                 }
             }
         }
