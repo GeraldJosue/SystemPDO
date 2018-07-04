@@ -169,5 +169,16 @@ namespace BusinessLogic
             return salario_diario;
         }
 
+        public List<Aguinaldo > obtener_lista_fechas(DateTime fecha_inicio, DateTime fecha_fin)
+        {
+            List<Aguinaldo> lista = new List<Aguinaldo>();
+            List<Aguinaldo_TO> lista_TO = new Aguinaldo_BD().obtener_lista_fechas(fecha_inicio, fecha_fin);
+            foreach (Aguinaldo_TO x in lista_TO)
+            {
+                lista.Add(to_to_bl(x));
+            }
+            return lista;
+        }
+
     }
 }

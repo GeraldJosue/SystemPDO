@@ -53,6 +53,30 @@ namespace BusinessLogic
             return lista;
         }
 
+        public List<Adelanto> obtener_lista_activos()
+        {
+            List<Adelanto> lista = new List<Adelanto>();
+            List<Adelanto_TO> lista_TO = new Adelanto_BD().obtener_lista_activos();
+            foreach (Adelanto_TO x in lista_TO)
+            {
+                lista.Add(to_to_bl(x));
+            }
+            return lista;
+        }
+
+
+        public List<Adelanto> obtener_lista_fechas(DateTime fecha_inicio, DateTime fecha_fin)
+        {
+            List<Adelanto> lista = new List<Adelanto>();
+            List<Adelanto_TO> lista_TO = new Adelanto_BD().obtener_lista_fechas(fecha_inicio, fecha_fin);
+            foreach (Adelanto_TO x in lista_TO)
+            {
+                lista.Add(to_to_bl(x));
+            }
+            return lista;
+        }
+
+
         public Boolean eliminar()
         {
             Adelanto_TO aguinaldo = new Adelanto_TO();
