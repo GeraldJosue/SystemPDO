@@ -24,6 +24,20 @@ namespace SystemForms
         public Colaboradores_Lista()
         {
             InitializeComponent();
+
+            crear_datables();
+            obtener_lista_sys();
+
+            dg_colaboradores.Columns["Id"].Visible = false;
+            fecha_inicio = 1 + "/" + 1 + "/" + 1900;
+            fecha_fin = DateTime.Now.Month + "/" + DateTime.Now.Day + "/" + DateTime.Now.Year;
+            texto = "";
+
+            
+        }
+
+        public void crear_datables()
+        {
             table_activos = new DataTable();
             table_inactivos = new DataTable();
 
@@ -59,22 +73,14 @@ namespace SystemForms
 
             table_activos.Columns.Add("Telefono Familiar");
             table_inactivos.Columns.Add("Telefono Familiar");
-
-            obtener_lista_sys();
-
-            
-            fecha_inicio = 1 + "/" + 1 + "/" + 1900;
-            fecha_fin = DateTime.Now.Month + "/" + DateTime.Now.Day + "/" + DateTime.Now.Year;
-            texto = "";
-
-            
         }
 
         public void obtener_lista_sys()
         {
             lista = new Colaborador().obtener_lista();
             llenar_tabla();
-            dg_colaboradores.DataSource = table_activos;
+            set_datasource(true);
+
         }
 
         public void set_datasource(Boolean estado)

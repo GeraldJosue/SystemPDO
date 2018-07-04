@@ -15,19 +15,21 @@ namespace SystemForms
     {
         Pago pago;
         Decimal bruto_base;
+        String nombre;
         Pago_Review parent;
-        public Pago_Review_Form(Pago pago, Pago_Review parent)
+        public Pago_Review_Form(Pago pago, String nombre, Pago_Review parent)
         {
             InitializeComponent();
             this.pago = pago;
             bruto_base = pago.SalarioBruto;
+            this.nombre = nombre;
             this.parent = parent;
             setear_datos();
         }
 
         public void setear_datos()
         {
-            dg_pago_detalle.Rows.Add(pago.Id, pago.Id_colaborador, pago.FechaPago.ToShortDateString(), pago.HorasLaboradas, pago.HorasExtra, pago.Id_planilla);
+            dg_pago_detalle.Rows.Add(pago.Id, nombre, pago.FechaPago.ToShortDateString(), pago.HorasLaboradas, pago.HorasExtra, pago.Id_planilla);
             dg_ingresos.Rows.Add(pago.Bono, pago.Vacaciones, pago.Aguinaldo);
             dg_deducciones.Rows.Add(pago.Adelanto, pago.Seguro, pago.Rebajo);
             dg_totales.Rows.Add(pago.SalarioBruto, pago.SalarioNeto);
@@ -79,6 +81,13 @@ namespace SystemForms
 
             pago.Rebajo = Convert.ToDecimal(dg_deducciones.Rows[0].Cells["rebajo"].Value);
             pago.Adelanto = Convert.ToDecimal(dg_deducciones.Rows[0].Cells["adelanto"].Value);
+            
+            Decimal bruto_original = (pago.HorasLaboradas * 3000) + (pago.HorasExtra * (3000 * Convert.ToDecimal(1.5)));
+
+            if (bruto_original != pago.SalarioBruto)
+            {
+                bruto_base = bruto_original;
+            }
 
             pago.SalarioBruto = bruto_base + pago.Bono + pago.Vacaciones + pago.Aguinaldo;
             pago.Seguro = pago.SalarioBruto * Convert.ToDecimal(0.1);

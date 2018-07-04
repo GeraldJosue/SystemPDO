@@ -121,9 +121,10 @@ namespace SystemForms
             Decimal extras = 0;
             Decimal bruto = 0;
             Decimal neto = 0;
-            Decimal adelanto = 10000;
-            Decimal vacacion = 120000;
-            Decimal aguinaldo = 250000;
+            Decimal seguro = 0;
+            Decimal adelanto = 0;
+            Decimal vacacion = 0;
+            Decimal aguinaldo = 0;
             Int32 avance = 0;
             foreach (Colaborador c in colaboradores)
             {
@@ -168,10 +169,12 @@ namespace SystemForms
                 //    }
                 //}
 
+                //Traer de la base el porcentaje de seguro y hora extra
                 bruto = (horas * c.Precio) + (extras * (c.Precio * Convert.ToDecimal(1.5)));
-                neto = bruto - (bruto * Convert.ToDecimal(0.1));
+                seguro = (bruto * Convert.ToDecimal(0.1));
+                neto = bruto - seguro;
                 Int32 id = Convert.ToInt32(fin.Day.ToString() + fin.Month.ToString() + fin.Year.ToString());
-                pagos.Add(new Pago(flag, c.Id, DateTime.Now.Date, bruto, neto, 0, horas, extras, "No disponible", true, 0, false, vacacion, aguinaldo, adelanto, 0, id));
+                pagos.Add(new Pago(flag, c.Id, DateTime.Now.Date, bruto, neto, 0, horas, extras, "No disponible", true, 0, false, vacacion, aguinaldo, adelanto, seguro, id));
                 avance = ((++flag) * 100) / colaboradores.Count;
                 bgw_calculos.ReportProgress(avance);
                 Thread.Sleep(500);

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogic;
 
 namespace SystemForms
 {
@@ -141,5 +142,6 @@ namespace SystemForms
         {
             return lista_registros.buscar_registro(fecha, id);
         }
+        
     }
 }
