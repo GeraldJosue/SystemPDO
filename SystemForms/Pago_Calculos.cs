@@ -24,6 +24,7 @@ namespace SystemForms
         List<Aguinaldo> aguinaldos;
         List<Pago> pagos;
         List<Planilla> planillas;
+        BusinessLogic.Configuracion config;
         DateTime inicio;
         DateTime fin;
         Planilla planilla;
@@ -33,6 +34,7 @@ namespace SystemForms
         {
             InitializeComponent();
             this.parent = parent;
+            config = new BusinessLogic.Configuracion().obtener_Configuracion();
             departamentos = new Departamento().obtener_lista_activos();
             colaboradores = new Colaborador().obtener_lista_activos();
             llenar_cb_departamentos();
@@ -96,8 +98,19 @@ namespace SystemForms
 
         private void cb_periodo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dt_fin.Value = DateTime.Now.Date;
-            dt_inicio.Value = dt_fin.Value.Date.AddDays(Convert.ToInt32(cb_periodo.SelectedValue) * -1);
+            //set_fechas(dt_fin.Value.AddDays(Convert.ToInt32(cb_periodo.SelectedValue) * -1) , dt_fin.Value);
+        }
+
+        private void set_fechas(DateTime min, DateTime max)
+        {
+            dt_inicio.MinDate = min;
+            dt_fin.MinDate = min;
+
+            dt_inicio.MaxDate = max;
+            dt_fin.MaxDate = max;
+
+            dt_inicio.Value = min;
+            dt_fin.Value = max;
         }
 
         public Boolean planeación()
@@ -106,10 +119,9 @@ namespace SystemForms
             fin = dt_fin.Value.Date;
             tipo = Convert.ToInt32(cb_periodo.SelectedValue);
             registros = new Registro().obtener_lista_fechas(inicio, fin);
-            //traer únicamente por rango de fechas
-            adelantos = new Adelanto().obtener_lista();
-            vacaciones = new Vacacion().obtener_lista();
-            aguinaldos = new Aguinaldo().obtener_lista();
+            adelantos = new Adelanto().obtener_lista_fechas(inicio, fin);
+            //vacaciones = new Vacacion().obtener_lista();
+            aguinaldos = new Aguinaldo().obtener_lista_fechas(inicio, fin);
             return true;
         }
         public Boolean gestion()
@@ -128,56 +140,65 @@ namespace SystemForms
             Int32 avance = 0;
             foreach (Colaborador c in colaboradores)
             {
-
-                horas = 0;
-                extras = 0;
-                bruto = 0;
-                neto = 0;
-
-                foreach (Registro r in registros)
+                if (c.Tipo_planilla == tipo)
                 {
-                    if(c.Id == r.Id_Colaborador)
+                    horas = 0;
+                    extras = 0;
+                    bruto = 0;
+                    neto = 0;
+                    seguro = 0;
+                    adelanto = 0;
+                    vacacion = 0;
+                    aguinaldo = 0;
+
+                    foreach (Registro r in registros)
                     {
-                        horas += r.Horas;
-                        extras += r.Extras;
+                        if (c.Id == r.Id_Colaborador)
+                        {
+                            horas += r.Horas;
+                            extras += r.Extras;
+                        }
+                    }
+
+                    if (horas != 0)
+                    {
+
+                        //foreach (Vacacion v in vacaciones)
+                        //{
+                        //    if(v.Id_Colaborador == c.Id)
+                        //    {
+                        //vacacion += v.Salario;
+
+                        //    }
+                        //}
+
+                        foreach (Aguinaldo a in aguinaldos)
+                        {
+                            if (a.IdColaborador == c.Id)
+                            {
+                                aguinaldo += a.Salario;
+
+                            }
+                        }
+
+                        foreach (Adelanto a in adelantos)
+                        {
+                            if (a.IdColaborador == c.Id)
+                            {
+                                adelanto += a.Monto;
+                            }
+                        }
+
+                        bruto = (horas * c.Precio) + (extras * (c.Precio * config.Porcentaje_Hora_Extra)) + vacacion + aguinaldo;
+                        seguro = (bruto * (tipo == 14 ? (config.Porcentaje_Seguro / 2) : config.Porcentaje_Seguro)) / 100;
+                        neto = bruto - (seguro) - adelanto;
+                        Int32 id = Convert.ToInt32(fin.Day.ToString() + fin.Month.ToString() + fin.Year.ToString());
+                        pagos.Add(new Pago(flag, c.Id, DateTime.Now.Date, bruto, neto, 0, horas, extras, "No disponible", true, 0, false, vacacion, aguinaldo, adelanto, seguro, id));
+                        avance = ((++flag) * 100) / colaboradores.Count;
+                        bgw_calculos.ReportProgress(avance);
+                        Thread.Sleep(500);
                     }
                 }
-
-                //foreach (Vacacion v in vacaciones)
-                //{
-                //    if(v.Id_Colaborador == c.Id)
-                //    {
-                        //vacacion += v.Salario;
-                        
-                //    }
-                //}
-
-                //foreach (Aguinaldo a in aguinaldos)
-                //{
-                //    if (a.IdColaborador == c.Id)
-                //    {
-                //        aguinaldo += a.Salario;
-                        
-                //    }
-                //}
-
-                //foreach (Adelanto a in adelantos)
-                //{
-                //    if (a.IdColaborador == c.Id)
-                //    {
-                //        adelanto += a.Monto;
-                //    }
-                //}
-
-                //Traer de la base el porcentaje de seguro y hora extra
-                bruto = (horas * c.Precio) + (extras * (c.Precio * Convert.ToDecimal(1.5)));
-                seguro = (bruto * Convert.ToDecimal(0.1));
-                neto = bruto - seguro;
-                Int32 id = Convert.ToInt32(fin.Day.ToString() + fin.Month.ToString() + fin.Year.ToString());
-                pagos.Add(new Pago(flag, c.Id, DateTime.Now.Date, bruto, neto, 0, horas, extras, "No disponible", true, 0, false, vacacion, aguinaldo, adelanto, seguro, id));
-                avance = ((++flag) * 100) / colaboradores.Count;
-                bgw_calculos.ReportProgress(avance);
-                Thread.Sleep(500);
             }
             return true;
         }
@@ -198,6 +219,14 @@ namespace SystemForms
             planillas =  new List<Planilla>();
             planilla = new Planilla(id, inicio, fin, total, tipo, true);
             planillas.Add(planilla);
+        }
+
+        private void dt_fin_ValueChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void dt_inicio_ValueChanged(object sender, EventArgs e)
+        {
         }
     }
 }

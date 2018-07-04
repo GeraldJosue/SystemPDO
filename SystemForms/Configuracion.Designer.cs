@@ -33,12 +33,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pn_master = new System.Windows.Forms.Panel();
             this.pa_informacion = new System.Windows.Forms.Panel();
+            this.tb_porcent_hora_extra = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tb_porcent_seguro = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.bt_guardar = new System.Windows.Forms.Button();
-            this.tb_porcent_hora_extra = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pn_master.SuspendLayout();
             this.pa_informacion.SuspendLayout();
@@ -87,6 +87,24 @@
             this.pa_informacion.Size = new System.Drawing.Size(549, 229);
             this.pa_informacion.TabIndex = 20;
             // 
+            // tb_porcent_hora_extra
+            // 
+            this.tb_porcent_hora_extra.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_porcent_hora_extra.Location = new System.Drawing.Point(255, 131);
+            this.tb_porcent_hora_extra.Name = "tb_porcent_hora_extra";
+            this.tb_porcent_hora_extra.Size = new System.Drawing.Size(214, 26);
+            this.tb_porcent_hora_extra.TabIndex = 26;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(48, 137);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(193, 20);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Porcentaje de hora extra";
+            // 
             // tb_porcent_seguro
             // 
             this.tb_porcent_seguro.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -133,24 +151,6 @@
             this.bt_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_guardar.UseVisualStyleBackColor = false;
             this.bt_guardar.Click += new System.EventHandler(this.bt_guardar_Click);
-            // 
-            // tb_porcent_hora_extra
-            // 
-            this.tb_porcent_hora_extra.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_porcent_hora_extra.Location = new System.Drawing.Point(255, 131);
-            this.tb_porcent_hora_extra.Name = "tb_porcent_hora_extra";
-            this.tb_porcent_hora_extra.Size = new System.Drawing.Size(214, 26);
-            this.tb_porcent_hora_extra.TabIndex = 26;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(48, 137);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(193, 20);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Porcentaje de hora extra";
             // 
             // Configuracion
             // 

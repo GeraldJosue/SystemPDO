@@ -198,10 +198,8 @@ namespace DataAccess
             {
                 SqlCommand query = new SqlCommand(string_query(lista), conex);
                 query.Parameters.AddWithValue("@Id", colaborador.Id);
-                //query.Parameters.AddWithValue("@Departamento", colaborador.Id_departamento);
-                query.Parameters.AddWithValue("@Departamento", 1);
-                //query.Parameters.AddWithValue("@Horario", colaborador.Id_horario);
-                query.Parameters.AddWithValue("@Horario", 1);
+                query.Parameters.AddWithValue("@Departamento", colaborador.Id_departamento);
+                query.Parameters.AddWithValue("@Horario", colaborador.Id_horario);
                 query.Parameters.AddWithValue("@Nombre", colaborador.Nombre);
                 query.Parameters.AddWithValue("@Apellido", colaborador.Apellido);
                 query.Parameters.AddWithValue("@Segundo", colaborador.Segundo_apellido);
