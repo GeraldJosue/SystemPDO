@@ -80,13 +80,14 @@ namespace SystemForms
             {
                 if (p.agregar())
                 {
-                MessageBox.Show("Planilla agregada con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Planilla agregada con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     MessageBox.Show("Ocurrió un error con la planilla", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            parent.listar_pagos();
         }
     }
 }

@@ -121,9 +121,9 @@ namespace SystemForms
             Decimal extras = 0;
             Decimal bruto = 0;
             Decimal neto = 0;
-            Decimal adelanto = 0;
-            Decimal vacacion = 0;
-            Decimal aguinaldo = 0;
+            Decimal adelanto = 10000;
+            Decimal vacacion = 120000;
+            Decimal aguinaldo = 250000;
             Int32 avance = 0;
             foreach (Colaborador c in colaboradores)
             {
@@ -142,31 +142,31 @@ namespace SystemForms
                     }
                 }
 
-                foreach (Vacacion v in vacaciones)
-                {
-                    if(v.Id_Colaborador == c.Id)
-                    {
+                //foreach (Vacacion v in vacaciones)
+                //{
+                //    if(v.Id_Colaborador == c.Id)
+                //    {
                         //vacacion += v.Salario;
                         
-                    }
-                }
+                //    }
+                //}
 
-                foreach (Aguinaldo a in aguinaldos)
-                {
-                    if (a.IdColaborador == c.Id)
-                    {
-                        aguinaldo += a.Salario;
+                //foreach (Aguinaldo a in aguinaldos)
+                //{
+                //    if (a.IdColaborador == c.Id)
+                //    {
+                //        aguinaldo += a.Salario;
                         
-                    }
-                }
+                //    }
+                //}
 
-                foreach (Adelanto a in adelantos)
-                {
-                    if (a.IdColaborador == c.Id)
-                    {
-                        adelanto += a.Monto;
-                    }
-                }
+                //foreach (Adelanto a in adelantos)
+                //{
+                //    if (a.IdColaborador == c.Id)
+                //    {
+                //        adelanto += a.Monto;
+                //    }
+                //}
 
                 bruto = (horas * c.Precio) + (extras * (c.Precio * Convert.ToDecimal(1.5)));
                 neto = bruto - (bruto * Convert.ToDecimal(0.1));
