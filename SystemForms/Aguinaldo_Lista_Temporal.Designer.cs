@@ -33,49 +33,63 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dgv_Aguinaldo_Temp = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Aguinaldo_Temp)).BeginInit();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Aguinaldo_Lista_Temporal));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dg_lista_temp = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.bt_guardar = new System.Windows.Forms.Button();
+            this.bt_calcular = new System.Windows.Forms.Button();
+            this.bg_calcular_aguinaldo = new System.ComponentModel.BackgroundWorker();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_lista_temp)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgv_Aguinaldo_Temp
+            // panel1
             // 
-            this.dgv_Aguinaldo_Temp.AllowUserToAddRows = false;
-            this.dgv_Aguinaldo_Temp.AllowUserToDeleteRows = false;
+            this.panel1.Controls.Add(this.dg_lista_temp);
+            this.panel1.Location = new System.Drawing.Point(38, 26);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1100, 398);
+            this.panel1.TabIndex = 0;
+            // 
+            // dg_lista_temp
+            // 
+            this.dg_lista_temp.AllowUserToAddRows = false;
+            this.dg_lista_temp.AllowUserToDeleteRows = false;
+            this.dg_lista_temp.AllowUserToOrderColumns = true;
+            this.dg_lista_temp.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.dgv_Aguinaldo_Temp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_Aguinaldo_Temp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dgv_Aguinaldo_Temp.BackgroundColor = System.Drawing.Color.White;
-            this.dgv_Aguinaldo_Temp.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgv_Aguinaldo_Temp.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgv_Aguinaldo_Temp.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dg_lista_temp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dg_lista_temp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dg_lista_temp.BackgroundColor = System.Drawing.Color.White;
+            this.dg_lista_temp.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.CadetBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.CadetBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Aguinaldo_Temp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_Aguinaldo_Temp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_lista_temp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dg_lista_temp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Aguinaldo_Temp.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv_Aguinaldo_Temp.EnableHeadersVisualStyles = false;
-            this.dgv_Aguinaldo_Temp.GridColor = System.Drawing.Color.White;
-            this.dgv_Aguinaldo_Temp.Location = new System.Drawing.Point(3, 3);
-            this.dgv_Aguinaldo_Temp.MultiSelect = false;
-            this.dgv_Aguinaldo_Temp.Name = "dgv_Aguinaldo_Temp";
-            this.dgv_Aguinaldo_Temp.ReadOnly = true;
-            this.dgv_Aguinaldo_Temp.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dg_lista_temp.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dg_lista_temp.EnableHeadersVisualStyles = false;
+            this.dg_lista_temp.Location = new System.Drawing.Point(0, 4);
+            this.dg_lista_temp.Name = "dg_lista_temp";
+            this.dg_lista_temp.ReadOnly = true;
+            this.dg_lista_temp.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -83,28 +97,87 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Brown;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Aguinaldo_Temp.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Brown;
+            this.dg_lista_temp.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dg_lista_temp.RowHeadersVisible = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            this.dgv_Aguinaldo_Temp.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgv_Aguinaldo_Temp.Size = new System.Drawing.Size(1158, 511);
-            this.dgv_Aguinaldo_Temp.TabIndex = 1;
+            this.dg_lista_temp.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dg_lista_temp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dg_lista_temp.Size = new System.Drawing.Size(1100, 391);
+            this.dg_lista_temp.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.bt_guardar);
+            this.panel2.Controls.Add(this.bt_calcular);
+            this.panel2.Location = new System.Drawing.Point(38, 430);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1100, 63);
+            this.panel2.TabIndex = 1;
+            // 
+            // bt_guardar
+            // 
+            this.bt_guardar.BackColor = System.Drawing.Color.LimeGreen;
+            this.bt_guardar.FlatAppearance.BorderColor = System.Drawing.Color.LightGreen;
+            this.bt_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
+            this.bt_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_guardar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_guardar.ForeColor = System.Drawing.Color.White;
+            this.bt_guardar.Image = ((System.Drawing.Image)(resources.GetObject("bt_guardar.Image")));
+            this.bt_guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_guardar.Location = new System.Drawing.Point(986, 3);
+            this.bt_guardar.Name = "bt_guardar";
+            this.bt_guardar.Size = new System.Drawing.Size(75, 50);
+            this.bt_guardar.TabIndex = 16;
+            this.bt_guardar.Text = "Salvar";
+            this.bt_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bt_guardar.UseVisualStyleBackColor = false;
+            this.bt_guardar.Click += new System.EventHandler(this.bt_guardar_Click);
+            // 
+            // bt_calcular
+            // 
+            this.bt_calcular.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.bt_calcular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_calcular.ForeColor = System.Drawing.Color.White;
+            this.bt_calcular.Location = new System.Drawing.Point(736, 3);
+            this.bt_calcular.Name = "bt_calcular";
+            this.bt_calcular.Size = new System.Drawing.Size(219, 50);
+            this.bt_calcular.TabIndex = 15;
+            this.bt_calcular.Text = "Calcular Aguinaldo";
+            this.bt_calcular.UseVisualStyleBackColor = false;
+            this.bt_calcular.Click += new System.EventHandler(this.bt_calcular_Click);
+            // 
+            // bg_calcular_aguinaldo
+            // 
+            this.bg_calcular_aguinaldo.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bg_calcular_aguinaldo_DoWork);
+            this.bg_calcular_aguinaldo.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bg_calcular_aguinaldo_ProgressChanged);
+            this.bg_calcular_aguinaldo.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bg_calcular_aguinaldo_RunWorkerCompleted);
             // 
             // Aguinaldo_Lista_Temporal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dgv_Aguinaldo_Temp);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Name = "Aguinaldo_Lista_Temporal";
             this.Size = new System.Drawing.Size(1164, 516);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Aguinaldo_Temp)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dg_lista_temp)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgv_Aguinaldo_Temp;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button bt_calcular;
+        private System.Windows.Forms.DataGridView dg_lista_temp;
+        private System.Windows.Forms.Button bt_guardar;
+        private System.ComponentModel.BackgroundWorker bg_calcular_aguinaldo;
     }
 }

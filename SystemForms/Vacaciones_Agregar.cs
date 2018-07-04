@@ -16,19 +16,23 @@ namespace SystemForms
         Vacacion vacacion;
         List<Colaborador> lista_colaboradores;
         Colaborador colaborador;
+        TimeSpan cantidad_dias;
         public Vacaciones_Agregar()
         {
             InitializeComponent();
+            vacacion = new Vacacion();
             llenar_cb_colaboradores();
+            tb_cantidad_dias.Text = "0";
+            setear_fechas_Y_salario();
         }
 
         private void llenar_cb_colaboradores()
         {
             colaborador = new Colaborador();
             lista_colaboradores = colaborador.obtener_lista();
-            cb_colaborador.DataSource = llenar_dt_colaboradores();
-            cb_colaborador.DisplayMember = "Nombre Completo";
             cb_colaborador.ValueMember = "Id";
+            cb_colaborador.DisplayMember = "Nombre Completo";
+            cb_colaborador.DataSource = llenar_dt_colaboradores();
         }
 
         private DataTable llenar_dt_colaboradores()
@@ -36,9 +40,12 @@ namespace SystemForms
             DataTable dt_colaboradores = new DataTable();
             dt_colaboradores.Columns.Add("Id");
             dt_colaboradores.Columns.Add("Nombre Completo");
-            foreach(Colaborador x in lista_colaboradores)
+            foreach(Colaborador colaborador in lista_colaboradores)
             {
-                dt_colaboradores.Rows.Add(x.Id, x.Nombre + " " + x.Apellido + " " + x.Segundo_apellido);
+                if (vacacion.tiene_vacaciones(colaborador))
+                {
+                    dt_colaboradores.Rows.Add(colaborador.Id, colaborador.Nombre + " " + colaborador.Apellido + " " + colaborador.Segundo_apellido);
+                }
             }
             return dt_colaboradores;
         }
@@ -69,7 +76,7 @@ namespace SystemForms
         //Muestra mensaje de confirmnacion si la vacacion fue agregado con exito ó mensaje de error en el caso contrario.
         public Boolean agregar_sys()
         {
-            BusinessLogic.Vacacion vacacion = obtener_datos();
+            vacacion = obtener_datos();
             if (vacacion.agregar())
             {
                 MessageBox.Show("La vacación fue agregada con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -102,10 +109,17 @@ namespace SystemForms
                 return false;
             }
         }
-
+        
         private Vacacion obtener_datos()
         {
-            throw new NotImplementedException();
+            int colaborador = Int32.Parse(cb_colaborador.SelectedValue.ToString());
+            DateTime fecha_salida = dtp_fecha_salida.Value;
+            DateTime fecha_regreso = dtp_fecha_regreso.Value;
+            int cant_dias = Int32.Parse(tb_cantidad_dias.Text.ToString());
+            Decimal salario_vacaciones = Decimal.Parse(tb_salario.Text.ToString());
+            Boolean estado = rb_activo.Checked ? true : rb_inactivo.Checked ? false : true;
+
+            return new Vacacion(0, colaborador, fecha_salida, fecha_regreso, cant_dias, salario_vacaciones, string.Empty, estado);
         }
 
         private List<int> validar_cambios(Vacacion vacacion)
@@ -113,5 +127,49 @@ namespace SystemForms
             throw new NotImplementedException();
         }
 
+        private void dtp_fecha_regreso_ValueChanged(object sender, EventArgs e)
+        {
+            setear_fechas_Y_salario();
+            if(cantidad_dias.Days >= 0)
+            {
+                tb_cantidad_dias.Text = cantidad_dias.Days.ToString();
+            } else
+            {
+                tb_cantidad_dias.Text = "0";
+            }
+        }
+
+        private void dtp_fecha_salida_ValueChanged(object sender, EventArgs e)
+        {
+            setear_fechas_Y_salario();
+            if (cantidad_dias.Days >= 0)
+            {
+                tb_cantidad_dias.Text = cantidad_dias.Days.ToString();
+               
+            }
+            else
+            {
+                tb_cantidad_dias.Text = "0";
+            }
+        }
+
+        private void cb_colaborador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            setear_fechas_Y_salario();
+            tb_dias_vacaciones_disp.Text = vacacion.total_cant_dias_vacaciones(colaborador).ToString();
+           
+        }
+
+        private void setear_fechas_Y_salario()
+        {
+            colaborador.Id = Int32.Parse(cb_colaborador.SelectedValue.ToString());
+            int cant_dias_vacaciones = vacacion.total_cant_dias_vacaciones(colaborador);
+            dtp_fecha_regreso.MaxDate = dtp_fecha_salida.Value.Add(new TimeSpan(cant_dias_vacaciones, 0, 0, 0));
+            dtp_fecha_regreso.MinDate = dtp_fecha_salida.Value;
+
+            cantidad_dias = dtp_fecha_regreso.Value.Date - dtp_fecha_salida.Value.Date;
+            Decimal salario = vacacion.monto_dia(colaborador) * cantidad_dias.Days; //Salario de las vacaciones = monto por dia * cantidad de dias de vacaciones
+            tb_salario.Text = Convert.ToString(salario);
+        }
     }
 }

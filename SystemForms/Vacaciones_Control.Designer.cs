@@ -104,6 +104,7 @@
             this.bt_eliminar.Text = "Eliminar";
             this.bt_eliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_eliminar.UseVisualStyleBackColor = false;
+            this.bt_eliminar.Click += new System.EventHandler(this.bt_eliminar_Click);
             // 
             // bt_listar
             // 
@@ -122,6 +123,7 @@
             this.bt_listar.Text = "Listar";
             this.bt_listar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_listar.UseVisualStyleBackColor = false;
+            this.bt_listar.Click += new System.EventHandler(this.bt_listar_Click);
             // 
             // bt_editar
             // 
@@ -140,6 +142,7 @@
             this.bt_editar.Text = " Editar";
             this.bt_editar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_editar.UseVisualStyleBackColor = false;
+            this.bt_editar.Click += new System.EventHandler(this.bt_editar_Click);
             // 
             // bt_agregar
             // 
@@ -295,6 +298,7 @@
             this.bt_cancelar.Text = "Cancelar";
             this.bt_cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_cancelar.UseVisualStyleBackColor = false;
+            this.bt_cancelar.Click += new System.EventHandler(this.bt_cancelar_Click);
             // 
             // bt_guardar
             // 
@@ -313,6 +317,7 @@
             this.bt_guardar.Text = "Guardar";
             this.bt_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_guardar.UseVisualStyleBackColor = false;
+            this.bt_guardar.Click += new System.EventHandler(this.bt_guardar_Click);
             // 
             // Vacaciones_Control
             // 

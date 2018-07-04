@@ -100,28 +100,30 @@ namespace BusinessLogic
             return aguinaldo;
         }
 
-        public List<Aguinaldo> calcular_aguinaldo(List<Colaborador> lista_col)
-        {
-            List<Aguinaldo> lista_aguinaldos = new List<Aguinaldo>();    
-            foreach (Colaborador x in lista_col)
-            {
-                lista_aguinaldos.Add(new Aguinaldo(x.Id, DateTime.Now, calcular_salario_aguinaldo(x), "", true));
-            }
+        //public List<Aguinaldo> calcular_aguinaldo(List<Colaborador> lista_col)
+        //{
+        //    List<Aguinaldo> lista_aguinaldos = new List<Aguinaldo>();
+        //    foreach (Colaborador x in lista_col)
+        //    {
+        //        lista_aguinaldos.Add(new Aguinaldo(x.Id, DateTime.Now, calcular_salario_aguinaldo(x), "", true));
+        //    }
 
-            return lista_aguinaldos;
-        }
+        //    return lista_aguinaldos;
+        //}
 
         public Decimal calcular_salario_aguinaldo(Colaborador colaborador)
         {
-            Registro reg = new BusinessLogic.Registro();
-            List<Registro> lista_reg = (obtener_lista_colaborador(colaborador.Id, reg.obtener_lista()));
+            List<Registro> lista_r = new Registro().obtener_lista();
+            //Registro reg = new BusinessLogic.Registro();
+            //List<Registro> lista_reg = obtener_lista_reg_colaborador(colaborador.Id, reg.obtener_lista());
+            List<Registro> lista_reg = obtener_lista_reg_colaborador(colaborador.Id, lista_r);
             DateTime fecha_inicio = lista_reg.First().Fecha;
             DateTime fecha_reciente = lista_reg.Last().Fecha;
             Decimal meses_laborados = Convert.ToDecimal(((fecha_reciente - fecha_inicio).TotalDays)/30);
             return (calcular_salario_mensual(colaborador) * meses_laborados) / 12;
         }
 
-        public List<Registro> obtener_lista_colaborador(Int32 colaboradorId, List<Registro> registros)
+        public List<Registro> obtener_lista_reg_colaborador(Int32 colaboradorId, List<Registro> registros)
         {
             List<Registro> lista_nueva = new List<Registro>();
             foreach (Registro reg in registros)

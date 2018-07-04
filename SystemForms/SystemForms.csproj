@@ -123,6 +123,12 @@
     <Compile Include="Colaboradores_Lista.Designer.cs">
       <DependentUpon>Colaboradores_Lista.cs</DependentUpon>
     </Compile>
+    <Compile Include="Configuracion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuracion.Designer.cs">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Departamento_Agregar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -140,12 +146,6 @@
     </Compile>
     <Compile Include="Departamento_Lista.Designer.cs">
       <DependentUpon>Departamento_Lista.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Configuracion.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Configuracion.Designer.cs">
-      <DependentUpon>Configuracion.cs</DependentUpon>
     </Compile>
     <Compile Include="Home.cs">
       <SubType>UserControl</SubType>
@@ -311,6 +311,9 @@
     <EmbeddedResource Include="Colaboradores_Lista.resx">
       <DependentUpon>Colaboradores_Lista.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion.resx">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Departamento_Agregar.resx">
       <DependentUpon>Departamento_Agregar.cs</DependentUpon>
     </EmbeddedResource>
@@ -319,9 +322,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Departamento_Lista.resx">
       <DependentUpon>Departamento_Lista.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuracion.resx">
-      <DependentUpon>Configuracion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

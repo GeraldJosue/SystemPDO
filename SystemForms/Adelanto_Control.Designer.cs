@@ -58,7 +58,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.BackColor = System.Drawing.Color.DarkSlateGray;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.Color.White;
@@ -252,7 +252,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 17);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Fecha Expedicion";
+            this.label3.Text = "Fecha Expedición";
             // 
             // cb_activos
             // 
@@ -260,9 +260,9 @@
             this.cb_activos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_activos.Location = new System.Drawing.Point(270, 10);
             this.cb_activos.Name = "cb_activos";
-            this.cb_activos.Size = new System.Drawing.Size(79, 21);
+            this.cb_activos.Size = new System.Drawing.Size(82, 21);
             this.cb_activos.TabIndex = 0;
-            this.cb_activos.Text = "Pagados";
+            this.cb_activos.Text = "Inactivos";
             this.cb_activos.UseVisualStyleBackColor = true;
             this.cb_activos.CheckedChanged += new System.EventHandler(this.cb_activos_CheckedChanged);
             // 

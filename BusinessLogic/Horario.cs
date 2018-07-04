@@ -78,5 +78,16 @@ namespace BusinessLogic
             }
             return lista_activos;
         }
+
+        public Horario obtener_horario_colaborador(Colaborador colaborador)
+        {
+            Horario_TO horario_TO = new Horario_BD().obtener_horario_colaborador(colaborador.Id);
+            this.Id = horario_TO.Id;
+            this.Nombre_Horario = horario_TO.Nombre_Horario;
+            this.Hora_Inicio = horario_TO.Hora_Inicio;
+            this.Hora_Fin = horario_TO.Hora_Fin;
+            this.Estado = horario_TO.Estado;
+            return this;
+        }
     }
 }

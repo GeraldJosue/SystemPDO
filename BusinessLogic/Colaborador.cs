@@ -160,5 +160,26 @@ namespace BusinessLogic
             colaborador.Vacaciones = to.Vacaciones;
             return colaborador;
         }
+
+        public DateTime obtener_primer_registro()
+        {
+            return new Colaborador_BD().obtener_primer_registro(this.Id);
+        }
+
+        public Colaborador obtener_precio_hora()
+        {
+            this.Precio = new Colaborador_BD().obtener_precio_hora(this.Id).Precio;
+            return this;
+        }
+
+        public Colaborador obtener_nombre()
+        {
+            Colaborador_TO colaborador_TO = new Colaborador_BD().obtener_nombre(this.Id);
+            this.Nombre = colaborador_TO.Nombre;
+            this.Apellido = colaborador_TO.Apellido;
+            this.Segundo_apellido = colaborador_TO.Segundo_apellido;
+            return this;
+        }
+
     }
 }

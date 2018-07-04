@@ -19,13 +19,14 @@ namespace SystemForms
         String texto;
         String filtro;
         String fecha;
+        String colaborador;
 
         public Aguinaldo_Lista()
         {
             InitializeComponent();
             tableActivos = new DataTable();
             tableActivos.Columns.Add("Id");
-            tableActivos.Columns.Add("Id Colaborador");
+            tableActivos.Columns.Add("Colaborador");
             tableActivos.Columns.Add("Fecha");
             tableActivos.Columns.Add("Salario Aguinaldo");
             tableActivos.Columns.Add("Transferencia");
@@ -33,7 +34,7 @@ namespace SystemForms
 
             tableInactivos = new DataTable();
             tableInactivos.Columns.Add("Id");
-            tableInactivos.Columns.Add("Id Colaborador");
+            tableInactivos.Columns.Add("Colaborador");
             tableInactivos.Columns.Add("Fecha");
             tableInactivos.Columns.Add("Salario Aguinaldo");
             tableInactivos.Columns.Add("Transferencia");
@@ -43,6 +44,7 @@ namespace SystemForms
 
             fecha = 1 + "/" + 1 + "/" + 1900;
             texto = "";
+            colaborador = "";
         }
 
 
@@ -54,6 +56,14 @@ namespace SystemForms
             
         }
 
+
+        public void obtener_lista_temps(List <Aguinaldo> lista_temp)
+        {
+            lista = lista_temp;
+            llenar_tabla();
+            dgv_Aguinaldo.DataSource = tableActivos;
+
+        }
 
         public void llenar_tabla()
         {
@@ -163,6 +173,13 @@ namespace SystemForms
             filtro = "(Transferencia Like '%" + texto + "%') AND (Fecha >= #" + fecha + "#)";
             ((DataTable)dgv_Aguinaldo.DataSource).DefaultView.RowFilter = filtro;
         }
+
+        //public void filtro_Col(String nombre)
+        //{
+        //    colaborador = nombre;
+        //    filtro = "(Transferencia Like '%" + texto + "%') AND (Fecha >= #" + fecha + "#) AND (Colaborador Like '#" + nombre + "#)";
+        //    ((DataTable)dgv_Aguinaldo.DataSource).DefaultView.RowFilter = filtro;
+        //}
 
 
     }
