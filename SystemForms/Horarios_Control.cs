@@ -52,11 +52,14 @@ namespace SystemForms
 
         private void bt_editar_Click(object sender, EventArgs e)
         {
-            nuevo_horario = new Horarios_Agregar(lista_horarios.obtener());
-            nuevo_horario.Dock = DockStyle.Fill;
-            pn_master.Controls.Clear();
-            pn_master.Controls.Add(nuevo_horario);
-            editar = true;
+            if(lista_horarios.existen_registros())
+            {
+                nuevo_horario = new Horarios_Agregar(lista_horarios.obtener());
+                nuevo_horario.Dock = DockStyle.Fill;
+                pn_master.Controls.Clear();
+                pn_master.Controls.Add(nuevo_horario);
+                editar = true;
+            }
         }
 
         private void bt_guardar_Click(object sender, EventArgs e)

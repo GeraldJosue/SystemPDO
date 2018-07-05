@@ -89,5 +89,10 @@ namespace SystemForms
             }
             parent.listar_pagos();
         }
+
+        private void dg_planillas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            parent.lista_review_pagos(buscar_planilla(), true);
+        }
     }
 }

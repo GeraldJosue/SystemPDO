@@ -32,6 +32,7 @@ namespace SystemForms
             llenar_cb_horario();
             llenar_cb_entidad();
             llenar_cb_parentesco();
+            llenar_cb_planilla();
         }
 
         public void llenar_cb_dia(DateTime date, Int32 dias)

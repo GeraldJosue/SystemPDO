@@ -85,8 +85,10 @@
             // dt_hora_fin
             // 
             this.dt_hora_fin.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dt_hora_fin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dt_hora_fin.Location = new System.Drawing.Point(187, 147);
             this.dt_hora_fin.Name = "dt_hora_fin";
+            this.dt_hora_fin.ShowUpDown = true;
             this.dt_hora_fin.Size = new System.Drawing.Size(200, 26);
             this.dt_hora_fin.TabIndex = 25;
             // 
@@ -104,9 +106,12 @@
             // 
             // dt_hora_inicio
             // 
+            this.dt_hora_inicio.CustomFormat = "";
             this.dt_hora_inicio.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dt_hora_inicio.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dt_hora_inicio.Location = new System.Drawing.Point(187, 96);
             this.dt_hora_inicio.Name = "dt_hora_inicio";
+            this.dt_hora_inicio.ShowUpDown = true;
             this.dt_hora_inicio.Size = new System.Drawing.Size(200, 26);
             this.dt_hora_inicio.TabIndex = 24;
             // 

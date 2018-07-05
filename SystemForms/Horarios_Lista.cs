@@ -76,27 +76,32 @@ namespace SystemForms
 
         public Boolean eliminar_sys()
         {
-            Int32 id = Int32.Parse(dg_horarios.CurrentRow.Cells["Id"].Value.ToString());
-            String nombre = dg_horarios.CurrentRow.Cells["Nombre"].Value.ToString();
-
-            DialogResult dialogResult = MessageBox.Show("¿Desea establecer como inactivo el horario " + nombre + " ?", "Inactivo", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            if(existen_registros())
             {
-                Horario horario = new Horario();
-                horario.Id = id;
-                horario.Estado = false;
-                if (horario.eliminar())
+                Int32 id = Int32.Parse(dg_horarios.CurrentRow.Cells["Id"].Value.ToString());
+                String nombre = dg_horarios.CurrentRow.Cells["Nombre"].Value.ToString();
+
+                DialogResult dialogResult = MessageBox.Show("¿Desea establecer como inactivo el horario " + nombre + " ?", "Inactivo", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    MessageBox.Show("Horario inactivo", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return true;
+                    Horario horario = new Horario();
+                    horario.Id = id;
+                    horario.Estado = false;
+                    if (horario.eliminar())
+                    {
+                        MessageBox.Show("Horario inactivo", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
+                return false;
             }
             return false;
+            
         }
 
         public Horario obtener()
@@ -111,6 +116,14 @@ namespace SystemForms
                 }
             }
             return horario;
+        }
+        public bool existen_registros()
+        {
+            if (dg_horarios.RowCount >= 1)
+            {
+                return true;
+            }
+            return false;
         }
 
         public void bajar_fila()

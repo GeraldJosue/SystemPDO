@@ -18,7 +18,7 @@ namespace SystemForms
         public Colaboradores_Control()
         {
             InitializeComponent();
-            lista_colaboradores = new Colaboradores_Lista();
+            lista_colaboradores = new Colaboradores_Lista(this);
             lista_colaboradores.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(lista_colaboradores);
@@ -74,8 +74,14 @@ namespace SystemForms
             nuevo_colaborador.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(nuevo_colaborador);
-            editar = true;
-            pn_filtros.Enabled = false;
+        }
+
+        public void editar_col()
+        {
+            nuevo_colaborador = new Colaboradores_Agregar(lista_colaboradores.obtener(), this);
+            nuevo_colaborador.Dock = DockStyle.Fill;
+            pn_master.Controls.Clear();
+            pn_master.Controls.Add(nuevo_colaborador);
         }
 
         private void bt_eliminar_Click(object sender, EventArgs e)

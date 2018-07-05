@@ -17,6 +17,7 @@ namespace SystemForms
         List<Pago> lista;
         List<Pago> lista_base;
         List<Colaborador> colaboradores;
+        Colaborador col;
 
         Progress_Form avance;
         Pago_Control parent;
@@ -36,16 +37,17 @@ namespace SystemForms
             parent.visibilidad(true, true, true);
         }
 
-        public String set_nombre(Int32 id)
+        public Colaborador set_colaborador(Int32 id)
         {
+            Colaborador colaborador = new Colaborador();
             foreach (Colaborador c in colaboradores)
             {
                 if (id == c.Id)
                 {
-                    return c.Nombre + " " + c.Apellido + " " + c.Segundo_apellido;
+                    return c;
                 }
             }
-            return "No disponible";
+            return colaborador;
         }
 
         public void llenar_dg()
@@ -53,7 +55,8 @@ namespace SystemForms
             dg_pagos_review.Rows.Clear();
             foreach (Pago p in lista)
             {
-                dg_pagos_review.Rows.Add(p.Id, set_nombre(p.Id_colaborador), p.SalarioBruto.ToString("C"), p.SalarioNeto.ToString("C"), p.HorasLaboradas, p.HorasExtra, p.Id_planilla);
+                col = set_colaborador(p.Id_colaborador);
+                dg_pagos_review.Rows.Add(p.Id, col.Nombre + " " + col.Apellido, p.SalarioBruto.ToString("C"), p.SalarioNeto.ToString("C"), p.HorasLaboradas, p.HorasExtra, p.Id_planilla);
             }
            
         }
@@ -232,7 +235,7 @@ namespace SystemForms
             {
                 if (p.Id == Convert.ToInt32(dg_pagos_review.CurrentRow.Cells["Id"].Value))
                 {
-                    new Pago_Review_Form(p, dg_pagos_review.CurrentRow.Cells["colaborador"].Value.ToString(), this).Show();
+                    new Pago_Review_Form(p, set_colaborador(p.Id_colaborador), this).Show();
                 }
             }
         }

@@ -84,6 +84,7 @@
             this.dg_colaboradores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dg_colaboradores.Size = new System.Drawing.Size(1158, 510);
             this.dg_colaboradores.TabIndex = 1;
+            this.dg_colaboradores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_colaboradores_CellDoubleClick);
             // 
             // Colaboradores_Lista
             // 

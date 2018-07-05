@@ -37,7 +37,7 @@
             this.bt_editar = new System.Windows.Forms.Button();
             this.bt_agregar = new System.Windows.Forms.Button();
             this.pn_filtros = new System.Windows.Forms.Panel();
-            this.dt_hora_fin = new System.Windows.Forms.DateTimePicker();
+            this.dt_fecha_regreso = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.bt_down = new System.Windows.Forms.Button();
             this.bt_up = new System.Windows.Forms.Button();
@@ -45,7 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cb_activos = new System.Windows.Forms.CheckBox();
-            this.dt_hora_inicio = new System.Windows.Forms.DateTimePicker();
+            this.dt_fecha_salida = new System.Windows.Forms.DateTimePicker();
             this.pn_master = new System.Windows.Forms.Panel();
             this.bt_cancelar = new System.Windows.Forms.Button();
             this.bt_guardar = new System.Windows.Forms.Button();
@@ -56,7 +56,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.BackColor = System.Drawing.Color.DarkSlateGray;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.Color.White;
@@ -165,7 +165,7 @@
             // 
             // pn_filtros
             // 
-            this.pn_filtros.Controls.Add(this.dt_hora_fin);
+            this.pn_filtros.Controls.Add(this.dt_fecha_regreso);
             this.pn_filtros.Controls.Add(this.label5);
             this.pn_filtros.Controls.Add(this.bt_down);
             this.pn_filtros.Controls.Add(this.bt_up);
@@ -173,7 +173,7 @@
             this.pn_filtros.Controls.Add(this.label2);
             this.pn_filtros.Controls.Add(this.label3);
             this.pn_filtros.Controls.Add(this.cb_activos);
-            this.pn_filtros.Controls.Add(this.dt_hora_inicio);
+            this.pn_filtros.Controls.Add(this.dt_fecha_salida);
             this.pn_filtros.Dock = System.Windows.Forms.DockStyle.Top;
             this.pn_filtros.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pn_filtros.Location = new System.Drawing.Point(0, 110);
@@ -181,19 +181,20 @@
             this.pn_filtros.Size = new System.Drawing.Size(1164, 36);
             this.pn_filtros.TabIndex = 12;
             // 
-            // dt_hora_fin
+            // dt_fecha_regreso
             // 
-            this.dt_hora_fin.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dt_hora_fin.Location = new System.Drawing.Point(715, 9);
-            this.dt_hora_fin.Name = "dt_hora_fin";
-            this.dt_hora_fin.Size = new System.Drawing.Size(163, 22);
-            this.dt_hora_fin.TabIndex = 13;
+            this.dt_fecha_regreso.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dt_fecha_regreso.Location = new System.Drawing.Point(830, 9);
+            this.dt_fecha_regreso.Name = "dt_fecha_regreso";
+            this.dt_fecha_regreso.Size = new System.Drawing.Size(255, 22);
+            this.dt_fecha_regreso.TabIndex = 13;
+            this.dt_fecha_regreso.ValueChanged += new System.EventHandler(this.dt_fecha_regreso_ValueChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(613, 12);
+            this.label5.Location = new System.Drawing.Point(728, 13);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 17);
             this.label5.TabIndex = 12;
@@ -234,6 +235,7 @@
             this.tb_buscar.Name = "tb_buscar";
             this.tb_buscar.Size = new System.Drawing.Size(128, 22);
             this.tb_buscar.TabIndex = 2;
+            this.tb_buscar.TextChanged += new System.EventHandler(this.tb_buscar_TextChanged);
             // 
             // label2
             // 
@@ -265,14 +267,16 @@
             this.cb_activos.TabIndex = 0;
             this.cb_activos.Text = "Inactivos";
             this.cb_activos.UseVisualStyleBackColor = true;
+            this.cb_activos.CheckedChanged += new System.EventHandler(this.cb_activos_CheckedChanged);
             // 
-            // dt_hora_inicio
+            // dt_fecha_salida
             // 
-            this.dt_hora_inicio.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dt_hora_inicio.Location = new System.Drawing.Point(444, 10);
-            this.dt_hora_inicio.Name = "dt_hora_inicio";
-            this.dt_hora_inicio.Size = new System.Drawing.Size(163, 22);
-            this.dt_hora_inicio.TabIndex = 1;
+            this.dt_fecha_salida.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dt_fecha_salida.Location = new System.Drawing.Point(444, 10);
+            this.dt_fecha_salida.Name = "dt_fecha_salida";
+            this.dt_fecha_salida.Size = new System.Drawing.Size(256, 22);
+            this.dt_fecha_salida.TabIndex = 1;
+            this.dt_fecha_salida.ValueChanged += new System.EventHandler(this.dt_fecha_salida_ValueChanged);
             // 
             // pn_master
             // 
@@ -350,7 +354,7 @@
         private System.Windows.Forms.Button bt_editar;
         private System.Windows.Forms.Button bt_agregar;
         private System.Windows.Forms.Panel pn_filtros;
-        private System.Windows.Forms.DateTimePicker dt_hora_fin;
+        private System.Windows.Forms.DateTimePicker dt_fecha_regreso;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button bt_down;
         private System.Windows.Forms.Button bt_up;
@@ -358,7 +362,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox cb_activos;
-        private System.Windows.Forms.DateTimePicker dt_hora_inicio;
+        private System.Windows.Forms.DateTimePicker dt_fecha_salida;
         private System.Windows.Forms.Panel pn_master;
         private System.Windows.Forms.Button bt_cancelar;
         private System.Windows.Forms.Button bt_guardar;

@@ -15,21 +15,25 @@ namespace SystemForms
     {
         Pago pago;
         Decimal bruto_base;
-        String nombre;
+        Colaborador c;
+        BusinessLogic.Configuracion config;
+        Int32 tipo;
         Pago_Review parent;
-        public Pago_Review_Form(Pago pago, String nombre, Pago_Review parent)
+        public Pago_Review_Form(Pago pago, Colaborador c, Pago_Review parent)
         {
             InitializeComponent();
             this.pago = pago;
             bruto_base = pago.SalarioBruto;
-            this.nombre = nombre;
+            this.c = c;
+            config = new BusinessLogic.Configuracion().obtener_Configuracion();
+            tipo = c.Tipo_planilla;
             this.parent = parent;
             setear_datos();
         }
 
         public void setear_datos()
         {
-            dg_pago_detalle.Rows.Add(pago.Id, nombre, pago.FechaPago.ToShortDateString(), pago.HorasLaboradas, pago.HorasExtra, pago.Id_planilla);
+            dg_pago_detalle.Rows.Add(pago.Id, c.Nombre + " " + c.Apellido, pago.FechaPago.ToShortDateString(), pago.HorasLaboradas, pago.HorasExtra, pago.Id_planilla);
             dg_ingresos.Rows.Add(pago.Bono, pago.Vacaciones, pago.Aguinaldo);
             dg_deducciones.Rows.Add(pago.Adelanto, pago.Seguro, pago.Rebajo);
             dg_totales.Rows.Add(pago.SalarioBruto, pago.SalarioNeto);
@@ -82,7 +86,7 @@ namespace SystemForms
             pago.Rebajo = Convert.ToDecimal(dg_deducciones.Rows[0].Cells["rebajo"].Value);
             pago.Adelanto = Convert.ToDecimal(dg_deducciones.Rows[0].Cells["adelanto"].Value);
             
-            Decimal bruto_original = (pago.HorasLaboradas * 3000) + (pago.HorasExtra * (3000 * Convert.ToDecimal(1.5)));
+            Decimal bruto_original = (pago.HorasLaboradas * c.Precio) + (pago.HorasExtra * (c.Precio * Convert.ToDecimal(1.5)));
 
             if (bruto_original != pago.SalarioBruto)
             {
@@ -90,7 +94,7 @@ namespace SystemForms
             }
 
             pago.SalarioBruto = bruto_base + pago.Bono + pago.Vacaciones + pago.Aguinaldo;
-            pago.Seguro = pago.SalarioBruto * Convert.ToDecimal(0.1);
+            pago.Seguro = (pago.SalarioBruto * (tipo == 14 ? (config.Porcentaje_Seguro / 2) : config.Porcentaje_Seguro)) / 100;
             pago.SalarioNeto = pago.SalarioBruto - pago.Seguro - pago.Adelanto - pago.Rebajo;
 
             calcular_salarios();

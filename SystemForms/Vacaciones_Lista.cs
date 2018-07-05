@@ -12,8 +12,8 @@ namespace SystemForms
         DataTable dt_vacaciones_inactivos;
         String filtro;
         String texto;
-        DateTime fecha_salida;
-        DateTime fecha_regreso;
+        String fecha_salida;
+        String fecha_regreso;
 
         List<Vacacion> lista;
         public Vacaciones_Lista()
@@ -22,7 +22,8 @@ namespace SystemForms
 
             dt_vacaciones_activos = new DataTable();
             dt_vacaciones_activos.Columns.Add("Id");
-            dt_vacaciones_activos.Columns.Add("Colaborador");
+            dt_vacaciones_activos.Columns.Add("Nombre");
+            dt_vacaciones_activos.Columns.Add("Apellidos");
             dt_vacaciones_activos.Columns.Add("Fecha Salida");
             dt_vacaciones_activos.Columns.Add("Fecha Regreso");
             dt_vacaciones_activos.Columns.Add("Cantidad de días");
@@ -31,7 +32,8 @@ namespace SystemForms
 
             dt_vacaciones_inactivos = new DataTable();
             dt_vacaciones_inactivos.Columns.Add("Id");
-            dt_vacaciones_inactivos.Columns.Add("Colaborador");
+            dt_vacaciones_inactivos.Columns.Add("Nombre");
+            dt_vacaciones_inactivos.Columns.Add("Apellidos");
             dt_vacaciones_inactivos.Columns.Add("Fecha Salida");
             dt_vacaciones_inactivos.Columns.Add("Fecha Regreso");
             dt_vacaciones_inactivos.Columns.Add("Cantidad de días");
@@ -39,6 +41,8 @@ namespace SystemForms
             dt_vacaciones_inactivos.Columns.Add("Estado");
 
             obtener_lista_sys();
+            fecha_salida = 1 + "/" + 1 + "/" + 1900;
+            fecha_regreso = DateTime.Now.Month + "/" + DateTime.Now.Day + "/" + DateTime.Now.Year;
             texto = "";
         }
 
@@ -59,14 +63,15 @@ namespace SystemForms
                 Colaborador colaborador = new Colaborador();
                 colaborador.Id = vacacion.Id_Colaborador;
                 colaborador.obtener_nombre();
-                String nombre_colaborador = colaborador.Nombre + " " +colaborador.Apellido + " " + colaborador.Segundo_apellido;
+                String nombre = colaborador.Nombre;
+                String apellidos = colaborador.Apellido + " " + colaborador.Segundo_apellido;
                 if (vacacion.Estado)
                 {
-                    dt_vacaciones_activos.Rows.Add(vacacion.Id, nombre_colaborador, formato_fecha(vacacion.Fecha_Salida), formato_fecha(vacacion.Fecha_Regreso), vacacion.Numero_Dias, vacacion.Salario, vacacion.Estado ? "Activo" : "Inactivo");
+                    dt_vacaciones_activos.Rows.Add(vacacion.Id, nombre, apellidos, formato_fecha(vacacion.Fecha_Salida), formato_fecha(vacacion.Fecha_Regreso), vacacion.Numero_Dias, vacacion.Salario, vacacion.Estado ? "Activo" : "Inactivo");
                 }
                 else
                 {
-                    dt_vacaciones_inactivos.Rows.Add(vacacion.Id, nombre_colaborador, vacacion.Fecha_Salida.ToString(), vacacion.Fecha_Regreso.ToString(), vacacion.Numero_Dias, vacacion.Salario, vacacion.Estado ? "Activo" : "Inactivo");
+                    dt_vacaciones_inactivos.Rows.Add(vacacion.Id, nombre, apellidos, formato_fecha(vacacion.Fecha_Salida), formato_fecha(vacacion.Fecha_Regreso), vacacion.Numero_Dias, vacacion.Salario, vacacion.Estado ? "Activo" : "Inactivo");
                 }
 
             }
@@ -80,25 +85,29 @@ namespace SystemForms
 
         public Boolean eliminar_sys()
         {
-            Int32 id = Int32.Parse(dg_vacaciones.CurrentRow.Cells["Id"].Value.ToString());
-            String nombre = dg_vacaciones.CurrentRow.Cells["Colaborador"].Value.ToString();
-
-            DialogResult dialogResult = MessageBox.Show("¿Desea establecer como inactiva la vacación del colaborador " + nombre + " ?", "Inactivo", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            if(existen_registros())
             {
-                Vacacion vacacion = new Vacacion();
-                vacacion.Id = id;
-                vacacion.Estado = false;
-                if (vacacion.eliminar())
+                Int32 id = Int32.Parse(dg_vacaciones.CurrentRow.Cells["Id"].Value.ToString());
+                String nombre = dg_vacaciones.CurrentRow.Cells["Nombre"].Value.ToString() + " " + dg_vacaciones.CurrentRow.Cells["Apellidos"].Value.ToString();
+                
+                DialogResult dialogResult = MessageBox.Show("¿Desea establecer como inactiva la vacación del colaborador " + nombre + " ?", "Inactivo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    MessageBox.Show("Vacación inactiva", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return true;
+                    Vacacion vacacion = new Vacacion();
+                    vacacion.Id = id;
+                    vacacion.Estado = false;
+                    if (vacacion.eliminar())
+                    {
+                        MessageBox.Show("Vacación inactiva", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
+                return false;
             }
             return false;
         }
@@ -115,6 +124,15 @@ namespace SystemForms
                 }
             }
             return vacacion;
+        }
+
+        public bool existen_registros()
+        {
+            if (dg_vacaciones.RowCount >= 1)
+            {
+                return true;
+            }
+            return false;
         }
 
         public void bajar_fila()
@@ -151,26 +169,26 @@ namespace SystemForms
             }
         }
 
-        //    public void filtro_nombre(String busqueda)
-        //    {
-        //        texto = busqueda;
-        //        filtro = "(Nombre Like '%" + texto + "%') AND ([Hora Inicio] >= #" + fecha_salida.TimeOfDay + "# AND [Hora Fin] <= #" + fecha_regreso.TimeOfDay + "#)";
-        //        ((DataTable)dg_horarios.DataSource).DefaultView.RowFilter = filtro;
-        //    }
+        public void filtro_nombre(String busqueda)
+        {
+            texto = busqueda;
+            filtro = "(Nombre Like '%" + texto + "%' OR Apellidos Like '%" + texto + "%') AND ([Fecha Salida] >= #" + fecha_salida + "# AND [Fecha Regreso] <= #" + fecha_regreso + "#)";
+            ((DataTable)dg_vacaciones.DataSource).DefaultView.RowFilter = filtro;
+        }
 
-        //    public void filtro_hora_inicio(DateTime hora)
-        //    {
-        //        fecha_salida = hora;
-        //        filtro = "(Nombre Like '%" + texto + "%') AND ([Hora Inicio] >= #" + fecha_salida.TimeOfDay + "# AND [Hora Fin] <= #" + fecha_regreso.TimeOfDay + "#)";
-        //        ((DataTable)dg_horarios.DataSource).DefaultView.RowFilter = filtro;
-        //    }
+        public void filtro_fecha_salida(DateTime date)
+        {
+            fecha_salida = date.Month + "/" + date.Day + "/" + date.Year;
+            filtro = "(Nombre Like '%" + texto + "%' OR Apellidos Like '%" + texto + "%') AND ([Fecha Salida] >= #" + fecha_salida + "# AND [Fecha Regreso] <= #" + fecha_regreso + "#)";
+            ((DataTable)dg_vacaciones.DataSource).DefaultView.RowFilter = filtro;
+        }
 
-        //    public void filtro_hora_fin(DateTime hora)
-        //    {
-        //        fecha_regreso = hora;
-        //        filtro = "(Nombre Like '%" + texto + "%') AND ([Hora Inicio] >= #" + fecha_salida.TimeOfDay + "# AND [Hora Fin] <= #" + fecha_regreso.TimeOfDay + "#)";
-        //        ((DataTable)dg_horarios.DataSource).DefaultView.RowFilter = filtro;
-        //    }
+        public void filtro_fecha_regreso(DateTime date)
+        {
+            fecha_regreso = date.Month + "/" + date.Day + "/" + date.Year;
+            filtro = "(Nombre Like '%" + texto + "%' OR Apellidos Like '%" + texto + "%') AND ([Fecha Salida] >= #" + fecha_salida + "# AND [Fecha Regreso] <= #" + fecha_regreso + "#)";
+            ((DataTable)dg_vacaciones.DataSource).DefaultView.RowFilter = filtro;
+        }
     }
 }
 

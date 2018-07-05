@@ -18,11 +18,12 @@ namespace DataAccess
 
             try
             {
-                SqlCommand query = new SqlCommand("INSERT INTO HORARIO VALUES(@Nombre, @Hora_Inicio, @Hora_Fin, @Estado)", conex);
+                SqlCommand query = new SqlCommand("INSERT INTO HORARIO VALUES(@Nombre, @Hora_Inicio, @Hora_Fin, @Estado, @Horario)", conex);
                 query.Parameters.AddWithValue("@Nombre", horario.Nombre_Horario);
                 query.Parameters.AddWithValue("@Hora_Inicio", horario.Hora_Inicio);
                 query.Parameters.AddWithValue("@Hora_Fin", horario.Hora_Fin);
                 query.Parameters.AddWithValue("@Estado", horario.Estado);
+                query.Parameters.AddWithValue("@Horario", horario.Horas);
                 if (conex.State != ConnectionState.Open)
                 {
                     conex.Open();
@@ -69,6 +70,7 @@ namespace DataAccess
                         horario.Hora_Inicio = reader.GetDateTime(2);
                         horario.Hora_Fin = reader.GetDateTime(3);
                         horario.Estado = reader.GetBoolean(4);
+                        horario.Horas = reader.GetDecimal(5);
                         lista.Add(horario);
                     }
                     return lista;
@@ -115,6 +117,7 @@ namespace DataAccess
                         horario.Hora_Inicio = reader.GetDateTime(2);
                         horario.Hora_Fin = reader.GetDateTime(3);
                         horario.Estado = reader.GetBoolean(4);
+                        horario.Horas = reader.GetDecimal(5);
                         lista.Add(horario);
                     }
                     return lista;
@@ -176,6 +179,7 @@ namespace DataAccess
                 query.Parameters.AddWithValue("@Hora_Inicio", horario.Hora_Inicio);
                 query.Parameters.AddWithValue("@Hora_Fin", horario.Hora_Fin);
                 query.Parameters.AddWithValue("@Estado", horario.Estado);
+                query.Parameters.AddWithValue("@Horas", horario.Horas);
 
                 if (conex.State != ConnectionState.Open)
                 {
@@ -205,19 +209,23 @@ namespace DataAccess
             {
                 if(x == 0)
                 {
-                    mega_query += "nombre_horario = @Nombre";
+                    mega_query += "nombre_horario = @Nombre,";
                 }
                 if(x == 1)
                 {
-                    mega_query += "hora_inicio = @Hora_Inicio";
+                    mega_query += "hora_inicio = @Hora_Inicio,";
                 }
                 if(x == 2)
                 {
-                    mega_query += "hora_fin = @Hora_Fin";
+                    mega_query += "hora_fin = @Hora_Fin,";
                 }
                 if(x == 3)
                 {
-                    mega_query += "estado_horario = @Estado";
+                    mega_query += "estado_horario = @Estado,";
+                }
+                if(x == 3)
+                {
+                    mega_query += "horas_totales = @Horas";
                 }
             }
             mega_query = mega_query.TrimEnd(',');
@@ -248,6 +256,7 @@ namespace DataAccess
                         horario_TO.Hora_Inicio = reader.GetDateTime(2);
                         horario_TO.Hora_Fin = reader.GetDateTime(3);
                         horario_TO.Estado = reader.GetBoolean(4);
+                        horario_TO.Horas = reader.GetDecimal(5);
                     }
                 }
                 return horario_TO;

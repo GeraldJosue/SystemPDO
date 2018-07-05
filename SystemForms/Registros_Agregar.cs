@@ -40,7 +40,7 @@ namespace SystemForms
             //llenar_tabla();
         }
 
-        public Registros_Agregar(Registro registro, Registros_Control parent)
+        public Registros_Agregar(Registro registro, Colaborador colaborador, Horario horario, Registros_Control parent)
         {
             InitializeComponent();
             dtp_generico = new DateTimePicker();
@@ -48,8 +48,13 @@ namespace SystemForms
             this.parent = parent;
 
             this.registro = registro;
-            horarios = new Horario().obtener_lista_activos();
-            setear_horario_edicion();
+            this.colaborador = colaborador;
+            this.horario = horario;
+
+            lb_colaborador.Text = "Colaborador: " + colaborador.Nombre + " " + colaborador.Apellido;
+
+            //horarios = new Horario().obtener_lista_activos();
+            //setear_horario_edicion();
 
             llenar_tabla_edicion();
         }
@@ -219,11 +224,10 @@ namespace SystemForms
             dg_registros.Rows.Clear();
             horario = setear_horario();
             DateTime date = dt_inicio.Value.Date;
-            Decimal horas = horario.Hora_Fin.TimeOfDay.Hours - horario.Hora_Inicio.TimeOfDay.Hours;
             Int32 flag = 0;
             while (DateTime.Compare(dt_fin.Value.Date, date.AddDays(flag)) >= 0)
             {
-                dg_registros.Rows.Add(true, date.AddDays(flag++).ToString("dddd dd, MMMM, yyy"), horario.Hora_Inicio.TimeOfDay, horario.Hora_Fin.TimeOfDay, horas, 0, date.AddHours(10).TimeOfDay, date.AddHours(12).TimeOfDay, date.AddHours(16).TimeOfDay); 
+                dg_registros.Rows.Add(true, date.AddDays(flag++).ToLongDateString(), horario.Hora_Inicio.ToShortTimeString(), horario.Hora_Fin.ToShortTimeString(), horario.Horas, 0, date.AddHours(horario.Hora_Inicio.Hour + 2).ToShortTimeString(), date.AddHours(12).ToShortTimeString(), date.AddHours(horario.Hora_Fin.Hour - 2).ToShortTimeString()); 
             }
             dg_horas_totales.Rows.Clear();
             dg_horas_totales.Rows.Add(0, 0);
@@ -234,7 +238,10 @@ namespace SystemForms
         {
             dt_inicio.Enabled = false;
             dt_fin.Enabled = false;
-            dg_registros.Rows.Add(true, registro.Fecha.ToString("dddd dd, MMMM, yyy"), registro.Entrada.TimeOfDay, registro.Salida.TimeOfDay, registro.Horas, registro.Extras, registro.Desayuno.TimeOfDay, registro.Almuerzo.TimeOfDay, registro.Cafe.TimeOfDay);
+            cb_colaborador.Enabled = false;
+            cb_departamento.Enabled = false;
+           
+            dg_registros.Rows.Add(true, registro.Fecha.ToLongDateString(), registro.Entrada.ToShortTimeString(), registro.Salida.ToShortTimeString(), registro.Horas, registro.Extras, registro.Desayuno.ToShortTimeString(), registro.Almuerzo.ToShortTimeString(), registro.Cafe.ToShortTimeString());
             dg_horas_totales.Rows.Clear();
             dg_horas_totales.Rows.Add(0, 0);
             calcular_horas();
@@ -273,8 +280,10 @@ namespace SystemForms
 
         private void dg_registros_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             if (e.ColumnIndex == 2 || e.ColumnIndex == 3 || e.ColumnIndex == 6 || e.ColumnIndex == 7 || e.ColumnIndex == 8)
             {
+                
                 //Initialized a new DateTimePicker Control  
                 dtp_generico = new DateTimePicker();
                 dtp_generico.Value = DateTime.Parse(dg_registros.CurrentCell.Value.ToString());
@@ -308,7 +317,7 @@ namespace SystemForms
         private void dtp_generico_OnTextChange(object sender, EventArgs e)
         {
             // Saving the 'Selected Date on Calendar' into DataGridView current cell  
-            dg_registros.CurrentCell.Value = dtp_generico.Value.TimeOfDay;
+            dg_registros.CurrentCell.Value = dtp_generico.Value.ToShortTimeString();
         }
 
         private void dg_registros_CellLeave(object sender, DataGridViewCellEventArgs e)
@@ -337,11 +346,14 @@ namespace SystemForms
         {
             Decimal horas = salida.Hour - entrada.Hour;
 
-            //Calcular con horario.Horas
-            if (horas > 8) {
+            if(salida.Hour > 12 && entrada.Hour < 12)
+            {
+                --horas;
+            }
+            if (horas > horario.Horas) {
 
-                dg_registros.Rows[e.RowIndex].Cells["horas_laboradas"].Value = 8;
-                dg_registros.Rows[e.RowIndex].Cells["horas_extras"].Value = horas - 8;
+                dg_registros.Rows[e.RowIndex].Cells["horas_laboradas"].Value = horario.Horas;
+                dg_registros.Rows[e.RowIndex].Cells["horas_extras"].Value = horas - horario.Horas;
 
             } else
             {

@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -18,12 +18,16 @@ namespace SystemForms
         {
             InitializeComponent();
             formato_dtpickers();
+            rb_activo.Checked = true;
+            //formato_dtpickers();
         }
 
         public Horarios_Agregar(Horario horario)
         {
             InitializeComponent();
+            //formato_dtpickers();
             formato_dtpickers();
+            rb_activo.Checked = true;
             this.horario = horario;
             setear_datos();
         }
@@ -114,6 +118,10 @@ namespace SystemForms
             {
                 lista.Add(3);
             }
+            if(horario.Horas != this.horario.Horas)
+            {
+                lista.Add(4);
+            }
             return lista;
         }
 
@@ -121,10 +129,11 @@ namespace SystemForms
         public Horario obtener_datos()
         {
             String nombre = tb_nombre.Text.Equals("") ? "No disponible" : tb_nombre.Text;
-            DateTime hora_inicio = DateTime.Parse(dt_hora_inicio.Value.ToString());
-            DateTime hora_fin = DateTime.Parse(dt_hora_fin.Value.ToString());
+            DateTime hora_inicio = dt_hora_inicio.Value;
+            DateTime hora_fin = dt_hora_fin.Value;
+            Decimal horas = hora_fin.Hour - hora_inicio.Hour; 
             Boolean estado = rb_activo.Checked ? true : rb_inactivo.Checked ? false : true;
-            return new Horario(0, nombre, hora_inicio, hora_fin, estado);
+            return new Horario(0, nombre, hora_inicio, hora_fin, estado, horas);
         }
 
 

@@ -22,14 +22,15 @@ namespace SystemForms
         private void setear_Datos()
         {
             configuracion = new BusinessLogic.Configuracion().obtener_Configuracion();
-            tb_porcent_seguro.Text = configuracion.Porcentaje_Seguro.ToString();
-            tb_porcent_hora_extra.Text = configuracion.Porcentaje_Hora_Extra.ToString();
+            num_porcent_seguro.Value = configuracion.Porcentaje_Seguro;
+            num_porcent_hora_extra.Value = configuracion.Porcentaje_Hora_Extra;
+             
         }
 
         private void bt_guardar_Click(object sender, EventArgs e)
         {
-            Decimal porcent_seguro = tb_porcent_seguro.Text == string.Empty ? Decimal.Parse("0") : Decimal.Parse(tb_porcent_seguro.Text);
-            Decimal porcent_hora_extra = tb_porcent_hora_extra.Text == string.Empty ? Decimal.Parse("0") : Decimal.Parse(tb_porcent_hora_extra.Text);
+            Decimal porcent_seguro = num_porcent_seguro.Text == string.Empty ? Decimal.Parse("0,0") : num_porcent_seguro.Value;
+            Decimal porcent_hora_extra = num_porcent_hora_extra.Text == string.Empty ? Decimal.Parse("0,0") : num_porcent_hora_extra.Value;
 
             if (new BusinessLogic.Configuracion(1, porcent_seguro, porcent_hora_extra).guardar_configuracion())
             {

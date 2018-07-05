@@ -15,16 +15,18 @@ namespace BusinessLogic
         public DateTime Hora_Inicio { get; set; }
         public DateTime Hora_Fin { get; set; }
         public Boolean Estado { get; set; }
+        public Decimal Horas { get; set; }
 
         public Horario() { }
 
-        public Horario(int id, string nombre_Horario, DateTime horario_Inicio, DateTime horario_Fin, bool estado)
+        public Horario(int id, string nombre_Horario, DateTime horario_Inicio, DateTime horario_Fin, bool estado, Decimal horas)
         {
-            Id = id;
-            Nombre_Horario = nombre_Horario;
-            Hora_Inicio = horario_Inicio;
-            Hora_Fin = horario_Fin;
-            Estado = estado;
+            this.Id = id;
+            this.Nombre_Horario = nombre_Horario;
+            this.Hora_Inicio = horario_Inicio;
+            this.Hora_Fin = horario_Fin;
+            this.Estado = estado;
+            this.Horas = horas;
         }
 
         public List<Horario> obtener_lista()
@@ -33,7 +35,7 @@ namespace BusinessLogic
             List<Horario_TO> lista_TO = new Horario_BD().obtener_lista();
             foreach (Horario_TO x in lista_TO)
             {
-                lista.Add(new Horario(x.Id, x.Nombre_Horario, x.Hora_Inicio,x.Hora_Fin,x.Estado));
+                lista.Add(new Horario(x.Id, x.Nombre_Horario, x.Hora_Inicio,x.Hora_Fin,x.Estado, x.Horas));
             }
             return lista;
         }
@@ -54,6 +56,7 @@ namespace BusinessLogic
             horario.Hora_Inicio = this.Hora_Inicio;
             horario.Hora_Fin = this.Hora_Fin;
             horario.Estado = this.Estado;
+            horario.Horas = this.Horas;
             return new Horario_BD().agregar(horario);
         }
 
@@ -65,6 +68,7 @@ namespace BusinessLogic
             horario_to.Hora_Inicio = this.Hora_Inicio;
             horario_to.Hora_Fin = this.Hora_Fin;
             horario_to.Estado = this.Estado;
+            horario_to.Horas = this.Horas;
             return new Horario_BD().editar(horario_to, lista);
         }
 
@@ -74,7 +78,7 @@ namespace BusinessLogic
             List<Horario_TO> lista_TO = new Horario_BD().obtener_lista_activos();
             foreach (Horario_TO x in lista_TO)
             {
-                lista_activos.Add(new Horario(x.Id, x.Nombre_Horario, x.Hora_Inicio, x.Hora_Fin, x.Estado));
+                lista_activos.Add(new Horario(x.Id, x.Nombre_Horario, x.Hora_Inicio, x.Hora_Fin, x.Estado, x.Horas));
             }
             return lista_activos;
         }
@@ -87,6 +91,7 @@ namespace BusinessLogic
             this.Hora_Inicio = horario_TO.Hora_Inicio;
             this.Hora_Fin = horario_TO.Hora_Fin;
             this.Estado = horario_TO.Estado;
+            this.Horas = horario_TO.Horas;
             return this;
         }
     }
