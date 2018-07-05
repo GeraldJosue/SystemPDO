@@ -40,7 +40,7 @@ namespace SystemForms
             //llenar_tabla();
         }
 
-        public Registros_Agregar(Registro registro, Registros_Control parent)
+        public Registros_Agregar(Registro registro, Colaborador colaborador, Horario horario, Registros_Control parent)
         {
             InitializeComponent();
             dtp_generico = new DateTimePicker();
@@ -48,8 +48,11 @@ namespace SystemForms
             this.parent = parent;
 
             this.registro = registro;
-            horarios = new Horario().obtener_lista_activos();
-            setear_horario_edicion();
+            this.colaborador = colaborador;
+            this.horario = horario;
+
+            //horarios = new Horario().obtener_lista_activos();
+            //setear_horario_edicion();
 
             llenar_tabla_edicion();
         }
@@ -233,7 +236,10 @@ namespace SystemForms
         {
             dt_inicio.Enabled = false;
             dt_fin.Enabled = false;
-            dg_registros.Rows.Add(true, registro.Fecha.ToString("dddd dd, MMMM, yyy"), registro.Entrada.TimeOfDay, registro.Salida.TimeOfDay, registro.Horas, registro.Extras, registro.Desayuno.TimeOfDay, registro.Almuerzo.TimeOfDay, registro.Cafe.TimeOfDay);
+            cb_colaborador.Enabled = false;
+            cb_departamento.Enabled = false;
+           
+            dg_registros.Rows.Add(true, registro.Fecha.ToLongDateString(), registro.Entrada.ToShortTimeString(), registro.Salida.ToShortTimeString(), registro.Horas, registro.Extras, registro.Desayuno.ToShortTimeString(), registro.Almuerzo.ToShortTimeString(), registro.Cafe.ToShortTimeString());
             dg_horas_totales.Rows.Clear();
             dg_horas_totales.Rows.Add(0, 0);
             calcular_horas();

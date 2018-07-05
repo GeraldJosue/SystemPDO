@@ -17,15 +17,17 @@ namespace SystemForms
         DataTable table_validos;
         DataTable table_invalidos;
         List<Colaborador> colaboradores;
+        Registros_Control parent;
 
         String filtro;
         String texto;
         String fecha_inicio;
         String fecha_fin;
 
-        public Registros_Lista()
+        public Registros_Lista(Registros_Control parent)
         {
             InitializeComponent();
+            this.parent = parent;
 
             colaboradores = new Colaborador().obtener_lista_activos();
             crear_datatables();
@@ -221,6 +223,27 @@ namespace SystemForms
                 }
             }
             return false;
+        }
+
+        public Colaborador obtener_colaborador(Int32 id)
+        {
+            Colaborador col = new Colaborador();
+            foreach(Colaborador c in colaboradores)
+            {
+                if(c.Id == id)
+                {
+                    return c;
+                }
+            }
+            return col;
+        }
+
+        private void dg_registros_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Registro registro = obtener();
+            Colaborador colaborador = obtener_colaborador(registro.Id_Colaborador);
+            Horario horario = new Horario().obtener_horario_colaborador(colaborador);
+            parent.editar_registro(registro, colaborador, horario);
         }
     }
 }

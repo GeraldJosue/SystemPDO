@@ -16,14 +16,16 @@ namespace SystemForms
         List<Colaborador> lista;
         DataTable table_activos;
         DataTable table_inactivos;
+        Colaboradores_Control parent;
         String filtro;
         String texto;
         String fecha_inicio;
         String fecha_fin;
 
-        public Colaboradores_Lista()
+        public Colaboradores_Lista(Colaboradores_Control parent)
         {
             InitializeComponent();
+            this.parent = parent;
 
             crear_datables();
             obtener_lista_sys();
@@ -204,6 +206,11 @@ namespace SystemForms
                 }
             }
             return false;
+        }
+
+        private void dg_colaboradores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            parent.editar_col();
         }
     }
 }

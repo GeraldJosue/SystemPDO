@@ -256,6 +256,7 @@ namespace DataAccess
                         horario_TO.Hora_Inicio = reader.GetDateTime(2);
                         horario_TO.Hora_Fin = reader.GetDateTime(3);
                         horario_TO.Estado = reader.GetBoolean(4);
+                        horario_TO.Horas = reader.GetDecimal(5);
                     }
                 }
                 return horario_TO;
