@@ -29,7 +29,7 @@ namespace SystemForms
 
         private void bt_agregar_Click(object sender, EventArgs e)
         {
-            departamentoNuevo = new Departamento_Agregar();
+            departamentoNuevo = new Departamento_Agregar(this);
             departamentoNuevo.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(departamentoNuevo);
@@ -39,7 +39,7 @@ namespace SystemForms
 
         public void editar_Click()
         {
-            departamentoNuevo = new Departamento_Agregar(listaDepartamentos.obtener());
+            departamentoNuevo = new Departamento_Agregar(listaDepartamentos.obtener(), this);
             departamentoNuevo.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(departamentoNuevo);
@@ -98,7 +98,7 @@ namespace SystemForms
             listaDepartamentos.filtro_nombre(tb_buscar.Text);
         }
 
-        private void bt_guardar_Click(object sender, EventArgs e)
+        public void guardar()
         {
             if (!editar)
             {
@@ -124,7 +124,7 @@ namespace SystemForms
             }
         }
 
-        private void bt_cancelar_Click_1(object sender, EventArgs e)
+        public void cancelar()
         {
             pn_master.Controls.Clear();
             pn_master.Controls.Add(listaDepartamentos);

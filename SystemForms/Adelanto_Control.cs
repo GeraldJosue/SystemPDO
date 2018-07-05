@@ -39,7 +39,7 @@ namespace SystemForms
 
         private void bt_agregar_Click(object sender, EventArgs e)
         {
-            nuevo_adelanto = new Adelanto_Agregar();
+            nuevo_adelanto = new Adelanto_Agregar(this);
             nuevo_adelanto.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(nuevo_adelanto);
@@ -49,7 +49,7 @@ namespace SystemForms
 
         public void editar_adelanto()
         {
-            nuevo_adelanto = new Adelanto_Agregar(listaAdelantos.obtener());
+            nuevo_adelanto = new Adelanto_Agregar(listaAdelantos.obtener(), this);
             nuevo_adelanto.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(nuevo_adelanto);
@@ -72,7 +72,7 @@ namespace SystemForms
             }
         }
 
-        private void bt_guardar_Click(object sender, EventArgs e)
+        public void guardar_adelanto()
         {
             if (!editar)
             {
@@ -98,7 +98,7 @@ namespace SystemForms
             }
         }
 
-        private void bt_cancelar_Click(object sender, EventArgs e)
+        public void cancelar()
         {
             pn_master.Controls.Clear();
             pn_master.Controls.Add(listaAdelantos);

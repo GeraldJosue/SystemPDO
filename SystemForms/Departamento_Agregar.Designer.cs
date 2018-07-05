@@ -28,25 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Departamento_Agregar));
             this.pn_agregarAguinaldo = new System.Windows.Forms.Panel();
             this.rb_inactivo = new System.Windows.Forms.RadioButton();
             this.rb_activo = new System.Windows.Forms.RadioButton();
             this.tb_nombre = new System.Windows.Forms.TextBox();
             this.lb_estado = new System.Windows.Forms.Label();
             this.lb_nombre = new System.Windows.Forms.Label();
+            this.bt_cancelar = new System.Windows.Forms.Button();
+            this.bt_guardar = new System.Windows.Forms.Button();
             this.pn_agregarAguinaldo.SuspendLayout();
             this.SuspendLayout();
             // 
             // pn_agregarAguinaldo
             // 
+            this.pn_agregarAguinaldo.BackColor = System.Drawing.Color.White;
+            this.pn_agregarAguinaldo.Controls.Add(this.bt_cancelar);
+            this.pn_agregarAguinaldo.Controls.Add(this.bt_guardar);
             this.pn_agregarAguinaldo.Controls.Add(this.rb_inactivo);
             this.pn_agregarAguinaldo.Controls.Add(this.rb_activo);
             this.pn_agregarAguinaldo.Controls.Add(this.tb_nombre);
             this.pn_agregarAguinaldo.Controls.Add(this.lb_estado);
             this.pn_agregarAguinaldo.Controls.Add(this.lb_nombre);
-            this.pn_agregarAguinaldo.Location = new System.Drawing.Point(56, 26);
+            this.pn_agregarAguinaldo.Location = new System.Drawing.Point(3, 3);
             this.pn_agregarAguinaldo.Name = "pn_agregarAguinaldo";
-            this.pn_agregarAguinaldo.Size = new System.Drawing.Size(959, 379);
+            this.pn_agregarAguinaldo.Size = new System.Drawing.Size(1158, 423);
             this.pn_agregarAguinaldo.TabIndex = 0;
             // 
             // rb_inactivo
@@ -75,9 +81,10 @@
             // 
             // tb_nombre
             // 
+            this.tb_nombre.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_nombre.Location = new System.Drawing.Point(387, 101);
             this.tb_nombre.Name = "tb_nombre";
-            this.tb_nombre.Size = new System.Drawing.Size(301, 20);
+            this.tb_nombre.Size = new System.Drawing.Size(301, 26);
             this.tb_nombre.TabIndex = 3;
             // 
             // lb_estado
@@ -100,6 +107,44 @@
             this.lb_nombre.TabIndex = 1;
             this.lb_nombre.Text = "Nombre del departamento";
             // 
+            // bt_cancelar
+            // 
+            this.bt_cancelar.BackColor = System.Drawing.Color.DarkRed;
+            this.bt_cancelar.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
+            this.bt_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
+            this.bt_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_cancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_cancelar.ForeColor = System.Drawing.Color.White;
+            this.bt_cancelar.Image = ((System.Drawing.Image)(resources.GetObject("bt_cancelar.Image")));
+            this.bt_cancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_cancelar.Location = new System.Drawing.Point(806, 277);
+            this.bt_cancelar.Name = "bt_cancelar";
+            this.bt_cancelar.Size = new System.Drawing.Size(80, 50);
+            this.bt_cancelar.TabIndex = 49;
+            this.bt_cancelar.Text = "Cancelar";
+            this.bt_cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bt_cancelar.UseVisualStyleBackColor = false;
+            this.bt_cancelar.Click += new System.EventHandler(this.bt_cancelar_Click);
+            // 
+            // bt_guardar
+            // 
+            this.bt_guardar.BackColor = System.Drawing.Color.LimeGreen;
+            this.bt_guardar.FlatAppearance.BorderColor = System.Drawing.Color.LightGreen;
+            this.bt_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
+            this.bt_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_guardar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_guardar.ForeColor = System.Drawing.Color.White;
+            this.bt_guardar.Image = ((System.Drawing.Image)(resources.GetObject("bt_guardar.Image")));
+            this.bt_guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_guardar.Location = new System.Drawing.Point(706, 277);
+            this.bt_guardar.Name = "bt_guardar";
+            this.bt_guardar.Size = new System.Drawing.Size(75, 50);
+            this.bt_guardar.TabIndex = 48;
+            this.bt_guardar.Text = "Salvar";
+            this.bt_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bt_guardar.UseVisualStyleBackColor = false;
+            this.bt_guardar.Click += new System.EventHandler(this.bt_guardar_Click);
+            // 
             // Departamento_Agregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -121,5 +166,7 @@
         private System.Windows.Forms.TextBox tb_nombre;
         private System.Windows.Forms.Label lb_estado;
         private System.Windows.Forms.Label lb_nombre;
+        private System.Windows.Forms.Button bt_cancelar;
+        private System.Windows.Forms.Button bt_guardar;
     }
 }
