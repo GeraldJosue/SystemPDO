@@ -141,7 +141,6 @@
             this.bt_editar.Text = " Editar";
             this.bt_editar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_editar.UseVisualStyleBackColor = false;
-            this.bt_editar.Click += new System.EventHandler(this.bt_editar_Click);
             // 
             // bt_agregar
             // 

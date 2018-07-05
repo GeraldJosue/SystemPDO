@@ -29,15 +29,15 @@ namespace BusinessLogic
             this.EstadoAguinaldo = estado;
         }
 
-        public Aguinaldo(Int32 idColaborador, DateTime fecha, Decimal salario, String transferencia, Boolean estado)
-        {
+        //public Aguinaldo(Int32 idColaborador, DateTime fecha, Decimal salario, String transferencia, Boolean estado)
+        //{
             
-            this.IdColaborador = idColaborador;
-            this.FechaAguinaldo = fecha;
-            this.Salario = salario;
-            this.TransferenciaAguinaldo = transferencia;
-            this.EstadoAguinaldo = estado;
-        }
+        //    this.IdColaborador = idColaborador;
+        //    this.FechaAguinaldo = fecha;
+        //    this.Salario = salario;
+        //    this.TransferenciaAguinaldo = transferencia;
+        //    this.EstadoAguinaldo = estado;
+        //}
 
         public Aguinaldo()
         {

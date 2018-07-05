@@ -37,12 +37,14 @@
             this.dtp_fecha = new System.Windows.Forms.DateTimePicker();
             this.lb_monto = new System.Windows.Forms.Label();
             this.lb_fecha = new System.Windows.Forms.Label();
+            this.bt_cancelar = new System.Windows.Forms.Button();
             this.pn_agregarAguinaldo.SuspendLayout();
             this.SuspendLayout();
             // 
             // pn_agregarAguinaldo
             // 
             this.pn_agregarAguinaldo.BackColor = System.Drawing.Color.White;
+            this.pn_agregarAguinaldo.Controls.Add(this.bt_cancelar);
             this.pn_agregarAguinaldo.Controls.Add(this.bt_guardar);
             this.pn_agregarAguinaldo.Controls.Add(this.tb_transferencia);
             this.pn_agregarAguinaldo.Controls.Add(this.lb_transferencia);
@@ -54,7 +56,6 @@
             this.pn_agregarAguinaldo.Name = "pn_agregarAguinaldo";
             this.pn_agregarAguinaldo.Size = new System.Drawing.Size(665, 372);
             this.pn_agregarAguinaldo.TabIndex = 0;
-            
             // 
             // bt_guardar
             // 
@@ -66,7 +67,7 @@
             this.bt_guardar.ForeColor = System.Drawing.Color.White;
             this.bt_guardar.Image = ((System.Drawing.Image)(resources.GetObject("bt_guardar.Image")));
             this.bt_guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_guardar.Location = new System.Drawing.Point(485, 292);
+            this.bt_guardar.Location = new System.Drawing.Point(380, 292);
             this.bt_guardar.Name = "bt_guardar";
             this.bt_guardar.Size = new System.Drawing.Size(75, 50);
             this.bt_guardar.TabIndex = 17;
@@ -128,6 +129,25 @@
             this.lb_fecha.TabIndex = 2;
             this.lb_fecha.Text = "Fecha";
             // 
+            // bt_cancelar
+            // 
+            this.bt_cancelar.BackColor = System.Drawing.Color.DarkRed;
+            this.bt_cancelar.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
+            this.bt_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
+            this.bt_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_cancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_cancelar.ForeColor = System.Drawing.Color.White;
+            this.bt_cancelar.Image = ((System.Drawing.Image)(resources.GetObject("bt_cancelar.Image")));
+            this.bt_cancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_cancelar.Location = new System.Drawing.Point(480, 292);
+            this.bt_cancelar.Name = "bt_cancelar";
+            this.bt_cancelar.Size = new System.Drawing.Size(80, 50);
+            this.bt_cancelar.TabIndex = 39;
+            this.bt_cancelar.Text = "Cancelar";
+            this.bt_cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bt_cancelar.UseVisualStyleBackColor = false;
+            this.bt_cancelar.Click += new System.EventHandler(this.bt_cancelar_Click);
+            // 
             // Aguinaldo_Agregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,5 +171,6 @@
         private System.Windows.Forms.TextBox tb_transferencia;
         private System.Windows.Forms.Label lb_transferencia;
         private System.Windows.Forms.Button bt_guardar;
+        private System.Windows.Forms.Button bt_cancelar;
     }
 }

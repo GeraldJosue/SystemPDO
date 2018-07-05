@@ -294,7 +294,7 @@ namespace DataAccess
             Aguinaldo_TO aguinaldo;
             try
             {
-                SqlCommand query = new SqlCommand("SELECT * FROM AGUINALDO WHERE fecha_aguinaldo BETWEEN @inicio AND @fin", conex);
+                SqlCommand query = new SqlCommand("SELECT * FROM AGUINALDO WHERE estado_aguinaldo = 1 AND fecha_aguinaldo BETWEEN @inicio AND @fin", conex);
                 query.Parameters.AddWithValue("@inicio", fecha_inicio);
                 query.Parameters.AddWithValue("@fin", fecha_fin);
 

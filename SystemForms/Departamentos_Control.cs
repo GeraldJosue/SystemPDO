@@ -20,7 +20,7 @@ namespace SystemForms
         public Departamentos_Control()
         {
             InitializeComponent();
-            listaDepartamentos = new Departamento_Lista();
+            listaDepartamentos = new Departamento_Lista(this);
             listaDepartamentos.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(listaDepartamentos);
@@ -37,7 +37,7 @@ namespace SystemForms
             pn_filtros.Enabled = false;
         }
 
-        private void bt_editar_Click(object sender, EventArgs e)
+        public void editar_Click()
         {
             departamentoNuevo = new Departamento_Agregar(listaDepartamentos.obtener());
             departamentoNuevo.Dock = DockStyle.Fill;

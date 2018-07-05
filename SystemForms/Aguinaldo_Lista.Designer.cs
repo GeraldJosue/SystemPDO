@@ -92,6 +92,7 @@
             this.dgv_Aguinaldo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Aguinaldo.Size = new System.Drawing.Size(1158, 511);
             this.dgv_Aguinaldo.TabIndex = 0;
+            this.dgv_Aguinaldo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Aguinaldo_CellDoubleClick);
             // 
             // Aguinaldo_Lista
             // 

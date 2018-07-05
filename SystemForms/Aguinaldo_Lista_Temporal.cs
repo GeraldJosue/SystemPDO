@@ -25,13 +25,13 @@ namespace SystemForms
         {
             InitializeComponent();
             this.parent = parent_control;
-            listaAguinaldos = new Aguinaldo_Lista();
+            listaAguinaldos = new Aguinaldo_Lista(parent_control);
             listaAguinaldos.Dock = DockStyle.Fill;
             lista = new List<Aguinaldo>();
             lista_col = new Colaborador().obtener_lista_activos();
             tableActivos = new DataTable();
             tableActivos.Columns.Add("Id");
-            tableActivos.Columns.Add("Id Colaborador");
+            tableActivos.Columns.Add("Colaborador");
             tableActivos.Columns.Add("Fecha");
             tableActivos.Columns.Add("Salario Aguinaldo");
             tableActivos.Columns.Add("Transferencia");
@@ -49,7 +49,7 @@ namespace SystemForms
             {
                 //if (lista_col.Count != 0)
                 //{
-                    lista.Add(new Aguinaldo(x.Id, DateTime.Now, new Aguinaldo().calcular_salario_aguinaldo(x), "", true));
+                    lista.Add(new Aguinaldo(x.Id, x.Id, DateTime.Now, new Aguinaldo().calcular_salario_aguinaldo(x), "", true));
                 //    avance = ((++flag) * 100) / lista_col.Count;
                 //    bg_calcular_aguinaldo.ReportProgress(avance);
                 //    System.Threading.Thread.Sleep(500);
@@ -61,6 +61,8 @@ namespace SystemForms
             llenar_tabla();
             //CheckForIllegalCrossThreadCalls = false;
             dg_lista_temp.DataSource = tableActivos;
+            dg_lista_temp.Columns["Id"].Visible = false;
+            dg_lista_temp.Columns["Estado"].Visible = false;
 
         }
 
@@ -71,10 +73,21 @@ namespace SystemForms
 
             foreach (Aguinaldo x in lista)
             {
-                tableActivos.Rows.Add(x.Id, x.IdColaborador, x.FechaAguinaldo, x.Salario, x.TransferenciaAguinaldo, x.EstadoAguinaldo);
+                tableActivos.Rows.Add(x.Id, get_nombre(x.IdColaborador), x.FechaAguinaldo, x.Salario, x.TransferenciaAguinaldo, x.EstadoAguinaldo);
             }
         }
 
+        public String get_nombre(Int32 id)
+        {
+            foreach (Colaborador c in lista_col)
+            {
+                if(c.Id == id)
+                {
+                    return c.Nombre +" "+  c.Apellido + " "+ c.Segundo_apellido;
+                }
+            }
+            return "No disponible";
+        }
 
         public Aguinaldo obtener()
         {
@@ -143,6 +156,34 @@ namespace SystemForms
         private void bg_calcular_aguinaldo_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             avance.Close();
+        }
+
+        public void set_lista(Aguinaldo aguinaldo)
+        {
+            foreach(Aguinaldo a in lista)
+            {
+                if (aguinaldo.Id == a.Id)
+                {
+                    a.FechaAguinaldo = aguinaldo.FechaAguinaldo;
+                    a.Salario = aguinaldo.Salario;
+                    a.TransferenciaAguinaldo = aguinaldo.TransferenciaAguinaldo;
+                }
+            }
+
+            llenar_tabla();
+            //CheckForIllegalCrossThreadCalls = false;
+            dg_lista_temp.DataSource = tableActivos;
+        }
+
+        private void dg_lista_temp_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (Aguinaldo a in lista)
+            {
+                if (a.Id == Convert.ToInt32(dg_lista_temp.CurrentRow.Cells["Id"].Value))
+                {
+                    new Aguinaldo_Editar(a, this).Show();
+                }
+            }
         }
     }
 }

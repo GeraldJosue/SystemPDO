@@ -14,16 +14,20 @@ namespace SystemForms
     public partial class Aguinaldo_Lista : UserControl
     {
         List<Aguinaldo> lista;
+        List<Colaborador> lista_col;
         DataTable tableActivos;
         DataTable tableInactivos;
+        Aguinaldo_Control parent;
         String texto;
         String filtro;
         String fecha;
         String colaborador;
 
-        public Aguinaldo_Lista()
+        public Aguinaldo_Lista(Aguinaldo_Control parent_control)
         {
             InitializeComponent();
+            this.parent = parent_control;
+            lista_col = new Colaborador().obtener_lista_activos();
             tableActivos = new DataTable();
             tableActivos.Columns.Add("Id");
             tableActivos.Columns.Add("Colaborador");
@@ -53,7 +57,9 @@ namespace SystemForms
             lista = new Aguinaldo().obtener_lista();
             llenar_tabla();
             dgv_Aguinaldo.DataSource = tableActivos;
-            
+            dgv_Aguinaldo.Columns["Id"].Visible = false;
+            dgv_Aguinaldo.Columns["Estado"].Visible = false;
+
         }
 
 
@@ -65,6 +71,19 @@ namespace SystemForms
 
         }
 
+        public String get_nombre(Int32 id)
+        {
+            foreach (Colaborador c in lista_col)
+            {
+                if (c.Id == id)
+                {
+                    return c.Nombre + " " + c.Apellido + " " + c.Segundo_apellido;
+                }
+            }
+            return "No disponible";
+        }
+
+
         public void llenar_tabla()
         {
             tableActivos.Clear();
@@ -73,7 +92,7 @@ namespace SystemForms
             {
                 if (x.EstadoAguinaldo)
                 {
-                    tableActivos.Rows.Add(x.Id, x.IdColaborador, x.FechaAguinaldo, x.Salario, x.TransferenciaAguinaldo, x.EstadoAguinaldo);
+                    tableActivos.Rows.Add(x.Id, get_nombre(x.IdColaborador), x.FechaAguinaldo, x.Salario, x.TransferenciaAguinaldo, x.EstadoAguinaldo);
                 }
                 else
                 {
@@ -172,6 +191,11 @@ namespace SystemForms
             fecha = date.Month + "/" + date.Day + "/" + date.Year;
             filtro = "(Transferencia Like '%" + texto + "%') AND (Fecha >= #" + fecha + "#)";
             ((DataTable)dgv_Aguinaldo.DataSource).DefaultView.RowFilter = filtro;
+        }
+
+        private void dgv_Aguinaldo_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            new Aguinaldo_Editar(obtener(), parent).Show();
         }
 
         //public void filtro_Col(String nombre)

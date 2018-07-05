@@ -14,15 +14,19 @@ namespace SystemForms
     public partial class Adelanto_Lista : UserControl
     {
         List<Adelanto> lista;
+        List<Colaborador> lista_col;
         DataTable table_activos;
         DataTable table_inactvos;
+        Adelanto_Control parent;
         String filtro;
         String texto;
         String fecha;
             
-        public Adelanto_Lista()
+        public Adelanto_Lista(Adelanto_Control parent_control)
         {
             InitializeComponent();
+            lista_col = new Colaborador().obtener_lista_activos();
+            this.parent = parent_control;
             table_activos = new DataTable();
             table_inactvos = new DataTable();
 
@@ -49,11 +53,24 @@ namespace SystemForms
 
         }
 
+        public String get_nombre(Int32 id)
+        {
+            foreach (Colaborador c in lista_col)
+            {
+                if (c.Id == id)
+                {
+                    return c.Nombre + " " + c.Apellido + " " + c.Segundo_apellido;
+                }
+            }
+            return "No disponible";
+        }
+
         public void obtener_lista_sys()
         {
             lista = new Adelanto().obtener_lista();
             llenar_tabla();
             dg_adelantos.DataSource = table_activos;
+            dg_adelantos.Columns["Id"].Visible = false;
         }
         
         public void set_datasource(Boolean estado)
@@ -118,11 +135,11 @@ namespace SystemForms
             {
                 if (x.Estado)
                 {
-                    table_activos.Rows.Add(x.Id, x.IdColaborador, x.Monto, x.Fecha.Date.ToShortDateString(),x.Estado);
+                    table_activos.Rows.Add(x.Id, get_nombre(x.IdColaborador), x.Monto, x.Fecha.Date.ToShortDateString(),x.Estado);
                 }
                 else
                 {
-                    table_inactvos.Rows.Add(x.Id, x.IdColaborador, x.Monto, x.Fecha.Date.ToShortDateString(), x.Estado);
+                    table_inactvos.Rows.Add(x.Id, get_nombre(x.IdColaborador), x.Monto, x.Fecha.Date.ToShortDateString(), x.Estado);
                 }
             }
         }
@@ -163,5 +180,9 @@ namespace SystemForms
             ((DataTable)dg_adelantos.DataSource).DefaultView.RowFilter = filtro;
         }
 
+        private void dg_adelantos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            parent.editar_adelanto();
+        }
     }
 }
