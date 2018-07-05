@@ -17,7 +17,7 @@ namespace SystemForms
         public Horarios_Agregar()
         {
             InitializeComponent();
-            formato_dtpickers();
+            //formato_dtpickers();
             rb_activo.Checked = true;
             //formato_dtpickers();
         }
@@ -26,7 +26,7 @@ namespace SystemForms
         {
             InitializeComponent();
             //formato_dtpickers();
-            formato_dtpickers();
+            //formato_dtpickers();
             rb_activo.Checked = true;
             this.horario = horario;
             setear_datos();
