@@ -93,6 +93,12 @@
     <Compile Include="Aguinaldo_Control.Designer.cs">
       <DependentUpon>Aguinaldo_Control.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aguinaldo_Editar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aguinaldo_Editar.Designer.cs">
+      <DependentUpon>Aguinaldo_Editar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Aguinaldo_Lista.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -259,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Aguinaldo_Control.resx">
       <DependentUpon>Aguinaldo_Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aguinaldo_Editar.resx">
+      <DependentUpon>Aguinaldo_Editar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aguinaldo_Lista.resx">
       <DependentUpon>Aguinaldo_Lista.cs</DependentUpon>

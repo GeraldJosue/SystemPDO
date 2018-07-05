@@ -17,12 +17,14 @@ namespace SystemForms
         List<Departamento> lista;
         DataTable tableActivos;
         DataTable tableInactivos;
+        Departamentos_Control parent;
         String texto;
         String filtro;
 
-        public Departamento_Lista()
+        public Departamento_Lista(Departamentos_Control parent_control)
         {
-            InitializeComponent();        
+            InitializeComponent();
+            this.parent = parent_control;     
             tableActivos = new DataTable();
             tableInactivos = new DataTable();
 
@@ -44,7 +46,8 @@ namespace SystemForms
             lista = new Departamento().obtener_lista();
             llenar_tabla();
             dg_Departamentos.DataSource = tableActivos;
-            
+            dg_Departamentos.Columns["Id"].Visible = false;
+
         }
 
 
@@ -149,5 +152,9 @@ namespace SystemForms
             
         }
 
+        private void dg_Departamentos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            parent.editar_Click();
+        }
     }
 }

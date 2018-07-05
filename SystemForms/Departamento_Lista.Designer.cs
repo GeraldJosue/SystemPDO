@@ -90,6 +90,7 @@
             this.dg_Departamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dg_Departamentos.Size = new System.Drawing.Size(1158, 511);
             this.dg_Departamentos.TabIndex = 0;
+            this.dg_Departamentos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_Departamentos_CellDoubleClick);
             // 
             // Departamento_Lista
             // 
