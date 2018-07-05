@@ -33,20 +33,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pn_master = new System.Windows.Forms.Panel();
             this.pa_informacion = new System.Windows.Forms.Panel();
-            this.tb_porcent_hora_extra = new System.Windows.Forms.TextBox();
+            this.num_porcent_hora_extra = new System.Windows.Forms.NumericUpDown();
+            this.num_porcent_seguro = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.tb_porcent_seguro = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.bt_guardar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pn_master.SuspendLayout();
             this.pa_informacion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_porcent_hora_extra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_porcent_seguro)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.BackColor = System.Drawing.Color.DarkSlateGray;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.Color.White;
@@ -78,22 +80,42 @@
             // 
             this.pa_informacion.BackColor = System.Drawing.Color.Transparent;
             this.pa_informacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pa_informacion.Controls.Add(this.tb_porcent_hora_extra);
+            this.pa_informacion.Controls.Add(this.num_porcent_hora_extra);
+            this.pa_informacion.Controls.Add(this.num_porcent_seguro);
             this.pa_informacion.Controls.Add(this.label2);
-            this.pa_informacion.Controls.Add(this.tb_porcent_seguro);
             this.pa_informacion.Controls.Add(this.label3);
             this.pa_informacion.Location = new System.Drawing.Point(35, 68);
             this.pa_informacion.Name = "pa_informacion";
-            this.pa_informacion.Size = new System.Drawing.Size(549, 229);
+            this.pa_informacion.Size = new System.Drawing.Size(446, 234);
             this.pa_informacion.TabIndex = 20;
             // 
-            // tb_porcent_hora_extra
+            // num_porcent_hora_extra
             // 
-            this.tb_porcent_hora_extra.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_porcent_hora_extra.Location = new System.Drawing.Point(255, 131);
-            this.tb_porcent_hora_extra.Name = "tb_porcent_hora_extra";
-            this.tb_porcent_hora_extra.Size = new System.Drawing.Size(214, 26);
-            this.tb_porcent_hora_extra.TabIndex = 26;
+            this.num_porcent_hora_extra.DecimalPlaces = 2;
+            this.num_porcent_hora_extra.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.num_porcent_hora_extra.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.num_porcent_hora_extra.Location = new System.Drawing.Point(253, 135);
+            this.num_porcent_hora_extra.Name = "num_porcent_hora_extra";
+            this.num_porcent_hora_extra.Size = new System.Drawing.Size(120, 26);
+            this.num_porcent_hora_extra.TabIndex = 27;
+            // 
+            // num_porcent_seguro
+            // 
+            this.num_porcent_seguro.DecimalPlaces = 2;
+            this.num_porcent_seguro.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.num_porcent_seguro.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.num_porcent_seguro.Location = new System.Drawing.Point(253, 53);
+            this.num_porcent_seguro.Name = "num_porcent_seguro";
+            this.num_porcent_seguro.Size = new System.Drawing.Size(120, 26);
+            this.num_porcent_seguro.TabIndex = 26;
             // 
             // label2
             // 
@@ -104,14 +126,6 @@
             this.label2.Size = new System.Drawing.Size(193, 20);
             this.label2.TabIndex = 25;
             this.label2.Text = "Porcentaje de hora extra";
-            // 
-            // tb_porcent_seguro
-            // 
-            this.tb_porcent_seguro.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_porcent_seguro.Location = new System.Drawing.Point(255, 49);
-            this.tb_porcent_seguro.Name = "tb_porcent_seguro";
-            this.tb_porcent_seguro.Size = new System.Drawing.Size(214, 26);
-            this.tb_porcent_seguro.TabIndex = 24;
             // 
             // label3
             // 
@@ -156,6 +170,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.bt_guardar);
             this.Controls.Add(this.pn_master);
             this.Controls.Add(this.panel1);
@@ -167,6 +182,8 @@
             this.pn_master.PerformLayout();
             this.pa_informacion.ResumeLayout(false);
             this.pa_informacion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_porcent_hora_extra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_porcent_seguro)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -180,8 +197,8 @@
         private System.Windows.Forms.Panel pa_informacion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox tb_porcent_seguro;
-        private System.Windows.Forms.TextBox tb_porcent_hora_extra;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown num_porcent_hora_extra;
+        private System.Windows.Forms.NumericUpDown num_porcent_seguro;
     }
 }

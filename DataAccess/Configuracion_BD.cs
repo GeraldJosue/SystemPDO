@@ -78,6 +78,33 @@ namespace DataAccess
                 }
             }
         }
+
+        public Boolean agregar(Configuracion_TO configuracion)
+        {
+            try
+            {
+                SqlCommand query = new SqlCommand("INSERT INTO CONFIGURACION VALUES(@Porcentaje_Seguro, @Porcentaje_Hora_Extra)", conex);
+                query.Parameters.AddWithValue("@Porcentaje_Seguro", configuracion.Porcentaje_Seguro);
+                query.Parameters.AddWithValue("@Porcentaje_Hora_Extra", configuracion.Porcentaje_Hora_Extra);
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+
+                query.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                if (conex.State != System.Data.ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
     }
-    
 }
