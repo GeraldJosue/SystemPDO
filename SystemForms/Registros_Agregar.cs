@@ -51,6 +51,8 @@ namespace SystemForms
             this.colaborador = colaborador;
             this.horario = horario;
 
+            lb_colaborador.Text = "Colaborador: " + colaborador.Nombre + " " + colaborador.Apellido;
+
             //horarios = new Horario().obtener_lista_activos();
             //setear_horario_edicion();
 
