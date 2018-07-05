@@ -84,12 +84,11 @@ namespace DataAccess
             try
             {
                 SqlCommand query = new SqlCommand(string_query(lista), conex);
-                //query.Parameters.AddWithValue("@Colaborador", adelanto.IdColaborador);
-                query.Parameters.AddWithValue("@Colaborador", 1);
+                query.Parameters.AddWithValue("@id", adelanto.Id);
+                query.Parameters.AddWithValue("@colaborador", adelanto.IdColaborador);
                 query.Parameters.AddWithValue("@fecha", adelanto.Fecha);
                 query.Parameters.AddWithValue("@monto", adelanto.Monto);
                 query.Parameters.AddWithValue("@estado", adelanto.Estado);
-
 
                 if (conex.State != ConnectionState.Open)
                 {
@@ -212,7 +211,7 @@ namespace DataAccess
             Adelanto_TO adelanto;
             try
             {
-                SqlCommand query = new SqlCommand("SELECT * FROM ADELANTO WHERE fecha_adelanto BETWEEN @inicio AND @fin", conex);
+                SqlCommand query = new SqlCommand("SELECT * FROM ADELANTO WHERE estado_adelanto = 1 AND fecha_adelanto BETWEEN @inicio AND @fin", conex);
                 query.Parameters.AddWithValue("@inicio", fecha_inicio);
                 query.Parameters.AddWithValue("@fin", fecha_fin);
 
@@ -261,7 +260,7 @@ namespace DataAccess
             {
                 if (x == 0)
                 {
-                    mega_query += "id_colaborador = @Colaborador,";
+                    mega_query += "id_colaborador = @colaborador,";
                 }
                 else if (x == 1)
                 {

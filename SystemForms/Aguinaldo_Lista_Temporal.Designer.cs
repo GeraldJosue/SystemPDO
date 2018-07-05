@@ -107,7 +107,8 @@
             this.dg_lista_temp.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dg_lista_temp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dg_lista_temp.Size = new System.Drawing.Size(1100, 391);
-            this.dg_lista_temp.TabIndex = 0;
+            this.dg_lista_temp.TabIndex = 0;            
+            this.dg_lista_temp.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_lista_temp_CellDoubleClick);
             // 
             // panel2
             // 

@@ -93,6 +93,7 @@
             this.dg_adelantos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dg_adelantos.Size = new System.Drawing.Size(1158, 511);
             this.dg_adelantos.TabIndex = 0;
+            this.dg_adelantos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_adelantos_CellDoubleClick);
             // 
             // Adelanto_Lista
             // 

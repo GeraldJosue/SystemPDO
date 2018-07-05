@@ -14,15 +14,15 @@ namespace SystemForms
     public partial class Aguinaldo_Control : UserControl
     {
 
-        Aguinaldo_Lista_Temporal aguinaldo_calcular;
-        Aguinaldo_Agregar aguinaldo_agregar;
+        Aguinaldo_Lista_Temporal aguinaldo_lista_calcular;
+        Aguinaldo_Editar aguinaldo_agregar;
         Aguinaldo_Lista listaAguinaldos;
         List<Colaborador> lista;
-        Boolean editar;
+       
         public Aguinaldo_Control()
         {
             InitializeComponent();
-            listaAguinaldos = new Aguinaldo_Lista();
+            listaAguinaldos = new Aguinaldo_Lista(this);
             listaAguinaldos.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(listaAguinaldos);
@@ -32,25 +32,14 @@ namespace SystemForms
 
         private void bt_agregar_Click(object sender, EventArgs e)
         {
-            aguinaldo_calcular = new Aguinaldo_Lista_Temporal(this);
-            aguinaldo_calcular.Dock = DockStyle.Fill;
+            aguinaldo_lista_calcular = new Aguinaldo_Lista_Temporal(this);
+            aguinaldo_lista_calcular.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
-            pn_master.Controls.Add(aguinaldo_calcular);
+            pn_master.Controls.Add(aguinaldo_lista_calcular);
             //editar = false;
             pn_filtros.Enabled = false;
         }
-
-        private void bt_editar_Click(object sender, EventArgs e)
-        {
-            aguinaldo_agregar = new Aguinaldo_Agregar(listaAguinaldos.obtener(), this);
-            aguinaldo_agregar.Dock = DockStyle.Fill;
-            pn_master.Controls.Clear();
-            pn_master.Controls.Add(aguinaldo_agregar);
-            //editar = true;
-            pn_filtros.Enabled = false;
-            cb_activos.Checked = false;
-        }
-
+       
         private void bt_listar_Click(object sender, EventArgs e)
         {
             pn_master.Controls.Clear();
@@ -102,7 +91,7 @@ namespace SystemForms
 
         public void setList(List<Aguinaldo> lista)
         {
-            new Aguinaldo_Agregar().agregar_lista(lista);
+            new Aguinaldo_Editar().agregar_lista(lista);
             listaAguinaldos.obtener_lista_temps(lista);
             pn_master.Controls.Clear();
             pn_master.Controls.Add(listaAguinaldos);
@@ -170,5 +159,25 @@ namespace SystemForms
         //    pn_master.Controls.Add(listaAguinaldos);
         //    pn_filtros.Enabled = true;
         //}
+
+
+        public void cancelar()
+        {
+            pn_master.Controls.Clear();
+            pn_master.Controls.Add(listaAguinaldos);
+            pn_filtros.Enabled = true;
+        }
+
+        public void editar_temp()
+        {
+            aguinaldo_agregar = new Aguinaldo_Editar(aguinaldo_lista_calcular.obtener(), this);
+            aguinaldo_agregar.Dock = DockStyle.Fill;
+            pn_master.Controls.Clear();
+            pn_master.Controls.Add(aguinaldo_agregar);
+            //editar = true;
+            pn_filtros.Enabled = false;
+            cb_activos.Checked = false;
+        }
+
     }
 }

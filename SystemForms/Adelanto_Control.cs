@@ -20,7 +20,7 @@ namespace SystemForms
         public Adelanto_Control()
         {
             InitializeComponent();
-            listaAdelantos = new Adelanto_Lista();
+            listaAdelantos = new Adelanto_Lista(this);
             listaAdelantos.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(listaAdelantos);
@@ -47,7 +47,7 @@ namespace SystemForms
             pn_filtros.Enabled = false;
         }
 
-        private void bt_editar_Click(object sender, EventArgs e)
+        public void editar_adelanto()
         {
             nuevo_adelanto = new Adelanto_Agregar(listaAdelantos.obtener());
             nuevo_adelanto.Dock = DockStyle.Fill;

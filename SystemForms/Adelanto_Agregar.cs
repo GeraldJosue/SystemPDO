@@ -36,6 +36,9 @@ namespace SystemForms
 
         public void setear_datos()
         {
+            cb_colaborador.SelectedValue = adelanto.IdColaborador;
+            cb_colaborador.Enabled = false;
+            dt_fecha.Value = adelanto.Fecha;
             tb_monto.Text = adelanto.Monto.ToString();
             if (adelanto.Estado)
             {
@@ -98,11 +101,13 @@ namespace SystemForms
             else if (adelanto.editar(lista))
             {
                 MessageBox.Show("Adelanto editado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cb_colaborador.Enabled = true;
                 return true;
             }
             else
             {
                 MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cb_colaborador.Enabled = true;
                 return false;
             }
 
@@ -124,15 +129,16 @@ namespace SystemForms
         public List<Int32> validar_cambios(Adelanto nuevo)
         {
             List<Int32> lista = new List<Int32>();
-            if (nuevo.Monto != this.adelanto.Monto)
+            
+            if (nuevo.IdColaborador != this.adelanto.IdColaborador)//adaptar
             {
                 lista.Add(0);
             }
-            if (nuevo.IdColaborador != this.adelanto.IdColaborador)//adaptar
+            if (!nuevo.Fecha.Equals(this.adelanto.Fecha))//adaptar
             {
                 lista.Add(1);
             }
-            if (!nuevo.Fecha.Equals(this.adelanto.Fecha))//adaptar
+            if (nuevo.Monto != this.adelanto.Monto)
             {
                 lista.Add(2);
             }
@@ -147,7 +153,7 @@ namespace SystemForms
 
         private void tb_monto_enter(object sender, EventArgs e)
         {
-            tb_monto.Text = Convert.ToString(tb_monto.Tag);
+            //tb_monto.Text = Convert.ToString(tb_monto.Tag);
         }
 
         private void tb_monto_leave(object sender, EventArgs e)
