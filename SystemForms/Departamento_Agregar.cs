@@ -15,14 +15,19 @@ namespace SystemForms
     {
 
         Departamento departamento;
-        public Departamento_Agregar()
+        Departamentos_Control parent;
+
+        public Departamento_Agregar(Departamentos_Control parent_control)
         {
             InitializeComponent();
+            this.parent = parent_control;
+            rb_activo.Checked = true;
         }
 
-        public Departamento_Agregar(Departamento departamento)
+        public Departamento_Agregar(Departamento departamento, Departamentos_Control parent_control)
         {
             InitializeComponent();
+            this.parent = parent_control;
             this.departamento = departamento;
             setear_datos();
         }
@@ -97,5 +102,14 @@ namespace SystemForms
             return lista;
         }
 
+        private void bt_guardar_Click(object sender, EventArgs e)
+        {
+            parent.guardar();
+        }
+
+        private void bt_cancelar_Click(object sender, EventArgs e)
+        {
+            parent.cancelar();
+        }
     }
 }

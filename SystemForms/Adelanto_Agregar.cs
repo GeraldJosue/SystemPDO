@@ -17,19 +17,21 @@ namespace SystemForms
 
         Adelanto adelanto;
         List<Colaborador> lista;
+        Adelanto_Control parent;
 
-        public Adelanto_Agregar(Adelanto adelanto)
+        public Adelanto_Agregar(Adelanto adelanto, Adelanto_Control parent_control)
         {
             InitializeComponent();
             this.adelanto = adelanto;
             llenar_cb_colaborador();
-
+            this.parent = parent_control;
             setear_datos();
         }
 
-        public Adelanto_Agregar()
+        public Adelanto_Agregar(Adelanto_Control parent_control)
         {
             InitializeComponent();
+            this.parent = parent_control;
             llenar_cb_colaborador();
         }
 
@@ -163,6 +165,15 @@ namespace SystemForms
             //tb_monto.Text = monto.ToString("C");
         }
 
-       
+        private void bt_guardar_Click(object sender, EventArgs e)
+        {
+            parent.guardar_adelanto();
+        }
+
+        private void bt_cancelar_Click(object sender, EventArgs e)
+        {
+            parent.cancelar();
+        }
+
     }
 }
