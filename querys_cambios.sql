@@ -20,3 +20,7 @@
 --alter table COLABORADOR add [tipo_planilla] int null;
 
 --alter table HORARIO add [horas_totales] Decimal(10,2) null;
+
+--ALTER TABLE CONFIGURACION DROP COLUMN dia_inicio;
+--ALTER TABLE CONFIGURACION DROP COLUMN semana_inicio;
+--ALTER TABLE CONFIGURACION ADD porcentaje_hora_extra DECIMAL(10,2);

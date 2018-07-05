@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -18,12 +18,14 @@ namespace SystemForms
         {
             InitializeComponent();
             formato_dtpickers();
+            rb_activo.Checked = true;
         }
 
         public Horarios_Agregar(Horario horario)
         {
             InitializeComponent();
             formato_dtpickers();
+            rb_activo.Checked = true;
             this.horario = horario;
             setear_datos();
         }

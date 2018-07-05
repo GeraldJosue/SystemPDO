@@ -205,19 +205,19 @@ namespace DataAccess
             {
                 if(x == 0)
                 {
-                    mega_query += "nombre_horario = @Nombre";
+                    mega_query += "nombre_horario = @Nombre,";
                 }
                 if(x == 1)
                 {
-                    mega_query += "hora_inicio = @Hora_Inicio";
+                    mega_query += "hora_inicio = @Hora_Inicio,";
                 }
                 if(x == 2)
                 {
-                    mega_query += "hora_fin = @Hora_Fin";
+                    mega_query += "hora_fin = @Hora_Fin,";
                 }
                 if(x == 3)
                 {
-                    mega_query += "estado_horario = @Estado";
+                    mega_query += "estado_horario = @Estado,";
                 }
             }
             mega_query = mega_query.TrimEnd(',');
