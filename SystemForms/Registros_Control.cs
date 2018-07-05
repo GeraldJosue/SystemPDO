@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogic;
 
 namespace SystemForms
 {
@@ -19,7 +20,7 @@ namespace SystemForms
         public Registros_Control()
         {
             InitializeComponent();
-            lista_registros = new Registros_Lista();
+            lista_registros = new Registros_Lista(this);
             lista_registros.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(lista_registros);
@@ -84,14 +85,16 @@ namespace SystemForms
 
         private void bt_editar_Click(object sender, EventArgs e)
         {
-            nuevo_registro = new Registros_Agregar(lista_registros.obtener(), this);
+           
+        }
+
+        public void editar_registro(Registro registro, Colaborador colaborador, Horario horario)
+        {
+            nuevo_registro = new Registros_Agregar(registro, colaborador, horario, this);
             nuevo_registro.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(nuevo_registro);
-            editar = true;
-            pn_filtros.Enabled = false;
         }
-
         private void bt_eliminar_Click(object sender, EventArgs e)
         {
             if (lista_registros.eliminar_sys())
@@ -141,5 +144,6 @@ namespace SystemForms
         {
             return lista_registros.buscar_registro(fecha, id);
         }
+        
     }
 }

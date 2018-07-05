@@ -80,13 +80,19 @@ namespace SystemForms
             {
                 if (p.agregar())
                 {
-                MessageBox.Show("Planilla agregada con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Planilla agregada con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     MessageBox.Show("Ocurrió un error con la planilla", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            parent.listar_pagos();
+        }
+
+        private void dg_planillas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            parent.lista_review_pagos(buscar_planilla(), true);
         }
     }
 }

@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dg_colaboradores = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dg_colaboradores)).BeginInit();
             this.SuspendLayout();
@@ -42,12 +41,11 @@
             this.dg_colaboradores.AllowUserToAddRows = false;
             this.dg_colaboradores.AllowUserToDeleteRows = false;
             this.dg_colaboradores.AllowUserToOrderColumns = true;
-            this.dg_colaboradores.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.dg_colaboradores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dg_colaboradores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dg_colaboradores.BackgroundColor = System.Drawing.Color.White;
@@ -66,39 +64,27 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dg_colaboradores.DefaultCellStyle = dataGridViewCellStyle3;
             this.dg_colaboradores.EnableHeadersVisualStyles = false;
-            this.dg_colaboradores.GridColor = System.Drawing.Color.Gray;
             this.dg_colaboradores.Location = new System.Drawing.Point(3, 3);
             this.dg_colaboradores.MultiSelect = false;
             this.dg_colaboradores.Name = "dg_colaboradores";
             this.dg_colaboradores.ReadOnly = true;
             this.dg_colaboradores.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dg_colaboradores.RowHeadersVisible = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dg_colaboradores.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dg_colaboradores.RowHeadersVisible = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            this.dg_colaboradores.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dg_colaboradores.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dg_colaboradores.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-            this.dg_colaboradores.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Brown;
-            this.dg_colaboradores.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dg_colaboradores.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dg_colaboradores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dg_colaboradores.Size = new System.Drawing.Size(1158, 510);
-            this.dg_colaboradores.TabIndex = 0;
+            this.dg_colaboradores.TabIndex = 1;
+            this.dg_colaboradores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_colaboradores_CellDoubleClick);
             // 
             // Colaboradores_Lista
             // 
@@ -114,7 +100,6 @@
         }
 
         #endregion
-
         private System.Windows.Forms.DataGridView dg_colaboradores;
     }
 }

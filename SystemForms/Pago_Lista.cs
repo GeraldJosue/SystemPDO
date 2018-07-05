@@ -66,11 +66,11 @@ namespace SystemForms
             {
                 if (x.Estado)
                 {
-                    tableActivos.Rows.Add(x.Id, x.Total, x.Fecha_inicio.Date.ToShortDateString(), x.Fecha_fin.Date.ToShortDateString(), x.Tipo == 14 ? "Quincenal" : "Mensual");
+                    tableActivos.Rows.Add(x.Id, x.Total.ToString("C"), x.Fecha_inicio.Date.ToShortDateString(), x.Fecha_fin.Date.ToShortDateString(), x.Tipo == 14 ? "Quincenal" : "Mensual");
                 }
                 else
                 {
-                    tableInactivos.Rows.Add(x.Id, x.Total, x.Fecha_inicio.Date.ToShortDateString(), x.Fecha_fin.Date.ToShortDateString(), x.Tipo == 14 ? "Quincenal" : "Mensual");
+                    tableInactivos.Rows.Add(x.Id, x.Total.ToString("C"), x.Fecha_inicio.Date.ToShortDateString(), x.Fecha_fin.Date.ToShortDateString(), x.Tipo == 14 ? "Quincenal" : "Mensual");
                 }
             }
         }

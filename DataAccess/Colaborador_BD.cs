@@ -19,7 +19,7 @@ namespace DataAccess
             try
             {
                 SqlCommand query = new SqlCommand("INSERT INTO COLABORADOR VALUES(@Departamento, @Horario, @Nombre, @Apellido, @Segundo, @Cedula, @Telefono, "
-                    + "@Direccion, @Fecha, @Civil, @Cuenta, @Entidad, @Nacionalidad, @Precio, @FTelefono, @Parentesco, @FDireccion, @FEstado, @FNombre, @Tipo)", conex);
+                    + "@Direccion, @Fecha, @Civil, @Cuenta, @Entidad, @Nacionalidad, @Precio, @FTelefono, @Parentesco, @FDireccion, @FEstado, @FNombre, @Tipo, @Vacaciones)", conex);
                
                 query.Parameters.AddWithValue("@Departamento", colaborador.Id_departamento);
                 query.Parameters.AddWithValue("@Horario", colaborador.Id_horario);
@@ -41,6 +41,7 @@ namespace DataAccess
                 query.Parameters.AddWithValue("@FEstado", colaborador.Estado);
                 query.Parameters.AddWithValue("@FNombre", colaborador.FNombre);
                 query.Parameters.AddWithValue("@Tipo", colaborador.Tipo_planilla);
+                query.Parameters.AddWithValue("@Vacaciones", colaborador.Vacaciones);
 
                 if (conex.State != ConnectionState.Open)
                 {
@@ -105,6 +106,7 @@ namespace DataAccess
                         colaborador.Estado = reader.GetBoolean(18);
                         colaborador.FNombre = reader.GetString(19);
                         colaborador.Tipo_planilla = reader.GetInt32(20);
+                        colaborador.Vacaciones = reader.GetInt32(21);
                         lista.Add(colaborador);
                     }
                     return lista;
@@ -167,6 +169,7 @@ namespace DataAccess
                         colaborador.Estado = reader.GetBoolean(18);
                         colaborador.FNombre = reader.GetString(19);
                         colaborador.Tipo_planilla = reader.GetInt32(20);
+                        colaborador.Vacaciones = reader.GetInt32(21);
                         lista.Add(colaborador);
                     }
                     return lista;
@@ -195,10 +198,8 @@ namespace DataAccess
             {
                 SqlCommand query = new SqlCommand(string_query(lista), conex);
                 query.Parameters.AddWithValue("@Id", colaborador.Id);
-                //query.Parameters.AddWithValue("@Departamento", colaborador.Id_departamento);
-                query.Parameters.AddWithValue("@Departamento", 1);
-                //query.Parameters.AddWithValue("@Horario", colaborador.Id_horario);
-                query.Parameters.AddWithValue("@Horario", 1);
+                query.Parameters.AddWithValue("@Departamento", colaborador.Id_departamento);
+                query.Parameters.AddWithValue("@Horario", colaborador.Id_horario);
                 query.Parameters.AddWithValue("@Nombre", colaborador.Nombre);
                 query.Parameters.AddWithValue("@Apellido", colaborador.Apellido);
                 query.Parameters.AddWithValue("@Segundo", colaborador.Segundo_apellido);
@@ -217,6 +218,7 @@ namespace DataAccess
                 query.Parameters.AddWithValue("@Estado", colaborador.Estado);
                 query.Parameters.AddWithValue("@FNombre", colaborador.FNombre);
                 query.Parameters.AddWithValue("@Tipo", colaborador.Tipo_planilla);
+
 
                 if (conex.State != ConnectionState.Open)
                 {

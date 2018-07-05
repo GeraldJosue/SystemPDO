@@ -13,5 +13,6 @@ namespace TransferObjects
         public DateTime Hora_Inicio { get; set; }
         public DateTime Hora_Fin { get; set; }
         public Boolean Estado { get; set; }
+        public Decimal Horas { get; set; }
     }
 }

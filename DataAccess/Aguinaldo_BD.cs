@@ -240,10 +240,10 @@ namespace DataAccess
             return mega_query;
         }
 
-        public List<Adelanto_TO> obtener_lista_activos()
+        public List<Aguinaldo_TO> obtener_lista_activos()
         {
-            List<Adelanto_TO> lista = new List<Adelanto_TO>();
-            Adelanto_TO adelanto;
+            List<Aguinaldo_TO> lista = new List<Aguinaldo_TO>();
+            Aguinaldo_TO aguinaldo;
             try
             {
                 SqlCommand query = new SqlCommand("SELECT * FROM AGUINALDO WHERE estado_aguinaldo = 1", conex);
@@ -258,13 +258,14 @@ namespace DataAccess
                 {
                     while (reader.Read())
                     {
-                        adelanto = new Adelanto_TO();
-                        adelanto.Id = reader.GetInt32(0);
-                        adelanto.IdColaborador = reader.GetInt32(1);
-                        adelanto.Fecha = reader.GetDateTime(2);
-                        adelanto.Monto = reader.GetDecimal(3);
-                        adelanto.Estado = reader.GetBoolean(4);
-                        lista.Add(adelanto);
+                        aguinaldo = new Aguinaldo_TO();
+                        aguinaldo.Id = reader.GetInt32(0);
+                        aguinaldo.IdColaborador = reader.GetInt32(1);
+                        aguinaldo.FechaAguinaldo = reader.GetDateTime(2);
+                        aguinaldo.Salario = reader.GetDecimal(3);
+                        aguinaldo.TransferenciaAguinaldo = reader.GetString(4);
+                        aguinaldo.EstadoAguinaldo = reader.GetBoolean(5);
+                        lista.Add(aguinaldo);
                     }
                     return lista;
                 }
@@ -285,6 +286,58 @@ namespace DataAccess
                 }
             }
         }
+
+
+        public List<Aguinaldo_TO> obtener_lista_fechas(DateTime fecha_inicio, DateTime fecha_fin)
+        {
+            List<Aguinaldo_TO> lista = new List<Aguinaldo_TO>();
+            Aguinaldo_TO aguinaldo;
+            try
+            {
+                SqlCommand query = new SqlCommand("SELECT * FROM AGUINALDO WHERE fecha_aguinaldo BETWEEN @inicio AND @fin", conex);
+                query.Parameters.AddWithValue("@inicio", fecha_inicio);
+                query.Parameters.AddWithValue("@fin", fecha_fin);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+
+                SqlDataReader reader = query.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        aguinaldo = new Aguinaldo_TO();
+                        aguinaldo.Id = reader.GetInt32(0);
+                        aguinaldo.IdColaborador = reader.GetInt32(1);
+                        aguinaldo.FechaAguinaldo = reader.GetDateTime(2);
+                        aguinaldo.Salario = reader.GetDecimal(3);
+                        aguinaldo.TransferenciaAguinaldo = reader.GetString(4);
+                        aguinaldo.EstadoAguinaldo = reader.GetBoolean(5);
+                        lista.Add(aguinaldo);
+                    }
+                    return lista;
+                }
+                else
+                {
+                    return lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                return lista;
+            }
+            finally
+            {
+                if (conex.State != System.Data.ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
+
+
 
     }
 
