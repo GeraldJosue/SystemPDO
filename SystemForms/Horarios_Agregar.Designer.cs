@@ -91,6 +91,7 @@
             this.dt_hora_fin.ShowUpDown = true;
             this.dt_hora_fin.Size = new System.Drawing.Size(200, 26);
             this.dt_hora_fin.TabIndex = 25;
+            this.dt_hora_fin.Value = new System.DateTime(2018, 7, 4, 17, 0, 0, 0);
             // 
             // rb_activo
             // 
@@ -114,6 +115,7 @@
             this.dt_hora_inicio.ShowUpDown = true;
             this.dt_hora_inicio.Size = new System.Drawing.Size(200, 26);
             this.dt_hora_inicio.TabIndex = 24;
+            this.dt_hora_inicio.Value = new System.DateTime(2018, 7, 4, 7, 0, 0, 0);
             // 
             // label2
             // 

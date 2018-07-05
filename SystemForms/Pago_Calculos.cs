@@ -120,7 +120,7 @@ namespace SystemForms
             tipo = Convert.ToInt32(cb_periodo.SelectedValue);
             registros = new Registro().obtener_lista_fechas(inicio, fin);
             adelantos = new Adelanto().obtener_lista_fechas(inicio, fin);
-            //vacaciones = new Vacacion().obtener_lista();
+            vacaciones = new Vacacion().obtener_lista_fechas(inicio, fin);
             aguinaldos = new Aguinaldo().obtener_lista_fechas(inicio, fin);
             return true;
         }
@@ -163,14 +163,14 @@ namespace SystemForms
                     if (horas != 0)
                     {
 
-                        //foreach (Vacacion v in vacaciones)
-                        //{
-                        //    if(v.Id_Colaborador == c.Id)
-                        //    {
-                        //vacacion += v.Salario;
+                        foreach (Vacacion v in vacaciones)
+                        {
+                            if (v.Id_Colaborador == c.Id)
+                            {
+                                vacacion += v.Salario;
 
-                        //    }
-                        //}
+                            }
+                        }
 
                         foreach (Aguinaldo a in aguinaldos)
                         {

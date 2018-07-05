@@ -46,6 +46,17 @@ namespace BusinessLogic
             return lista;
         }
 
+        public List<Vacacion> obtener_lista_fechas(DateTime inicio, DateTime fin)
+        {
+            List<Vacacion> lista = new List<Vacacion>();
+            List<Vacacion_TO> lista_TO = new Vacacion_BD().obtener_lista_fechas(inicio, fin);
+            foreach (Vacacion_TO x in lista_TO)
+            {
+                lista.Add(new Vacacion(x.Id, x.Id_Colaborador, x.Fecha_Salida, x.Fecha_Regreso, x.Numero_Dias, x.Salario, x.Transferencia, x.Estado));
+            }
+            return lista;
+        }
+
         public Boolean eliminar()
         {
             Vacacion_TO vacacion = new Vacacion_TO();
