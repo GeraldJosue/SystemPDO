@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tb_cantidad_dias = new System.Windows.Forms.TextBox();
+            this.lb_cantidad_dias = new System.Windows.Forms.Label();
+            this.lb_dias_disponibles_vacaciones = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.rb_inactivo = new System.Windows.Forms.RadioButton();
             this.rb_activo = new System.Windows.Forms.RadioButton();
             this.dtp_fecha_regreso = new System.Windows.Forms.DateTimePicker();
@@ -41,19 +43,18 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.tb_salario = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tb_dias_vacaciones_disp = new System.Windows.Forms.TextBox();
+            this.lb_salario_vacaciones = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.tb_dias_vacaciones_disp);
+            this.panel1.Controls.Add(this.lb_salario_vacaciones);
+            this.panel1.Controls.Add(this.lb_cantidad_dias);
+            this.panel1.Controls.Add(this.lb_dias_disponibles_vacaciones);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.tb_cantidad_dias);
             this.panel1.Controls.Add(this.rb_inactivo);
             this.panel1.Controls.Add(this.rb_activo);
             this.panel1.Controls.Add(this.dtp_fecha_regreso);
@@ -65,20 +66,40 @@
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.tb_salario);
             this.panel1.Location = new System.Drawing.Point(32, 69);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(863, 367);
             this.panel1.TabIndex = 1;
             // 
-            // tb_cantidad_dias
+            // lb_cantidad_dias
             // 
-            this.tb_cantidad_dias.Enabled = false;
-            this.tb_cantidad_dias.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_cantidad_dias.Location = new System.Drawing.Point(665, 153);
-            this.tb_cantidad_dias.Name = "tb_cantidad_dias";
-            this.tb_cantidad_dias.Size = new System.Drawing.Size(70, 26);
-            this.tb_cantidad_dias.TabIndex = 25;
+            this.lb_cantidad_dias.AutoSize = true;
+            this.lb_cantidad_dias.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_cantidad_dias.Location = new System.Drawing.Point(669, 158);
+            this.lb_cantidad_dias.Name = "lb_cantidad_dias";
+            this.lb_cantidad_dias.Size = new System.Drawing.Size(17, 20);
+            this.lb_cantidad_dias.TabIndex = 28;
+            this.lb_cantidad_dias.Text = "0";
+            // 
+            // lb_dias_disponibles_vacaciones
+            // 
+            this.lb_dias_disponibles_vacaciones.AutoSize = true;
+            this.lb_dias_disponibles_vacaciones.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_dias_disponibles_vacaciones.Location = new System.Drawing.Point(769, 41);
+            this.lb_dias_disponibles_vacaciones.Name = "lb_dias_disponibles_vacaciones";
+            this.lb_dias_disponibles_vacaciones.Size = new System.Drawing.Size(17, 20);
+            this.lb_dias_disponibles_vacaciones.TabIndex = 27;
+            this.lb_dias_disponibles_vacaciones.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(524, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(243, 20);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Días de vacaciones disponibles:";
             // 
             // rb_inactivo
             // 
@@ -148,9 +169,9 @@
             this.label13.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(524, 158);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(135, 20);
+            this.label13.Size = new System.Drawing.Size(139, 20);
             this.label13.TabIndex = 14;
-            this.label13.Text = "Cantidad de días";
+            this.label13.Text = "Cantidad de días:";
             // 
             // label12
             // 
@@ -188,18 +209,9 @@
             this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(33, 217);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(150, 20);
+            this.label5.Size = new System.Drawing.Size(154, 20);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Salario Vacaciones";
-            // 
-            // tb_salario
-            // 
-            this.tb_salario.Enabled = false;
-            this.tb_salario.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_salario.Location = new System.Drawing.Point(204, 211);
-            this.tb_salario.Name = "tb_salario";
-            this.tb_salario.Size = new System.Drawing.Size(275, 26);
-            this.tb_salario.TabIndex = 7;
+            this.label5.Text = "Salario Vacaciones:";
             // 
             // label18
             // 
@@ -211,24 +223,15 @@
             this.label18.TabIndex = 20;
             this.label18.Text = "INFORMACIÓN DE VACACIONES";
             // 
-            // label1
+            // lb_salario_vacaciones
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(524, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(239, 20);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Días de vacaciones disponibles";
-            // 
-            // tb_dias_vacaciones_disp
-            // 
-            this.tb_dias_vacaciones_disp.Enabled = false;
-            this.tb_dias_vacaciones_disp.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_dias_vacaciones_disp.Location = new System.Drawing.Point(769, 38);
-            this.tb_dias_vacaciones_disp.Name = "tb_dias_vacaciones_disp";
-            this.tb_dias_vacaciones_disp.Size = new System.Drawing.Size(71, 26);
-            this.tb_dias_vacaciones_disp.TabIndex = 27;
+            this.lb_salario_vacaciones.AutoSize = true;
+            this.lb_salario_vacaciones.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_salario_vacaciones.Location = new System.Drawing.Point(200, 217);
+            this.lb_salario_vacaciones.Name = "lb_salario_vacaciones";
+            this.lb_salario_vacaciones.Size = new System.Drawing.Size(17, 20);
+            this.lb_salario_vacaciones.TabIndex = 29;
+            this.lb_salario_vacaciones.Text = "0";
             // 
             // Vacaciones_Agregar
             // 
@@ -254,15 +257,15 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tb_salario;
         private System.Windows.Forms.DateTimePicker dtp_fecha_regreso;
         private System.Windows.Forms.DateTimePicker dtp_fecha_salida;
         private System.Windows.Forms.ComboBox cb_colaborador;
         private System.Windows.Forms.RadioButton rb_inactivo;
         private System.Windows.Forms.RadioButton rb_activo;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox tb_cantidad_dias;
-        private System.Windows.Forms.TextBox tb_dias_vacaciones_disp;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb_dias_disponibles_vacaciones;
+        private System.Windows.Forms.Label lb_cantidad_dias;
+        private System.Windows.Forms.Label lb_salario_vacaciones;
     }
 }

@@ -11,7 +11,7 @@ namespace SystemForms
         public Horarios_Control()
         {
             InitializeComponent();
-            lista_horarios = new Horarios_Lista();
+            lista_horarios = new Horarios_Lista(this);
             lista_horarios.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(lista_horarios);
@@ -50,16 +50,10 @@ namespace SystemForms
             pn_filtros.Enabled = true;
         }
 
-        private void bt_editar_Click(object sender, EventArgs e)
+        public void limpiar_pn_master(Horarios_Agregar nuevo_horario)
         {
-            if(lista_horarios.existen_registros())
-            {
-                nuevo_horario = new Horarios_Agregar(lista_horarios.obtener());
-                nuevo_horario.Dock = DockStyle.Fill;
-                pn_master.Controls.Clear();
-                pn_master.Controls.Add(nuevo_horario);
-                editar = true;
-            }
+            pn_master.Controls.Clear();
+            pn_master.Controls.Add(nuevo_horario);
         }
 
         private void bt_guardar_Click(object sender, EventArgs e)

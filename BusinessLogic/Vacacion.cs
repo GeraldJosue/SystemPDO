@@ -103,7 +103,6 @@ namespace BusinessLogic
             }
             return false;
         }
-
         public Int32 total_cant_dias_vacaciones(Colaborador colaborador)
         {
             int cant_dias_vacaciones = 14;
@@ -113,8 +112,14 @@ namespace BusinessLogic
                 DateTime año_vacaciones = primer_registro.AddDays(365);
                 TimeSpan temp = DateTime.Today - año_vacaciones;
                 cant_dias_vacaciones += Convert.ToInt32(temp.Days / 30);
+                cant_dias_vacaciones -= colaborador.Vacaciones;
             }
             return cant_dias_vacaciones;
+        }
+
+        public Int32 obtener_vacaciones(Colaborador colaborador)
+        {
+            return colaborador.obtener_vacaciones();
         }
 
         public Decimal monto_dia(Colaborador colaborador)

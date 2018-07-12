@@ -361,12 +361,12 @@ namespace DataAccess
             return mega_query;
         }
 
-        public DateTime obtener_primer_registro (int id_colaborador)
+        public Int32 obtener_vacaciones(int id_colaborador)
         {
-            DateTime primer_registro = new DateTime();
+            int vacaciones = 0;
             try
             {
-                SqlCommand query = new SqlCommand("SELECT MIN(fecha_registro) FROM REGISTRO INNER JOIN COLABORADOR ON REGISTRO.id_colaborador = COLABORADOR.id_colaborador WHERE COLABORADOR.id_colaborador = @Id_Colaborador", conex);
+                SqlCommand query = new SqlCommand("SELECT vacaciones FROM COLABORADOR WHERE COLABORADOR.id_colaborador = @Id_Colaborador", conex);
                 query.Parameters.AddWithValue("@Id_Colaborador", id_colaborador);
 
                 if (conex.State != ConnectionState.Open)
@@ -379,15 +379,15 @@ namespace DataAccess
                 {
                     while (reader.Read())
                     {
-                        primer_registro = reader.GetDateTime(0);
-                    }   
+                        vacaciones = reader.GetInt32(0);
+                    }
                 }
-                return primer_registro;
+                return vacaciones;
 
             }
             catch (Exception ex)
             {
-                return primer_registro;
+                return -1;
             }
             finally
             {
@@ -440,7 +440,7 @@ namespace DataAccess
             Colaborador_TO colaborador_TO = new Colaborador_TO();
             try
             {
-                SqlCommand query = new SqlCommand("SELECT nombre_colaborador, primer_apellido, segundo_apellido FROM COLABORADOR WHERE id_colaborador = @Id_Colaborador", conex);
+                SqlCommand query = new SqlCommand("SELECT nombre_colaborador, primer_apellido, segundo_apellido, vacaciones FROM COLABORADOR WHERE id_colaborador = @Id_Colaborador", conex);
                 query.Parameters.AddWithValue("@Id_Colaborador", id_coloborador);
 
                 if (conex.State != ConnectionState.Open)
@@ -456,6 +456,7 @@ namespace DataAccess
                         colaborador_TO.Nombre = reader.GetString(0);
                         colaborador_TO.Apellido = reader.GetString(1);
                         colaborador_TO.Segundo_apellido = reader.GetString(2);
+                        colaborador_TO.Vacaciones = reader.GetInt32(3);
                     }
                 }
                 return colaborador_TO;
@@ -474,7 +475,74 @@ namespace DataAccess
             }
         }
 
-        
+        public List<Colaborador_TO> existe_colaboradores_vacacion()
+        {
+            List<Colaborador_TO> lista = new List<Colaborador_TO>();
+            Colaborador_TO colaborador_TO;
+            try
+            {
+                SqlCommand query = new SqlCommand("SELECT id_colaborador FROM COLABORADOR WHERE vacaciones > 0 AND estado_colaborador = 1", conex);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+
+                SqlDataReader reader = query.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while(reader.Read())
+                    {
+                        colaborador_TO = new Colaborador_TO();
+                        colaborador_TO.Id = reader.GetInt32(0);
+                        lista.Add(colaborador_TO);
+                    }
+                    
+                }
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (conex.State != System.Data.ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
+
+        public Boolean reducir_vacaciones(Colaborador_TO colaborador)
+        {
+            try
+            {
+                SqlCommand query = new SqlCommand("UPDATE COLABORADOR SET vacaciones = @Vacaciones WHERE id_colaborador = @Id", conex);
+                query.Parameters.AddWithValue("@Vacaciones", colaborador.Vacaciones);
+                query.Parameters.AddWithValue("@Id", colaborador.Id);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+
+                query.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                if (conex.State != System.Data.ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
 
     }
 }

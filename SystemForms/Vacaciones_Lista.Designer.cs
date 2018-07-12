@@ -95,6 +95,7 @@
             this.dg_vacaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dg_vacaciones.Size = new System.Drawing.Size(1158, 455);
             this.dg_vacaciones.TabIndex = 0;
+            this.dg_vacaciones.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_vacaciones_CellDoubleClick);
             // 
             // Vacaciones_Lista
             // 

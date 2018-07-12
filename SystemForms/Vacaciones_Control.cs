@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLogic;
+using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace SystemForms
@@ -11,7 +13,7 @@ namespace SystemForms
         public Vacaciones_Control()
         {
             InitializeComponent();
-            lista_vacacaciones = new Vacaciones_Lista();
+            lista_vacacaciones = new Vacaciones_Lista(this);
             lista_vacacaciones.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(lista_vacacaciones);
@@ -21,12 +23,12 @@ namespace SystemForms
 
         private void bt_agregar_Click(object sender, EventArgs e)
         {
-            nueva_vacacion = new Vacaciones_Agregar();
-            nueva_vacacion.Dock = DockStyle.Fill;
-            pn_master.Controls.Clear();
-            pn_master.Controls.Add(nueva_vacacion);
-            editar = false;
-            pn_filtros.Enabled = false;
+               nueva_vacacion = new Vacaciones_Agregar();
+               nueva_vacacion.Dock = DockStyle.Fill;
+               pn_master.Controls.Clear();
+               pn_master.Controls.Add(nueva_vacacion);
+               editar = false;
+               pn_filtros.Enabled = false;
         }
 
         private void bt_editar_Click(object sender, EventArgs e)
@@ -40,6 +42,13 @@ namespace SystemForms
                 editar = true;
             }
            
+        }
+        public void limpiar_pn_master(Vacaciones_Agregar vacacion)
+        {
+            this.nueva_vacacion = vacacion;
+            pn_master.Controls.Clear();
+            pn_master.Controls.Add(nueva_vacacion);
+            editar = true;
         }
 
         private void bt_listar_Click(object sender, EventArgs e)
