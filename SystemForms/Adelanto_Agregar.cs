@@ -41,7 +41,8 @@ namespace SystemForms
             cb_colaborador.SelectedValue = adelanto.IdColaborador;
             cb_colaborador.Enabled = false;
             dt_fecha.Value = adelanto.Fecha;
-            tb_monto.Text = adelanto.Monto.ToString();
+            tb_monto.Tag = adelanto.Monto.ToString();            
+            tb_monto.Text = adelanto.Monto.ToString("C");
             if (adelanto.Estado)
             {
                 rb_activo.Checked = true;
@@ -81,7 +82,7 @@ namespace SystemForms
            foreach (Colaborador x in lista)
            {
                 
-                    dt.Rows.Add(x.Id, x.Nombre);
+                    dt.Rows.Add(x.Id, x.Nombre + " " + x.Apellido + " " + x.Segundo_apellido);
                 
             }   
                 
@@ -119,7 +120,7 @@ namespace SystemForms
         public Adelanto obtener_datos()
         {
             Int32 idcolaborador = cb_colaborador.SelectedIndex == -1 ? 1 : Int32.Parse(cb_colaborador.SelectedValue.ToString());
-            Decimal monto = tb_monto.Text.Equals("") ? 0 : Decimal.Parse(tb_monto.Text.ToString());
+            Decimal monto = tb_monto.Text.Equals("") ? 0 : Decimal.Parse(Convert.ToString(tb_monto.Tag));
             Boolean estado = rb_activo.Checked ? true : false;
             DateTime fecha = dt_fecha.Value.Date;
                     
@@ -132,11 +133,11 @@ namespace SystemForms
         {
             List<Int32> lista = new List<Int32>();
             
-            if (nuevo.IdColaborador != this.adelanto.IdColaborador)//adaptar
+            if (nuevo.IdColaborador != this.adelanto.IdColaborador)
             {
                 lista.Add(0);
             }
-            if (!nuevo.Fecha.Equals(this.adelanto.Fecha))//adaptar
+            if (!nuevo.Fecha.Equals(this.adelanto.Fecha))
             {
                 lista.Add(1);
             }
@@ -155,14 +156,26 @@ namespace SystemForms
 
         private void tb_monto_enter(object sender, EventArgs e)
         {
-            //tb_monto.Text = Convert.ToString(tb_monto.Tag);
+            tb_monto.Text = Convert.ToString(tb_monto.Tag);
         }
 
         private void tb_monto_leave(object sender, EventArgs e)
         {
-            //Decimal monto = Decimal.Parse(tb_monto.Text);
-            //tb_monto.Tag = monto;
-            //tb_monto.Text = monto.ToString("C");
+            if (!tb_monto.Text.Equals(""))
+            {
+                try
+                {
+                    Decimal monto = Decimal.Parse(tb_monto.Text);
+                    tb_monto.Tag = monto;
+                    tb_monto.Text = monto.ToString("C");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("El campo para ingresar el monto solo admite numeros", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tb_monto.Focus();
+                }
+            }
+            
         }
 
         private void bt_guardar_Click(object sender, EventArgs e)

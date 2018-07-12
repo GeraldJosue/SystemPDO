@@ -90,10 +90,15 @@ namespace SystemForms
 
         private void bt_calcular_Click(object sender, EventArgs e)
         {
-            planeación();
-            bgw_calculos.RunWorkerAsync();
-            avance = new Progress_Form();
-            avance.ShowDialog();
+            if (planeación())
+            {
+                bgw_calculos.RunWorkerAsync();
+                avance = new Progress_Form();
+                avance.ShowDialog();
+            } else
+            {
+                MessageBox.Show("No existen registros para el rango de fechas especificado");
+            }
         }
 
         private void cb_periodo_SelectedIndexChanged(object sender, EventArgs e)
@@ -119,10 +124,18 @@ namespace SystemForms
             fin = dt_fin.Value.Date;
             tipo = Convert.ToInt32(cb_periodo.SelectedValue);
             registros = new Registro().obtener_lista_fechas(inicio, fin);
-            adelantos = new Adelanto().obtener_lista_fechas(inicio, fin);
-            vacaciones = new Vacacion().obtener_lista_fechas(inicio, fin);
-            aguinaldos = new Aguinaldo().obtener_lista_fechas(inicio, fin);
-            return true;
+            if (registros.Count != 0)
+            {
+                adelantos = new Adelanto().obtener_lista_fechas(inicio, fin);
+                vacaciones = new Vacacion().obtener_lista_fechas(inicio, fin);
+                aguinaldos = new Aguinaldo().obtener_lista_fechas(inicio, fin);
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
         }
         public Boolean gestion()
         {

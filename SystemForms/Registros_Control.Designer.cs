@@ -48,7 +48,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.bt_eliminar = new System.Windows.Forms.Button();
             this.bt_listar = new System.Windows.Forms.Button();
-            this.bt_editar = new System.Windows.Forms.Button();
             this.bt_agregar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -256,7 +255,6 @@
             // 
             this.panel3.Controls.Add(this.bt_eliminar);
             this.panel3.Controls.Add(this.bt_listar);
-            this.panel3.Controls.Add(this.bt_editar);
             this.panel3.Controls.Add(this.bt_agregar);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 55);
@@ -274,7 +272,7 @@
             this.bt_eliminar.ForeColor = System.Drawing.Color.White;
             this.bt_eliminar.Image = ((System.Drawing.Image)(resources.GetObject("bt_eliminar.Image")));
             this.bt_eliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_eliminar.Location = new System.Drawing.Point(252, 5);
+            this.bt_eliminar.Location = new System.Drawing.Point(169, 5);
             this.bt_eliminar.Name = "bt_eliminar";
             this.bt_eliminar.Size = new System.Drawing.Size(75, 50);
             this.bt_eliminar.TabIndex = 7;
@@ -293,7 +291,7 @@
             this.bt_listar.ForeColor = System.Drawing.Color.White;
             this.bt_listar.Image = ((System.Drawing.Image)(resources.GetObject("bt_listar.Image")));
             this.bt_listar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_listar.Location = new System.Drawing.Point(171, 5);
+            this.bt_listar.Location = new System.Drawing.Point(88, 5);
             this.bt_listar.Name = "bt_listar";
             this.bt_listar.Size = new System.Drawing.Size(75, 50);
             this.bt_listar.TabIndex = 4;
@@ -301,25 +299,6 @@
             this.bt_listar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_listar.UseVisualStyleBackColor = false;
             this.bt_listar.Click += new System.EventHandler(this.bt_listar_Click);
-            // 
-            // bt_editar
-            // 
-            this.bt_editar.BackColor = System.Drawing.Color.Orange;
-            this.bt_editar.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
-            this.bt_editar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
-            this.bt_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_editar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_editar.ForeColor = System.Drawing.Color.White;
-            this.bt_editar.Image = ((System.Drawing.Image)(resources.GetObject("bt_editar.Image")));
-            this.bt_editar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_editar.Location = new System.Drawing.Point(90, 5);
-            this.bt_editar.Name = "bt_editar";
-            this.bt_editar.Size = new System.Drawing.Size(75, 50);
-            this.bt_editar.TabIndex = 5;
-            this.bt_editar.Text = " Editar";
-            this.bt_editar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bt_editar.UseVisualStyleBackColor = false;
-            this.bt_editar.Click += new System.EventHandler(this.bt_editar_Click);
             // 
             // bt_agregar
             // 
@@ -404,7 +383,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button bt_eliminar;
         private System.Windows.Forms.Button bt_listar;
-        private System.Windows.Forms.Button bt_editar;
         private System.Windows.Forms.Button bt_agregar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;

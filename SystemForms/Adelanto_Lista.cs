@@ -71,6 +71,7 @@ namespace SystemForms
             llenar_tabla();
             dg_adelantos.DataSource = table_activos;
             dg_adelantos.Columns["Id"].Visible = false;
+            dg_adelantos.Columns["Estado"].Visible = false;
         }
         
         public void set_datasource(Boolean estado)

@@ -72,7 +72,7 @@ namespace SystemForms
                     return false;
                 }
             }
-            MessageBox.Show("Aguinaldo agregado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Aguinaldo editado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return true;
         }
 
@@ -109,11 +109,11 @@ namespace SystemForms
 
             Int32 colaborador = -1;
             DateTime fecha = dtp_fecha.Value.Date;
-            Decimal salarioAguinaldo = tb_monto.Text.Equals("") ? 0 : Decimal.Parse(tb_monto.Text);
+            Decimal salarioAguinaldo = tb_monto.Text.Equals("") ? 0 : Decimal.Parse(Convert.ToString(tb_monto.Tag));
             String transferencia = tb_transferencia.Text.Equals("") ? "No disponible" : tb_transferencia.Text;
 
             //Revisar datos por defecto
-            return new Aguinaldo(aguinaldo.Id, colaborador, fecha, salarioAguinaldo, transferencia, true);
+            return new Aguinaldo(aguinaldo.Id, colaborador, fecha, salarioAguinaldo, transferencia, true, 0);
         }
 
         public void setear_datos()
@@ -121,7 +121,8 @@ namespace SystemForms
             //Setear el selected index            
             //cb_colaborador.SelectedIndex = aguinaldo.IdColaborador;
             dtp_fecha.Text = aguinaldo.FechaAguinaldo.ToString();
-            tb_monto.Text = aguinaldo.Salario.ToString();
+            tb_monto.Tag = aguinaldo.Salario.ToString();
+            tb_monto.Text = aguinaldo.Salario.ToString("C");
             tb_transferencia.Text = aguinaldo.TransferenciaAguinaldo;
         }
 
@@ -171,14 +172,27 @@ namespace SystemForms
 
         private void tb_monto_enter(object sender, EventArgs e)
         {
-            //tb_monto.Text = Convert.ToString(tb_monto.Tag);
+            tb_monto.Text = Convert.ToString(tb_monto.Tag);
         }
 
         private void tb_monto_leave(object sender, EventArgs e)
         {
-            //Decimal monto = Decimal.Parse(tb_monto.Text);
-            //tb_monto.Tag = monto;
-            //tb_monto.Text = monto.ToString("C");
+
+            if (!tb_monto.Text.Equals(""))
+            {
+                try
+                {
+                    Decimal monto = Decimal.Parse(tb_monto.Text);
+                    tb_monto.Tag = monto;
+                    tb_monto.Text = monto.ToString("C");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("El campo para ingresar el monto solo admite numeros", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tb_monto.Focus();
+                }
+            }
+            
         }     
 
         private void bt_guardar_Click_1(object sender, EventArgs e)
@@ -201,5 +215,6 @@ namespace SystemForms
         {
             this.Close();
         }
+
     }
 }

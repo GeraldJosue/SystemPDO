@@ -169,7 +169,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(347, 228);
+            this.label20.Location = new System.Drawing.Point(419, 228);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(14, 20);
             this.label20.TabIndex = 24;
@@ -178,7 +178,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(250, 228);
+            this.label19.Location = new System.Drawing.Point(281, 228);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(14, 20);
             this.label19.TabIndex = 23;
@@ -187,7 +187,7 @@
             // cb_mes
             // 
             this.cb_mes.FormattingEnabled = true;
-            this.cb_mes.Location = new System.Drawing.Point(372, 220);
+            this.cb_mes.Location = new System.Drawing.Point(301, 220);
             this.cb_mes.Name = "cb_mes";
             this.cb_mes.Size = new System.Drawing.Size(112, 28);
             this.cb_mes.TabIndex = 5;
@@ -196,7 +196,7 @@
             // cb_año
             // 
             this.cb_año.FormattingEnabled = true;
-            this.cb_año.Location = new System.Drawing.Point(270, 220);
+            this.cb_año.Location = new System.Drawing.Point(204, 220);
             this.cb_año.Name = "cb_año";
             this.cb_año.Size = new System.Drawing.Size(71, 28);
             this.cb_año.TabIndex = 4;
@@ -205,7 +205,7 @@
             // cb_dia
             // 
             this.cb_dia.FormattingEnabled = true;
-            this.cb_dia.Location = new System.Drawing.Point(204, 220);
+            this.cb_dia.Location = new System.Drawing.Point(439, 220);
             this.cb_dia.Name = "cb_dia";
             this.cb_dia.Size = new System.Drawing.Size(40, 28);
             this.cb_dia.TabIndex = 6;

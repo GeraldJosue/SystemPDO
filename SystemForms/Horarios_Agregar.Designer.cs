@@ -38,7 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tb_nombre = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
             this.pa_informacion.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +54,7 @@
             this.pa_informacion.Controls.Add(this.label1);
             this.pa_informacion.Controls.Add(this.label10);
             this.pa_informacion.Controls.Add(this.tb_nombre);
-            this.pa_informacion.Location = new System.Drawing.Point(34, 69);
+            this.pa_informacion.Location = new System.Drawing.Point(353, 67);
             this.pa_informacion.Name = "pa_informacion";
             this.pa_informacion.Size = new System.Drawing.Size(504, 283);
             this.pa_informacion.TabIndex = 0;
@@ -155,35 +154,23 @@
             this.tb_nombre.Size = new System.Drawing.Size(275, 26);
             this.tb_nombre.TabIndex = 20;
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(31, 48);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(220, 18);
-            this.label18.TabIndex = 19;
-            this.label18.Text = "INFORMACIÓN DEL HORARIO";
-            // 
             // Horarios_Agregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.pa_informacion);
-            this.Controls.Add(this.label18);
             this.Name = "Horarios_Agregar";
             this.Size = new System.Drawing.Size(1164, 461);
             this.pa_informacion.ResumeLayout(false);
             this.pa_informacion.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel pa_informacion;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tb_nombre;
         private System.Windows.Forms.Label label2;

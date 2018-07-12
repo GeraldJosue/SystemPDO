@@ -49,7 +49,7 @@ namespace SystemForms
             {
                 //if (lista_col.Count != 0)
                 //{
-                    lista.Add(new Aguinaldo(x.Id, x.Id, DateTime.Now, new Aguinaldo().calcular_salario_aguinaldo(x), "", true));
+                    lista.Add(new Aguinaldo(x.Id, x.Id, DateTime.Now, new Aguinaldo().calcular_salario_aguinaldo(x), "No disponible", true, 0));
                 //    avance = ((++flag) * 100) / lista_col.Count;
                 //    bg_calcular_aguinaldo.ReportProgress(avance);
                 //    System.Threading.Thread.Sleep(500);

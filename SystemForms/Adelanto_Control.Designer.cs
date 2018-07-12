@@ -34,17 +34,14 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.bt_eliminar = new System.Windows.Forms.Button();
             this.bt_listar = new System.Windows.Forms.Button();
-            this.bt_editar = new System.Windows.Forms.Button();
             this.bt_agregar = new System.Windows.Forms.Button();
             this.pn_filtros = new System.Windows.Forms.Panel();
             this.bt_down = new System.Windows.Forms.Button();
             this.bt_up = new System.Windows.Forms.Button();
             this.tb_buscar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cb_activos = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dt_inicio = new System.Windows.Forms.DateTimePicker();
             this.pn_master = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -78,7 +75,6 @@
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.bt_eliminar);
             this.panel3.Controls.Add(this.bt_listar);
-            this.panel3.Controls.Add(this.bt_editar);
             this.panel3.Controls.Add(this.bt_agregar);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 55);
@@ -96,7 +92,7 @@
             this.bt_eliminar.ForeColor = System.Drawing.Color.White;
             this.bt_eliminar.Image = ((System.Drawing.Image)(resources.GetObject("bt_eliminar.Image")));
             this.bt_eliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_eliminar.Location = new System.Drawing.Point(252, 5);
+            this.bt_eliminar.Location = new System.Drawing.Point(169, 5);
             this.bt_eliminar.Name = "bt_eliminar";
             this.bt_eliminar.Size = new System.Drawing.Size(75, 50);
             this.bt_eliminar.TabIndex = 7;
@@ -115,7 +111,7 @@
             this.bt_listar.ForeColor = System.Drawing.Color.White;
             this.bt_listar.Image = ((System.Drawing.Image)(resources.GetObject("bt_listar.Image")));
             this.bt_listar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_listar.Location = new System.Drawing.Point(171, 5);
+            this.bt_listar.Location = new System.Drawing.Point(88, 5);
             this.bt_listar.Name = "bt_listar";
             this.bt_listar.Size = new System.Drawing.Size(75, 50);
             this.bt_listar.TabIndex = 4;
@@ -123,24 +119,6 @@
             this.bt_listar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_listar.UseVisualStyleBackColor = false;
             this.bt_listar.Click += new System.EventHandler(this.bt_listar_Click);
-            // 
-            // bt_editar
-            // 
-            this.bt_editar.BackColor = System.Drawing.Color.Orange;
-            this.bt_editar.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
-            this.bt_editar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
-            this.bt_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_editar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_editar.ForeColor = System.Drawing.Color.White;
-            this.bt_editar.Image = ((System.Drawing.Image)(resources.GetObject("bt_editar.Image")));
-            this.bt_editar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_editar.Location = new System.Drawing.Point(90, 5);
-            this.bt_editar.Name = "bt_editar";
-            this.bt_editar.Size = new System.Drawing.Size(75, 50);
-            this.bt_editar.TabIndex = 5;
-            this.bt_editar.Text = " Editar";
-            this.bt_editar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bt_editar.UseVisualStyleBackColor = false;
             // 
             // bt_agregar
             // 
@@ -168,10 +146,8 @@
             this.pn_filtros.Controls.Add(this.bt_up);
             this.pn_filtros.Controls.Add(this.tb_buscar);
             this.pn_filtros.Controls.Add(this.label2);
-            this.pn_filtros.Controls.Add(this.label4);
             this.pn_filtros.Controls.Add(this.label3);
             this.pn_filtros.Controls.Add(this.cb_activos);
-            this.pn_filtros.Controls.Add(this.comboBox1);
             this.pn_filtros.Controls.Add(this.dt_inicio);
             this.pn_filtros.Dock = System.Windows.Forms.DockStyle.Top;
             this.pn_filtros.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -229,16 +205,6 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Buscar";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(852, 12);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 17);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Colaborador";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -260,15 +226,6 @@
             this.cb_activos.Text = "Inactivos";
             this.cb_activos.UseVisualStyleBackColor = true;
             this.cb_activos.CheckedChanged += new System.EventHandler(this.cb_activos_CheckedChanged);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(955, 7);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(177, 25);
-            this.comboBox1.TabIndex = 2;
             // 
             // dt_inicio
             // 
@@ -313,17 +270,14 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button bt_eliminar;
         private System.Windows.Forms.Button bt_listar;
-        private System.Windows.Forms.Button bt_editar;
         private System.Windows.Forms.Button bt_agregar;
         private System.Windows.Forms.Panel pn_filtros;
         private System.Windows.Forms.Button bt_down;
         private System.Windows.Forms.Button bt_up;
         private System.Windows.Forms.TextBox tb_buscar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox cb_activos;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DateTimePicker dt_inicio;
         private System.Windows.Forms.Panel pn_master;
     }

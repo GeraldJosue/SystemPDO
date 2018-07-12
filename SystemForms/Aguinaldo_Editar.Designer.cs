@@ -100,6 +100,8 @@
             this.tb_monto.Name = "tb_monto";
             this.tb_monto.Size = new System.Drawing.Size(236, 20);
             this.tb_monto.TabIndex = 43;
+            this.tb_monto.Enter += new System.EventHandler(this.tb_monto_enter);
+            this.tb_monto.Leave += new System.EventHandler(this.tb_monto_leave);
             // 
             // dtp_fecha
             // 

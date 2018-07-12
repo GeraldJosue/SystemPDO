@@ -40,6 +40,7 @@ namespace DataAccess
                     aguinaldo_to.Salario = reader.GetDecimal(3);
                     aguinaldo_to.TransferenciaAguinaldo = reader.GetString(4);
                     aguinaldo_to.EstadoAguinaldo = reader.GetBoolean(5);
+                    aguinaldo_to.Id_General = reader.GetInt32(6);
                 }
                 return aguinaldo_to;
             }
@@ -93,13 +94,14 @@ namespace DataAccess
 
             try
             {
-                SqlCommand query = new SqlCommand("INSERT INTO AGUINALDO VALUES(@colaborador, @fecha, @salario, @transferencia, @estado)", conex);
+                SqlCommand query = new SqlCommand("INSERT INTO AGUINALDO VALUES(@colaborador, @fecha, @salario, @transferencia, @estado, @id_general)", conex);
 
                 query.Parameters.AddWithValue("@colaborador", aguinaldo.IdColaborador);                
                 query.Parameters.AddWithValue("@fecha", aguinaldo.FechaAguinaldo);
                 query.Parameters.AddWithValue("@salario", aguinaldo.Salario);
                 query.Parameters.AddWithValue("@transferencia", aguinaldo.TransferenciaAguinaldo);               
                 query.Parameters.AddWithValue("@estado", aguinaldo.EstadoAguinaldo);
+                query.Parameters.AddWithValue("@id_general", aguinaldo.Id_General);
 
                 if (conex.State != ConnectionState.Open)
                 {
@@ -135,6 +137,7 @@ namespace DataAccess
                 query.Parameters.AddWithValue("@salario", aguinaldo.Salario);
                 query.Parameters.AddWithValue("@transferencia", aguinaldo.TransferenciaAguinaldo);
                 query.Parameters.AddWithValue("@estado", aguinaldo.EstadoAguinaldo);
+                query.Parameters.AddWithValue("@id_general", aguinaldo.Id_General);
 
 
                 if (conex.State != ConnectionState.Open)
@@ -185,6 +188,7 @@ namespace DataAccess
                         aguinaldo.Salario = reader.GetDecimal(3);
                         aguinaldo.TransferenciaAguinaldo = reader.GetString(4);
                         aguinaldo.EstadoAguinaldo = reader.GetBoolean(5);
+                        aguinaldo.Id_General = reader.GetInt32(6);
                         lista.Add(aguinaldo);
                     }
                     return lista;
@@ -265,6 +269,7 @@ namespace DataAccess
                         aguinaldo.Salario = reader.GetDecimal(3);
                         aguinaldo.TransferenciaAguinaldo = reader.GetString(4);
                         aguinaldo.EstadoAguinaldo = reader.GetBoolean(5);
+                        aguinaldo.Id_General = reader.GetInt32(6);
                         lista.Add(aguinaldo);
                     }
                     return lista;
@@ -315,6 +320,7 @@ namespace DataAccess
                         aguinaldo.Salario = reader.GetDecimal(3);
                         aguinaldo.TransferenciaAguinaldo = reader.GetString(4);
                         aguinaldo.EstadoAguinaldo = reader.GetBoolean(5);
+                        aguinaldo.Id_General = reader.GetInt32(6);
                         lista.Add(aguinaldo);
                     }
                     return lista;
