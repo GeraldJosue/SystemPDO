@@ -26,8 +26,7 @@ namespace SystemForms
             listaAguinaldos.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(listaAguinaldos);
-            //llenar_cb_colaborador();
-            //editar = false;
+            
         }
 
         private void bt_agregar_Click(object sender, EventArgs e)
@@ -39,7 +38,22 @@ namespace SystemForms
             //editar = false;
             pn_filtros.Enabled = false;
         }
+
+        public void listar()
+        {
+            listaAguinaldos.obtener_lista_sys();
+            pn_master.Controls.Clear();
+            pn_master.Controls.Add(listaAguinaldos);
+            pn_filtros.Enabled = true;
+        }
        
+        public void listar_aguinaldos_review(Aguinaldo_General general)
+        {
+            aguinaldo_lista_calcular = new Aguinaldo_Lista_Temporal(this, general);
+            aguinaldo_lista_calcular.Dock = DockStyle.Fill;
+            pn_master.Controls.Clear();
+            pn_master.Controls.Add(aguinaldo_lista_calcular);
+        }
         private void bt_listar_Click(object sender, EventArgs e)
         {
             pn_master.Controls.Clear();
@@ -89,14 +103,14 @@ namespace SystemForms
             listaAguinaldos.filtro_fecha(dt_inicio.Value.Date);
         }
 
-        public void setList(List<Aguinaldo> lista)
-        {
-            new Aguinaldo_Editar().agregar_lista(lista);
-            listaAguinaldos.obtener_lista_temps(lista);
-            pn_master.Controls.Clear();
-            pn_master.Controls.Add(listaAguinaldos);
-            pn_filtros.Enabled = true;
-        }
+        //public void setList(List<Aguinaldo_General> lista)
+        //{
+        //    new Aguinaldo_Editar().agregar_lista(lista);
+        //    listaAguinaldos.obtener_lista_temps(lista);
+        //    pn_master.Controls.Clear();
+        //    pn_master.Controls.Add(listaAguinaldos);
+        //    pn_filtros.Enabled = true;
+        //}
 
         public void loadList()
         {
@@ -106,22 +120,7 @@ namespace SystemForms
             pn_filtros.Enabled = true;
         }
 
-        //public void llenar_cb_colaborador()
-        //{
-        //    DataTable dt = new DataTable();
-        //    dt.Columns.Add("Id");
-        //    dt.Columns.Add("Nombre");
-        //    lista = new Colaborador().obtener_lista_activos();
-
-        //    foreach (Colaborador x in lista)
-        //    {
-        //        dt.Rows.Add(x.Id, x.Nombre);
-        //    }
-
-        //    cb_colaboradores.ValueMember = "Id";
-        //    cb_colaboradores.DisplayMember = "Nombre";
-        //    cb_colaboradores.DataSource = dt;
-        //}
+       
 
         private void cb_colaboradores_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -170,13 +169,13 @@ namespace SystemForms
 
         public void editar_temp()
         {
-            aguinaldo_agregar = new Aguinaldo_Editar(aguinaldo_lista_calcular.obtener(), this);
-            aguinaldo_agregar.Dock = DockStyle.Fill;
-            pn_master.Controls.Clear();
-            pn_master.Controls.Add(aguinaldo_agregar);
-            //editar = true;
-            pn_filtros.Enabled = false;
-            cb_activos.Checked = false;
+            //aguinaldo_agregar = new Aguinaldo_Editar(aguinaldo_lista_calcular.obtener(), this);
+            //aguinaldo_agregar.Dock = DockStyle.Fill;
+            //pn_master.Controls.Clear();
+            //pn_master.Controls.Add(aguinaldo_agregar);
+            ////editar = true;
+            //pn_filtros.Enabled = false;
+            //cb_activos.Checked = false;
         }
 
     }

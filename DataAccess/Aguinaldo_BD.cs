@@ -211,6 +211,55 @@ namespace DataAccess
             }
         }
 
+        public List<Aguinaldo_TO> obtener_lista_id_general(int id)
+        {
+            List<Aguinaldo_TO> lista = new List<Aguinaldo_TO>();
+            Aguinaldo_TO aguinaldo;
+            try
+            {
+                SqlCommand query = new SqlCommand("SELECT * FROM AGUINALDO WHERE id_general = @id", conex);
+                query.Parameters.AddWithValue("@id", id);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+
+                SqlDataReader reader = query.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        aguinaldo = new Aguinaldo_TO();
+                        aguinaldo.Id = reader.GetInt32(0);
+                        aguinaldo.IdColaborador = reader.GetInt32(1);
+                        aguinaldo.FechaAguinaldo = reader.GetDateTime(2);
+                        aguinaldo.Salario = reader.GetDecimal(3);
+                        aguinaldo.TransferenciaAguinaldo = reader.GetString(4);
+                        aguinaldo.EstadoAguinaldo = reader.GetBoolean(5);
+                        aguinaldo.Id_General = reader.GetInt32(6);
+                        lista.Add(aguinaldo);
+                    }
+                    return lista;
+                }
+                else
+                {
+                    return lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                return lista;
+            }
+            finally
+            {
+                if (conex.State != System.Data.ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
+
 
         public String string_query(List<Int32> lista)
         {

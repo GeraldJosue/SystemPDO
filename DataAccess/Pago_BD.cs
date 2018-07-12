@@ -246,6 +246,66 @@ namespace DataAccess
             }
         }
 
+        public List<Pago_TO> obtener_lista_fechas(DateTime inicio, DateTime fin)
+        {
+            List<Pago_TO> lista = new List<Pago_TO>();
+            Pago_TO pago;
+            try
+            {
+                SqlCommand query = new SqlCommand("SELECT * FROM PAGO WHERE (fecha_pago BETWEEN @inicio AND @fin) AND estado_pago = 1 ", conex);
+                query.Parameters.AddWithValue("@inicio", inicio);
+                query.Parameters.AddWithValue("@fin", fin);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+
+                SqlDataReader reader = query.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        pago = new Pago_TO();
+                        pago.Id = reader.GetInt32(0);
+                        pago.Id_colaborador = reader.GetInt32(1);
+                        pago.FechaPago = reader.GetDateTime(2);
+                        pago.SalarioBruto = reader.GetDecimal(3);
+                        pago.SalarioNeto = reader.GetDecimal(4);
+                        pago.Rebajo = reader.GetDecimal(5);
+                        pago.HorasLaboradas = reader.GetDecimal(6);
+                        pago.HorasExtra = reader.GetDecimal(7);
+                        pago.TransferenciaPago = reader.GetString(8);
+                        pago.EstadoPago = reader.GetBoolean(9);
+                        pago.Bono = reader.GetDecimal(10);
+                        pago.ProcesoPago = reader.GetBoolean(11);
+                        pago.Vacaciones = reader.GetDecimal(12);
+                        pago.Aguinaldo = reader.GetDecimal(13);
+                        pago.Adelanto = reader.GetDecimal(14);
+                        pago.Seguro = reader.GetDecimal(15);
+                        pago.Id_planilla = reader.GetInt32(16);
+                        lista.Add(pago);
+                    }
+                    return lista;
+                }
+                else
+                {
+                    return lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                return lista;
+            }
+            finally
+            {
+                if (conex.State != System.Data.ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
+
         public List<Pago_TO> obtener_lista_por_planilla(Int32 id_planilla)
         {
             List<Pago_TO> lista = new List<Pago_TO>();

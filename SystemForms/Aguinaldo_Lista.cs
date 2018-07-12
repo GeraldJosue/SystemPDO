@@ -13,7 +13,7 @@ namespace SystemForms
 {
     public partial class Aguinaldo_Lista : UserControl
     {
-        List<Aguinaldo> lista;
+        List<Aguinaldo_General> lista;
         List<Colaborador> lista_col;
         DataTable tableActivos;
         DataTable tableInactivos;
@@ -29,20 +29,14 @@ namespace SystemForms
             this.parent = parent_control;
             lista_col = new Colaborador().obtener_lista_activos();
             tableActivos = new DataTable();
-            tableActivos.Columns.Add("Id");
-            tableActivos.Columns.Add("Colaborador");
+            tableActivos.Columns.Add("Encabezado");           
             tableActivos.Columns.Add("Fecha");
-            tableActivos.Columns.Add("Salario Aguinaldo");
-            tableActivos.Columns.Add("Transferencia");
-            tableActivos.Columns.Add("Estado");
+            tableActivos.Columns.Add("Monto");
 
             tableInactivos = new DataTable();
-            tableInactivos.Columns.Add("Id");
-            tableInactivos.Columns.Add("Colaborador");
+            tableInactivos.Columns.Add("Encabezado");
             tableInactivos.Columns.Add("Fecha");
-            tableInactivos.Columns.Add("Salario Aguinaldo");
-            tableInactivos.Columns.Add("Transferencia");
-            tableInactivos.Columns.Add("Estado");
+            tableInactivos.Columns.Add("Monto");
 
             obtener_lista_sys();
 
@@ -54,16 +48,15 @@ namespace SystemForms
 
         public void obtener_lista_sys()
         {
-            lista = new Aguinaldo().obtener_lista();
+            lista = new Aguinaldo_General().obtener_lista();
             llenar_tabla();
             dgv_Aguinaldo.DataSource = tableActivos;
-            dgv_Aguinaldo.Columns["Id"].Visible = false;
-            dgv_Aguinaldo.Columns["Estado"].Visible = false;
+            
 
         }
 
 
-        public void obtener_lista_temps(List <Aguinaldo> lista_temp)
+        public void obtener_lista_temps(List <Aguinaldo_General> lista_temp)
         {
             lista = lista_temp;
             llenar_tabla();
@@ -84,19 +77,36 @@ namespace SystemForms
         }
 
 
+        //public void llenar_tabla()
+        //{
+        //    tableActivos.Clear();
+        //    tableInactivos.Clear();
+        //    foreach (Aguinaldo_General x in lista)
+        //    {
+        //        if (x.EstadoAguinaldo)
+        //        {
+        //            tableActivos.Rows.Add(x.Id, get_nombre(x.IdColaborador), x.FechaAguinaldo, x.Salario, x.TransferenciaAguinaldo, x.EstadoAguinaldo);
+        //        }
+        //        else
+        //        {
+        //            tableInactivos.Rows.Add(x.Id, x.IdColaborador, x.FechaAguinaldo, x.Salario, x.TransferenciaAguinaldo, x.EstadoAguinaldo);
+        //        }
+        //    }
+        //}
+
         public void llenar_tabla()
         {
             tableActivos.Clear();
             tableInactivos.Clear();
-            foreach (Aguinaldo x in lista)
+            foreach (Aguinaldo_General x in lista)
             {
-                if (x.EstadoAguinaldo)
+                if (x.Estado)
                 {
-                    tableActivos.Rows.Add(x.Id, get_nombre(x.IdColaborador), x.FechaAguinaldo, x.Salario, x.TransferenciaAguinaldo, x.EstadoAguinaldo);
+                    tableActivos.Rows.Add(x.Id, x.Fecha.ToShortDateString(), x.Monto_total.ToString("C"));
                 }
                 else
                 {
-                    tableInactivos.Rows.Add(x.Id, x.IdColaborador, x.FechaAguinaldo, x.Salario, x.TransferenciaAguinaldo, x.EstadoAguinaldo);
+                    tableInactivos.Rows.Add(x.Id, x.Fecha.ToShortDateString(), x.Monto_total.ToString("C"));
                 }
             }
         }
@@ -104,10 +114,10 @@ namespace SystemForms
 
         public Boolean eliminar_sys()
         {
-            Int32 id = Int32.Parse(dgv_Aguinaldo.CurrentRow.Cells["Id"].Value.ToString());
+            Int32 id = Int32.Parse(dgv_Aguinaldo.CurrentRow.Cells["Encabezado"].Value.ToString());
             String transferencia = dgv_Aguinaldo.CurrentRow.Cells["Transferencia"].Value.ToString();
 
-            DialogResult dialogResult = MessageBox.Show("¿Desea establecer pagado el aguinaldo con la transferencia" + transferencia + " ?", "Pagado", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("¿Desea establecer inactivo el aguinaldo con la transferencia" + transferencia + " ?", "Pagado", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 Aguinaldo aguinaldo = new Aguinaldo();
@@ -127,13 +137,11 @@ namespace SystemForms
             return false;
         }
 
-
-
-        public Aguinaldo obtener()
+        public Aguinaldo_General obtener()
         {
-            Aguinaldo aguinaldo = new Aguinaldo();
-            Int32 id = Int32.Parse(dgv_Aguinaldo.CurrentRow.Cells["Id"].Value.ToString());
-            foreach (Aguinaldo x in lista)
+            Aguinaldo_General aguinaldo = new Aguinaldo_General();
+            Int32 id = Int32.Parse(dgv_Aguinaldo.CurrentRow.Cells["Encabezado"].Value.ToString());
+            foreach (Aguinaldo_General x in lista)
             {
                 if (x.Id == id)
                 {
@@ -195,16 +203,9 @@ namespace SystemForms
 
         private void dgv_Aguinaldo_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            new Aguinaldo_Editar(obtener(), parent).Show();
+            Aguinaldo_General general = obtener();
+            parent.listar_aguinaldos_review(general);
         }
 
-        //public void filtro_Col(String nombre)
-        //{
-        //    colaborador = nombre;
-        //    filtro = "(Transferencia Like '%" + texto + "%') AND (Fecha >= #" + fecha + "#) AND (Colaborador Like '#" + nombre + "#)";
-        //    ((DataTable)dgv_Aguinaldo.DataSource).DefaultView.RowFilter = filtro;
-        //}
-
-
-    }
+}
 }

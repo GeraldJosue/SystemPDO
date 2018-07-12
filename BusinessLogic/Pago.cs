@@ -77,6 +77,17 @@ namespace BusinessLogic
             return lista;
         }
 
+        public List<Pago> obtener_lista_fechas(DateTime inicio, DateTime fin)
+        {
+            List<Pago> lista = new List<Pago>();
+            List<Pago_TO> lista_TO = new Pago_BD().obtener_lista_fechas(inicio, fin);
+            foreach (Pago_TO x in lista_TO)
+            {
+                lista.Add(to_to_bl(x));
+            }
+            return lista;
+        }
+
         public List<Pago> obtener_lista_por_planilla(Int32 id_planilla)
         {
             List<Pago> lista = new List<Pago>();

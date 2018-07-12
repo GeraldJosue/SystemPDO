@@ -36,6 +36,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Aguinaldo_Lista_Temporal));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dg_lista_temp = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aguinaldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colaborador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Transferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bt_guardar = new System.Windows.Forms.Button();
             this.bt_calcular = new System.Windows.Forms.Button();
@@ -77,6 +83,13 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dg_lista_temp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dg_lista_temp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_lista_temp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.aguinaldo,
+            this.colaborador,
+            this.salario,
+            this.fecha,
+            this.Transferencia});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -107,8 +120,45 @@
             this.dg_lista_temp.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dg_lista_temp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dg_lista_temp.Size = new System.Drawing.Size(1100, 391);
-            this.dg_lista_temp.TabIndex = 0;            
+            this.dg_lista_temp.TabIndex = 0;
             this.dg_lista_temp.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_lista_temp_CellDoubleClick);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // aguinaldo
+            // 
+            this.aguinaldo.HeaderText = "Aguinaldo";
+            this.aguinaldo.Name = "aguinaldo";
+            this.aguinaldo.ReadOnly = true;
+            // 
+            // colaborador
+            // 
+            this.colaborador.HeaderText = "Colaborador";
+            this.colaborador.Name = "colaborador";
+            this.colaborador.ReadOnly = true;
+            // 
+            // salario
+            // 
+            this.salario.HeaderText = "Salario Aguinaldo";
+            this.salario.Name = "salario";
+            this.salario.ReadOnly = true;
+            // 
+            // fecha
+            // 
+            this.fecha.HeaderText = "Fecha";
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            // 
+            // Transferencia
+            // 
+            this.Transferencia.HeaderText = "Transferencia";
+            this.Transferencia.Name = "Transferencia";
+            this.Transferencia.ReadOnly = true;
             // 
             // panel2
             // 
@@ -129,7 +179,7 @@
             this.bt_guardar.ForeColor = System.Drawing.Color.White;
             this.bt_guardar.Image = ((System.Drawing.Image)(resources.GetObject("bt_guardar.Image")));
             this.bt_guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_guardar.Location = new System.Drawing.Point(986, 3);
+            this.bt_guardar.Location = new System.Drawing.Point(1022, 3);
             this.bt_guardar.Name = "bt_guardar";
             this.bt_guardar.Size = new System.Drawing.Size(75, 50);
             this.bt_guardar.TabIndex = 16;
@@ -141,9 +191,9 @@
             // bt_calcular
             // 
             this.bt_calcular.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.bt_calcular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_calcular.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_calcular.ForeColor = System.Drawing.Color.White;
-            this.bt_calcular.Location = new System.Drawing.Point(736, 3);
+            this.bt_calcular.Location = new System.Drawing.Point(797, 3);
             this.bt_calcular.Name = "bt_calcular";
             this.bt_calcular.Size = new System.Drawing.Size(219, 50);
             this.bt_calcular.TabIndex = 15;
@@ -153,6 +203,7 @@
             // 
             // bg_calcular_aguinaldo
             // 
+            this.bg_calcular_aguinaldo.WorkerReportsProgress = true;
             this.bg_calcular_aguinaldo.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bg_calcular_aguinaldo_DoWork);
             this.bg_calcular_aguinaldo.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bg_calcular_aguinaldo_ProgressChanged);
             this.bg_calcular_aguinaldo.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bg_calcular_aguinaldo_RunWorkerCompleted);
@@ -180,5 +231,11 @@
         private System.Windows.Forms.DataGridView dg_lista_temp;
         private System.Windows.Forms.Button bt_guardar;
         private System.ComponentModel.BackgroundWorker bg_calcular_aguinaldo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aguinaldo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colaborador;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Transferencia;
     }
 }

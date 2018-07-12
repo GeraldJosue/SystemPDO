@@ -46,21 +46,21 @@ namespace SystemForms
             setear_datos();
         }
 
-        public Boolean agregar_sys()
-        {
-            Aguinaldo aguinaldo = obtener_datos();
-            if (aguinaldo.agregar())
-            {
-                MessageBox.Show("Aguinaldo agregado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+        //public Boolean agregar_sys()
+        //{
+        //    Aguinaldo aguinaldo = obtener_datos();
+        //    if (aguinaldo.agregar())
+        //    {
+        //        MessageBox.Show("Aguinaldo agregado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        return false;
+        //    }
 
-        }
+        //}
 
         public Boolean agregar_lista(List<Aguinaldo> list)
         {
@@ -76,44 +76,43 @@ namespace SystemForms
             return true;
         }
 
-        public Boolean editar_sys()
+        //public Boolean editar_sys()
+        //{
+        //    Aguinaldo aguinaldo = obtener_datos();
+        //    aguinaldo.Id = this.aguinaldo.Id;
+        //    List<Int32> lista = validar_cambios(aguinaldo);
+        //    if (lista.Count == 0)
+        //    {
+        //        return true;
+        //    }
+        //    else if (aguinaldo.editar(lista))
+        //    {
+        //        MessageBox.Show("Aguinaldo editado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        return false;
+        //    }
+
+        //}
+
+        //public Aguinaldo editar_temp()
+        //{
+        //    //Aguinaldo aguinaldo = obtener_datos();
+        //    //return aguinaldo;
+        //}
+
+        public void obtener_datos()
         {
-            Aguinaldo aguinaldo = obtener_datos();
-            aguinaldo.Id = this.aguinaldo.Id;
-            List<Int32> lista = validar_cambios(aguinaldo);
-            if (lista.Count == 0)
-            {
-                return true;
-            }
-            else if (aguinaldo.editar(lista))
-            {
-                MessageBox.Show("Aguinaldo editado con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("Ocurrió un error", "Ups!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-        }
-
-        public Aguinaldo editar_temp()
-        {
-            Aguinaldo aguinaldo = obtener_datos();
-            return aguinaldo;
-        }
-
-        public Aguinaldo obtener_datos()
-        {
-
-            Int32 colaborador = -1;
             DateTime fecha = dtp_fecha.Value.Date;
             Decimal salarioAguinaldo = tb_monto.Text.Equals("") ? 0 : Decimal.Parse(Convert.ToString(tb_monto.Tag));
             String transferencia = tb_transferencia.Text.Equals("") ? "No disponible" : tb_transferencia.Text;
 
-            //Revisar datos por defecto
-            return new Aguinaldo(aguinaldo.Id, colaborador, fecha, salarioAguinaldo, transferencia, true, 0);
+            aguinaldo.FechaAguinaldo = fecha;
+            aguinaldo.Salario = salarioAguinaldo;
+            aguinaldo.TransferenciaAguinaldo = transferencia;
         }
 
         public void setear_datos()
@@ -197,17 +196,8 @@ namespace SystemForms
 
         private void bt_guardar_Click_1(object sender, EventArgs e)
         {
-            if (temp)
-            {
-                parent_temp.set_lista(editar_temp());
-            }
-            else
-            {
-                if (editar_sys())
-                {
-                    parent.loadList();
-                }
-            }
+            obtener_datos();
+            parent_temp.llenar_tabla();
             this.Close();
         }
 

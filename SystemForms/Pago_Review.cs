@@ -155,7 +155,6 @@ namespace SystemForms
                     return lista_cambios;
                 }
             }
-        
             return lista_cambios;
         }
 

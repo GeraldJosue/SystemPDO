@@ -110,9 +110,9 @@ namespace BusinessLogic
             if (tiene_vacaciones(colaborador))
             {
                 DateTime primer_registro = colaborador.obtener_primer_registro();
-                DateTime año_vacaciones = primer_registro.Add(new TimeSpan(AÑO, 0, 0, 0));
+                DateTime año_vacaciones = primer_registro.AddDays(365);
                 TimeSpan temp = DateTime.Today - año_vacaciones;
-                cant_dias_vacaciones += Convert.ToInt32(temp.Days / 31);
+                cant_dias_vacaciones += Convert.ToInt32(temp.Days / 30);
             }
             return cant_dias_vacaciones;
         }
