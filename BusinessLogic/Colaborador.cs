@@ -161,9 +161,25 @@ namespace BusinessLogic
             return colaborador;
         }
 
+        public List<Colaborador> existen_colaboradores_con_vacacion()
+        {
+            List<Colaborador> lista = new List<Colaborador>();
+            List<Colaborador_TO> lista_TO = new Colaborador_BD().existe_colaboradores_vacacion();
+            foreach (Colaborador_TO x in lista_TO)
+            {
+                lista.Add(to_to_bl(x));
+            }
+            return lista;
+        }
+
         public DateTime obtener_primer_registro()
         {
-            return new Colaborador_BD().obtener_primer_registro(this.Id);
+            return new Registro_BD().obtener_primer_registro(this.Id);
+        }
+
+        public int obtener_vacaciones()
+        {
+            return new Colaborador_BD().obtener_vacaciones(this.Id);
         }
 
         public Colaborador obtener_precio_hora()
@@ -178,7 +194,23 @@ namespace BusinessLogic
             this.Nombre = colaborador_TO.Nombre;
             this.Apellido = colaborador_TO.Apellido;
             this.Segundo_apellido = colaborador_TO.Segundo_apellido;
+            this.Vacaciones = colaborador_TO.Vacaciones;
             return this;
+        }
+        public Boolean reducir_vacaciones(int dias_vacaciones)
+        {
+            Colaborador_TO colaborador = new Colaborador_TO();
+            colaborador.Id = this.Id;
+            colaborador.Vacaciones += dias_vacaciones;
+            return new Colaborador_BD().reducir_vacaciones(colaborador);
+        }
+
+        public Boolean aumentar_vacaciones(int dias_vacaciones)
+        {
+            Colaborador_TO colaborador = new Colaborador_TO();
+            colaborador.Id = this.Id;
+            colaborador.Vacaciones += dias_vacaciones;
+            return new Colaborador_BD().reducir_vacaciones(colaborador);
         }
 
     }

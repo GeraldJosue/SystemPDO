@@ -274,5 +274,44 @@ namespace DataAccess
             mega_query += " WHERE id_registro = @Id";
             return mega_query;
         }
+
+        public DateTime obtener_primer_registro(int id_colaborador)
+        {
+            DateTime primer_registro = DateTime.Today;
+            try
+            {
+                SqlCommand query = new SqlCommand("SELECT MIN(fecha_registro) FROM REGISTRO WHERE id_colaborador = @Id_Colaborador", conex);
+                query.Parameters.AddWithValue("@Id_Colaborador", id_colaborador);
+
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+
+                SqlDataReader reader = query.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        primer_registro = reader.GetDateTime(0);
+                    }
+                }
+                return primer_registro;
+
+            }
+            catch (Exception ex)
+            {
+                return primer_registro;
+            }
+            finally
+            {
+                if (conex.State != System.Data.ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
+
     }
+
 }

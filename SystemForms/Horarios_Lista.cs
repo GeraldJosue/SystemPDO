@@ -21,8 +21,9 @@ namespace SystemForms
         DateTime hora_fin;
 
         List<Horario> lista;
+        Horarios_Control parent;
 
-        public Horarios_Lista()
+        public Horarios_Lista(Horarios_Control parent)
         {
             InitializeComponent();
             dt_horarios_activos = new DataTable();
@@ -41,6 +42,7 @@ namespace SystemForms
 
             obtener_lista_sys();
             texto = "";
+            this.parent = parent;
         }
 
         public void obtener_lista_sys()
@@ -179,6 +181,17 @@ namespace SystemForms
             hora_fin = hora;
             filtro = "(Nombre Like '%" + texto + "%') AND ([Hora Inicio] >= #" + hora_inicio.TimeOfDay + "# AND [Hora Fin] <= #" + hora_fin.TimeOfDay + "#)";
             ((DataTable)dg_horarios.DataSource).DefaultView.RowFilter = filtro;
+        }
+
+        private void dg_horarios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Horarios_Agregar nuevo_horario;
+            if (existen_registros())
+            {
+                nuevo_horario = new Horarios_Agregar(obtener());
+                nuevo_horario.Dock = DockStyle.Fill;
+                parent.limpiar_pn_master(nuevo_horario);
+            }
         }
     }
 }

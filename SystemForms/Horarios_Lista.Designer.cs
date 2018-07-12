@@ -94,6 +94,7 @@
             this.dg_horarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dg_horarios.Size = new System.Drawing.Size(1158, 511);
             this.dg_horarios.TabIndex = 0;
+            this.dg_horarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_horarios_CellDoubleClick);
             // 
             // Horarios_Lista
             // 

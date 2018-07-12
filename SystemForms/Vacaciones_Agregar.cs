@@ -17,16 +17,17 @@ namespace SystemForms
         List<Colaborador> lista_colaboradores;
         Colaborador colaborador;
         Boolean editar;
+        int cant_dias_vacaciones;
         public Vacaciones_Agregar()
         {
             InitializeComponent();
             vacacion = new Vacacion();
             colaborador = new Colaborador();
             llenar_cb_colaboradores();
-            tb_cantidad_dias.Text = "0";
+            lb_cantidad_dias.Text = "0";
             rb_activo.Checked = true;
             editar = false;
-            setear_fechas_Y_salario();
+            //setear_fechas_Y_salario();
         }
 
         public Vacaciones_Agregar(Vacacion vacacion)
@@ -34,6 +35,7 @@ namespace SystemForms
             InitializeComponent();
             this.vacacion = vacacion;
             colaborador = new Colaborador();
+            lista_colaboradores = colaborador.obtener_lista_activos();
             setear_datos();
             rb_activo.Checked = true;
         }
@@ -41,6 +43,7 @@ namespace SystemForms
         private void llenar_cb_colaboradores()
         { 
             lista_colaboradores = colaborador.obtener_lista_activos();
+            colaborador = lista_colaboradores[0];
             cb_colaborador.ValueMember = "Id";
             cb_colaborador.DisplayMember = "Nombre Completo";
             cb_colaborador.DataSource = llenar_dt_colaboradores();
@@ -71,7 +74,7 @@ namespace SystemForms
             cb_colaborador.Text = colaborador.Nombre + " " + colaborador.Apellido + " " + colaborador.Segundo_apellido;
             cb_colaborador.Enabled = false;
 
-            tb_dias_vacaciones_disp.Text = vacacion.total_cant_dias_vacaciones(colaborador).ToString();
+            lb_dias_disponibles_vacaciones.Text = vacacion.total_cant_dias_vacaciones(colaborador).ToString();
             dtp_fecha_salida.Value = vacacion.Fecha_Salida;
             dtp_fecha_regreso.Value = vacacion.Fecha_Regreso;
 
@@ -91,6 +94,8 @@ namespace SystemForms
             vacacion = obtener_datos();
             if (vacacion.agregar())
             {
+                buscar_colaborador(Convert.ToInt32(cb_colaborador.SelectedValue));
+                colaborador.reducir_vacaciones(Convert.ToInt32(lb_cantidad_dias.Text) + colaborador.Vacaciones);
                 MessageBox.Show("La vacación fue agregada con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
             }
@@ -103,6 +108,7 @@ namespace SystemForms
 
         public Boolean editar_sys()
         {
+            Int32 original = this.vacacion.Numero_Dias;
             BusinessLogic.Vacacion vacacion = obtener_datos();
             vacacion.Id = this.vacacion.Id;
             List<Int32> lista = validar_cambios(vacacion);
@@ -112,7 +118,17 @@ namespace SystemForms
             }
             else if (vacacion.editar(lista))
             {
-                MessageBox.Show("Vacacion editada con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                buscar_colaborador(Convert.ToInt32(cb_colaborador.SelectedValue));
+                if (original < (Convert.ToInt32(lb_cantidad_dias.Text)))
+                {
+                    colaborador.reducir_vacaciones((Convert.ToInt32(lb_cantidad_dias.Text) - original) + colaborador.Vacaciones);
+                    MessageBox.Show("Vacacion editada con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (original > (Convert.ToInt32(lb_cantidad_dias.Text)))
+                {
+                    colaborador.reducir_vacaciones(colaborador.Vacaciones - (original - Convert.ToInt32(lb_cantidad_dias.Text)));
+                    MessageBox.Show("Vacacion editada con éxito", "Excelente!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 return true;
             }
             else
@@ -130,8 +146,8 @@ namespace SystemForms
             }
             DateTime fecha_salida = dtp_fecha_salida.Value;
             DateTime fecha_regreso = dtp_fecha_regreso.Value;
-            int cant_dias = Int32.Parse(tb_cantidad_dias.Text.ToString());
-            Decimal salario_vacaciones = Decimal.Parse(tb_salario.Text.ToString());
+            int cant_dias = Int32.Parse(lb_cantidad_dias.Text.ToString());
+            Decimal salario_vacaciones = Decimal.Parse(lb_salario_vacaciones.Text.ToString());
             Boolean estado = rb_activo.Checked ? true : rb_inactivo.Checked ? false : true;
 
             return new Vacacion(0, colaborador.Id, fecha_salida, fecha_regreso, cant_dias, salario_vacaciones, string.Empty, estado);
@@ -169,10 +185,10 @@ namespace SystemForms
             setear_fechas_Y_salario();
             if(cantidad_dias() >= 0)
             {
-                tb_cantidad_dias.Text = cantidad_dias().ToString();
+                lb_cantidad_dias.Text = cantidad_dias().ToString();
             } else
             {
-                tb_cantidad_dias.Text = "0";                
+                lb_cantidad_dias.Text = "0";                
             }
             
         }
@@ -183,19 +199,19 @@ namespace SystemForms
             
             if (cantidad_dias() >= 0)
             {
-                tb_cantidad_dias.Text = cantidad_dias().ToString();
+                lb_cantidad_dias.Text = cantidad_dias().ToString();
                
             }
             else
             {
-                tb_cantidad_dias.Text = "0";
+                lb_cantidad_dias.Text = "0";
             }
         }
 
         private void cb_colaborador_SelectedIndexChanged(object sender, EventArgs e)
         {
             setear_fechas_Y_salario();
-            tb_dias_vacaciones_disp.Text = vacacion.total_cant_dias_vacaciones(colaborador).ToString();
+            lb_dias_disponibles_vacaciones.Text = Convert.ToString(cant_dias_vacaciones);
         }
 
         private Boolean setear_fechas_Y_salario()
@@ -203,14 +219,25 @@ namespace SystemForms
             if (validar_fecha_regreso()) return true;
            
             Decimal salario = vacacion.monto_dia(colaborador) * cantidad_dias(); //Salario de las vacaciones = monto por dia * cantidad de dias de vacaciones
-            tb_salario.Text = Convert.ToString(salario);
+            lb_salario_vacaciones.Text = Convert.ToString(salario);
             if (!editar)
             {
-                colaborador.Id = Int32.Parse(cb_colaborador.SelectedValue.ToString());
+                buscar_colaborador(Int32.Parse(cb_colaborador.SelectedValue.ToString()));
             }
-            int cant_dias_vacaciones = vacacion.total_cant_dias_vacaciones(colaborador);
-            dtp_fecha_regreso.MaxDate = dtp_fecha_salida.Value.Add(new TimeSpan(cant_dias_vacaciones, 0, 0, 0));
+            cant_dias_vacaciones = vacacion.total_cant_dias_vacaciones(colaborador);
+            //dtp_fecha_regreso.MaxDate = dtp_fecha_salida.Value.Add(new TimeSpan(cant_dias_vacaciones, 0, 0, 0));
             return true; 
+        }
+
+        public void buscar_colaborador(Int32 id)
+        {
+            foreach(Colaborador c in lista_colaboradores)
+            {
+                if(c.Id == id)
+                {
+                    colaborador = c;
+                }
+            }
         }
 
         public int cantidad_dias()

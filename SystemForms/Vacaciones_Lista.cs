@@ -14,11 +14,12 @@ namespace SystemForms
         String texto;
         String fecha_salida;
         String fecha_regreso;
-
+        Vacaciones_Control parent;
         List<Vacacion> lista;
-        public Vacaciones_Lista()
+        public Vacaciones_Lista(Vacaciones_Control parent)
         {
             InitializeComponent();
+            this.parent = parent;
 
             dt_vacaciones_activos = new DataTable();
             dt_vacaciones_activos.Columns.Add("Id");
@@ -188,6 +189,17 @@ namespace SystemForms
             fecha_regreso = date.Month + "/" + date.Day + "/" + date.Year;
             filtro = "(Nombre Like '%" + texto + "%' OR Apellidos Like '%" + texto + "%') AND ([Fecha Salida] >= #" + fecha_salida + "# AND [Fecha Regreso] <= #" + fecha_regreso + "#)";
             ((DataTable)dg_vacaciones.DataSource).DefaultView.RowFilter = filtro;
+        }
+
+        private void dg_vacaciones_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Vacaciones_Agregar nuevo_horario;
+            if (existen_registros())
+            {
+                nuevo_horario = new Vacaciones_Agregar(obtener());
+                nuevo_horario.Dock = DockStyle.Fill;
+                parent.limpiar_pn_master(nuevo_horario);
+            }
         }
     }
 }
