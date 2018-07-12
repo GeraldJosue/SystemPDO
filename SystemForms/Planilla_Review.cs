@@ -94,5 +94,7 @@ namespace SystemForms
         {
             parent.lista_review_pagos(buscar_planilla(), true);
         }
+
+      
     }
 }

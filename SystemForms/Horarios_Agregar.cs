@@ -133,7 +133,7 @@ namespace SystemForms
             DateTime hora_fin = dt_hora_fin.Value;
             Decimal horas = hora_fin.Hour - hora_inicio.Hour; 
             Boolean estado = rb_activo.Checked ? true : rb_inactivo.Checked ? false : true;
-            return new Horario(0, nombre, hora_inicio, hora_fin, estado, horas);
+            return new Horario(0, nombre, hora_inicio, hora_fin, estado, --horas);
         }
 
 

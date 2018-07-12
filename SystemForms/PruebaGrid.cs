@@ -21,7 +21,19 @@ namespace SystemForms
         public PruebaGrid()
         {
             InitializeComponent();
+            List<Pago> lista = new List<Pago>();
 
+            lista.Add(new Pago(0, 2, DateTime.Now, 1000, 900, 0, 6, 2, "", true, 0, true, 0, 0, 0, 100, 1172018));
+            lista.Add(new Pago(0, 3, DateTime.Now, 2000, 1900, 0, 6, 2, "", true, 0, true, 0, 0, 0, 100, 672018));
+            lista.Add(new Pago(0, 4, DateTime.Now, 3000, 2900, 0, 6, 2, "", true, 0, true, 0, 0, 0, 100, 2862018));
+            lista.Add(new Pago(0, 3, DateTime.Now, 4000, 3900, 0, 6, 2, "", true, 0, true, 0, 0, 0, 100, 342018));
+            lista.Add(new Pago(0, 2, DateTime.Now, 5000, 5900, 0, 6, 2, "", true, 0, true, 0, 0, 0, 100, 1022018));
+            new ExcelManager().export(lista);
+
+        }
+
+        public void iniciar()
+        {
             List<Departamento> lista = new List<Departamento>();
 
             lista.Add(new Departamento(1, "rrhh", true));
@@ -30,20 +42,18 @@ namespace SystemForms
 
             List<Departamento> listab = lista;
 
-            foreach(Departamento d in listab)
+            foreach (Departamento d in listab)
             {
                 d.Nombre = "cmbio";
             }
-            
+
             oDateTimePicker = new DateTimePicker();
-            
+
 
             for (int i = 0; i < 6; i++)
             {
                 dataGridView1.Rows.Add("Prueba", "Prueba", "Prueba", 2, 2, 4);
             }
-            
-
         }
 
         public void llenar_cb()
@@ -117,7 +127,7 @@ namespace SystemForms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string ss = DateTime.Now.ToString("MMddyyyy");
+            //new ExcelManager().export();
         }
 
         private void cb_año_SelectedIndexChanged(object sender, EventArgs e)

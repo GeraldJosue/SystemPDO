@@ -86,17 +86,6 @@ namespace SystemForms
             //bt_cancelar.Enabled = cancelar;
         }
 
-        private void bt_editar_Click(object sender, EventArgs e)
-        {
-            //nuevoPago = new Pago_Editar(listaPagos.obtener());
-            //nuevoPago.Dock = DockStyle.Fill;
-            pn_master.Controls.Clear();
-            //pn_master.Controls.Add(nuevoPago);
-            pn_filtros.Enabled = false;
-            visibilidad(true, false, true);
-            editar = true;
-        }
-
         private void bt_listar_Click(object sender, EventArgs e)
         {
             listar_pagos();
