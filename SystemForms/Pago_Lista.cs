@@ -80,6 +80,7 @@ namespace SystemForms
         {
             Planilla planilla = new Planilla();
 
+
             Int32 id = Int32.Parse(dg_Pagos.CurrentRow.Cells["Encabezado"].Value.ToString());
             foreach (Planilla x in lista)
             {
@@ -146,6 +147,18 @@ namespace SystemForms
         private void dg_Pagos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             parent.lista_review_pagos(obtener(), false);
+        }
+
+        private void bt_exportar_Click(object sender, EventArgs e)
+        {
+            if (lista.Count != 0)
+            {
+                List<Pago> lista = new Pago().obtener_lista_por_planilla(obtener().Id);
+                new ExcelManager().export(lista);
+            } else
+            {
+                MessageBox.Show("No existen planillas");
+            }
         }
     }
 }

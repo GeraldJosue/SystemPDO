@@ -37,7 +37,6 @@
             this.num_porcent_seguro = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.bt_guardar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pn_master.SuspendLayout();
@@ -70,7 +69,6 @@
             // pn_master
             // 
             this.pn_master.Controls.Add(this.pa_informacion);
-            this.pn_master.Controls.Add(this.label18);
             this.pn_master.Location = new System.Drawing.Point(0, 101);
             this.pn_master.Name = "pn_master";
             this.pn_master.Size = new System.Drawing.Size(1164, 502);
@@ -84,7 +82,7 @@
             this.pa_informacion.Controls.Add(this.num_porcent_seguro);
             this.pa_informacion.Controls.Add(this.label2);
             this.pa_informacion.Controls.Add(this.label3);
-            this.pa_informacion.Location = new System.Drawing.Point(35, 68);
+            this.pa_informacion.Location = new System.Drawing.Point(370, 73);
             this.pa_informacion.Name = "pa_informacion";
             this.pa_informacion.Size = new System.Drawing.Size(446, 234);
             this.pa_informacion.TabIndex = 20;
@@ -137,16 +135,6 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Porcentaje de seguro";
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(32, 47);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(274, 18);
-            this.label18.TabIndex = 21;
-            this.label18.Text = "INFORMACIÓN DE CONFIGURACIÓN";
-            // 
             // bt_guardar
             // 
             this.bt_guardar.BackColor = System.Drawing.Color.LimeGreen;
@@ -179,7 +167,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pn_master.ResumeLayout(false);
-            this.pn_master.PerformLayout();
             this.pa_informacion.ResumeLayout(false);
             this.pa_informacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_porcent_hora_extra)).EndInit();
@@ -196,7 +183,6 @@
         private System.Windows.Forms.Button bt_guardar;
         private System.Windows.Forms.Panel pa_informacion;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown num_porcent_hora_extra;
         private System.Windows.Forms.NumericUpDown num_porcent_seguro;

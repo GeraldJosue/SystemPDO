@@ -111,7 +111,7 @@
             this.dt_fin.Name = "dt_fin";
             this.dt_fin.Size = new System.Drawing.Size(200, 26);
             this.dt_fin.TabIndex = 5;
-            this.dt_fin.Value = new System.DateTime(2018, 7, 4, 16, 50, 48, 0);
+            this.dt_fin.Value = new System.DateTime(2018, 7, 11, 0, 0, 0, 0);
             this.dt_fin.ValueChanged += new System.EventHandler(this.dt_fin_ValueChanged);
             // 
             // dt_inicio

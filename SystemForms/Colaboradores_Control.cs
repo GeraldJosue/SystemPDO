@@ -68,14 +68,6 @@ namespace SystemForms
             pn_filtros.Enabled = true;
         }
 
-        private void bt_editar_Click(object sender, EventArgs e)
-        {
-            nuevo_colaborador = new Colaboradores_Agregar(lista_colaboradores.obtener(), this);
-            nuevo_colaborador.Dock = DockStyle.Fill;
-            pn_master.Controls.Clear();
-            pn_master.Controls.Add(nuevo_colaborador);
-        }
-
         public void editar_col()
         {
             nuevo_colaborador = new Colaboradores_Agregar(lista_colaboradores.obtener(), this);

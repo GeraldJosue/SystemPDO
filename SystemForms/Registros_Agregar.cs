@@ -227,7 +227,7 @@ namespace SystemForms
             Int32 flag = 0;
             while (DateTime.Compare(dt_fin.Value.Date, date.AddDays(flag)) >= 0)
             {
-                dg_registros.Rows.Add(true, date.AddDays(flag++).ToLongDateString(), horario.Hora_Inicio.ToShortTimeString(), horario.Hora_Fin.ToShortTimeString(), horario.Horas, 0, date.AddHours(horario.Hora_Inicio.Hour + 2).ToShortTimeString(), date.AddHours(12).ToShortTimeString(), date.AddHours(horario.Hora_Fin.Hour - 2).ToShortTimeString()); 
+                dg_registros.Rows.Add(true, date.AddDays(flag++).ToLongDateString(), horario.Hora_Inicio.ToShortTimeString(), horario.Hora_Fin.ToShortTimeString(), Convert.ToDecimal(horario.Horas - 1), Convert.ToDecimal(0), date.AddHours(horario.Hora_Inicio.Hour + 2).ToShortTimeString(), date.AddHours(12).ToShortTimeString(), date.AddHours(horario.Hora_Fin.Hour - 2).ToShortTimeString()); 
             }
             dg_horas_totales.Rows.Clear();
             dg_horas_totales.Rows.Add(0, 0);
@@ -241,7 +241,7 @@ namespace SystemForms
             cb_colaborador.Enabled = false;
             cb_departamento.Enabled = false;
            
-            dg_registros.Rows.Add(true, registro.Fecha.ToLongDateString(), registro.Entrada.ToShortTimeString(), registro.Salida.ToShortTimeString(), registro.Horas, registro.Extras, registro.Desayuno.ToShortTimeString(), registro.Almuerzo.ToShortTimeString(), registro.Cafe.ToShortTimeString());
+            dg_registros.Rows.Add(true, registro.Fecha.ToLongDateString(), registro.Entrada.ToShortTimeString(), registro.Salida.ToShortTimeString(), Convert.ToDecimal(registro.Horas - 1), Convert.ToDecimal(registro.Extras), registro.Desayuno.ToShortTimeString(), registro.Almuerzo.ToShortTimeString(), registro.Cafe.ToShortTimeString());
             dg_horas_totales.Rows.Clear();
             dg_horas_totales.Rows.Add(0, 0);
             calcular_horas();
@@ -283,34 +283,42 @@ namespace SystemForms
             
             if (e.ColumnIndex == 2 || e.ColumnIndex == 3 || e.ColumnIndex == 6 || e.ColumnIndex == 7 || e.ColumnIndex == 8)
             {
-                
-                //Initialized a new DateTimePicker Control  
-                dtp_generico = new DateTimePicker();
-                dtp_generico.Value = DateTime.Parse(dg_registros.CurrentCell.Value.ToString());
-                //Adding DateTimePicker control into DataGridView   
-                dg_registros.Controls.Add(dtp_generico);
+                try
+                {
+                    //Initialized a new DateTimePicker Control  
+                    dtp_generico = new DateTimePicker();
+                    dtp_generico.Value = DateTime.Parse(dg_registros.CurrentCell.Value.ToString());
+                    //Adding DateTimePicker control into DataGridView   
+                    dg_registros.Controls.Add(dtp_generico);
 
-                // Setting the format (i.e. 2014-10-10)  
-                dtp_generico.Format = DateTimePickerFormat.Time;
-                dtp_generico.ShowUpDown = true;
+                    // Setting the format (i.e. 2014-10-10)  
+                    dtp_generico.Format = DateTimePickerFormat.Time;
+                    dtp_generico.ShowUpDown = true;
 
-                // It returns the retangular area that represents the Display area for a cell  
-                Rectangle oRectangle = dg_registros.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+                    // It returns the retangular area that represents the Display area for a cell  
+                    Rectangle oRectangle = dg_registros.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
 
-                //Setting area for DateTimePicker Control  
-                dtp_generico.Size = new Size(oRectangle.Width, oRectangle.Height);
+                    //Setting area for DateTimePicker Control  
+                    dtp_generico.Size = new Size(oRectangle.Width, oRectangle.Height);
 
-                // Setting Location  
-                dtp_generico.Location = new Point(oRectangle.X, oRectangle.Y);
+                    // Setting Location  
+                    dtp_generico.Location = new Point(oRectangle.X, oRectangle.Y);
 
-                // An event attached to dateTimePicker Control which is fired when DateTimeControl is closed  
-                //dtp_generico.CloseUp += new EventHandler(dtp_generico_OnTextChange);
+                    // An event attached to dateTimePicker Control which is fired when DateTimeControl is closed  
+                    //dtp_generico.CloseUp += new EventHandler(dtp_generico_OnTextChange);
 
-                // An event attached to dateTimePicker Control which is fired when any date is selected  
-                dtp_generico.TextChanged += new EventHandler(dtp_generico_OnTextChange);
+                    // An event attached to dateTimePicker Control which is fired when any date is selected  
+                    dtp_generico.TextChanged += new EventHandler(dtp_generico_OnTextChange);
 
-                // Now make it visible  
-                dtp_generico.Visible = true;
+                    // Now make it visible  
+                    dtp_generico.Visible = true;
+                }
+                catch (Exception ex)
+                {
+                }
+                finally
+                {
+                }
             }
         }
 
@@ -346,19 +354,15 @@ namespace SystemForms
         {
             Decimal horas = salida.Hour - entrada.Hour;
 
-            if(salida.Hour > 12 && entrada.Hour < 12)
-            {
-                --horas;
-            }
             if (horas > horario.Horas) {
 
-                dg_registros.Rows[e.RowIndex].Cells["horas_laboradas"].Value = horario.Horas;
-                dg_registros.Rows[e.RowIndex].Cells["horas_extras"].Value = horas - horario.Horas;
+                dg_registros.Rows[e.RowIndex].Cells["horas_laboradas"].Value = Convert.ToDecimal(horario.Horas - 1);
+                dg_registros.Rows[e.RowIndex].Cells["horas_extras"].Value = Convert.ToDecimal(horas - horario.Horas);
 
             } else
             {
-                dg_registros.Rows[e.RowIndex].Cells["horas_laboradas"].Value = horas;
-                dg_registros.Rows[e.RowIndex].Cells["horas_extras"].Value = 0;
+                dg_registros.Rows[e.RowIndex].Cells["horas_laboradas"].Value = Convert.ToDecimal((salida.Hour - entrada.Hour) - 1);
+                dg_registros.Rows[e.RowIndex].Cells["horas_extras"].Value = Convert.ToDecimal(0);
             }
             calcular_horas();
         }

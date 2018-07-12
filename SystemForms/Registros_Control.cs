@@ -83,11 +83,6 @@ namespace SystemForms
             pn_filtros.Enabled = true;
         }
 
-        private void bt_editar_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         public void editar_registro(Registro registro, Colaborador colaborador, Horario horario)
         {
             nuevo_registro = new Registros_Agregar(registro, colaborador, horario, this);

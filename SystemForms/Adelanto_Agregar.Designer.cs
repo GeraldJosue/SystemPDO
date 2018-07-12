@@ -47,8 +47,7 @@
             // pn_agregar
             // 
             this.pn_agregar.BackColor = System.Drawing.Color.White;
-            this.pn_agregar.Controls.Add(this.bt_cancelar);
-            this.pn_agregar.Controls.Add(this.bt_guardar);
+            this.pn_agregar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pn_agregar.Controls.Add(this.rb_inactivo);
             this.pn_agregar.Controls.Add(this.rb_activo);
             this.pn_agregar.Controls.Add(this.dt_fecha);
@@ -58,9 +57,9 @@
             this.pn_agregar.Controls.Add(this.tb_monto);
             this.pn_agregar.Controls.Add(this.lb_monto);
             this.pn_agregar.Controls.Add(this.lb_colaborador);
-            this.pn_agregar.Location = new System.Drawing.Point(3, 3);
+            this.pn_agregar.Location = new System.Drawing.Point(178, 59);
             this.pn_agregar.Name = "pn_agregar";
-            this.pn_agregar.Size = new System.Drawing.Size(1155, 452);
+            this.pn_agregar.Size = new System.Drawing.Size(773, 268);
             this.pn_agregar.TabIndex = 0;
             // 
             // bt_cancelar
@@ -73,7 +72,7 @@
             this.bt_cancelar.ForeColor = System.Drawing.Color.White;
             this.bt_cancelar.Image = ((System.Drawing.Image)(resources.GetObject("bt_cancelar.Image")));
             this.bt_cancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_cancelar.Location = new System.Drawing.Point(840, 332);
+            this.bt_cancelar.Location = new System.Drawing.Point(1075, 389);
             this.bt_cancelar.Name = "bt_cancelar";
             this.bt_cancelar.Size = new System.Drawing.Size(80, 50);
             this.bt_cancelar.TabIndex = 49;
@@ -92,7 +91,7 @@
             this.bt_guardar.ForeColor = System.Drawing.Color.White;
             this.bt_guardar.Image = ((System.Drawing.Image)(resources.GetObject("bt_guardar.Image")));
             this.bt_guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.bt_guardar.Location = new System.Drawing.Point(740, 332);
+            this.bt_guardar.Location = new System.Drawing.Point(975, 389);
             this.bt_guardar.Name = "bt_guardar";
             this.bt_guardar.Size = new System.Drawing.Size(75, 50);
             this.bt_guardar.TabIndex = 48;
@@ -105,7 +104,7 @@
             // 
             this.rb_inactivo.AutoSize = true;
             this.rb_inactivo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_inactivo.Location = new System.Drawing.Point(809, 221);
+            this.rb_inactivo.Location = new System.Drawing.Point(595, 156);
             this.rb_inactivo.Name = "rb_inactivo";
             this.rb_inactivo.Size = new System.Drawing.Size(89, 24);
             this.rb_inactivo.TabIndex = 9;
@@ -118,7 +117,7 @@
             this.rb_activo.AutoSize = true;
             this.rb_activo.Checked = true;
             this.rb_activo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_activo.Location = new System.Drawing.Point(727, 221);
+            this.rb_activo.Location = new System.Drawing.Point(513, 156);
             this.rb_activo.Name = "rb_activo";
             this.rb_activo.Size = new System.Drawing.Size(76, 24);
             this.rb_activo.TabIndex = 8;
@@ -129,7 +128,7 @@
             // dt_fecha
             // 
             this.dt_fecha.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dt_fecha.Location = new System.Drawing.Point(704, 116);
+            this.dt_fecha.Location = new System.Drawing.Point(490, 51);
             this.dt_fecha.Name = "dt_fecha";
             this.dt_fecha.Size = new System.Drawing.Size(216, 26);
             this.dt_fecha.TabIndex = 7;
@@ -138,7 +137,7 @@
             // 
             this.lb_Estado.AutoSize = true;
             this.lb_Estado.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Estado.Location = new System.Drawing.Point(633, 220);
+            this.lb_Estado.Location = new System.Drawing.Point(419, 155);
             this.lb_Estado.Name = "lb_Estado";
             this.lb_Estado.Size = new System.Drawing.Size(62, 20);
             this.lb_Estado.TabIndex = 6;
@@ -148,7 +147,7 @@
             // 
             this.lb_fecha.AutoSize = true;
             this.lb_fecha.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_fecha.Location = new System.Drawing.Point(633, 116);
+            this.lb_fecha.Location = new System.Drawing.Point(419, 51);
             this.lb_fecha.Name = "lb_fecha";
             this.lb_fecha.Size = new System.Drawing.Size(55, 20);
             this.lb_fecha.TabIndex = 5;
@@ -158,7 +157,7 @@
             // 
             this.cb_colaborador.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_colaborador.FormattingEnabled = true;
-            this.cb_colaborador.Location = new System.Drawing.Point(372, 115);
+            this.cb_colaborador.Location = new System.Drawing.Point(158, 50);
             this.cb_colaborador.Name = "cb_colaborador";
             this.cb_colaborador.Size = new System.Drawing.Size(223, 28);
             this.cb_colaborador.TabIndex = 4;
@@ -166,9 +165,9 @@
             // tb_monto
             // 
             this.tb_monto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_monto.Location = new System.Drawing.Point(375, 218);
+            this.tb_monto.Location = new System.Drawing.Point(158, 154);
             this.tb_monto.Name = "tb_monto";
-            this.tb_monto.Size = new System.Drawing.Size(220, 26);
+            this.tb_monto.Size = new System.Drawing.Size(223, 26);
             this.tb_monto.TabIndex = 3;
             this.tb_monto.Enter += new System.EventHandler(this.tb_monto_enter);
             this.tb_monto.Leave += new System.EventHandler(this.tb_monto_leave);
@@ -177,7 +176,7 @@
             // 
             this.lb_monto.AutoSize = true;
             this.lb_monto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_monto.Location = new System.Drawing.Point(262, 218);
+            this.lb_monto.Location = new System.Drawing.Point(48, 153);
             this.lb_monto.Name = "lb_monto";
             this.lb_monto.Size = new System.Drawing.Size(58, 20);
             this.lb_monto.TabIndex = 2;
@@ -187,7 +186,7 @@
             // 
             this.lb_colaborador.AutoSize = true;
             this.lb_colaborador.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_colaborador.Location = new System.Drawing.Point(262, 116);
+            this.lb_colaborador.Location = new System.Drawing.Point(48, 51);
             this.lb_colaborador.Name = "lb_colaborador";
             this.lb_colaborador.Size = new System.Drawing.Size(104, 20);
             this.lb_colaborador.TabIndex = 1;
@@ -197,6 +196,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.bt_cancelar);
+            this.Controls.Add(this.bt_guardar);
             this.Controls.Add(this.pn_agregar);
             this.Name = "Adelanto_Agregar";
             this.Size = new System.Drawing.Size(1158, 458);

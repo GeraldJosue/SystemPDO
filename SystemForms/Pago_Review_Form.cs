@@ -34,9 +34,9 @@ namespace SystemForms
         public void setear_datos()
         {
             dg_pago_detalle.Rows.Add(pago.Id, c.Nombre + " " + c.Apellido, pago.FechaPago.ToShortDateString(), pago.HorasLaboradas, pago.HorasExtra, pago.Id_planilla);
-            dg_ingresos.Rows.Add(pago.Bono, pago.Vacaciones, pago.Aguinaldo);
-            dg_deducciones.Rows.Add(pago.Adelanto, pago.Seguro, pago.Rebajo);
-            dg_totales.Rows.Add(pago.SalarioBruto, pago.SalarioNeto);
+            dg_ingresos.Rows.Add(pago.Bono.ToString("N2"), pago.Vacaciones.ToString("N2"), pago.Aguinaldo.ToString("N2"));
+            dg_deducciones.Rows.Add(pago.Adelanto.ToString("N2"), pago.Seguro, pago.Rebajo.ToString("N2"));
+            dg_totales.Rows.Add(pago.SalarioBruto.ToString("N2"), pago.SalarioNeto.ToString("N2"));
             rb_activo.Checked = pago.EstadoPago;
         }
 
@@ -71,9 +71,9 @@ namespace SystemForms
         public void calcular_salarios()
         {
 
-            dg_totales.Rows[0].Cells["bruto"].Value = pago.SalarioBruto;
-            dg_deducciones.Rows[0].Cells["seguro"].Value = pago.Seguro;
-            dg_totales.Rows[0].Cells["neto"].Value = pago.SalarioNeto;
+            dg_totales.Rows[0].Cells["bruto"].Value = pago.SalarioBruto.ToString("N2");
+            dg_deducciones.Rows[0].Cells["seguro"].Value = pago.Seguro.ToString("N2");
+            dg_totales.Rows[0].Cells["neto"].Value = pago.SalarioNeto.ToString("N2");
 
         }
 
