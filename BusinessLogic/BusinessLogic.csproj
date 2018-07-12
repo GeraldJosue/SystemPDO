@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Adelanto.cs" />
     <Compile Include="Aguinaldo.cs" />
+    <Compile Include="Aguinaldo_General.cs" />
     <Compile Include="Colaborador.cs" />
     <Compile Include="Departamento.cs" />
     <Compile Include="Configuracion.cs" />

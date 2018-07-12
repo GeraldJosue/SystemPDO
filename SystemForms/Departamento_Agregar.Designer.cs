@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Departamento_Agregar));
             this.pn_agregarAguinaldo = new System.Windows.Forms.Panel();
+            this.bt_cancelar = new System.Windows.Forms.Button();
+            this.bt_guardar = new System.Windows.Forms.Button();
             this.rb_inactivo = new System.Windows.Forms.RadioButton();
             this.rb_activo = new System.Windows.Forms.RadioButton();
             this.tb_nombre = new System.Windows.Forms.TextBox();
             this.lb_estado = new System.Windows.Forms.Label();
             this.lb_nombre = new System.Windows.Forms.Label();
-            this.bt_cancelar = new System.Windows.Forms.Button();
-            this.bt_guardar = new System.Windows.Forms.Button();
             this.pn_agregarAguinaldo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,58 +54,6 @@
             this.pn_agregarAguinaldo.Name = "pn_agregarAguinaldo";
             this.pn_agregarAguinaldo.Size = new System.Drawing.Size(1158, 423);
             this.pn_agregarAguinaldo.TabIndex = 0;
-            // 
-            // rb_inactivo
-            // 
-            this.rb_inactivo.AutoSize = true;
-            this.rb_inactivo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_inactivo.Location = new System.Drawing.Point(387, 235);
-            this.rb_inactivo.Name = "rb_inactivo";
-            this.rb_inactivo.Size = new System.Drawing.Size(89, 24);
-            this.rb_inactivo.TabIndex = 5;
-            this.rb_inactivo.TabStop = true;
-            this.rb_inactivo.Text = "Inactivo";
-            this.rb_inactivo.UseVisualStyleBackColor = true;
-            // 
-            // rb_activo
-            // 
-            this.rb_activo.AutoSize = true;
-            this.rb_activo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_activo.Location = new System.Drawing.Point(387, 199);
-            this.rb_activo.Name = "rb_activo";
-            this.rb_activo.Size = new System.Drawing.Size(76, 24);
-            this.rb_activo.TabIndex = 4;
-            this.rb_activo.TabStop = true;
-            this.rb_activo.Text = "Activo";
-            this.rb_activo.UseVisualStyleBackColor = true;
-            // 
-            // tb_nombre
-            // 
-            this.tb_nombre.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_nombre.Location = new System.Drawing.Point(387, 101);
-            this.tb_nombre.Name = "tb_nombre";
-            this.tb_nombre.Size = new System.Drawing.Size(301, 26);
-            this.tb_nombre.TabIndex = 3;
-            // 
-            // lb_estado
-            // 
-            this.lb_estado.AutoSize = true;
-            this.lb_estado.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_estado.Location = new System.Drawing.Point(109, 199);
-            this.lb_estado.Name = "lb_estado";
-            this.lb_estado.Size = new System.Drawing.Size(196, 20);
-            this.lb_estado.TabIndex = 2;
-            this.lb_estado.Text = "Estado del departamento";
-            // 
-            // lb_nombre
-            // 
-            this.lb_nombre.AutoSize = true;
-            this.lb_nombre.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_nombre.Location = new System.Drawing.Point(109, 105);
-            this.lb_nombre.Name = "lb_nombre";
-            this.lb_nombre.Size = new System.Drawing.Size(206, 20);
-            this.lb_nombre.TabIndex = 1;
-            this.lb_nombre.Text = "Nombre del departamento";
             // 
             // bt_cancelar
             // 
@@ -144,6 +92,58 @@
             this.bt_guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.bt_guardar.UseVisualStyleBackColor = false;
             this.bt_guardar.Click += new System.EventHandler(this.bt_guardar_Click);
+            // 
+            // rb_inactivo
+            // 
+            this.rb_inactivo.AutoSize = true;
+            this.rb_inactivo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rb_inactivo.Location = new System.Drawing.Point(490, 199);
+            this.rb_inactivo.Name = "rb_inactivo";
+            this.rb_inactivo.Size = new System.Drawing.Size(89, 24);
+            this.rb_inactivo.TabIndex = 5;
+            this.rb_inactivo.Text = "Inactivo";
+            this.rb_inactivo.UseVisualStyleBackColor = true;
+            // 
+            // rb_activo
+            // 
+            this.rb_activo.AutoSize = true;
+            this.rb_activo.Checked = true;
+            this.rb_activo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rb_activo.Location = new System.Drawing.Point(387, 199);
+            this.rb_activo.Name = "rb_activo";
+            this.rb_activo.Size = new System.Drawing.Size(76, 24);
+            this.rb_activo.TabIndex = 4;
+            this.rb_activo.TabStop = true;
+            this.rb_activo.Text = "Activo";
+            this.rb_activo.UseVisualStyleBackColor = true;
+            // 
+            // tb_nombre
+            // 
+            this.tb_nombre.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_nombre.Location = new System.Drawing.Point(387, 101);
+            this.tb_nombre.Name = "tb_nombre";
+            this.tb_nombre.Size = new System.Drawing.Size(301, 26);
+            this.tb_nombre.TabIndex = 3;
+            // 
+            // lb_estado
+            // 
+            this.lb_estado.AutoSize = true;
+            this.lb_estado.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_estado.Location = new System.Drawing.Point(109, 199);
+            this.lb_estado.Name = "lb_estado";
+            this.lb_estado.Size = new System.Drawing.Size(196, 20);
+            this.lb_estado.TabIndex = 2;
+            this.lb_estado.Text = "Estado del departamento";
+            // 
+            // lb_nombre
+            // 
+            this.lb_nombre.AutoSize = true;
+            this.lb_nombre.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_nombre.Location = new System.Drawing.Point(109, 105);
+            this.lb_nombre.Name = "lb_nombre";
+            this.lb_nombre.Size = new System.Drawing.Size(206, 20);
+            this.lb_nombre.TabIndex = 1;
+            this.lb_nombre.Text = "Nombre del departamento";
             // 
             // Departamento_Agregar
             // 

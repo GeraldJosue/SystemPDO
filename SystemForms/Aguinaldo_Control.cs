@@ -26,7 +26,7 @@ namespace SystemForms
             listaAguinaldos.Dock = DockStyle.Fill;
             pn_master.Controls.Clear();
             pn_master.Controls.Add(listaAguinaldos);
-            llenar_cb_colaborador();
+            //llenar_cb_colaborador();
             //editar = false;
         }
 
@@ -106,22 +106,22 @@ namespace SystemForms
             pn_filtros.Enabled = true;
         }
 
-        public void llenar_cb_colaborador()
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Id");
-            dt.Columns.Add("Nombre");
-            lista = new Colaborador().obtener_lista_activos();
+        //public void llenar_cb_colaborador()
+        //{
+        //    DataTable dt = new DataTable();
+        //    dt.Columns.Add("Id");
+        //    dt.Columns.Add("Nombre");
+        //    lista = new Colaborador().obtener_lista_activos();
 
-            foreach (Colaborador x in lista)
-            {
-                dt.Rows.Add(x.Id, x.Nombre);
-            }
+        //    foreach (Colaborador x in lista)
+        //    {
+        //        dt.Rows.Add(x.Id, x.Nombre);
+        //    }
 
-            cb_colaboradores.ValueMember = "Id";
-            cb_colaboradores.DisplayMember = "Nombre";
-            cb_colaboradores.DataSource = dt;
-        }
+        //    cb_colaboradores.ValueMember = "Id";
+        //    cb_colaboradores.DisplayMember = "Nombre";
+        //    cb_colaboradores.DataSource = dt;
+        //}
 
         private void cb_colaboradores_SelectedIndexChanged(object sender, EventArgs e)
         {

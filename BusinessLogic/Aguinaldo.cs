@@ -17,9 +17,11 @@ namespace BusinessLogic
         public Decimal Salario { get; set; }
         public String TransferenciaAguinaldo { get; set; }
         public Boolean EstadoAguinaldo { get; set; }
+        public Int32 Id_General { get; set; }
 
 
-       public Aguinaldo(Int32 id, Int32 idColaborador, DateTime fecha, Decimal salario, String transferencia, Boolean estado)
+
+        public Aguinaldo(Int32 id, Int32 idColaborador, DateTime fecha, Decimal salario, String transferencia, Boolean estado, Int32 id_general)
         {
             this.Id = id;
             this.IdColaborador = idColaborador;
@@ -27,17 +29,9 @@ namespace BusinessLogic
             this.Salario = salario;
             this.TransferenciaAguinaldo = transferencia;
             this.EstadoAguinaldo = estado;
+            this.Id_General = id_general;
         }
 
-        //public Aguinaldo(Int32 idColaborador, DateTime fecha, Decimal salario, String transferencia, Boolean estado)
-        //{
-            
-        //    this.IdColaborador = idColaborador;
-        //    this.FechaAguinaldo = fecha;
-        //    this.Salario = salario;
-        //    this.TransferenciaAguinaldo = transferencia;
-        //    this.EstadoAguinaldo = estado;
-        //}
 
         public Aguinaldo()
         {
@@ -70,7 +64,7 @@ namespace BusinessLogic
         public Boolean eliminar()
         {
             Aguinaldo_TO aguinaldo = new Aguinaldo_TO();
-            aguinaldo.Id = this.Id;            
+            aguinaldo.Id = this.Id;
             return new Aguinaldo_BD().eliminar(aguinaldo);
         }
 
@@ -78,6 +72,7 @@ namespace BusinessLogic
         public Aguinaldo_TO bl_to_to()
         {
             Aguinaldo_TO aguinaldo = new Aguinaldo_TO();
+            aguinaldo.Id_General = this.Id_General;
             aguinaldo.Id = this.Id;
             aguinaldo.IdColaborador = this.IdColaborador;
             aguinaldo.FechaAguinaldo = this.FechaAguinaldo;
@@ -91,6 +86,7 @@ namespace BusinessLogic
         public Aguinaldo to_to_bl(Aguinaldo_TO to)
         {
             Aguinaldo aguinaldo = new Aguinaldo();
+            aguinaldo.Id_General = to.Id_General;
             aguinaldo.Id = to.Id;
             aguinaldo.IdColaborador = to.IdColaborador;
             aguinaldo.FechaAguinaldo = to.FechaAguinaldo;
@@ -100,29 +96,16 @@ namespace BusinessLogic
             return aguinaldo;
         }
 
-        //public List<Aguinaldo> calcular_aguinaldo(List<Colaborador> lista_col)
-        //{
-        //    List<Aguinaldo> lista_aguinaldos = new List<Aguinaldo>();
-        //    foreach (Colaborador x in lista_col)
-        //    {
-        //        lista_aguinaldos.Add(new Aguinaldo(x.Id, DateTime.Now, calcular_salario_aguinaldo(x), "", true));
-        //    }
-
-        //    return lista_aguinaldos;
-        //}
-
         public Decimal calcular_salario_aguinaldo(Colaborador colaborador)
         {
             List<Registro> lista_r = new Registro().obtener_lista();
-            //Registro reg = new BusinessLogic.Registro();
-            //List<Registro> lista_reg = obtener_lista_reg_colaborador(colaborador.Id, reg.obtener_lista());
             List<Registro> lista_reg = obtener_lista_reg_colaborador(colaborador.Id, lista_r);
             DateTime fecha_inicio = lista_reg.First().Fecha;
             DateTime fecha_reciente = lista_reg.Last().Fecha;
-            Decimal meses_laborados = Convert.ToDecimal(((fecha_reciente - fecha_inicio).TotalDays)/30);
+            Decimal meses_laborados = Convert.ToDecimal(((fecha_reciente - fecha_inicio).TotalDays) / 30);
             return (calcular_salario_mensual(colaborador) * meses_laborados) / 12;
         }
-
+        
         public List<Registro> obtener_lista_reg_colaborador(Int32 colaboradorId, List<Registro> registros)
         {
             List<Registro> lista_nueva = new List<Registro>();
@@ -152,22 +135,23 @@ namespace BusinessLogic
             return (calcular_salario_diario(colaborador) * 30) + horas_extra;
         }
 
+
         public Decimal calcular_salario_diario(Colaborador colaborador)
-        {
-          
+        {          
             Horario horario = new Horario();           
-            List<Horario> lista_hora = horario.obtener_lista();            
+            List<Horario> lista_hora = horario.obtener_lista_activos();            
             Decimal salario_diario = 0;            
             foreach(Horario h in lista_hora)
             {
-                if (h.Estado && h.Id == colaborador.Id_horario)
+                if (h.Id == colaborador.Id_horario)
                 {
-                    salario_diario = colaborador.Precio * Decimal.Parse(((h.Hora_Fin - h.Hora_Inicio).TotalHours).ToString());
+                    salario_diario = colaborador.Precio * h.Horas;
                 }
             }
 
             return salario_diario;
         }
+
 
         public List<Aguinaldo > obtener_lista_fechas(DateTime fecha_inicio, DateTime fecha_fin)
         {
